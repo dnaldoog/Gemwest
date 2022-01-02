@@ -12,6 +12,7 @@ namespace CppCLRWinformsProjekt {
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 	using namespace System::Diagnostics;
+	using namespace System::Resources;
 
 	/// <summary>
 	/// Zusammenfassung für Form1
@@ -134,6 +135,7 @@ namespace CppCLRWinformsProjekt {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->comboGems = (gcnew System::Windows::Forms::ComboBox());
 			this->btnEq = (gcnew System::Windows::Forms::Button());
 			this->txtDia1 = (gcnew System::Windows::Forms::TextBox());
@@ -627,7 +629,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->picGirdle->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picGirdle->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picGirdle->Location = System::Drawing::Point(368, 91);
+			this->picGirdle->Location = System::Drawing::Point(357, 91);
 			this->picGirdle->Name = L"picGirdle";
 			this->picGirdle->Size = System::Drawing::Size(64, 67);
 			this->picGirdle->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -638,7 +640,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->picBulge->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picBulge->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picBulge->Location = System::Drawing::Point(368, 21);
+			this->picBulge->Location = System::Drawing::Point(357, 21);
 			this->picBulge->Name = L"picBulge";
 			this->picBulge->Size = System::Drawing::Size(64, 45);
 			this->picBulge->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -649,8 +651,13 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->picGem->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picGem->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			Reflection::Assembly^ gemAssembly = Reflection::Assembly::GetExecutingAssembly();
+			String^ gemResName = gemAssembly->GetName()->Name + ".Resource";
+			//Note: add your resourcefile name here, i.e. ".MyResourceFile" as it appears in solution explorer, without its extension
+			Resources::ResourceManager^ gem_pxResourceManager = (gcnew Resources::ResourceManager(gemResName, gemAssembly));
+			this->picGem->Image = (cli::safe_cast<Drawing::Bitmap^>(gem_pxResourceManager->GetObject("diamond")));
 			this->picGem->Location = System::Drawing::Point(262, 21);
-			this->picGem->Name = L"picGem";
+			//this->picGem->Name = L"picGem";
 			this->picGem->Size = System::Drawing::Size(64, 45);
 			this->picGem->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picGem->TabIndex = 21;
@@ -659,12 +666,20 @@ namespace CppCLRWinformsProjekt {
 			// picCut
 			// 
 			this->picCut->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picCut->Location = System::Drawing::Point(262, 91);
-			this->picCut->Name = L"picCut";
+			Reflection::Assembly^ cutAssembly = Reflection::Assembly::GetExecutingAssembly();
+			String^ cutResName = cutAssembly->GetName()->Name + ".Resource"; 
+			//Note: add your resourcefile name here, i.e. ".MyResourceFile" as it appears in solution explorer, without its extension
+			Resources::ResourceManager^ cut_pxResourceManager = (gcnew Resources::ResourceManager(cutResName, cutAssembly));
+			this->picCut->Image = (cli::safe_cast<Drawing::Bitmap^>(cut_pxResourceManager->GetObject("round_brilliant"))); 
+			//note: this is the exact name from the resx, not the filename or name in solution explorer. By default its name in the resx won't contain its extension.
+			//this->picCut->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"barion")));
+			this->picCut->Location = System::Drawing::Point(262, 94);
+			//this->picCut->Name = L"picCut";
 			this->picCut->Size = System::Drawing::Size(64, 64);
 			this->picCut->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picCut->TabIndex = 20;
 			this->picCut->TabStop = false;
+			this->picCut->Click += gcnew System::EventHandler(this, &Form1::picCut_Click);
 			// 
 			// lblSgValue
 			// 
@@ -1266,6 +1281,8 @@ private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::Eve
 }
 
 
+private: System::Void picCut_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
 

@@ -1,0 +1,871 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="agate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\agate.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="albite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\albite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alexandrite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\alexandrite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="almandine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\almandine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="amazonite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\amazonite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="amber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\amber.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="amethyst" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\amethyst.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="andalusite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\andalusite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="apatite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\apatite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aquamarine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\aquamarine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aragonite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\aragonite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="asscher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>asscher.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aventurine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\aventurine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aventurine quartz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\aventurine quartz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="axinite (ferro-axinite)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\axinite (ferro-axinite).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="azurite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\azurite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bakelite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\bakelite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>barion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="benitoite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\benitoite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beryl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beryl aquamarine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl aquamarine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beryl colourless" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl colourless.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beryl heliodor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl heliodor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beryl maxixe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl maxixe.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beryl morganite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl morganite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="biron created emerald" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\biron created emerald.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blende" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\blende.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bloodstone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\bloodstone.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue topaz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\blue topaz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bonamite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\bonamite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bowenite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\bowenite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brazilianite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\brazilianite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="briolette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\briolette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulge_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulge_med" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_med.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulge_non" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_non.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulge_sml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_sml.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cabochon_high_domed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cabochon_high_domed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cabochon_low_domed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cabochon_low_domed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cabochon_regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cabochon_regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calcite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\calcite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calculator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\calculator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="californite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\californite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carborundum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\carborundum.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carnelian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\carnelian.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cassiterite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\cassiterite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cat's eye chrysoberyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\cat's eye chrysoberyl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="celluloid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\celluloid.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chalcedony" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chalcedony agate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony agate.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chalcedony aventurine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony aventurine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chalcedony carnelian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony carnelian.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chalcedony heliotrope" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony heliotrope.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chalcedony moss agate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony moss agate.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chalcedony onyx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony onyx.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chrome diopside" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrome diopside.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chrysoberyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoberyl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chrysoberyl alexandrite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoberyl alexandrite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chrysoberyl cat's eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoberyl cat's eye.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chrysoberyl cymophane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoberyl cymophane.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chrysocolla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysocolla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="citrine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\citrine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorless beryl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\colorless beryl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colourless beryl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\colourless beryl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="conch pearl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\conch pearl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="copal resin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\copal resin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coral" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\coral.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cornelian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\cornelian.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="corundum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\corundum.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="corundum ruby" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\corundum ruby.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="corundum sapphire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\corundum sapphire.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="corundum synthetic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\corundum synthetic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="crocidolite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\crocidolite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cubic zirconia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\cubic zirconia.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cushion_brilliant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>cushion_brilliant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cymophane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\cymophane.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\cz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="danburite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\danburite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="datolite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\datolite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="demantoid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\demantoid.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\diamond.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diopside" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\diopside.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit-clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\edit-clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eight_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\eight_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ekanite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\ekanite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emerald" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\emerald.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emerald (Biron)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\emerald (Biron).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emerald (Chatham)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\emerald (Chatham).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emerald (Gilson)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\emerald (Gilson).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emerald_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\emerald_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emerald_cut_diamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\emerald_cut_diamond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enstatite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\enstatite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="epidote" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\epidote.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="euclase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\euclase.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fibrolite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\fibrolite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fire opal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\fire opal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flanders_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\flanders_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fluorite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\fluorite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garnet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garnet almandine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet almandine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garnet demantoid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet demantoid.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garnet hessonite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet hessonite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garnet mali" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet mali.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garnet pyrope" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet pyrope.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garnet spessartine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet spessartine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garnet uvarovite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet uvarovite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ggg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\ggg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="glass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\glass.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="golden beryl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\golden beryl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="goshenite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\goshenite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grossular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\grossular.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grossular garnet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\grossular garnet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="haematite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\haematite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hambergite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\hambergite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heart_brilliant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\heart_brilliant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heliodor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\heliodor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heliotrope" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\heliotrope.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hematite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\hematite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hemimorphite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\hemimorphite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hessonite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\hessonite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hiddenite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\hiddenite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="howlite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\howlite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="idocrase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\idocrase.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\Image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imperial topaz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\imperial topaz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iolite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\iolite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\jade.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jadeite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\jadeite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jasper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\jasper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\jet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kornerupine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\kornerupine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kunzite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\kunzite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kyanite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\kyanite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lapis lazuli" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\lapis lazuli.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="larimar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\larimar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lazurite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\lazurite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lepidolite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\lepidolite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lithium niobate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\lithium niobate.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="long_rectangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\long_rectangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="malachite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\malachite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mali garnet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\mali garnet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="marcasite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\marcasite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="marquise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="marquise_brilliant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise_brilliant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maw-sit-sit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\maw-sit-sit.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maxixe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\maxixe.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mediumgirdle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\mediumgirdle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="moissanite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\moissanite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="morganite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\morganite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="moss agate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\moss agate.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nephrite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\nephrite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="obsidian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\obsidian.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="odontolite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\odontolite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="old_european_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\old_european_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="old_mine_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\old_mine_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="onyx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\onyx.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="opal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\opal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="oval" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\oval.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="oval_brilliant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\oval_brilliant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="painite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\painite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pearl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\pearl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pear_brilliant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\pear_brilliant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pear_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\pear_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="periclase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\periclase.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="peridot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\peridot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="phenakite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\phenakite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pink beryl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\pink beryl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pink topaz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\pink topaz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pleonaste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\pleonaste.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="porcelain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\porcelain.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prehnite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\prehnite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="princess_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\princess_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pseudophite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\pseudophite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pyrites" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\pyrites.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pyrope" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\pyrope.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quartz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\quartz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quartz amethyst" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\quartz amethyst.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quartz aventurine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\quartz aventurine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quartz chalcedony" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\quartz chalcedony.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quartz citrine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\quartz citrine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="radiant_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\radiant_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rectangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rectangle_step_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangle_step_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rectangle_with_cut_corners" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangle_with_cut_corners.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rectangular_cushion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangular_cushion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="recut_init" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\recut_init.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rhodochroisite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\rhodochroisite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rhodochrosite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\rhodochrosite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rhodonite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\rhodonite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rose_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rose_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="round_bead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\round_bead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="round_brilliant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\round_brilliant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="round_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\round_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ruby" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\ruby.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rutile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\rutile.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sapphire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\sapphire.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\sard.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="scapolite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\scapolite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="scheelite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\scheelite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="schorl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\schorl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="semi_circle_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\semi_circle_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="seraphinite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\seraphinite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="serpentine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\serpentine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shallow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\shallow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silica glass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\silica glass.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sinhalite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\sinhalite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="small_baguette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\small_baguette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="smithsonite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\smithsonite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spessartine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\spessartine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sphalerite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\sphalerite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sphene" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\sphene.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spinel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\spinel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spinel synthetic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\spinel synthetic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spodumene" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\spodumene.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="square_cushion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_cushion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="square_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="square_cut_diamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_cut_diamond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="square_step_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_step_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="square_with_cut_corners" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_with_cut_corners.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sthickgirdle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\sthickgirdle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="strontium titanate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\strontium titanate.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sugilite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\sugilite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="synthetic corundum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\synthetic corundum.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="synthetic spinel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\synthetic spinel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="taaffeite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\taaffeite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tanzanite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\tanzanite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tapered_baguette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\tapered_baguette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tektite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\tektite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thickgirdle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\thickgirdle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thingirdle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\thingirdle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topaz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\topaz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tortoiseshell" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\tortoiseshell.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tourmaline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\tourmaline.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tourmaline schorl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\tourmaline schorl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="triangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\triangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="triangular_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\triangular_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trilliant_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trilliant_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trillion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trillion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\turquoise.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="uvarovite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\uvarovite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="variscite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\variscite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vesuvianite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\vesuvianite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vivianite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\vivianite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="water opal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\water opal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yttrium aluminate YAG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\yttrium aluminate YAG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zircon (metamict)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\zircon (metamict).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zircon (normal)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\zircon (normal).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zirconia (cubic)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\zirconia (cubic).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zoisite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>D:\miscellaneous\Qt_builds\gemwest200\resources\images\zoisite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>
