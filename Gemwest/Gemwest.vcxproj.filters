@@ -60,5 +60,188 @@
     <Image Include="app.ico">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\round_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\checkDepth.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_big.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_med.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_non.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_sml.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\calculator.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\downarrow.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\edit-clear.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\mediumgirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\recut_init.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\sthickgirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\thickgirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\thingirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\uparrow.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="bitmap1.bmp">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="bitmap2.bmp">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\asscher.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\barion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\briolette.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cabochon_high_domed.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cabochon_low_domed.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cabochon_regular.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cushion_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\eight_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\emerald_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\emerald_cut_diamond.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\flanders_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\heart.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\heart_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\long_rectangle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\old_european_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\old_mine_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\oval.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\oval_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\pear_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\pear_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\princess_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\radiant_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangle_step_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangle_with_cut_corners.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangular_cushion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rose_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\round_bead.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\round_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\semi_circle_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\shallow.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\small_baguette.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_cushion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_cut_diamond.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_step_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_with_cut_corners.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\tapered_baguette.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\triangle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\triangular_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trilliant_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trillion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
 </Project>

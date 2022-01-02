@@ -89,7 +89,9 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ lblDia2;
 
 	private: System::Windows::Forms::Label^ lblDia1;
-	private: System::Windows::Forms::TrackBar^ trackBar1;
+	private: System::Windows::Forms::TrackBar^ tbPavilionBulge;
+
+
 	private: System::Windows::Forms::TrackBar^ tbGirdleThickness;
 	private: System::Windows::Forms::TrackBar^ tbOtherNudge;
 	private: System::Windows::Forms::TrackBar^ tbGlobalAdj;
@@ -101,6 +103,15 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ lblSgValue;
 	private: System::Windows::Forms::Label^ lblCutFactor;
 	private: System::Windows::Forms::ComboBox^ comboGems;
+	private: System::Windows::Forms::TextBox^ txtPavilionBulge;
+	private: System::Windows::Forms::TextBox^ txtGirdleThickness;
+	private: System::Windows::Forms::TextBox^ txtOther;
+	private: System::Windows::Forms::TextBox^ txtGlobAdjust;
+	private: System::Windows::Forms::PictureBox^ picGem;
+	private: System::Windows::Forms::PictureBox^ picCut;
+	private: System::Windows::Forms::PictureBox^ picBulge;
+	private: System::Windows::Forms::PictureBox^ picGirdle;
+
 
 
 
@@ -134,7 +145,11 @@ namespace CppCLRWinformsProjekt {
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->txtSg = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->trackBar1 = (gcnew System::Windows::Forms::TrackBar());
+			this->txtPavilionBulge = (gcnew System::Windows::Forms::TextBox());
+			this->txtGirdleThickness = (gcnew System::Windows::Forms::TextBox());
+			this->txtOther = (gcnew System::Windows::Forms::TextBox());
+			this->txtGlobAdjust = (gcnew System::Windows::Forms::TextBox());
+			this->tbPavilionBulge = (gcnew System::Windows::Forms::TrackBar());
 			this->tbGirdleThickness = (gcnew System::Windows::Forms::TrackBar());
 			this->cbRecut = (gcnew System::Windows::Forms::CheckBox());
 			this->tbOtherNudge = (gcnew System::Windows::Forms::TrackBar());
@@ -152,6 +167,10 @@ namespace CppCLRWinformsProjekt {
 			this->lblDia2 = (gcnew System::Windows::Forms::Label());
 			this->lblDia1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->picGirdle = (gcnew System::Windows::Forms::PictureBox());
+			this->picBulge = (gcnew System::Windows::Forms::PictureBox());
+			this->picGem = (gcnew System::Windows::Forms::PictureBox());
+			this->picCut = (gcnew System::Windows::Forms::PictureBox());
 			this->lblSgValue = (gcnew System::Windows::Forms::Label());
 			this->lblCutFactor = (gcnew System::Windows::Forms::Label());
 			this->txtCutSel = (gcnew System::Windows::Forms::TextBox());
@@ -170,12 +189,16 @@ namespace CppCLRWinformsProjekt {
 			this->helpToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOtherNudge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGlobalAdj))->BeginInit();
 			this->groupBox3->SuspendLayout();
 			this->groupBox2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGem))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCut))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -288,7 +311,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// buttonClear
 			// 
-			this->buttonClear->Location = System::Drawing::Point(336, 238);
+			this->buttonClear->Location = System::Drawing::Point(336, 266);
 			this->buttonClear->Name = L"buttonClear";
 			this->buttonClear->Size = System::Drawing::Size(100, 23);
 			this->buttonClear->TabIndex = 6;
@@ -333,7 +356,11 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add(this->trackBar1);
+			this->groupBox1->Controls->Add(this->txtPavilionBulge);
+			this->groupBox1->Controls->Add(this->txtGirdleThickness);
+			this->groupBox1->Controls->Add(this->txtOther);
+			this->groupBox1->Controls->Add(this->txtGlobAdjust);
+			this->groupBox1->Controls->Add(this->tbPavilionBulge);
 			this->groupBox1->Controls->Add(this->tbGirdleThickness);
 			this->groupBox1->Controls->Add(this->cbRecut);
 			this->groupBox1->Controls->Add(this->tbOtherNudge);
@@ -357,22 +384,59 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox1->Controls->Add(this->buttonClear);
 			this->groupBox1->Location = System::Drawing::Point(36, 27);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(459, 275);
+			this->groupBox1->Size = System::Drawing::Size(459, 306);
 			this->groupBox1->TabIndex = 12;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Calculate";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
 			// 
-			// trackBar1
+			// txtPavilionBulge
 			// 
-			this->trackBar1->Location = System::Drawing::Point(349, 193);
-			this->trackBar1->Maximum = 30;
-			this->trackBar1->MaximumSize = System::Drawing::Size(104, 30);
-			this->trackBar1->MinimumSize = System::Drawing::Size(104, 30);
-			this->trackBar1->Name = L"trackBar1";
-			this->trackBar1->Size = System::Drawing::Size(104, 45);
-			this->trackBar1->TabIndex = 29;
-			this->trackBar1->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
+			this->txtPavilionBulge->Location = System::Drawing::Point(354, 231);
+			this->txtPavilionBulge->Name = L"txtPavilionBulge";
+			this->txtPavilionBulge->Size = System::Drawing::Size(85, 20);
+			this->txtPavilionBulge->TabIndex = 33;
+			this->txtPavilionBulge->Text = L"0%";
+			this->txtPavilionBulge->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// txtGirdleThickness
+			// 
+			this->txtGirdleThickness->Location = System::Drawing::Point(241, 231);
+			this->txtGirdleThickness->Name = L"txtGirdleThickness";
+			this->txtGirdleThickness->Size = System::Drawing::Size(85, 20);
+			this->txtGirdleThickness->TabIndex = 32;
+			this->txtGirdleThickness->Text = L"0%";
+			this->txtGirdleThickness->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// txtOther
+			// 
+			this->txtOther->Location = System::Drawing::Point(130, 231);
+			this->txtOther->Name = L"txtOther";
+			this->txtOther->Size = System::Drawing::Size(85, 20);
+			this->txtOther->TabIndex = 31;
+			this->txtOther->Text = L"0%";
+			this->txtOther->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// txtGlobAdjust
+			// 
+			this->txtGlobAdjust->Location = System::Drawing::Point(18, 231);
+			this->txtGlobAdjust->Name = L"txtGlobAdjust";
+			this->txtGlobAdjust->Size = System::Drawing::Size(85, 20);
+			this->txtGlobAdjust->TabIndex = 30;
+			this->txtGlobAdjust->Text = L"0%";
+			this->txtGlobAdjust->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// tbPavilionBulge
+			// 
+			this->tbPavilionBulge->Location = System::Drawing::Point(349, 193);
+			this->tbPavilionBulge->Maximum = 30;
+			this->tbPavilionBulge->MaximumSize = System::Drawing::Size(104, 30);
+			this->tbPavilionBulge->MinimumSize = System::Drawing::Size(104, 30);
+			this->tbPavilionBulge->Name = L"tbPavilionBulge";
+			this->tbPavilionBulge->Size = System::Drawing::Size(104, 45);
+			this->tbPavilionBulge->TabIndex = 29;
+			this->tbPavilionBulge->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
+			this->tbPavilionBulge->Scroll += gcnew System::EventHandler(this, &Form1::tbPavilionBulge_Scroll);
 			// 
 			// tbGirdleThickness
 			// 
@@ -384,11 +448,12 @@ namespace CppCLRWinformsProjekt {
 			this->tbGirdleThickness->Size = System::Drawing::Size(104, 45);
 			this->tbGirdleThickness->TabIndex = 28;
 			this->tbGirdleThickness->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
+			this->tbGirdleThickness->Scroll += gcnew System::EventHandler(this, &Form1::tbGirdleThickness_Scroll);
 			// 
 			// cbRecut
 			// 
 			this->cbRecut->AutoSize = true;
-			this->cbRecut->Location = System::Drawing::Point(139, 242);
+			this->cbRecut->Location = System::Drawing::Point(139, 270);
 			this->cbRecut->Name = L"cbRecut";
 			this->cbRecut->Size = System::Drawing::Size(61, 17);
 			this->cbRecut->TabIndex = 12;
@@ -405,11 +470,12 @@ namespace CppCLRWinformsProjekt {
 			this->tbOtherNudge->Size = System::Drawing::Size(104, 45);
 			this->tbOtherNudge->TabIndex = 27;
 			this->tbOtherNudge->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
+			this->tbOtherNudge->Scroll += gcnew System::EventHandler(this, &Form1::tbOtherNudge_Scroll);
 			// 
 			// cbInterpolate
 			// 
 			this->cbInterpolate->AutoSize = true;
-			this->cbInterpolate->Location = System::Drawing::Point(21, 242);
+			this->cbInterpolate->Location = System::Drawing::Point(21, 270);
 			this->cbInterpolate->Name = L"cbInterpolate";
 			this->cbInterpolate->Size = System::Drawing::Size(82, 17);
 			this->cbInterpolate->TabIndex = 11;
@@ -426,6 +492,7 @@ namespace CppCLRWinformsProjekt {
 			this->tbGlobalAdj->Size = System::Drawing::Size(104, 45);
 			this->tbGlobalAdj->TabIndex = 26;
 			this->tbGlobalAdj->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
+			this->tbGlobalAdj->Scroll += gcnew System::EventHandler(this, &Form1::tbGlobalAdj_Scroll);
 			// 
 			// groupBox3
 			// 
@@ -534,6 +601,10 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->Controls->Add(this->picGirdle);
+			this->groupBox2->Controls->Add(this->picBulge);
+			this->groupBox2->Controls->Add(this->picGem);
+			this->groupBox2->Controls->Add(this->picCut);
 			this->groupBox2->Controls->Add(this->lblSgValue);
 			this->groupBox2->Controls->Add(this->lblCutFactor);
 			this->groupBox2->Controls->Add(this->txtCutSel);
@@ -545,12 +616,55 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox2->Controls->Add(this->txtSg);
 			this->groupBox2->Controls->Add(this->lbllSelectedSG);
 			this->groupBox2->ForeColor = System::Drawing::Color::CornflowerBlue;
-			this->groupBox2->Location = System::Drawing::Point(36, 308);
+			this->groupBox2->Location = System::Drawing::Point(36, 339);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(459, 151);
+			this->groupBox2->Size = System::Drawing::Size(459, 206);
 			this->groupBox2->TabIndex = 13;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Select Gem / Cut";
+			// 
+			// picGirdle
+			// 
+			this->picGirdle->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->picGirdle->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picGirdle->Location = System::Drawing::Point(368, 91);
+			this->picGirdle->Name = L"picGirdle";
+			this->picGirdle->Size = System::Drawing::Size(64, 67);
+			this->picGirdle->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picGirdle->TabIndex = 23;
+			this->picGirdle->TabStop = false;
+			// 
+			// picBulge
+			// 
+			this->picBulge->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->picBulge->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picBulge->Location = System::Drawing::Point(368, 21);
+			this->picBulge->Name = L"picBulge";
+			this->picBulge->Size = System::Drawing::Size(64, 45);
+			this->picBulge->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picBulge->TabIndex = 22;
+			this->picBulge->TabStop = false;
+			// 
+			// picGem
+			// 
+			this->picGem->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->picGem->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picGem->Location = System::Drawing::Point(262, 21);
+			this->picGem->Name = L"picGem";
+			this->picGem->Size = System::Drawing::Size(64, 45);
+			this->picGem->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picGem->TabIndex = 21;
+			this->picGem->TabStop = false;
+			// 
+			// picCut
+			// 
+			this->picCut->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picCut->Location = System::Drawing::Point(262, 91);
+			this->picCut->Name = L"picCut";
+			this->picCut->Size = System::Drawing::Size(64, 64);
+			this->picCut->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picCut->TabIndex = 20;
+			this->picCut->TabStop = false;
 			// 
 			// lblSgValue
 			// 
@@ -633,7 +747,7 @@ namespace CppCLRWinformsProjekt {
 			// radioBtnGem
 			// 
 			this->radioBtnGem->AutoSize = true;
-			this->radioBtnGem->Location = System::Drawing::Point(256, 45);
+			this->radioBtnGem->Location = System::Drawing::Point(79, 162);
 			this->radioBtnGem->Name = L"radioBtnGem";
 			this->radioBtnGem->Size = System::Drawing::Size(73, 17);
 			this->radioBtnGem->TabIndex = 14;
@@ -645,7 +759,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->radioBtnDia->AutoSize = true;
 			this->radioBtnDia->Checked = true;
-			this->radioBtnDia->Location = System::Drawing::Point(256, 19);
+			this->radioBtnDia->Location = System::Drawing::Point(79, 136);
 			this->radioBtnDia->Name = L"radioBtnDia";
 			this->radioBtnDia->Size = System::Drawing::Size(67, 17);
 			this->radioBtnDia->TabIndex = 13;
@@ -656,7 +770,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// statusbar
 			// 
-			this->statusbar->Location = System::Drawing::Point(0, 461);
+			this->statusbar->Location = System::Drawing::Point(0, 560);
 			this->statusbar->Name = L"statusbar";
 			this->statusbar->Size = System::Drawing::Size(529, 22);
 			this->statusbar->TabIndex = 14;
@@ -734,7 +848,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(529, 483);
+			this->ClientSize = System::Drawing::Size(529, 582);
 			this->Controls->Add(this->statusbar);
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->groupBox2);
@@ -745,7 +859,7 @@ namespace CppCLRWinformsProjekt {
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOtherNudge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGlobalAdj))->EndInit();
@@ -753,6 +867,10 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox3->PerformLayout();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGem))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCut))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -1129,6 +1247,25 @@ private: System::Void radioBtnGem_CheckedChanged(System::Object^ sender, System:
 		Form1::comboCut->Items->AddRange(gems);
 	} // != null
 }
+private: System::Void tbGlobalAdj_Scroll(System::Object^ sender, System::EventArgs^ e) {
+
+	this->txtGlobAdjust->Text = this->tbGlobalAdj->Value.ToString()+"%";
+}
+private: System::Void tbOtherNudge_Scroll(System::Object^ sender, System::EventArgs^ e) {
+
+	this->txtOther->Text = this->tbOtherNudge->Value.ToString() + "%";
+}
+
+private: System::Void tbGirdleThickness_Scroll(System::Object^ sender, System::EventArgs^ e) {
+	this->txtGirdleThickness->Text = this->tbGirdleThickness->Value.ToString() + "%";
+}
+
+
+private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::EventArgs^ e) {
+	this->txtPavilionBulge->Text = this->tbPavilionBulge->Value.ToString() + "%";
+}
+
+
 };
 }
 
