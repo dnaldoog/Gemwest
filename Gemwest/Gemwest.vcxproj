@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DiamondCut.h" />
+    <ClInclude Include="EmbeddedImage.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -159,6 +160,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
     <ClCompile Include="DiamondCut.cpp" />
+    <ClCompile Include="EmbeddedImage.cpp" />
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="GemCut.cpp" />
     <ClCompile Include="pch.cpp">

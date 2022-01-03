@@ -2,6 +2,7 @@
 #include <map>
 #include "DiamondCut.h"
 #include "GemCut.h"
+#include "EmbeddedImage.h"
 namespace CppCLRWinformsProjekt {
 //
 	using namespace System;
@@ -25,7 +26,21 @@ namespace CppCLRWinformsProjekt {
 
 
 			InitializeComponent();
-		
+			EmbeddedImage^ defaultCut = gcnew EmbeddedImage;
+			defaultCut->setName("round_brilliant");
+			this->picCut->Image = defaultCut->getName();
+
+			EmbeddedImage^ defaultBulge = gcnew EmbeddedImage;
+			defaultBulge->setName("bulge_non");
+			this->picBulge->Image = defaultBulge->getName();
+
+			EmbeddedImage^ defaultGem = gcnew EmbeddedImage;
+			defaultGem->setName("diamond");
+			this->picGem->Image = defaultGem->getName();
+
+			EmbeddedImage^ defaultGirdle = gcnew EmbeddedImage;
+			defaultGirdle->setName("mediumgirdle");
+			this->picGirdle->Image = defaultGirdle->getName();
 		}
 			
 	protected:
@@ -135,7 +150,6 @@ namespace CppCLRWinformsProjekt {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->comboGems = (gcnew System::Windows::Forms::ComboBox());
 			this->btnEq = (gcnew System::Windows::Forms::Button());
 			this->txtDia1 = (gcnew System::Windows::Forms::TextBox());
@@ -629,9 +643,9 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->picGirdle->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picGirdle->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picGirdle->Location = System::Drawing::Point(357, 91);
+			this->picGirdle->Location = System::Drawing::Point(357, 100);
 			this->picGirdle->Name = L"picGirdle";
-			this->picGirdle->Size = System::Drawing::Size(64, 67);
+			this->picGirdle->Size = System::Drawing::Size(82, 67);
 			this->picGirdle->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picGirdle->TabIndex = 23;
 			this->picGirdle->TabStop = false;
@@ -642,7 +656,7 @@ namespace CppCLRWinformsProjekt {
 			this->picBulge->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->picBulge->Location = System::Drawing::Point(357, 21);
 			this->picBulge->Name = L"picBulge";
-			this->picBulge->Size = System::Drawing::Size(64, 45);
+			this->picBulge->Size = System::Drawing::Size(82, 64);
 			this->picBulge->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picBulge->TabIndex = 22;
 			this->picBulge->TabStop = false;
@@ -651,14 +665,9 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->picGem->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picGem->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			Reflection::Assembly^ gemAssembly = Reflection::Assembly::GetExecutingAssembly();
-			String^ gemResName = gemAssembly->GetName()->Name + ".Resource";
-			//Note: add your resourcefile name here, i.e. ".MyResourceFile" as it appears in solution explorer, without its extension
-			Resources::ResourceManager^ gem_pxResourceManager = (gcnew Resources::ResourceManager(gemResName, gemAssembly));
-			this->picGem->Image = (cli::safe_cast<Drawing::Bitmap^>(gem_pxResourceManager->GetObject("diamond")));
 			this->picGem->Location = System::Drawing::Point(262, 21);
-			//this->picGem->Name = L"picGem";
-			this->picGem->Size = System::Drawing::Size(64, 45);
+			this->picGem->Name = L"picGem";
+			this->picGem->Size = System::Drawing::Size(64, 64);
 			this->picGem->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picGem->TabIndex = 21;
 			this->picGem->TabStop = false;
@@ -666,15 +675,8 @@ namespace CppCLRWinformsProjekt {
 			// picCut
 			// 
 			this->picCut->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			Reflection::Assembly^ cutAssembly = Reflection::Assembly::GetExecutingAssembly();
-			String^ cutResName = cutAssembly->GetName()->Name + ".Resource"; 
-			//Note: add your resourcefile name here, i.e. ".MyResourceFile" as it appears in solution explorer, without its extension
-			Resources::ResourceManager^ cut_pxResourceManager = (gcnew Resources::ResourceManager(cutResName, cutAssembly));
-			this->picCut->Image = (cli::safe_cast<Drawing::Bitmap^>(cut_pxResourceManager->GetObject("round_brilliant"))); 
-			//note: this is the exact name from the resx, not the filename or name in solution explorer. By default its name in the resx won't contain its extension.
-			//this->picCut->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"barion")));
-			this->picCut->Location = System::Drawing::Point(262, 94);
-			//this->picCut->Name = L"picCut";
+			this->picCut->Location = System::Drawing::Point(262, 103);
+			this->picCut->Name = L"picCut";
 			this->picCut->Size = System::Drawing::Size(64, 64);
 			this->picCut->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picCut->TabIndex = 20;
@@ -705,6 +707,7 @@ namespace CppCLRWinformsProjekt {
 			this->txtCutSel->Name = L"txtCutSel";
 			this->txtCutSel->Size = System::Drawing::Size(100, 20);
 			this->txtCutSel->TabIndex = 17;
+			this->txtCutSel->TextChanged += gcnew System::EventHandler(this, &Form1::txtCutSel_TextChanged);
 			this->txtCutSel->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtCutSel_KeyPress);
 			// 
 			// lblSelectedCut
@@ -893,6 +896,9 @@ namespace CppCLRWinformsProjekt {
 
 		}
 #pragma endregion
+
+
+
 	private: System::Void txtDia1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 		{
 			// Only allow 1 decimal point
@@ -1282,6 +1288,12 @@ private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::Eve
 
 
 private: System::Void picCut_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void txtCutSel_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	EmbeddedImage^ pCut = gcnew EmbeddedImage;
+	pCut->setName(this->comboCut->Text);
+	this->picCut->Image = pCut->getName();
+
 }
 };
 }

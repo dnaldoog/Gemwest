@@ -35,6 +35,9 @@
     <ClInclude Include="GemCut.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="EmbeddedImage.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -53,6 +56,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="GemCut.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedImage.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
