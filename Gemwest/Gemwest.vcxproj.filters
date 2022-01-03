@@ -38,6 +38,9 @@
     <ClInclude Include="EmbeddedImage.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Pixmaps.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -61,18 +64,12 @@
     <ClCompile Include="EmbeddedImage.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Pixmaps.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
-      <Filter>Ressourcendateien</Filter>
-    </Image>
-    <Image Include="barion.png">
-      <Filter>Ressourcendateien</Filter>
-    </Image>
-    <Image Include="asscher.png">
-      <Filter>Ressourcendateien</Filter>
-    </Image>
-    <Image Include="cushion_brilliant.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\asscher.png">
@@ -832,6 +829,18 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoprase.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gw.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\desktop\bitmap1.bmp">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="icon1.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\uvarovite.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>

@@ -252,8 +252,8 @@ void EmbeddedImage::loadResources()
 		myRez->Add("vesuvianite","vesuvianite");	// vesuvianite
 	myRez->Add("tapered baguette", "tapered_baguette");
 	myRez->Add("tektite", "tektite");
-		myRez->Add("thick girdle","thickgirdle");	
-		myRez->Add("thin girdle","thingirdle");	
+		myRez->Add("thickgirdle","thickgirdle");	
+		myRez->Add("thingirdle","thingirdle");	
 	myRez->Add("topaz", "topaz");
 	myRez->Add("tortoiseshell", "tortoiseshell");
 	myRez->Add("tourmaline", "tourmaline");
@@ -272,6 +272,8 @@ void EmbeddedImage::loadResources()
 	myRez->Add("zircon (normal)", "zircon (normal)");
 	myRez->Add("zirconia (cubic)", "zirconia (cubic)");
 	myRez->Add("zoisite", "zoisite");
+	myRez->Add("gw", "gw"); // icon file
+	myRez->Add("checkDepth", "checkDepth"); // when depth percentage is strange!
 	this->setRez(myRez);
 
 }

@@ -14,6 +14,7 @@ namespace CppCLRWinformsProjekt {
 	using namespace System::Collections::Generic;
 	using namespace System::Diagnostics;
 	using namespace System::Resources;
+	using namespace System::Drawing;
 
 	/// <summary>
 	/// Zusammenfassung für Form1
@@ -26,21 +27,7 @@ namespace CppCLRWinformsProjekt {
 
 
 			InitializeComponent();
-			EmbeddedImage^ defaultCut = gcnew EmbeddedImage;
-			defaultCut->setName("round brilliant");
-			this->picCut->Image = defaultCut->getName();
 
-			EmbeddedImage^ defaultBulge = gcnew EmbeddedImage;
-			defaultBulge->setName("bulge_non");
-			this->picBulge->Image = defaultBulge->getName();
-
-			EmbeddedImage^ defaultGem = gcnew EmbeddedImage;
-			defaultGem->setName("diamond");
-			this->picGem->Image = defaultGem->getName();
-
-			EmbeddedImage^ defaultGirdle = gcnew EmbeddedImage;
-			defaultGirdle->setName("mediumgirdle");
-			this->picGirdle->Image = defaultGirdle->getName();
 		}
 			
 	protected:
@@ -127,6 +114,10 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::PictureBox^ picCut;
 	private: System::Windows::Forms::PictureBox^ picBulge;
 	private: System::Windows::Forms::PictureBox^ picGirdle;
+private: System::Windows::Forms::PictureBox^ picDepth;
+private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
+
+
 
 
 
@@ -161,6 +152,7 @@ namespace CppCLRWinformsProjekt {
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->txtSg = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->picDepth = (gcnew System::Windows::Forms::PictureBox());
 			this->txtPavilionBulge = (gcnew System::Windows::Forms::TextBox());
 			this->txtGirdleThickness = (gcnew System::Windows::Forms::TextBox());
 			this->txtOther = (gcnew System::Windows::Forms::TextBox());
@@ -195,6 +187,7 @@ namespace CppCLRWinformsProjekt {
 			this->radioBtnGem = (gcnew System::Windows::Forms::RadioButton());
 			this->radioBtnDia = (gcnew System::Windows::Forms::RadioButton());
 			this->statusbar = (gcnew System::Windows::Forms::StatusStrip());
+			this->toolStrip = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->quitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -205,6 +198,7 @@ namespace CppCLRWinformsProjekt {
 			this->helpToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOtherNudge))->BeginInit();
@@ -215,6 +209,7 @@ namespace CppCLRWinformsProjekt {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGem))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCut))->BeginInit();
+			this->statusbar->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -372,6 +367,8 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->groupBox1->Controls->Add(this->picDepth);
 			this->groupBox1->Controls->Add(this->txtPavilionBulge);
 			this->groupBox1->Controls->Add(this->txtGirdleThickness);
 			this->groupBox1->Controls->Add(this->txtOther);
@@ -405,6 +402,20 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Calculate";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
+			// 
+			// picDepth
+			// 
+			this->picDepth->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->picDepth->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->picDepth->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picDepth->Location = System::Drawing::Point(157, 86);
+			this->picDepth->Name = L"picDepth";
+			this->picDepth->Padding = System::Windows::Forms::Padding(0, 3, 0, 0);
+			this->picDepth->Size = System::Drawing::Size(55, 62);
+			this->picDepth->TabIndex = 24;
+			this->picDepth->TabStop = false;
 			// 
 			// txtPavilionBulge
 			// 
@@ -479,8 +490,8 @@ namespace CppCLRWinformsProjekt {
 			// tbOtherNudge
 			// 
 			this->tbOtherNudge->Location = System::Drawing::Point(123, 193);
-			this->tbOtherNudge->Maximum = 20;
 			this->tbOtherNudge->MaximumSize = System::Drawing::Size(104, 30);
+			this->tbOtherNudge->Minimum = -10;
 			this->tbOtherNudge->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbOtherNudge->Name = L"tbOtherNudge";
 			this->tbOtherNudge->Size = System::Drawing::Size(104, 45);
@@ -501,8 +512,9 @@ namespace CppCLRWinformsProjekt {
 			// tbGlobalAdj
 			// 
 			this->tbGlobalAdj->Location = System::Drawing::Point(10, 193);
-			this->tbGlobalAdj->Maximum = 50;
+			this->tbGlobalAdj->Maximum = 25;
 			this->tbGlobalAdj->MaximumSize = System::Drawing::Size(104, 30);
+			this->tbGlobalAdj->Minimum = -25;
 			this->tbGlobalAdj->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbGlobalAdj->Name = L"tbGlobalAdj";
 			this->tbGlobalAdj->Size = System::Drawing::Size(104, 45);
@@ -582,7 +594,7 @@ namespace CppCLRWinformsProjekt {
 			// lblResult
 			// 
 			this->lblResult->AutoSize = true;
-			this->lblResult->Location = System::Drawing::Point(223, 111);
+			this->lblResult->Location = System::Drawing::Point(230, 111);
 			this->lblResult->Name = L"lblResult";
 			this->lblResult->Size = System::Drawing::Size(50, 13);
 			this->lblResult->TabIndex = 20;
@@ -600,23 +612,25 @@ namespace CppCLRWinformsProjekt {
 			// lblDia2
 			// 
 			this->lblDia2->AutoSize = true;
-			this->lblDia2->Location = System::Drawing::Point(240, 29);
+			this->lblDia2->Location = System::Drawing::Point(234, 29);
 			this->lblDia2->Name = L"lblDia2";
-			this->lblDia2->Size = System::Drawing::Size(49, 13);
+			this->lblDia2->Size = System::Drawing::Size(83, 13);
 			this->lblDia2->TabIndex = 18;
-			this->lblDia2->Text = L"Diameter";
+			this->lblDia2->Text = L"Diameter/Depth";
+			this->lblDia2->Click += gcnew System::EventHandler(this, &Form1::lblDia2_Click);
 			// 
 			// lblDia1
 			// 
 			this->lblDia1->AutoSize = true;
-			this->lblDia1->Location = System::Drawing::Point(48, 29);
+			this->lblDia1->Location = System::Drawing::Point(9, 29);
 			this->lblDia1->Name = L"lblDia1";
-			this->lblDia1->Size = System::Drawing::Size(49, 13);
+			this->lblDia1->Size = System::Drawing::Size(93, 13);
 			this->lblDia1->TabIndex = 17;
-			this->lblDia1->Text = L"Diameter";
+			this->lblDia1->Text = L"Diameter / Length";
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->groupBox2->Controls->Add(this->picGirdle);
 			this->groupBox2->Controls->Add(this->picBulge);
 			this->groupBox2->Controls->Add(this->picGem);
@@ -631,7 +645,7 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox2->Controls->Add(this->comboGems);
 			this->groupBox2->Controls->Add(this->txtSg);
 			this->groupBox2->Controls->Add(this->lbllSelectedSG);
-			this->groupBox2->ForeColor = System::Drawing::Color::CornflowerBlue;
+			this->groupBox2->ForeColor = System::Drawing::Color::Black;
 			this->groupBox2->Location = System::Drawing::Point(36, 339);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(459, 206);
@@ -681,7 +695,6 @@ namespace CppCLRWinformsProjekt {
 			this->picCut->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picCut->TabIndex = 20;
 			this->picCut->TabStop = false;
-			this->picCut->Click += gcnew System::EventHandler(this, &Form1::picCut_Click);
 			// 
 			// lblSgValue
 			// 
@@ -707,7 +720,6 @@ namespace CppCLRWinformsProjekt {
 			this->txtCutSel->Name = L"txtCutSel";
 			this->txtCutSel->Size = System::Drawing::Size(100, 20);
 			this->txtCutSel->TabIndex = 17;
-			this->txtCutSel->TextChanged += gcnew System::EventHandler(this, &Form1::txtCutSel_TextChanged);
 			this->txtCutSel->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtCutSel_KeyPress);
 			// 
 			// lblSelectedCut
@@ -788,11 +800,18 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// statusbar
 			// 
+			this->statusbar->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStrip });
 			this->statusbar->Location = System::Drawing::Point(0, 560);
 			this->statusbar->Name = L"statusbar";
 			this->statusbar->Size = System::Drawing::Size(529, 22);
 			this->statusbar->TabIndex = 14;
 			this->statusbar->Text = L"statusStrip1";
+			// 
+			// toolStrip
+			// 
+			this->toolStrip->Name = L"toolStrip";
+			this->toolStrip->Size = System::Drawing::Size(48, 17);
+			this->toolStrip->Text = L"Ready...";
 			// 
 			// menuStrip1
 			// 
@@ -877,6 +896,7 @@ namespace CppCLRWinformsProjekt {
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOtherNudge))->EndInit();
@@ -889,6 +909,8 @@ namespace CppCLRWinformsProjekt {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGem))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCut))->EndInit();
+			this->statusbar->ResumeLayout(false);
+			this->statusbar->PerformLayout();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -900,6 +922,7 @@ namespace CppCLRWinformsProjekt {
 
 
 	private: System::Void txtDia1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+
 		{
 			// Only allow 1 decimal point
 			if (e->KeyChar == '.')
@@ -910,7 +933,9 @@ namespace CppCLRWinformsProjekt {
 			// Accept only digits "." and the Backspace character
 			else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
 				e->Handled = true;
+
 		}
+		this->toolStrip->Text = this->txtDia1->Text;
 	}
 private: System::Void txtDia2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 	{
@@ -950,6 +975,33 @@ private: System::Void buttonCalc_Click(System::Object^ sender, System::EventArgs
 	this->txtResult->Text = calculatedResult;
 }
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
+
+	EmbeddedImage^ defaultCut = gcnew EmbeddedImage;
+	defaultCut->setName("round brilliant");
+	this->picCut->Image = defaultCut->getName();
+
+	EmbeddedImage^ defaultBulge = gcnew EmbeddedImage;
+	defaultBulge->setName("bulge_non");
+	this->picBulge->Image = defaultBulge->getName();
+
+	EmbeddedImage^ defaultGem = gcnew EmbeddedImage;
+	defaultGem->setName("diamond");
+	this->picGem->Image = defaultGem->getName();
+
+	EmbeddedImage^ defaultGirdle = gcnew EmbeddedImage;
+	defaultGirdle->setName("thingirdle");
+	this->picGirdle->Image = defaultGirdle->getName();
+
+	EmbeddedImage^ checkDepth = gcnew EmbeddedImage;
+	checkDepth->setName("checkDepth");
+	this->picDepth->Image = checkDepth->getName();
+
+	//EmbeddedImage^ ico = gcnew EmbeddedImage;
+	//ico->setName(L"$this.Icon");
+	//Form1 = ico->getName(); // (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+	//this->Form>Image = defaultCut->getName();
+
+
 }
 
 private: System::Void buttonClear_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -958,6 +1010,18 @@ private: System::Void buttonClear_Click(System::Object^ sender, System::EventArg
 	this->txtDia1->Text = ""; // clear all textBox
 	this->txtDia2->Text = ""; // clear all textBox
 	this->txtDepth->Text = ""; // clear all textBox
+	this->toolStrip->Text = L"Ready..."; // clear all textBox
+	this->tbGlobalAdj->Value = 0;
+	this->tbGirdleThickness->Value = 0;
+	this->tbOtherNudge->Value = 0;
+	this->tbPavilionBulge->Value = 0;
+	this->tbGlobalAdj->Value = 0;
+	this->tbGirdleThickness->Value = 0;
+
+	this->txtGlobAdjust->Text = L"0%";
+	this->txtOther->Text = L"0%";
+	this->txtPavilionBulge->Text = L"0%";
+	this->txtGirdleThickness->Text = L"0%";
 
 	
 }
@@ -1165,10 +1229,7 @@ private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, Sys
 		gemImage->setName(this->comboGems->Text);
 	this->picGem->Image = gemImage->getName();
 	this->txtSg->Text = sg[this->comboGems->Text];
-	} //stop crash is key doesn't exist
-
-
-
+	} //stop crash if key doesn't exist
 }
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Close();
@@ -1192,6 +1253,12 @@ private: System::Void comboCut_SelectedIndexChanged(System::Object^ sender, Syst
 		//MessageBox::Show(myGemCut);
 		Form1::txtCutSel->Text = myGemCut;
 
+		EmbeddedImage^ gCutImage = gcnew EmbeddedImage;
+		/**************************IMAGE MANAGEMENT**************************/
+			gCutImage->setName(this->comboCut->Text);
+			this->picCut->Image = gCutImage->getName();
+
+
 	
 
 	}
@@ -1202,7 +1269,10 @@ private: System::Void comboCut_SelectedIndexChanged(System::Object^ sender, Syst
 		//MessageBox::Show(myDiamondCut);
 		Form1::txtCutSel->Text = myDiamondCut;
 	}
-	//this->txtCutSel->Text(myDiamondCut);
+	EmbeddedImage^ dCutImage = gcnew EmbeddedImage;
+	/**************************IMAGE MANAGEMENT**************************/
+	dCutImage->setName(this->comboCut->Text);
+	this->picCut->Image = dCutImage->getName();
 }
 private: System::Void aboutToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1249,7 +1319,6 @@ private: System::Void radioBtnDia_CheckedChanged(System::Object^ sender, System:
 	this->txtCutSel->Clear();
 	this->comboCut->ResetText();
 	this->comboCut->SelectedText="choose from below";
-
 	this->comboGems->ResetText();
 	this->comboGems->SelectedText = "choose from below";
 	this->txtSg->Text = "3.52";
@@ -1263,6 +1332,11 @@ private: System::Void radioBtnDia_CheckedChanged(System::Object^ sender, System:
 		Form1::comboCut->Items->Clear();
 		Form1::comboCut->Items->AddRange(dias);
 	} // != null
+
+	EmbeddedImage^ defaultRBC = gcnew EmbeddedImage;
+	/**************************IMAGE MANAGEMENT**************************/
+	defaultRBC->setName("round brilliant");
+	this->picCut->Image = defaultRBC->getName();
 }
 private: System::Void radioBtnGem_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	this->txtCutSel->Clear();
@@ -1283,6 +1357,10 @@ private: System::Void radioBtnGem_CheckedChanged(System::Object^ sender, System:
 		Form1::comboCut->Items->AddRange(gems);
 
 	} // != null
+		EmbeddedImage^ defaultGemCut = gcnew EmbeddedImage;
+		/**************************IMAGE MANAGEMENT**************************/
+		defaultGemCut->setName("oval cut");
+		this->picCut->Image = defaultGemCut->getName();
 }
 private: System::Void tbGlobalAdj_Scroll(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1295,19 +1373,59 @@ private: System::Void tbOtherNudge_Scroll(System::Object^ sender, System::EventA
 
 private: System::Void tbGirdleThickness_Scroll(System::Object^ sender, System::EventArgs^ e) {
 	this->txtGirdleThickness->Text = this->tbGirdleThickness->Value.ToString() + "%";
+	String^ gThk = "thingirdle";
+	if (this->tbGirdleThickness->Value < 4) {
+		gThk = "thingirdle";
+	}
+	else if (this->tbGirdleThickness->Value < 7) {
+		gThk = "mediumgirdle";
+	}
+	else if (this->tbGirdleThickness->Value < 11) {
+		gThk = "thickgirdle";
+	}
+	else if (this->tbGirdleThickness->Value < 16) {
+		gThk = "sthickgirdle";
+	}
+	else {
+		gThk = "thingirdle";
+	}
+	EmbeddedImage^ girdleImage = gcnew EmbeddedImage;
+	/**************************IMAGE MANAGEMENT**************************/
+	girdleImage->setName(gThk);
+	this->picGirdle->Image = girdleImage->getName();
 }
 
 
 private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::EventArgs^ e) {
 	this->txtPavilionBulge->Text = this->tbPavilionBulge->Value.ToString() + "%";
+	String^ pBulge = "bulge_non";
+	if (this->tbPavilionBulge->Value < 6) {
+		pBulge = "bulge_non";
+	}
+	else if (this->tbPavilionBulge->Value < 11) {
+		pBulge = "bulge_sml";
+	}
+	else if (this->tbPavilionBulge->Value < 21) {
+		pBulge = "bulge_med";
+	}
+	else if (this->tbPavilionBulge->Value < 31) {
+		pBulge = "bulge_big";
+	}
+	else {
+		pBulge = "bulge_non";
+	}
+	EmbeddedImage^ bulgeImage = gcnew EmbeddedImage;
+	/**************************IMAGE MANAGEMENT**************************/
+	bulgeImage->setName(pBulge);
+	this->picBulge->Image = bulgeImage->getName();
+}
+private: System::Void lblDia2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 
-
-private: System::Void picCut_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void txtCutSel_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-
-
+private: System::Void picDepth_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }

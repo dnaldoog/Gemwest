@@ -151,6 +151,7 @@
     </ClInclude>
     <ClInclude Include="GemCut.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Pixmaps.h" />
     <ClInclude Include="Resource.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
@@ -169,13 +170,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Pixmaps.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
+    <Image Include="..\..\..\..\Desktop\gw.ico" />
     <Image Include="app.ico" />
-    <Image Include="asscher.png" />
-    <Image Include="barion.png" />
-    <Image Include="cushion_brilliant.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_big.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_med.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_non.png" />
@@ -374,6 +375,7 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\tourmaline.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\turquoise.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\uvarovite.jpg" />
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\uvarovite.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\variscite.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\vesuvianite.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\vivianite.jpg" />
@@ -428,6 +430,7 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\triangular_cut.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trilliant_cut.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trillion.png" />
+    <Image Include="icon1.ico" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
