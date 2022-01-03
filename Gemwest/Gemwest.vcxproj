@@ -171,6 +171,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="app.ico" />
     <Image Include="asscher.png" />
     <Image Include="barion.png" />
@@ -236,6 +237,7 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoberyl cymophane.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoberyl.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysocolla.jpg" />
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoprase.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\citrine.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\colorless beryl.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\colourless beryl.jpg" />
@@ -315,6 +317,7 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\morganite.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\moss agate.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\nephrite.jpg" />
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\noimage.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\obsidian.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\odontolite.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\onyx.jpg" />

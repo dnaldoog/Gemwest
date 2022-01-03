@@ -27,7 +27,7 @@ namespace CppCLRWinformsProjekt {
 
 			InitializeComponent();
 			EmbeddedImage^ defaultCut = gcnew EmbeddedImage;
-			defaultCut->setName("round_brilliant");
+			defaultCut->setName("round brilliant");
 			this->picCut->Image = defaultCut->getName();
 
 			EmbeddedImage^ defaultBulge = gcnew EmbeddedImage;
@@ -237,7 +237,7 @@ namespace CppCLRWinformsProjekt {
 					L"howlite", L"idocrase", L"imperial topaz", L"iolite", L"jadeite", L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite",
 					L"lapis lazuli", L"larimar", L"lazulite", L"lepidolite", L"lithium niobate", L"malachite", L"mali garnet", L"marcasite", L"maw-sit-sit",
 					L"maxixe", L"moissanite", L"morganite", L"moss agate", L"nephrite", L"obsidian", L"odontolite", L"onyx", L"opal", L"painite",
-					L"Pearl", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite",
+					L"pearl", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite",
 					L"pyrites", L"pyrope", L"quartz amethyst", L"quartz aventurine", L"quartz chalcedony", L"quartz citrine", L"quartz", L"rhodochrosite",
 					L"rhodonite", L"ruby", L"rutile", L"sapphire", L"sard", L"scapolite", L"scheelite", L"schorl", L"serpentine", L"seraphinite",
 					L"silica glass", L"sinhalite", L"smithsonite", L"spessartine", L"sphalerite", L"sphene", L"spinel synthetic", L"spinel", L"spodumene",
@@ -249,10 +249,10 @@ namespace CppCLRWinformsProjekt {
 			this->comboGems->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboGems->Enabled = false;
 			this->comboGems->FormattingEnabled = true;
-			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(186) {
+			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(188) {
 				L"agate", L"albite", L"alexandrite", L"almandine",
 					L"amazonite", L"amber", L"amethyst", L"andalusite", L"apatite", L"aquamarine", L"aragonite", L"aventurine quartz", L"aventurine",
-					L"axinite (Ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl aquamarine", L"beryl colourless", L"beryl heliodor",
+					L"axinite (ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl aquamarine", L"beryl colourless", L"beryl heliodor",
 					L"beryl morganite", L"beryl", L"beryl maxixe", L"blende", L"bloodstone", L"blue topaz", L"bonamite", L"bowenite", L"brazilianite",
 					L"calcite", L"californite", L"carborundum", L"carnelian", L"cassiterite", L"cat\'s eye chrysoberyl", L"celluloid", L"chalcedony agate",
 					L"chalcedony aventurine", L"chalcedony carnelian", L"chalcedony heliotrope", L"chalcedony moss agate", L"chalcedony onyx", L"chalcedony",
@@ -266,13 +266,13 @@ namespace CppCLRWinformsProjekt {
 					L"howlite", L"idocrase", L"imperial topaz", L"iolite", L"jadeite", L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite",
 					L"lapis lazuli", L"larimar", L"lazulite", L"lepidolite", L"lithium niobate", L"malachite", L"mali garnet", L"marcasite", L"maw-sit-sit",
 					L"maxixe", L"moissanite", L"morganite", L"moss agate", L"nephrite", L"obsidian", L"odontolite", L"onyx", L"opal", L"painite",
-					L"Pearl", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite",
+					L"pearl", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite",
 					L"pyrites", L"pyrope", L"quartz amethyst", L"quartz aventurine", L"quartz chalcedony", L"quartz citrine", L"quartz", L"rhodochrosite",
 					L"rhodonite", L"ruby", L"rutile", L"sapphire", L"sard", L"scapolite", L"scheelite", L"schorl", L"serpentine", L"seraphinite",
 					L"silica glass", L"sinhalite", L"smithsonite", L"spessartine", L"sphalerite", L"sphene", L"spinel synthetic", L"spinel", L"spodumene",
-					L"strontium titanate", L"sugilite", L"synthetic corundum", L"taaffeite", L"tektite", L"topaz", L"tortoiseshell", L"tourmaline Schorl",
-					L"tourmaline", L"turquoise", L"uvarovite", L"variscite", L"vivianite", L"water opal", L"yttrium aluminate YAG", L"zircon (metamict)",
-					L"zircon (normal)", L"zirconia (cubic)", L"zoisite"
+					L"strontium titanate", L"sugilite", L"synthetic corundum", L"taaffeite", L"tanzanite", L"tektite", L"topaz", L"tortoiseshell",
+					L"tourmaline schorl", L"tourmaline", L"turquoise", L"uvarovite", L"variscite", L"vesuvianite", L"vivianite", L"water opal", L"yttrium aluminate YAG",
+					L"zircon (metamict)", L"zircon (normal)", L"zirconia (cubic)", L"zoisite"
 			});
 			this->comboGems->Location = System::Drawing::Point(79, 19);
 			this->comboGems->Name = L"comboGems";
@@ -981,7 +981,7 @@ private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, Sys
 	sg->Add("aragonite", "2.94");
 	sg->Add("aventurine quartz", "2.66");
 	sg->Add("aventurine", "2.6");
-	sg->Add("axinite (Ferro-axinite)", "3.31");
+	sg->Add("axinite (ferro-axinite)", "3.31");
 	sg->Add("azurite", "3.8");
 	sg->Add("bakelite", "1.26");
 	sg->Add("benitoite", "3.67");
@@ -1098,7 +1098,7 @@ private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, Sys
 	sg->Add("onyx", "2.6");
 	sg->Add("opal", "2.15");
 	sg->Add("painite", "4.01");
-	sg->Add("Pearl", "2.71");
+	sg->Add("pearl", "2.71");
 	sg->Add("periclase", "3.59");
 	sg->Add("peridot", "3.34");
 	sg->Add("phenakite", "2.96");
@@ -1139,14 +1139,16 @@ private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, Sys
 	sg->Add("sugilite", "2.74");
 	sg->Add("synthetic corundum", "4");
 	sg->Add("taaffeite", "3.61");
+	sg->Add("tanzanite", "3.35");
 	sg->Add("tektite", "2.4");
 	sg->Add("topaz", "3.53");
 	sg->Add("tortoiseshell", "1.29");
-	sg->Add("tourmaline Schorl", "3.06");
+	sg->Add("tourmaline schorl", "3.06");
 	sg->Add("tourmaline", "3.06");
 	sg->Add("turquoise", "2.8");
 	sg->Add("uvarovite", "3.77");
 	sg->Add("variscite", "2.55");
+	sg->Add("vesuvianite", "3.40");
 	sg->Add("vivianite", "2.6");
 	sg->Add("water opal", "2");
 	sg->Add("yttrium aluminate YAG", "4.57");
@@ -1156,7 +1158,17 @@ private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, Sys
 	sg->Add("zoisite", "3.35");
 
 	//MessageBox::Show("you chose :: " + this->comboGems->Text + " sg = " + sg[comboGems->Text]);
+
+		/**************************IMAGE MANAGEMENT**************************/
+	EmbeddedImage^ gemImage = gcnew EmbeddedImage;
+	if (sg->ContainsKey(this->comboGems->Text)){
+		gemImage->setName(this->comboGems->Text);
+	this->picGem->Image = gemImage->getName();
 	this->txtSg->Text = sg[this->comboGems->Text];
+	} //stop crash is key doesn't exist
+
+
+
 }
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Close();
@@ -1179,6 +1191,9 @@ private: System::Void comboCut_SelectedIndexChanged(System::Object^ sender, Syst
 		String^ myGemCut = gc->getCut(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
 		//MessageBox::Show(myGemCut);
 		Form1::txtCutSel->Text = myGemCut;
+
+	
+
 	}
 	else if (Form1::radioBtnDia->Checked) {
 		DiamondCut^ dc = gcnew DiamondCut; // Declare object
@@ -1266,6 +1281,7 @@ private: System::Void radioBtnGem_CheckedChanged(System::Object^ sender, System:
 		gems = gc->getCutNames();
 		Form1::comboCut->Items->Clear();
 		Form1::comboCut->Items->AddRange(gems);
+
 	} // != null
 }
 private: System::Void tbGlobalAdj_Scroll(System::Object^ sender, System::EventArgs^ e) {
@@ -1290,9 +1306,7 @@ private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::Eve
 private: System::Void picCut_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void txtCutSel_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	EmbeddedImage^ pCut = gcnew EmbeddedImage;
-	pCut->setName(this->comboCut->Text);
-	this->picCut->Image = pCut->getName();
+
 
 }
 };

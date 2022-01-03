@@ -825,6 +825,15 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\zoisite.jpg">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\noimage.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\checkDepth.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoprase.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">
