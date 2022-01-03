@@ -3,6 +3,7 @@
 #include "DiamondCut.h"
 #include "GemCut.h"
 #include "EmbeddedImage.h"
+#include "resource1.h"
 namespace CppCLRWinformsProjekt {
 //
 	using namespace System;
@@ -141,6 +142,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->comboGems = (gcnew System::Windows::Forms::ComboBox());
 			this->btnEq = (gcnew System::Windows::Forms::Button());
 			this->txtDia1 = (gcnew System::Windows::Forms::TextBox());
@@ -890,6 +892,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
+			
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"Form1";
 			this->Text = L"Gemwest";
@@ -975,7 +978,11 @@ private: System::Void buttonCalc_Click(System::Object^ sender, System::EventArgs
 	this->txtResult->Text = calculatedResult;
 }
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-
+	//EmbeddedImage^ ico = gcnew EmbeddedImage;
+	//ico->setName("gw");
+	//this->Icon = cli::safe_cast<System::Drawing::Icon^>(ico->getName());
+	
+	//this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject("IDI_ICON1")));
 	EmbeddedImage^ defaultCut = gcnew EmbeddedImage;
 	defaultCut->setName("round brilliant");
 	this->picCut->Image = defaultCut->getName();

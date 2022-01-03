@@ -141,9 +141,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ResourceCompile Include="app.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="DiamondCut.h" />
     <ClInclude Include="EmbeddedImage.h" />
     <ClInclude Include="Form1.h">
@@ -156,6 +153,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
     </ClInclude>
+    <ClInclude Include="resource1.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -176,7 +174,10 @@
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
-    <Image Include="app.ico" />
+    <Image Include="..\..\..\..\desktop\icon3.ico" />
+    <Image Include="app.ico">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_big.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_med.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_non.png" />
@@ -188,6 +189,7 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\sthickgirdle.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\thickgirdle.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\thingirdle.png" />
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\icons\gemwest_48x48.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\agate.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\albite.jpg" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\alexandrite.jpg" />
@@ -430,7 +432,6 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\triangular_cut.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trilliant_cut.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trillion.png" />
-    <Image Include="icon1.ico" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -444,6 +445,9 @@
       <DependentUpon>Form1.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Gemwest.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
