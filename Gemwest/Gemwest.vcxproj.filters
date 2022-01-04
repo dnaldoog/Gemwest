@@ -39,6 +39,12 @@
     <ClInclude Include="resource1.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="DiamondWeightCalculator.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="GemWeightCalculator.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -63,6 +69,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Pixmaps.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="DiamondWeightCalculator.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="GemWeightCalculator.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

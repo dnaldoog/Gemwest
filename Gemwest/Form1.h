@@ -4,6 +4,9 @@
 #include "GemCut.h"
 #include "EmbeddedImage.h"
 #include "resource1.h"
+#include "DiamondWeightCalculator.h"
+#include "GemWeightCalculator.h"
+
 namespace CppCLRWinformsProjekt {
 //
 	using namespace System;
@@ -47,9 +50,9 @@ namespace CppCLRWinformsProjekt {
 
 	protected:
 
-	private: System::Windows::Forms::TextBox^ txtDia1;
-	private: System::Windows::Forms::TextBox^ txtDia2;
-	private: System::Windows::Forms::TextBox^ txtDepth;
+
+
+
 
 	private: System::Windows::Forms::Button^ buttonCalc;
 	private: System::Windows::Forms::Button^ buttonClear;
@@ -57,7 +60,7 @@ namespace CppCLRWinformsProjekt {
 
 	private: System::Windows::Forms::Label^ lbllSelectedSG;
 
-	private: System::Windows::Forms::TextBox^ txtSg;
+
 
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Label^ lblDepthPerc;
@@ -117,6 +120,11 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::PictureBox^ picGirdle;
 private: System::Windows::Forms::PictureBox^ picDepth;
 private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
+	private: System::Windows::Forms::NumericUpDown^ numSG;
+	private: System::Windows::Forms::NumericUpDown^ numDepth;
+	private: System::Windows::Forms::NumericUpDown^ numDia2;
+	private: System::Windows::Forms::NumericUpDown^ numDia1;
+
 
 
 
@@ -142,18 +150,16 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->comboGems = (gcnew System::Windows::Forms::ComboBox());
 			this->btnEq = (gcnew System::Windows::Forms::Button());
-			this->txtDia1 = (gcnew System::Windows::Forms::TextBox());
-			this->txtDia2 = (gcnew System::Windows::Forms::TextBox());
-			this->txtDepth = (gcnew System::Windows::Forms::TextBox());
 			this->buttonCalc = (gcnew System::Windows::Forms::Button());
 			this->buttonClear = (gcnew System::Windows::Forms::Button());
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
-			this->txtSg = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->numDepth = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numDia2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numDia1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->picDepth = (gcnew System::Windows::Forms::PictureBox());
 			this->txtPavilionBulge = (gcnew System::Windows::Forms::TextBox());
 			this->txtGirdleThickness = (gcnew System::Windows::Forms::TextBox());
@@ -177,6 +183,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->lblDia2 = (gcnew System::Windows::Forms::Label());
 			this->lblDia1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->numSG = (gcnew System::Windows::Forms::NumericUpDown());
 			this->picGirdle = (gcnew System::Windows::Forms::PictureBox());
 			this->picBulge = (gcnew System::Windows::Forms::PictureBox());
 			this->picGem = (gcnew System::Windows::Forms::PictureBox());
@@ -200,6 +207,9 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->helpToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->BeginInit();
@@ -207,6 +217,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGlobalAdj))->BeginInit();
 			this->groupBox3->SuspendLayout();
 			this->groupBox2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numSG))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGem))->BeginInit();
@@ -280,37 +291,13 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// 
 			// btnEq
 			// 
-			this->btnEq->Location = System::Drawing::Point(112, 44);
+			this->btnEq->Location = System::Drawing::Point(116, 45);
 			this->btnEq->Name = L"btnEq";
 			this->btnEq->Size = System::Drawing::Size(100, 20);
 			this->btnEq->TabIndex = 1;
 			this->btnEq->Text = L"=";
 			this->btnEq->UseVisualStyleBackColor = true;
 			this->btnEq->Click += gcnew System::EventHandler(this, &Form1::btnEq_Click);
-			// 
-			// txtDia1
-			// 
-			this->txtDia1->Location = System::Drawing::Point(6, 45);
-			this->txtDia1->Name = L"txtDia1";
-			this->txtDia1->Size = System::Drawing::Size(100, 20);
-			this->txtDia1->TabIndex = 0;
-			this->txtDia1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtDia1_KeyPress);
-			// 
-			// txtDia2
-			// 
-			this->txtDia2->Location = System::Drawing::Point(226, 45);
-			this->txtDia2->Name = L"txtDia2";
-			this->txtDia2->Size = System::Drawing::Size(100, 20);
-			this->txtDia2->TabIndex = 2;
-			this->txtDia2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtDia2_KeyPress);
-			// 
-			// txtDepth
-			// 
-			this->txtDepth->Location = System::Drawing::Point(336, 45);
-			this->txtDepth->Name = L"txtDepth";
-			this->txtDepth->Size = System::Drawing::Size(100, 20);
-			this->txtDepth->TabIndex = 3;
-			this->txtDepth->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtDepth_KeyPress);
 			// 
 			// buttonCalc
 			// 
@@ -357,19 +344,12 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->lbllSelectedSG->TabIndex = 9;
 			this->lbllSelectedSG->Text = L"Select Gem";
 			// 
-			// txtSg
-			// 
-			this->txtSg->Enabled = false;
-			this->txtSg->Location = System::Drawing::Point(79, 46);
-			this->txtSg->Name = L"txtSg";
-			this->txtSg->Size = System::Drawing::Size(100, 20);
-			this->txtSg->TabIndex = 10;
-			this->txtSg->Text = L"3.52";
-			this->txtSg->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtSg_KeyPress);
-			// 
 			// groupBox1
 			// 
 			this->groupBox1->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->groupBox1->Controls->Add(this->numDepth);
+			this->groupBox1->Controls->Add(this->numDia2);
+			this->groupBox1->Controls->Add(this->numDia1);
 			this->groupBox1->Controls->Add(this->picDepth);
 			this->groupBox1->Controls->Add(this->txtPavilionBulge);
 			this->groupBox1->Controls->Add(this->txtGirdleThickness);
@@ -390,10 +370,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->groupBox1->Controls->Add(this->lblDepth);
 			this->groupBox1->Controls->Add(this->lblDia2);
 			this->groupBox1->Controls->Add(this->lblDia1);
-			this->groupBox1->Controls->Add(this->txtDia1);
 			this->groupBox1->Controls->Add(this->btnEq);
-			this->groupBox1->Controls->Add(this->txtDia2);
-			this->groupBox1->Controls->Add(this->txtDepth);
 			this->groupBox1->Controls->Add(this->txtResult);
 			this->groupBox1->Controls->Add(this->buttonCalc);
 			this->groupBox1->Controls->Add(this->buttonClear);
@@ -404,6 +381,33 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Calculate";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
+			// 
+			// numDepth
+			// 
+			this->numDepth->DecimalPlaces = 2;
+			this->numDepth->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
+			this->numDepth->Location = System::Drawing::Point(336, 45);
+			this->numDepth->Name = L"numDepth";
+			this->numDepth->Size = System::Drawing::Size(100, 20);
+			this->numDepth->TabIndex = 35;
+			// 
+			// numDia2
+			// 
+			this->numDia2->DecimalPlaces = 2;
+			this->numDia2->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
+			this->numDia2->Location = System::Drawing::Point(226, 45);
+			this->numDia2->Name = L"numDia2";
+			this->numDia2->Size = System::Drawing::Size(100, 20);
+			this->numDia2->TabIndex = 34;
+			// 
+			// numDia1
+			// 
+			this->numDia1->DecimalPlaces = 2;
+			this->numDia1->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
+			this->numDia1->Location = System::Drawing::Point(6, 45);
+			this->numDia1->Name = L"numDia1";
+			this->numDia1->Size = System::Drawing::Size(100, 20);
+			this->numDia1->TabIndex = 25;
 			// 
 			// picDepth
 			// 
@@ -633,6 +637,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// groupBox2
 			// 
 			this->groupBox2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->groupBox2->Controls->Add(this->numSG);
 			this->groupBox2->Controls->Add(this->picGirdle);
 			this->groupBox2->Controls->Add(this->picBulge);
 			this->groupBox2->Controls->Add(this->picGem);
@@ -645,7 +650,6 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->groupBox2->Controls->Add(this->radioBtnGem);
 			this->groupBox2->Controls->Add(this->radioBtnDia);
 			this->groupBox2->Controls->Add(this->comboGems);
-			this->groupBox2->Controls->Add(this->txtSg);
 			this->groupBox2->Controls->Add(this->lbllSelectedSG);
 			this->groupBox2->ForeColor = System::Drawing::Color::Black;
 			this->groupBox2->Location = System::Drawing::Point(36, 339);
@@ -654,6 +658,17 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->groupBox2->TabIndex = 13;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Select Gem / Cut";
+			// 
+			// numSG
+			// 
+			this->numSG->DecimalPlaces = 2;
+			this->numSG->Enabled = false;
+			this->numSG->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
+			this->numSG->Location = System::Drawing::Point(79, 49);
+			this->numSG->Name = L"numSG";
+			this->numSG->Size = System::Drawing::Size(100, 20);
+			this->numSG->TabIndex = 24;
+			this->numSG->ValueChanged += gcnew System::EventHandler(this, &Form1::numSG_ValueChanged);
 			// 
 			// picGirdle
 			// 
@@ -892,13 +907,15 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
-			
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"Form1";
 			this->Text = L"Gemwest";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->EndInit();
@@ -908,6 +925,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->groupBox3->PerformLayout();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numSG))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGem))->EndInit();
@@ -924,65 +942,84 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 
 
 
-	private: System::Void txtDia1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	//private: System::Void txtDia1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
-		{
-			// Only allow 1 decimal point
-			if (e->KeyChar == '.')
-			{
-				if (this->txtDia1->Text->Contains(".") && !this->txtDia1->SelectedText->Contains("."))
-					e->Handled = true;
-			}
-			// Accept only digits "." and the Backspace character
-			else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
-				e->Handled = true;
+	//	{
+	//		// Only allow 1 decimal point
+	//		if (e->KeyChar == '.')
+	//		{
+	//			if (this->txtDia1->Text->Contains(".") && !this->txtDia1->SelectedText->Contains("."))
+	//				e->Handled = true;
+	//		}
+	//		// Accept only digits "." and the Backspace character
+	//		else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
+	//			e->Handled = true;
 
-		}
-		this->toolStrip->Text = this->txtDia1->Text;
-	}
-private: System::Void txtDia2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	{
-		// Only allow 1 decimal point
-		if (e->KeyChar == '.')
-		{
-			if (this->txtDia2->Text->Contains(".") && !this->txtDia2->SelectedText->Contains("."))
-				e->Handled = true;
-		}
-		// Accept only digits "." and the Backspace character
-		else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
-			e->Handled = true;
-	}
-
-}
-private: System::Void txtDepth_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-
-	{
-		// Only allow 1 decimal point
-		if (e->KeyChar == '.')
-		{
-			if (this->txtDepth->Text->Contains(".") && !this->txtDepth->SelectedText->Contains("."))
-				e->Handled = true;
-		}
-		// Accept only digits "." and the Backspace character
-		else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
-			e->Handled = true;
-	}
-}
+	//	}
+	//	this->toolStrip->Text = this->txtDia1->Text;
+	//}
+//private: System::Void txtDia2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+//	{
+//		// Only allow 1 decimal point
+//		if (e->KeyChar == '.')
+//		{
+//			if (this->txtDia2->Text->Contains(".") && !this->txtDia2->SelectedText->Contains("."))
+//				e->Handled = true;
+//		}
+//		// Accept only digits "." and the Backspace character
+//		else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
+//			e->Handled = true;
+//	}
+//
+//}
+//private: System::Void txtDepth_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+//
+//	{
+//		// Only allow 1 decimal point
+//		if (e->KeyChar == '.')
+//		{
+//			if (this->txtDepth->Text->Contains(".") && !this->txtDepth->SelectedText->Contains("."))
+//				e->Handled = true;
+//		}
+//		// Accept only digits "." and the Backspace character
+//		else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
+//			e->Handled = true;
+//	}
+//}
 private: System::Void btnEq_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	this->txtDia2->Text = this->txtDia1->Text;
+	this->numDia2->Text = this->numDia1->Text;
 }
 private: System::Void buttonCalc_Click(System::Object^ sender, System::EventArgs^ e) {
-	double output = System::Convert::ToDouble(txtDia1->Text) * System::Convert::ToDouble(txtDia2->Text);// *System::Convert::ToDouble(sg[comboGems->Text]);
-	System::String^ calculatedResult = System::Convert::ToString(output)+"ct";
-	this->txtResult->Text = calculatedResult;
+
+	String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
+	if (this->comboCut->Text->Contains("choose")){
+			MessageBox::Show(errorMessage);
+		}
+	else {
+		if (this->radioBtnDia->Checked) {
+			DiamondWeightCalculator^ C = gcnew DiamondWeightCalculator;
+		}
+		else if (this->radioBtnGem->Checked) {
+			GemWeightCalculator^ C = gcnew GemWeightCalculator;
+		}
+		//DiamondWeightCalculator^ calculateWeight = gcnew DiamondWeightCalculator;
+	} // text is valid
+
 }
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	//EmbeddedImage^ ico = gcnew EmbeddedImage;
 	//ico->setName("gw");
 	//this->Icon = cli::safe_cast<System::Drawing::Icon^>(ico->getName());
 	
-	//this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject("IDI_ICON1")));
+	//this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject("IDI_ICON1
+
+	//EmbeddedImage^ ico = gcnew EmbeddedImage;
+	//ico->setName(L"$this.Icon");
+	//Form1 = ico->getName(); // (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+	//this->Form>Image = defaultCut->getName();
+
+
 	EmbeddedImage^ defaultCut = gcnew EmbeddedImage;
 	defaultCut->setName("round brilliant");
 	this->picCut->Image = defaultCut->getName();
@@ -1002,21 +1039,14 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	EmbeddedImage^ checkDepth = gcnew EmbeddedImage;
 	checkDepth->setName("checkDepth");
 	this->picDepth->Image = checkDepth->getName();
-
-	//EmbeddedImage^ ico = gcnew EmbeddedImage;
-	//ico->setName(L"$this.Icon");
-	//Form1 = ico->getName(); // (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-	//this->Form>Image = defaultCut->getName();
-
-
 }
 
 private: System::Void buttonClear_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	this->txtResult->Text = ""; // clear all textBox
-	this->txtDia1->Text = ""; // clear all textBox
-	this->txtDia2->Text = ""; // clear all textBox
-	this->txtDepth->Text = ""; // clear all textBox
+	this->numDia1->Text = "0.00";	
+	this->numDia2->Text = "0.00";	
+	this->numDepth->Text = "0.00";
 	this->toolStrip->Text = L"Ready..."; // clear all textBox
 	this->tbGlobalAdj->Value = 0;
 	this->tbGirdleThickness->Value = 0;
@@ -1235,7 +1265,7 @@ private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, Sys
 	if (sg->ContainsKey(this->comboGems->Text)){
 		gemImage->setName(this->comboGems->Text);
 	this->picGem->Image = gemImage->getName();
-	this->txtSg->Text = sg[this->comboGems->Text];
+	this->numSG->Text = sg[this->comboGems->Text];
 	} //stop crash if key doesn't exist
 }
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1293,17 +1323,17 @@ private: System::Void aboutToolStripMenuItem_Click(System::Object^ sender, Syste
 }
 private: System::Void txtSg_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
-	{
-		// Only allow 1 decimal point
-		if (e->KeyChar == '.')
-		{
-			if (this-> txtSg->Text->Contains(".") && !this->txtSg->SelectedText->Contains("."))
-				e->Handled = true;
-		}
-		// Accept only digits "." and the Backspace character
-		else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
-			e->Handled = true;
-	}
+	//{
+	//	// Only allow 1 decimal point
+	//	if (e->KeyChar == '.')
+	//	{
+	//		if (this-> txtSg->Text->Contains(".") && !this->txtSg->SelectedText->Contains("."))
+	//			e->Handled = true;
+	//	}
+	//	// Accept only digits "." and the Backspace character
+	//	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
+	//		e->Handled = true;
+	//}
 }
 private: System::Void txtCutSel_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
@@ -1328,9 +1358,9 @@ private: System::Void radioBtnDia_CheckedChanged(System::Object^ sender, System:
 	this->comboCut->SelectedText="choose from below";
 	this->comboGems->ResetText();
 	this->comboGems->SelectedText = "choose from below";
-	this->txtSg->Text = "3.52";
+	this->numSG->Text = "3.52";
 	this->comboGems->Enabled = false;
-	this->txtSg->Enabled = false;
+	this->numSG->Enabled = false;
 	array<String^>^ dias = gcnew array<String^>{};
 	DiamondCut^ dc = gcnew DiamondCut; // Declare object
 	if (dc != nullptr) {
@@ -1352,9 +1382,9 @@ private: System::Void radioBtnGem_CheckedChanged(System::Object^ sender, System:
 
 	this->comboGems->ResetText();
 	this->comboGems->SelectedText = "choose from below";
-	this->txtSg->Text = "";
+	this->numSG->Text = "0.00";
 	this->comboGems->Enabled = true;
-	this->txtSg->Enabled = true;
+	this->numSG->Enabled = true;
 	array<String^>^ gems = gcnew array<String^>{};
 		GemCut^ gc = gcnew GemCut; // Declare object
 		if (gc != nullptr) {
@@ -1433,6 +1463,20 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 
 private: System::Void picDepth_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+
+private: System::Void txtSg_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	////if (this->txtSg->Text->IsNullOrEmpty()) 
+	//	if(!String::IsNullOrEmpty(this->txtSg->Text))
+	//{
+	//	double tmpConvert = System::Convert::ToDouble(this->txtSg->Text) + 0.01;
+	//	this->numSG->Text = System::Convert::ToString(tmpConvert); // output;
+	//} // end if else
+}
+private: System::Void numSG_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	//this->txtSg->Text = this->numSG->Text;
 }
 };
 }

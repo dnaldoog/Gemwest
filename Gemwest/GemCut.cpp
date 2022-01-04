@@ -55,12 +55,12 @@ void GemCut::dictInitializer() {
 void GemCut::setCut(Dictionary<String^, String^>^ arr) {
 	this->_gemCut = arr;
 
-};
+}
 
 String^ GemCut::getCut(String^ key) {
 	return this->_gemCut[key];
 
-};
+}
 
 array<String^>^ GemCut::getCutNames() {
 	return _gemCutNames;
