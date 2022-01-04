@@ -118,12 +118,16 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::PictureBox^ picCut;
 	private: System::Windows::Forms::PictureBox^ picBulge;
 	private: System::Windows::Forms::PictureBox^ picGirdle;
-private: System::Windows::Forms::PictureBox^ picDepth;
+
 private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 	private: System::Windows::Forms::NumericUpDown^ numSG;
 	private: System::Windows::Forms::NumericUpDown^ numDepth;
 	private: System::Windows::Forms::NumericUpDown^ numDia2;
 	private: System::Windows::Forms::NumericUpDown^ numDia1;
+	private: System::Windows::Forms::Label^ lblDepth2;
+private: System::Windows::Forms::TextBox^ txtDepthPercentage;
+private: System::Windows::Forms::Panel^ panel1;
+
 
 
 
@@ -157,10 +161,13 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->lblDepth = (gcnew System::Windows::Forms::Label());
+			this->lblDepth2 = (gcnew System::Windows::Forms::Label());
 			this->numDepth = (gcnew System::Windows::Forms::NumericUpDown());
+			this->txtDepthPercentage = (gcnew System::Windows::Forms::TextBox());
 			this->numDia2 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numDia1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->picDepth = (gcnew System::Windows::Forms::PictureBox());
 			this->txtPavilionBulge = (gcnew System::Windows::Forms::TextBox());
 			this->txtGirdleThickness = (gcnew System::Windows::Forms::TextBox());
 			this->txtOther = (gcnew System::Windows::Forms::TextBox());
@@ -179,7 +186,6 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->lblOther = (gcnew System::Windows::Forms::Label());
 			this->lblGlobAdj = (gcnew System::Windows::Forms::Label());
 			this->lblResult = (gcnew System::Windows::Forms::Label());
-			this->lblDepth = (gcnew System::Windows::Forms::Label());
 			this->lblDia2 = (gcnew System::Windows::Forms::Label());
 			this->lblDia1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
@@ -207,10 +213,10 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->helpToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
+			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOtherNudge))->BeginInit();
@@ -301,7 +307,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// 
 			// buttonCalc
 			// 
-			this->buttonCalc->Location = System::Drawing::Point(337, 71);
+			this->buttonCalc->Location = System::Drawing::Point(40, 297);
 			this->buttonCalc->Name = L"buttonCalc";
 			this->buttonCalc->Size = System::Drawing::Size(100, 23);
 			this->buttonCalc->TabIndex = 5;
@@ -311,7 +317,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// 
 			// buttonClear
 			// 
-			this->buttonClear->Location = System::Drawing::Point(336, 266);
+			this->buttonClear->Location = System::Drawing::Point(331, 297);
 			this->buttonClear->Name = L"buttonClear";
 			this->buttonClear->Size = System::Drawing::Size(100, 23);
 			this->buttonClear->TabIndex = 6;
@@ -325,7 +331,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->txtResult->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->txtResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtResult->Location = System::Drawing::Point(288, 100);
+			this->txtResult->Location = System::Drawing::Point(161, 293);
 			this->txtResult->MaxLength = 20;
 			this->txtResult->MinimumSize = System::Drawing::Size(100, 40);
 			this->txtResult->Name = L"txtResult";
@@ -347,10 +353,9 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// groupBox1
 			// 
 			this->groupBox1->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->groupBox1->Controls->Add(this->numDepth);
+			this->groupBox1->Controls->Add(this->panel1);
 			this->groupBox1->Controls->Add(this->numDia2);
 			this->groupBox1->Controls->Add(this->numDia1);
-			this->groupBox1->Controls->Add(this->picDepth);
 			this->groupBox1->Controls->Add(this->txtPavilionBulge);
 			this->groupBox1->Controls->Add(this->txtGirdleThickness);
 			this->groupBox1->Controls->Add(this->txtOther);
@@ -367,7 +372,6 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->groupBox1->Controls->Add(this->lblOther);
 			this->groupBox1->Controls->Add(this->lblGlobAdj);
 			this->groupBox1->Controls->Add(this->lblResult);
-			this->groupBox1->Controls->Add(this->lblDepth);
 			this->groupBox1->Controls->Add(this->lblDia2);
 			this->groupBox1->Controls->Add(this->lblDia1);
 			this->groupBox1->Controls->Add(this->btnEq);
@@ -376,20 +380,59 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->groupBox1->Controls->Add(this->buttonClear);
 			this->groupBox1->Location = System::Drawing::Point(36, 27);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(459, 306);
+			this->groupBox1->Size = System::Drawing::Size(459, 348);
 			this->groupBox1->TabIndex = 12;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Calculate";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
 			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->panel1->Controls->Add(this->lblDepth);
+			this->panel1->Controls->Add(this->lblDepth2);
+			this->panel1->Controls->Add(this->numDepth);
+			this->panel1->Controls->Add(this->txtDepthPercentage);
+			this->panel1->Location = System::Drawing::Point(332, 29);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(121, 114);
+			this->panel1->TabIndex = 38;
+			// 
+			// lblDepth
+			// 
+			this->lblDepth->AutoSize = true;
+			this->lblDepth->Location = System::Drawing::Point(40, 13);
+			this->lblDepth->Name = L"lblDepth";
+			this->lblDepth->Size = System::Drawing::Size(36, 13);
+			this->lblDepth->TabIndex = 19;
+			this->lblDepth->Text = L"Depth";
+			// 
+			// lblDepth2
+			// 
+			this->lblDepth2->AutoSize = true;
+			this->lblDepth2->Location = System::Drawing::Point(40, 59);
+			this->lblDepth2->Name = L"lblDepth2";
+			this->lblDepth2->Size = System::Drawing::Size(47, 13);
+			this->lblDepth2->TabIndex = 37;
+			this->lblDepth2->Text = L"Depth %";
+			// 
 			// numDepth
 			// 
 			this->numDepth->DecimalPlaces = 2;
 			this->numDepth->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numDepth->Location = System::Drawing::Point(336, 45);
+			this->numDepth->Location = System::Drawing::Point(11, 29);
 			this->numDepth->Name = L"numDepth";
 			this->numDepth->Size = System::Drawing::Size(100, 20);
 			this->numDepth->TabIndex = 35;
+			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged);
+			// 
+			// txtDepthPercentage
+			// 
+			this->txtDepthPercentage->Location = System::Drawing::Point(11, 77);
+			this->txtDepthPercentage->Name = L"txtDepthPercentage";
+			this->txtDepthPercentage->Size = System::Drawing::Size(100, 20);
+			this->txtDepthPercentage->TabIndex = 36;
+			this->txtDepthPercentage->TextChanged += gcnew System::EventHandler(this, &Form1::textBox1_TextChanged);
 			// 
 			// numDia2
 			// 
@@ -399,6 +442,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->numDia2->Name = L"numDia2";
 			this->numDia2->Size = System::Drawing::Size(100, 20);
 			this->numDia2->TabIndex = 34;
+			this->numDia2->ValueChanged += gcnew System::EventHandler(this, &Form1::numDia2_ValueChanged);
 			// 
 			// numDia1
 			// 
@@ -409,23 +453,9 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->numDia1->Size = System::Drawing::Size(100, 20);
 			this->numDia1->TabIndex = 25;
 			// 
-			// picDepth
-			// 
-			this->picDepth->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->picDepth->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->picDepth->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picDepth->Location = System::Drawing::Point(157, 86);
-			this->picDepth->Name = L"picDepth";
-			this->picDepth->Padding = System::Windows::Forms::Padding(0, 3, 0, 0);
-			this->picDepth->Size = System::Drawing::Size(55, 62);
-			this->picDepth->TabIndex = 24;
-			this->picDepth->TabStop = false;
-			// 
 			// txtPavilionBulge
 			// 
-			this->txtPavilionBulge->Location = System::Drawing::Point(354, 231);
+			this->txtPavilionBulge->Location = System::Drawing::Point(350, 231);
 			this->txtPavilionBulge->Name = L"txtPavilionBulge";
 			this->txtPavilionBulge->Size = System::Drawing::Size(85, 20);
 			this->txtPavilionBulge->TabIndex = 33;
@@ -434,7 +464,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// 
 			// txtGirdleThickness
 			// 
-			this->txtGirdleThickness->Location = System::Drawing::Point(241, 231);
+			this->txtGirdleThickness->Location = System::Drawing::Point(237, 231);
 			this->txtGirdleThickness->Name = L"txtGirdleThickness";
 			this->txtGirdleThickness->Size = System::Drawing::Size(85, 20);
 			this->txtGirdleThickness->TabIndex = 32;
@@ -461,7 +491,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// 
 			// tbPavilionBulge
 			// 
-			this->tbPavilionBulge->Location = System::Drawing::Point(349, 193);
+			this->tbPavilionBulge->Location = System::Drawing::Point(345, 193);
 			this->tbPavilionBulge->Maximum = 30;
 			this->tbPavilionBulge->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->MinimumSize = System::Drawing::Size(104, 30);
@@ -473,7 +503,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// 
 			// tbGirdleThickness
 			// 
-			this->tbGirdleThickness->Location = System::Drawing::Point(236, 193);
+			this->tbGirdleThickness->Location = System::Drawing::Point(232, 193);
 			this->tbGirdleThickness->Maximum = 15;
 			this->tbGirdleThickness->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->MinimumSize = System::Drawing::Size(104, 30);
@@ -486,12 +516,13 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// cbRecut
 			// 
 			this->cbRecut->AutoSize = true;
-			this->cbRecut->Location = System::Drawing::Point(139, 270);
+			this->cbRecut->Location = System::Drawing::Point(210, 126);
 			this->cbRecut->Name = L"cbRecut";
 			this->cbRecut->Size = System::Drawing::Size(61, 17);
 			this->cbRecut->TabIndex = 12;
 			this->cbRecut->Text = L"Recut\?";
 			this->cbRecut->UseVisualStyleBackColor = true;
+			this->cbRecut->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbRecut_CheckedChanged);
 			// 
 			// tbOtherNudge
 			// 
@@ -508,7 +539,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// cbInterpolate
 			// 
 			this->cbInterpolate->AutoSize = true;
-			this->cbInterpolate->Location = System::Drawing::Point(21, 270);
+			this->cbInterpolate->Location = System::Drawing::Point(210, 95);
 			this->cbInterpolate->Name = L"cbInterpolate";
 			this->cbInterpolate->Size = System::Drawing::Size(82, 17);
 			this->cbInterpolate->TabIndex = 11;
@@ -532,7 +563,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// 
 			this->groupBox3->Controls->Add(this->lblLwRatio);
 			this->groupBox3->Controls->Add(this->lblDepthPerc);
-			this->groupBox3->Location = System::Drawing::Point(6, 75);
+			this->groupBox3->Location = System::Drawing::Point(59, 75);
 			this->groupBox3->Name = L"groupBox3";
 			this->groupBox3->Size = System::Drawing::Size(145, 85);
 			this->groupBox3->TabIndex = 25;
@@ -564,7 +595,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// lblPavilionBulge
 			// 
 			this->lblPavilionBulge->AutoSize = true;
-			this->lblPavilionBulge->Location = System::Drawing::Point(365, 176);
+			this->lblPavilionBulge->Location = System::Drawing::Point(358, 176);
 			this->lblPavilionBulge->Name = L"lblPavilionBulge";
 			this->lblPavilionBulge->Size = System::Drawing::Size(74, 13);
 			this->lblPavilionBulge->TabIndex = 24;
@@ -573,7 +604,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// lblGirdleThickness
 			// 
 			this->lblGirdleThickness->AutoSize = true;
-			this->lblGirdleThickness->Location = System::Drawing::Point(247, 176);
+			this->lblGirdleThickness->Location = System::Drawing::Point(240, 176);
 			this->lblGirdleThickness->Name = L"lblGirdleThickness";
 			this->lblGirdleThickness->Size = System::Drawing::Size(86, 13);
 			this->lblGirdleThickness->TabIndex = 23;
@@ -600,29 +631,20 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// lblResult
 			// 
 			this->lblResult->AutoSize = true;
-			this->lblResult->Location = System::Drawing::Point(230, 111);
+			this->lblResult->Location = System::Drawing::Point(206, 277);
 			this->lblResult->Name = L"lblResult";
 			this->lblResult->Size = System::Drawing::Size(50, 13);
 			this->lblResult->TabIndex = 20;
 			this->lblResult->Text = L"RESULT";
-			// 
-			// lblDepth
-			// 
-			this->lblDepth->AutoSize = true;
-			this->lblDepth->Location = System::Drawing::Point(365, 29);
-			this->lblDepth->Name = L"lblDepth";
-			this->lblDepth->Size = System::Drawing::Size(36, 13);
-			this->lblDepth->TabIndex = 19;
-			this->lblDepth->Text = L"Depth";
 			// 
 			// lblDia2
 			// 
 			this->lblDia2->AutoSize = true;
 			this->lblDia2->Location = System::Drawing::Point(234, 29);
 			this->lblDia2->Name = L"lblDia2";
-			this->lblDia2->Size = System::Drawing::Size(83, 13);
+			this->lblDia2->Size = System::Drawing::Size(82, 13);
 			this->lblDia2->TabIndex = 18;
-			this->lblDia2->Text = L"Diameter/Depth";
+			this->lblDia2->Text = L"Diameter/Width";
 			this->lblDia2->Click += gcnew System::EventHandler(this, &Form1::lblDia2_Click);
 			// 
 			// lblDia1
@@ -652,7 +674,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->groupBox2->Controls->Add(this->comboGems);
 			this->groupBox2->Controls->Add(this->lbllSelectedSG);
 			this->groupBox2->ForeColor = System::Drawing::Color::Black;
-			this->groupBox2->Location = System::Drawing::Point(36, 339);
+			this->groupBox2->Location = System::Drawing::Point(36, 381);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(459, 206);
 			this->groupBox2->TabIndex = 13;
@@ -818,7 +840,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// statusbar
 			// 
 			this->statusbar->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStrip });
-			this->statusbar->Location = System::Drawing::Point(0, 560);
+			this->statusbar->Location = System::Drawing::Point(0, 590);
 			this->statusbar->Name = L"statusbar";
 			this->statusbar->Size = System::Drawing::Size(529, 22);
 			this->statusbar->TabIndex = 14;
@@ -902,7 +924,7 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(529, 582);
+			this->ClientSize = System::Drawing::Size(529, 612);
 			this->Controls->Add(this->statusbar);
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->groupBox2);
@@ -913,10 +935,11 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOtherNudge))->EndInit();
@@ -1011,7 +1034,7 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	//EmbeddedImage^ ico = gcnew EmbeddedImage;
 	//ico->setName("gw");
 	//this->Icon = cli::safe_cast<System::Drawing::Icon^>(ico->getName());
-	
+
 	//this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject("IDI_ICON1
 
 	//EmbeddedImage^ ico = gcnew EmbeddedImage;
@@ -1038,7 +1061,6 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 
 	EmbeddedImage^ checkDepth = gcnew EmbeddedImage;
 	checkDepth->setName("checkDepth");
-	this->picDepth->Image = checkDepth->getName();
 }
 
 private: System::Void buttonClear_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1477,6 +1499,31 @@ private: System::Void txtSg_TextChanged(System::Object^ sender, System::EventArg
 private: System::Void numSG_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 
 	//this->txtSg->Text = this->numSG->Text;
+}
+private: System::Void numDepth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
+	double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
+
+
+	double lwRatio = Math::Round(widthInMm / depthInMm,2);
+	double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+
+
+	String^ lwString= System::Convert::ToString(lwRatio);
+	String^ lWtxt = "LW Ratio = " + lwString + ":1";
+	String^ percString = System::Convert::ToString(depthPercentage);
+
+
+	this->lblDepthPerc->Text = "Depth = " + percString + "%";
+	this->txtDepthPercentage->Text = percString;
+	this->lblLwRatio->Text = lWtxt;
+}
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
