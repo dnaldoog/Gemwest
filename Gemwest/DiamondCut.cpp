@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "DiamondCut.h"
+//#include <cstddef>
 
 
 void DiamondCut::dictInitializer(){
@@ -59,12 +60,16 @@ this->_diaCutNames = diaCutNames;
 	void DiamondCut::setCut(Dictionary<String^, String^>^ arr) {
 		this->_diaCut = arr;
 
-	};
+	}
 
 	String^ DiamondCut::getCut(String^ key) {
-		return this->_diaCut[key];
+		//if (this->_diaCut != nullptr) {
+			return this->_diaCut[key];
+		//}else{
+		//	return "not found";
+		//}
 
-	};
+	}
 
 	array<String^>^ DiamondCut::getCutNames() {
 		return _diaCutNames;

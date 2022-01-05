@@ -8,7 +8,7 @@ ref class GemCut
 private:
 	Dictionary<String^, String^>^ _gemCut;
 	array<String^>^ _gemCutNames;
-
+	
 public:
 	void dictInitializer();
 	void setCut(Dictionary<String^, String^>^);

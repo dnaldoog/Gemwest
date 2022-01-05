@@ -15,11 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="app.rc">
-      <Filter>Ressourcendateien</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Resource.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -33,6 +28,21 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="GemCut.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedImage.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Pixmaps.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="DiamondWeightCalculator.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="GemWeightCalculator.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -55,10 +65,806 @@
     <ClCompile Include="GemCut.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="EmbeddedImage.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Pixmaps.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="DiamondWeightCalculator.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="GemWeightCalculator.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\asscher.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\barion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\briolette.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cabochon_high_domed.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cabochon_low_domed.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cabochon_regular.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\cushion_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\eight_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\emerald_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\emerald_cut_diamond.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\flanders_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\heart.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\heart_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\long_rectangle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\old_european_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\old_mine_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\oval.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\oval_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\pear_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\pear_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\princess_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\radiant_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangle_step_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangle_with_cut_corners.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rectangular_cushion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\rose_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\round_bead.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\round_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\round_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\semi_circle_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\shallow.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\small_baguette.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_cushion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_cut_diamond.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_step_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\square_with_cut_corners.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\tapered_baguette.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\triangle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\triangular_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trilliant_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trillion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_big.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_med.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_non.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_sml.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\calculator.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\edit-clear.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\mediumgirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\recut_init.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\sthickgirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\thickgirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\thingirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\agate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\albite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\alexandrite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\almandine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\amazonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\amber.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\amethyst.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\andalusite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\apatite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\aquamarine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\aragonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\aventurine quartz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\aventurine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\axinite (ferro-axinite).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\azurite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\bakelite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\benitoite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl aquamarine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl colourless.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl heliodor.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl maxixe.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl morganite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\beryl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\biron created emerald.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\blende.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\bloodstone.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\blue topaz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\bonamite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\bowenite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\brazilianite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\calcite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\californite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\carborundum.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\carnelian.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\cassiterite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\cat%27s eye chrysoberyl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\celluloid.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony agate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony aventurine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony carnelian.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony heliotrope.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony moss agate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony onyx.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chalcedony.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrome diopside.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoberyl alexandrite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoberyl cat%27s eye.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoberyl cymophane.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoberyl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysocolla.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\citrine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\colorless beryl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\colourless beryl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\conch pearl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\copal resin.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\coral.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\cornelian.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\corundum ruby.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\corundum sapphire.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\corundum synthetic.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\corundum.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\crocidolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\cubic zirconia.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\cymophane.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\cz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\danburite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\datolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\demantoid.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\diamond.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\diopside.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\ekanite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\emerald (Biron).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\emerald (Chatham).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\emerald (Gilson).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\emerald.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\enstatite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\epidote.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\euclase.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\fibrolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\fire opal.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\fluorite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet almandine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet demantoid.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet hessonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet mali.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet pyrope.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet spessartine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet uvarovite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\garnet.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\ggg.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\glass.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\golden beryl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\goshenite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\grossular garnet.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\grossular.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\haematite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\hambergite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\heliodor.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\heliotrope.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\hematite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\hemimorphite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\hessonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\hiddenite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\howlite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\idocrase.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\Image.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\imperial topaz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\iolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\jade.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\jadeite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\jasper.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\jet.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\kornerupine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\kunzite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\kyanite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\lapis lazuli.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\larimar.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\lazurite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\lepidolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\lithium niobate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\malachite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\mali garnet.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\marcasite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\maw-sit-sit.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\maxixe.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\moissanite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\morganite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\moss agate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\nephrite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\obsidian.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\odontolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\onyx.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\opal.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\painite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\pearl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\periclase.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\peridot.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\phenakite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\pink beryl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\pink topaz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\pleonaste.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\porcelain.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\prehnite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\pseudophite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\pyrites.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\pyrope.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\quartz amethyst.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\quartz aventurine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\quartz chalcedony.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\quartz citrine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\quartz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\rhodochroisite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\rhodochrosite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\rhodonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\ruby.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\rutile.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\sapphire.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\sard.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\scapolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\scheelite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\schorl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\seraphinite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\serpentine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\silica glass.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\sinhalite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\smithsonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\spessartine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\sphalerite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\sphene.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\spinel synthetic.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\spinel.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\spodumene.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\strontium titanate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\sugilite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\synthetic corundum.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\synthetic spinel.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\taaffeite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\tanzanite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\tektite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\topaz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\tortoiseshell.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\tourmaline schorl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\tourmaline.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\turquoise.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\uvarovite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\variscite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\vesuvianite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\vivianite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\water opal.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\yttrium aluminate YAG.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\zircon (metamict).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\zircon (normal).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\zirconia (cubic).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\zoisite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\noimage.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\checkDepth.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\chrysoprase.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gw.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\desktop\bitmap1.bmp">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\images\uvarovite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\desktop\icon3.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
     <Image Include="app.ico">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\icons\gemwest_48x48.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Filter>Ressourcendateien</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Gemwest.rc">
+      <Filter>Ressourcendateien</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
