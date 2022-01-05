@@ -125,8 +125,9 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 	private: System::Windows::Forms::NumericUpDown^ numDia2;
 	private: System::Windows::Forms::NumericUpDown^ numDia1;
 	private: System::Windows::Forms::Label^ lblDepth2;
-private: System::Windows::Forms::TextBox^ txtDepthPercentage;
+
 private: System::Windows::Forms::Panel^ panel1;
+private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 
 
 
@@ -162,10 +163,10 @@ private: System::Windows::Forms::Panel^ panel1;
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->numDepthPercentage = (gcnew System::Windows::Forms::NumericUpDown());
 			this->lblDepth = (gcnew System::Windows::Forms::Label());
 			this->lblDepth2 = (gcnew System::Windows::Forms::Label());
 			this->numDepth = (gcnew System::Windows::Forms::NumericUpDown());
-			this->txtDepthPercentage = (gcnew System::Windows::Forms::TextBox());
 			this->numDia2 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numDia1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->txtPavilionBulge = (gcnew System::Windows::Forms::TextBox());
@@ -214,6 +215,7 @@ private: System::Windows::Forms::Panel^ panel1;
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepthPercentage))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->BeginInit();
@@ -389,14 +391,24 @@ private: System::Windows::Forms::Panel^ panel1;
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->panel1->Controls->Add(this->numDepthPercentage);
 			this->panel1->Controls->Add(this->lblDepth);
 			this->panel1->Controls->Add(this->lblDepth2);
 			this->panel1->Controls->Add(this->numDepth);
-			this->panel1->Controls->Add(this->txtDepthPercentage);
 			this->panel1->Location = System::Drawing::Point(332, 29);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(121, 114);
 			this->panel1->TabIndex = 38;
+			// 
+			// numDepthPercentage
+			// 
+			this->numDepthPercentage->DecimalPlaces = 2;
+			this->numDepthPercentage->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
+			this->numDepthPercentage->Location = System::Drawing::Point(13, 75);
+			this->numDepthPercentage->Name = L"numDepthPercentage";
+			this->numDepthPercentage->Size = System::Drawing::Size(100, 20);
+			this->numDepthPercentage->TabIndex = 38;
+			this->numDepthPercentage->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepthPercentage_ValueChanged);
 			// 
 			// lblDepth
 			// 
@@ -424,16 +436,7 @@ private: System::Windows::Forms::Panel^ panel1;
 			this->numDepth->Name = L"numDepth";
 			this->numDepth->Size = System::Drawing::Size(100, 20);
 			this->numDepth->TabIndex = 35;
-			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged);
-			// 
-			// txtDepthPercentage
-			// 
-			this->txtDepthPercentage->Location = System::Drawing::Point(11, 77);
-			this->txtDepthPercentage->Name = L"txtDepthPercentage";
-			this->txtDepthPercentage->Size = System::Drawing::Size(100, 20);
-			this->txtDepthPercentage->TabIndex = 36;
-			this->txtDepthPercentage->TextChanged += gcnew System::EventHandler(this, &Form1::txtDepthPercentage_TextChanged);
-			this->txtDepthPercentage->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtDepthPercentage_KeyPress);
+			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged_1);
 			// 
 			// numDia2
 			// 
@@ -938,6 +941,7 @@ private: System::Windows::Forms::Panel^ panel1;
 			this->groupBox1->PerformLayout();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepthPercentage))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->EndInit();
@@ -1503,22 +1507,22 @@ private: System::Void numSG_ValueChanged(System::Object^ sender, System::EventAr
 }
 private: System::Void numDepth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 
-	double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
-	double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
+	//double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
+	//double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
 
 
-	double lwRatio = Math::Round(widthInMm / depthInMm,2);
-	double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+	//double lwRatio = Math::Round(widthInMm / depthInMm,2);
+	//double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
 
 
-	String^ lwString= System::Convert::ToString(lwRatio);
-	String^ lWtxt = "LW Ratio = " + lwString + ":1";
-	String^ percString = System::Convert::ToString(depthPercentage);
+	//String^ lwString= System::Convert::ToString(lwRatio);
+	//String^ lWtxt = "LW Ratio = " + lwString + ":1";
+	//String^ percString = System::Convert::ToString(depthPercentage);
 
 
-	this->lblDepthPerc->Text = "Depth = " + percString + "%";
-	this->txtDepthPercentage->Text = percString;
-	this->lblLwRatio->Text = lWtxt;
+	//this->lblDepthPerc->Text = "Depth = " + percString + "%";
+	//this->txtDepthPercentage->Text = percString;
+	//this->lblLwRatio->Text = lWtxt;
 }
 
 private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -1539,7 +1543,7 @@ private: System::Void numDia2_ValueChanged(System::Object^ sender, System::Event
 
 
 	this->lblDepthPerc->Text = "Depth = " + percString + "%";
-	this->txtDepthPercentage->Text = percString;
+	this->numDepthPercentage->Text = percString;
 	this->lblLwRatio->Text = lWtxt;
 
 }
@@ -1547,44 +1551,97 @@ private: System::Void numDia2_ValueChanged(System::Object^ sender, System::Event
 
 private: System::Void txtDepthPercentage_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
-	{
-		// Only allow 1 decimal point
-		if (e->KeyChar == '.')
-		{
-			if (this->txtDepthPercentage->Text->Contains(".") && !this->txtDepthPercentage->SelectedText->Contains("."))
-				e->Handled = true;
-		}
-		else if (e->KeyChar == '%')
-			{
-				if (this->txtDepthPercentage->Text->Contains(".") && !this->txtDepthPercentage->SelectedText->Contains("%."))
-					e->Handled = true;
-			}
+	//{
+	//	// Only allow 1 decimal point
+	//	if (e->KeyChar == '.')
+	//	{
+	//		if (this->txtDepthPercentage->Text->Contains(".") && !this->txtDepthPercentage->SelectedText->Contains("."))
+	//			e->Handled = true;
+	//	}
+	//	else if (e->KeyChar == '%')
+	//		{
+	//			if (this->txtDepthPercentage->Text->Contains(".") && !this->txtDepthPercentage->SelectedText->Contains("%."))
+	//				e->Handled = true;
+	//		}
 
-		// Accept only digits "." and the Backspace character
-		else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
-			e->Handled = true;
-	}
+	//	// Accept only digits "." and the Backspace character
+	//	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
+	//		e->Handled = true;
+	//}
+	//String^ stripPercSign = this->txtDepthPercentage->Text->Replace("%", "");
+	////MessageBox::Show(stripPercSign);
+	//double thisDepth = System::Convert::ToDouble(stripPercSign);
+	//double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
+
+
+	//double percentToMm = Math::Round(widthInMm / thisDepth, 2) * 100;
+	//String^ percentToMmStr = System::Convert::ToString(percentToMm);
+	////double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+
+	//this->numDepth->Text = percentToMmStr;
+}
+
+private: System::Void numDepth_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+//	double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
+//double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
+//
+//
+//double lwRatio = Math::Round(widthInMm / depthInMm,2);
+//double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+//
+//
+//String^ lwString= System::Convert::ToString(lwRatio);
+//String^ lWtxt = "LW Ratio = " + lwString + ":1";
+//String^ percString = System::Convert::ToString(depthPercentage);
+//
+//
+//this->lblDepthPerc->Text = "Depth = " + percString + "%";
+//this->txtDepthPercentage->Text = percString;
+//this->lblLwRatio->Text = lWtxt;
 
 }
-private: System::Void txtDepthPercentage_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void numDepth_ValueChanged_1(System::Object^ sender, System::EventArgs^ e) {
+//		double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
+//double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
+//
+//
+//double lwRatio = Math::Round(widthInMm / depthInMm,2);
+//double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+//
+//
+//String^ lwString= System::Convert::ToString(lwRatio);
+//String^ lWtxt = "LW Ratio = " + lwString + ":1";
+//String^ percString = System::Convert::ToString(depthPercentage);
+//
+//
+//this->lblDepthPerc->Text = "Depth = " + percString + "%";
+//this->numDepthPercentage->Text = percString;
+//this->lblLwRatio->Text = lWtxt;
 
-	//using System;
+}
+private: System::Void numDepthPercentage_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 
-	//public class Example
-	//{
-	//	public static void Main()
-	//	{
-	//		String phrase = "a cold, dark night";
-	//		Console.WriteLine("Before: {0}", phrase);
-	//		phrase = phrase.Replace(",", "");
-	//		Console.WriteLine("After: {0}", phrase);
-	//	}
-	//}
-	// The example displays the following output:
-	//       Before: a cold, dark night
-	//       After: a cold dark night
-	String^ stripPercSign = this->txtDepthPercentage->Text->Replace("%", "");
-	MessageBox::Show(stripPercSign);
+	//double depthInMmPercent = System::Convert::ToDouble(this->numDepthPercentage->Text);
+	//double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
+	//double newMmValue =(widthInMm / depthInMmPercent) * 100;
+	//String^ mmText = System::Convert::ToString(newMmValue);
+	//this->numDepth->Text = mmText;
+
+
+
+	//double lwRatio = Math::Round(widthInMm / depthInMm, 2);
+	//double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+
+
+	//String^ lwString = System::Convert::ToString(lwRatio);
+	//String^ lWtxt = "LW Ratio = " + lwString + ":1";
+	//String^ percString = System::Convert::ToString(depthPercentage);
+
+
+	//this->lblDepthPerc->Text = "Depth = " + percString + "%";
+	//this->txtDepthPercentage->Text = percString;
+	//this->lblLwRatio->Text = lWtxt;
+
 }
 };
 }
