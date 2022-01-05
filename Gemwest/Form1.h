@@ -102,7 +102,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::TrackBar^ tbGirdleThickness;
 	private: System::Windows::Forms::TrackBar^ tbOtherNudge;
 	private: System::Windows::Forms::TrackBar^ tbGlobalAdj;
-	private: System::Windows::Forms::GroupBox^ groupBox3;
+
 	private: System::Windows::Forms::TextBox^ txtCutSel;
 	private: System::Windows::Forms::Label^ lblSelectedCut;
 
@@ -124,10 +124,12 @@ private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 	private: System::Windows::Forms::NumericUpDown^ numDepth;
 	private: System::Windows::Forms::NumericUpDown^ numDia2;
 	private: System::Windows::Forms::NumericUpDown^ numDia1;
-	private: System::Windows::Forms::Label^ lblDepth2;
+
 
 private: System::Windows::Forms::Panel^ panel1;
-private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
+private: System::Windows::Forms::RadioButton^ radDepthAsPerc;
+private: System::Windows::Forms::RadioButton^ radDepthAsMm;
+
 
 
 
@@ -163,9 +165,9 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->numDepthPercentage = (gcnew System::Windows::Forms::NumericUpDown());
+			this->radDepthAsPerc = (gcnew System::Windows::Forms::RadioButton());
+			this->radDepthAsMm = (gcnew System::Windows::Forms::RadioButton());
 			this->lblDepth = (gcnew System::Windows::Forms::Label());
-			this->lblDepth2 = (gcnew System::Windows::Forms::Label());
 			this->numDepth = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numDia2 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numDia1 = (gcnew System::Windows::Forms::NumericUpDown());
@@ -179,7 +181,6 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			this->tbOtherNudge = (gcnew System::Windows::Forms::TrackBar());
 			this->cbInterpolate = (gcnew System::Windows::Forms::CheckBox());
 			this->tbGlobalAdj = (gcnew System::Windows::Forms::TrackBar());
-			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->lblLwRatio = (gcnew System::Windows::Forms::Label());
 			this->lblDepthPerc = (gcnew System::Windows::Forms::Label());
 			this->lblPavilionBulge = (gcnew System::Windows::Forms::Label());
@@ -215,7 +216,6 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
 			this->panel1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepthPercentage))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->BeginInit();
@@ -223,7 +223,6 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOtherNudge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGlobalAdj))->BeginInit();
-			this->groupBox3->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numSG))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->BeginInit();
@@ -299,9 +298,9 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			// 
 			// btnEq
 			// 
-			this->btnEq->Location = System::Drawing::Point(116, 45);
+			this->btnEq->Location = System::Drawing::Point(151, 45);
 			this->btnEq->Name = L"btnEq";
-			this->btnEq->Size = System::Drawing::Size(100, 20);
+			this->btnEq->Size = System::Drawing::Size(37, 20);
 			this->btnEq->TabIndex = 1;
 			this->btnEq->Text = L"=";
 			this->btnEq->UseVisualStyleBackColor = true;
@@ -355,6 +354,7 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			// groupBox1
 			// 
 			this->groupBox1->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->groupBox1->Controls->Add(this->lblLwRatio);
 			this->groupBox1->Controls->Add(this->panel1);
 			this->groupBox1->Controls->Add(this->numDia2);
 			this->groupBox1->Controls->Add(this->numDia1);
@@ -368,7 +368,6 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			this->groupBox1->Controls->Add(this->tbOtherNudge);
 			this->groupBox1->Controls->Add(this->cbInterpolate);
 			this->groupBox1->Controls->Add(this->tbGlobalAdj);
-			this->groupBox1->Controls->Add(this->groupBox3);
 			this->groupBox1->Controls->Add(this->lblPavilionBulge);
 			this->groupBox1->Controls->Add(this->lblGirdleThickness);
 			this->groupBox1->Controls->Add(this->lblOther);
@@ -391,52 +390,55 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
-			this->panel1->Controls->Add(this->numDepthPercentage);
+			this->panel1->Controls->Add(this->radDepthAsPerc);
+			this->panel1->Controls->Add(this->lblDepthPerc);
+			this->panel1->Controls->Add(this->radDepthAsMm);
 			this->panel1->Controls->Add(this->lblDepth);
-			this->panel1->Controls->Add(this->lblDepth2);
 			this->panel1->Controls->Add(this->numDepth);
-			this->panel1->Location = System::Drawing::Point(332, 29);
+			this->panel1->Location = System::Drawing::Point(332, 11);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(121, 114);
+			this->panel1->Size = System::Drawing::Size(121, 149);
 			this->panel1->TabIndex = 38;
 			// 
-			// numDepthPercentage
+			// radDepthAsPerc
 			// 
-			this->numDepthPercentage->DecimalPlaces = 2;
-			this->numDepthPercentage->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numDepthPercentage->Location = System::Drawing::Point(13, 75);
-			this->numDepthPercentage->Name = L"numDepthPercentage";
-			this->numDepthPercentage->Size = System::Drawing::Size(100, 20);
-			this->numDepthPercentage->TabIndex = 38;
-			this->numDepthPercentage->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepthPercentage_ValueChanged);
+			this->radDepthAsPerc->AutoSize = true;
+			this->radDepthAsPerc->Location = System::Drawing::Point(18, 89);
+			this->radDepthAsPerc->Name = L"radDepthAsPerc";
+			this->radDepthAsPerc->Size = System::Drawing::Size(39, 17);
+			this->radDepthAsPerc->TabIndex = 37;
+			this->radDepthAsPerc->Text = L"(%)";
+			this->radDepthAsPerc->UseVisualStyleBackColor = true;
+			// 
+			// radDepthAsMm
+			// 
+			this->radDepthAsMm->AutoSize = true;
+			this->radDepthAsMm->Checked = true;
+			this->radDepthAsMm->Location = System::Drawing::Point(18, 66);
+			this->radDepthAsMm->Name = L"radDepthAsMm";
+			this->radDepthAsMm->Size = System::Drawing::Size(47, 17);
+			this->radDepthAsMm->TabIndex = 36;
+			this->radDepthAsMm->TabStop = true;
+			this->radDepthAsMm->Text = L"(mm)";
+			this->radDepthAsMm->UseVisualStyleBackColor = true;
 			// 
 			// lblDepth
 			// 
 			this->lblDepth->AutoSize = true;
-			this->lblDepth->Location = System::Drawing::Point(40, 13);
+			this->lblDepth->Location = System::Drawing::Point(42, 18);
 			this->lblDepth->Name = L"lblDepth";
 			this->lblDepth->Size = System::Drawing::Size(36, 13);
 			this->lblDepth->TabIndex = 19;
 			this->lblDepth->Text = L"Depth";
 			// 
-			// lblDepth2
-			// 
-			this->lblDepth2->AutoSize = true;
-			this->lblDepth2->Location = System::Drawing::Point(40, 59);
-			this->lblDepth2->Name = L"lblDepth2";
-			this->lblDepth2->Size = System::Drawing::Size(47, 13);
-			this->lblDepth2->TabIndex = 37;
-			this->lblDepth2->Text = L"Depth %";
-			// 
 			// numDepth
 			// 
 			this->numDepth->DecimalPlaces = 2;
 			this->numDepth->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numDepth->Location = System::Drawing::Point(11, 29);
+			this->numDepth->Location = System::Drawing::Point(7, 34);
 			this->numDepth->Name = L"numDepth";
 			this->numDepth->Size = System::Drawing::Size(100, 20);
 			this->numDepth->TabIndex = 35;
-			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged_1);
 			// 
 			// numDia2
 			// 
@@ -456,6 +458,7 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			this->numDia1->Name = L"numDia1";
 			this->numDia1->Size = System::Drawing::Size(100, 20);
 			this->numDia1->TabIndex = 25;
+			this->numDia1->ValueChanged += gcnew System::EventHandler(this, &Form1::numDia1_ValueChanged);
 			// 
 			// txtPavilionBulge
 			// 
@@ -520,7 +523,7 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			// cbRecut
 			// 
 			this->cbRecut->AutoSize = true;
-			this->cbRecut->Location = System::Drawing::Point(210, 126);
+			this->cbRecut->Location = System::Drawing::Point(6, 109);
 			this->cbRecut->Name = L"cbRecut";
 			this->cbRecut->Size = System::Drawing::Size(61, 17);
 			this->cbRecut->TabIndex = 12;
@@ -543,7 +546,7 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			// cbInterpolate
 			// 
 			this->cbInterpolate->AutoSize = true;
-			this->cbInterpolate->Location = System::Drawing::Point(210, 95);
+			this->cbInterpolate->Location = System::Drawing::Point(6, 78);
 			this->cbInterpolate->Name = L"cbInterpolate";
 			this->cbInterpolate->Size = System::Drawing::Size(82, 17);
 			this->cbInterpolate->TabIndex = 11;
@@ -563,23 +566,12 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			this->tbGlobalAdj->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbGlobalAdj->Scroll += gcnew System::EventHandler(this, &Form1::tbGlobalAdj_Scroll);
 			// 
-			// groupBox3
-			// 
-			this->groupBox3->Controls->Add(this->lblLwRatio);
-			this->groupBox3->Controls->Add(this->lblDepthPerc);
-			this->groupBox3->Location = System::Drawing::Point(59, 75);
-			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(145, 85);
-			this->groupBox3->TabIndex = 25;
-			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Dimension:";
-			// 
 			// lblLwRatio
 			// 
 			this->lblLwRatio->AutoSize = true;
 			this->lblLwRatio->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblLwRatio->Location = System::Drawing::Point(18, 25);
+			this->lblLwRatio->Location = System::Drawing::Point(120, 29);
 			this->lblLwRatio->Name = L"lblLwRatio";
 			this->lblLwRatio->Size = System::Drawing::Size(97, 13);
 			this->lblLwRatio->TabIndex = 15;
@@ -590,7 +582,7 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			this->lblDepthPerc->AutoSize = true;
 			this->lblDepthPerc->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblDepthPerc->Location = System::Drawing::Point(18, 52);
+			this->lblDepthPerc->Location = System::Drawing::Point(15, 119);
 			this->lblDepthPerc->Name = L"lblDepthPerc";
 			this->lblDepthPerc->Size = System::Drawing::Size(79, 13);
 			this->lblDepthPerc->TabIndex = 16;
@@ -941,7 +933,6 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			this->groupBox1->PerformLayout();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepthPercentage))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->EndInit();
@@ -949,8 +940,6 @@ private: System::Windows::Forms::NumericUpDown^ numDepthPercentage;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOtherNudge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGlobalAdj))->EndInit();
-			this->groupBox3->ResumeLayout(false);
-			this->groupBox3->PerformLayout();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numSG))->EndInit();
@@ -1528,28 +1517,30 @@ private: System::Void numDepth_ValueChanged(System::Object^ sender, System::Even
 private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (!this->numDia1->Text->Equals("0.00")) {
+		if (!this->numDia2->Text->Equals("0.00")) {
+			double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
+				double lengthInMm = System::Convert::ToDouble(this->numDia1->Text);
+				double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
 
-	double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
-	double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
-
-
-	double lwRatio = Math::Round(widthInMm / depthInMm, 2);
-	double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
-
-
-	String^ lwString = System::Convert::ToString(lwRatio);
-	String^ lWtxt = "LW Ratio = " + lwString + ":1";
-	String^ percString = System::Convert::ToString(depthPercentage);
+				double lwRatio = Math::Round(lengthInMm / widthInMm, 2);
+				double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
 
 
-	this->lblDepthPerc->Text = "Depth = " + percString + "%";
-	this->numDepthPercentage->Text = percString;
-	this->lblLwRatio->Text = lWtxt;
+				String^ lwString = System::Convert::ToString(lwRatio);
+				String^ lWtxt = "LW Ratio = " + lwString + ":1";
+				String^ percString = System::Convert::ToString(depthPercentage);
 
+
+			this->lblDepthPerc->Text = "Depth = " + percString + "%";
+			this->lblLwRatio->Text = lWtxt;
+		} // end numDia1 or numDia2 == 0
+	}
 }
 
 
 private: System::Void txtDepthPercentage_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	
 	//control.Value = newvalue; to if (control.Value != newvalue) control.Value = newvalue; .
 	//{
 	//	// Only allow 1 decimal point
@@ -1581,67 +1572,24 @@ private: System::Void txtDepthPercentage_KeyPress(System::Object^ sender, System
 	//this->numDepth->Text = percentToMmStr;
 }
 
-private: System::Void numDepth_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-//	double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
-//double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
-//
-//
-//double lwRatio = Math::Round(widthInMm / depthInMm,2);
-//double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
-//
-//
-//String^ lwString= System::Convert::ToString(lwRatio);
-//String^ lWtxt = "LW Ratio = " + lwString + ":1";
-//String^ percString = System::Convert::ToString(depthPercentage);
-//
-//
-//this->lblDepthPerc->Text = "Depth = " + percString + "%";
-//this->txtDepthPercentage->Text = percString;
-//this->lblLwRatio->Text = lWtxt;
 
-}
-private: System::Void numDepth_ValueChanged_1(System::Object^ sender, System::EventArgs^ e) {
-//		double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
-//double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
-//
-//
-//double lwRatio = Math::Round(widthInMm / depthInMm,2);
-//double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
-//
-//
-//String^ lwString= System::Convert::ToString(lwRatio);
-//String^ lWtxt = "LW Ratio = " + lwString + ":1";
-//String^ percString = System::Convert::ToString(depthPercentage);
-//
-//
-//this->lblDepthPerc->Text = "Depth = " + percString + "%";
-//this->numDepthPercentage->Text = percString;
-//this->lblLwRatio->Text = lWtxt;
+private: System::Void numDia1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 
-}
-private: System::Void numDepthPercentage_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (!this->numDia2->Text->Equals("0.00")) {
+		if (!this->numDia1->Text->Equals("0.00")) {
+			double lengthInMm = System::Convert::ToDouble(this->numDia1->Text);
+				double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
 
-	//double depthInMmPercent = System::Convert::ToDouble(this->numDepthPercentage->Text);
-	//double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
-	//double newMmValue =(widthInMm / depthInMmPercent) * 100;
-	//String^ mmText = System::Convert::ToString(newMmValue);
-	//this->numDepth->Text = mmText;
+				double lwRatio = Math::Round(lengthInMm / widthInMm, 2);
 
 
 
-	//double lwRatio = Math::Round(widthInMm / depthInMm, 2);
-	//double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+				String^ lwString = System::Convert::ToString(lwRatio);
+				String^ lWtxt = "LW Ratio = " + lwString + ":1";
 
-
-	//String^ lwString = System::Convert::ToString(lwRatio);
-	//String^ lWtxt = "LW Ratio = " + lwString + ":1";
-	//String^ percString = System::Convert::ToString(depthPercentage);
-
-
-	//this->lblDepthPerc->Text = "Depth = " + percString + "%";
-	//this->txtDepthPercentage->Text = percString;
-	//this->lblLwRatio->Text = lWtxt;
-
+				this->lblLwRatio->Text = lWtxt;
+		}
+	} //numDia1 !=0
 }
 };
 }

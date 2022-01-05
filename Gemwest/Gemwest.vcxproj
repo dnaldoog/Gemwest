@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CutDimension.h" />
     <ClInclude Include="DiamondCut.h" />
     <ClInclude Include="DiamondWeightCalculator.h" />
     <ClInclude Include="EmbeddedImage.h" />
@@ -160,6 +161,7 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
+    <ClCompile Include="CutDimension.cpp" />
     <ClCompile Include="DiamondCut.cpp" />
     <ClCompile Include="DiamondWeightCalculator.cpp" />
     <ClCompile Include="EmbeddedImage.cpp" />
