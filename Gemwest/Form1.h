@@ -1550,7 +1550,7 @@ private: System::Void numDia2_ValueChanged(System::Object^ sender, System::Event
 
 
 private: System::Void txtDepthPercentage_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-
+	//control.Value = newvalue; to if (control.Value != newvalue) control.Value = newvalue; .
 	//{
 	//	// Only allow 1 decimal point
 	//	if (e->KeyChar == '.')
