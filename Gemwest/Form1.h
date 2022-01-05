@@ -432,7 +432,8 @@ private: System::Windows::Forms::Panel^ panel1;
 			this->txtDepthPercentage->Name = L"txtDepthPercentage";
 			this->txtDepthPercentage->Size = System::Drawing::Size(100, 20);
 			this->txtDepthPercentage->TabIndex = 36;
-			this->txtDepthPercentage->TextChanged += gcnew System::EventHandler(this, &Form1::textBox1_TextChanged);
+			this->txtDepthPercentage->TextChanged += gcnew System::EventHandler(this, &Form1::txtDepthPercentage_TextChanged);
+			this->txtDepthPercentage->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtDepthPercentage_KeyPress);
 			// 
 			// numDia2
 			// 
@@ -1519,11 +1520,71 @@ private: System::Void numDepth_ValueChanged(System::Object^ sender, System::Even
 	this->txtDepthPercentage->Text = percString;
 	this->lblLwRatio->Text = lWtxt;
 }
-private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+
 private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
+	double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
+
+
+	double lwRatio = Math::Round(widthInMm / depthInMm, 2);
+	double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+
+
+	String^ lwString = System::Convert::ToString(lwRatio);
+	String^ lWtxt = "LW Ratio = " + lwString + ":1";
+	String^ percString = System::Convert::ToString(depthPercentage);
+
+
+	this->lblDepthPerc->Text = "Depth = " + percString + "%";
+	this->txtDepthPercentage->Text = percString;
+	this->lblLwRatio->Text = lWtxt;
+
+}
+
+
+private: System::Void txtDepthPercentage_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+
+	{
+		// Only allow 1 decimal point
+		if (e->KeyChar == '.')
+		{
+			if (this->txtDepthPercentage->Text->Contains(".") && !this->txtDepthPercentage->SelectedText->Contains("."))
+				e->Handled = true;
+		}
+		else if (e->KeyChar == '%')
+			{
+				if (this->txtDepthPercentage->Text->Contains(".") && !this->txtDepthPercentage->SelectedText->Contains("%."))
+					e->Handled = true;
+			}
+
+		// Accept only digits "." and the Backspace character
+		else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
+			e->Handled = true;
+	}
+
+}
+private: System::Void txtDepthPercentage_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	//using System;
+
+	//public class Example
+	//{
+	//	public static void Main()
+	//	{
+	//		String phrase = "a cold, dark night";
+	//		Console.WriteLine("Before: {0}", phrase);
+	//		phrase = phrase.Replace(",", "");
+	//		Console.WriteLine("After: {0}", phrase);
+	//	}
+	//}
+	// The example displays the following output:
+	//       Before: a cold, dark night
+	//       After: a cold dark night
+	String^ stripPercSign = this->txtDepthPercentage->Text->Replace("%", "");
+	MessageBox::Show(stripPercSign);
 }
 };
 }
