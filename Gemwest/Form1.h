@@ -5,8 +5,6 @@
 #include "EmbeddedImage.h"
 #include "resource1.h"
 #include "CutDim.h"
-#include "DiamondWeightCalculator.h"
-#include "GemWeightCalculator.h"
 
 namespace CppCLRWinformsProjekt {
 //
@@ -1018,10 +1016,10 @@ private: System::Void buttonCalc_Click(System::Object^ sender, System::EventArgs
 		}
 	else {
 		if (this->radioBtnDia->Checked) {
-			DiamondWeightCalculator^ C = gcnew DiamondWeightCalculator;
+
 		}
 		else if (this->radioBtnGem->Checked) {
-			GemWeightCalculator^ C = gcnew GemWeightCalculator;
+
 		}
 		//DiamondWeightCalculator^ calculateWeight = gcnew DiamondWeightCalculator;
 	} // text is valid
@@ -1501,7 +1499,6 @@ private: System::Void numDia2_ValueChanged(System::Object^ sender, System::Event
 				lwRatio = Math::Round(lengthInMm / widthInMm, 2);
 				depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
 			}
-
 
 			String^ lwString = System::Convert::ToString(lwRatio);
 			String^ lWtxt = "LW Ratio = " + lwString + ":1";
