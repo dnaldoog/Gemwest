@@ -45,6 +45,9 @@
     <ClInclude Include="GemWeightCalculator.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="CutDim.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -75,6 +78,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="GemWeightCalculator.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CutDim.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -854,6 +860,9 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\icons\gemwest_48x48.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\lwguide.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>
