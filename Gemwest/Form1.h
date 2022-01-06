@@ -5,6 +5,8 @@
 #include "EmbeddedImage.h"
 #include "resource1.h"
 #include "CutDim.h"
+#include "DCalc.h"
+#include "GCalc.h"
 
 namespace CppCLRWinformsProjekt {
 	//
@@ -47,10 +49,25 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 
-	private: System::Windows::Forms::Button^ btnEq;
+	protected:
 
+	private: System::Windows::Forms::Button^ btnEq;
+		   bool Form1::isRoundish(){
+			   bool r = true;
+		   if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
+			   r = true;
+		   }
+		   else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
+			   r = false;
+		   }
+		   else {
+			   r = CutDim::isRoundish(this->comboCut->Text);
+		   }
+		   return r;
+		   } //end function isRoundish
 		   void Form1::onScreenInfo() {
-			   bool isRoundish = true;
+
+			   bool isRoundish = this->isRoundish();
 			   if (!this->numDia1->Text->Equals("0.00")) {
 
 				   if (!this->numDia2->Text->Equals("0.00")) {
@@ -64,15 +81,7 @@ namespace CppCLRWinformsProjekt {
 					   /* the cut hasn't been chosen so we need to determine how to calculate Width
 					   Should it be just Width or Diameter-1 + Diameter-2/2 ?
 					   */
-					   if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
-						   isRoundish = true;
-					   }
-					   else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
-						   isRoundish = false;
-					   }
-					   else {
-						   isRoundish = CutDim::isRoundish(this->comboCut->Text);
-					   }
+
 
 					   if (isRoundish) {
 						   lwRatio = Math::Round(lengthInMm / widthInMm, 2);
@@ -132,7 +141,7 @@ namespace CppCLRWinformsProjekt {
 
 	private: System::Windows::Forms::Label^ lblGirdleThickness;
 
-	private: System::Windows::Forms::Label^ lblOther;
+
 
 	private: System::Windows::Forms::Label^ lblGlobAdj;
 
@@ -147,10 +156,11 @@ namespace CppCLRWinformsProjekt {
 
 
 	private: System::Windows::Forms::TrackBar^ tbGirdleThickness;
-	private: System::Windows::Forms::TrackBar^ tbOtherNudge;
-	private: System::Windows::Forms::TrackBar^ tbGlobalAdj;
 
-	private: System::Windows::Forms::TextBox^ txtCutSel;
+	private: System::Windows::Forms::TrackBar^ tbGlobalAdj;
+private: System::Windows::Forms::TextBox^ txtFactor;
+
+
 	private: System::Windows::Forms::Label^ lblSelectedCut;
 
 	private: System::Windows::Forms::ComboBox^ comboCut;
@@ -159,7 +169,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::ComboBox^ comboGems;
 	private: System::Windows::Forms::TextBox^ txtPavilionBulge;
 	private: System::Windows::Forms::TextBox^ txtGirdleThickness;
-	private: System::Windows::Forms::TextBox^ txtOther;
+
 	private: System::Windows::Forms::TextBox^ txtGlobAdjust;
 	private: System::Windows::Forms::PictureBox^ picGem;
 	private: System::Windows::Forms::PictureBox^ picCut;
@@ -208,17 +218,14 @@ namespace CppCLRWinformsProjekt {
 			this->numDia1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->txtPavilionBulge = (gcnew System::Windows::Forms::TextBox());
 			this->txtGirdleThickness = (gcnew System::Windows::Forms::TextBox());
-			this->txtOther = (gcnew System::Windows::Forms::TextBox());
 			this->txtGlobAdjust = (gcnew System::Windows::Forms::TextBox());
 			this->tbPavilionBulge = (gcnew System::Windows::Forms::TrackBar());
 			this->tbGirdleThickness = (gcnew System::Windows::Forms::TrackBar());
 			this->cbRecut = (gcnew System::Windows::Forms::CheckBox());
-			this->tbOtherNudge = (gcnew System::Windows::Forms::TrackBar());
 			this->cbInterpolate = (gcnew System::Windows::Forms::CheckBox());
 			this->tbGlobalAdj = (gcnew System::Windows::Forms::TrackBar());
 			this->lblPavilionBulge = (gcnew System::Windows::Forms::Label());
 			this->lblGirdleThickness = (gcnew System::Windows::Forms::Label());
-			this->lblOther = (gcnew System::Windows::Forms::Label());
 			this->lblGlobAdj = (gcnew System::Windows::Forms::Label());
 			this->lblResult = (gcnew System::Windows::Forms::Label());
 			this->lblDia2 = (gcnew System::Windows::Forms::Label());
@@ -231,7 +238,7 @@ namespace CppCLRWinformsProjekt {
 			this->picCut = (gcnew System::Windows::Forms::PictureBox());
 			this->lblSgValue = (gcnew System::Windows::Forms::Label());
 			this->lblCutFactor = (gcnew System::Windows::Forms::Label());
-			this->txtCutSel = (gcnew System::Windows::Forms::TextBox());
+			this->txtFactor = (gcnew System::Windows::Forms::TextBox());
 			this->lblSelectedCut = (gcnew System::Windows::Forms::Label());
 			this->comboCut = (gcnew System::Windows::Forms::ComboBox());
 			this->radioBtnGem = (gcnew System::Windows::Forms::RadioButton());
@@ -254,7 +261,6 @@ namespace CppCLRWinformsProjekt {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOtherNudge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGlobalAdj))->BeginInit();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numSG))->BeginInit();
@@ -331,7 +337,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// btnEq
 			// 
-			this->btnEq->Location = System::Drawing::Point(151, 45);
+			this->btnEq->Location = System::Drawing::Point(160, 45);
 			this->btnEq->Name = L"btnEq";
 			this->btnEq->Size = System::Drawing::Size(37, 20);
 			this->btnEq->TabIndex = 1;
@@ -394,17 +400,14 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->Controls->Add(this->numDia1);
 			this->lwguide->Controls->Add(this->txtPavilionBulge);
 			this->lwguide->Controls->Add(this->txtGirdleThickness);
-			this->lwguide->Controls->Add(this->txtOther);
 			this->lwguide->Controls->Add(this->txtGlobAdjust);
 			this->lwguide->Controls->Add(this->tbPavilionBulge);
 			this->lwguide->Controls->Add(this->tbGirdleThickness);
 			this->lwguide->Controls->Add(this->cbRecut);
-			this->lwguide->Controls->Add(this->tbOtherNudge);
 			this->lwguide->Controls->Add(this->cbInterpolate);
 			this->lwguide->Controls->Add(this->tbGlobalAdj);
 			this->lwguide->Controls->Add(this->lblPavilionBulge);
 			this->lwguide->Controls->Add(this->lblGirdleThickness);
-			this->lwguide->Controls->Add(this->lblOther);
 			this->lwguide->Controls->Add(this->lblGlobAdj);
 			this->lwguide->Controls->Add(this->lblResult);
 			this->lwguide->Controls->Add(this->lblDia2);
@@ -437,7 +440,7 @@ namespace CppCLRWinformsProjekt {
 			this->lblLwRatio->AutoSize = true;
 			this->lblLwRatio->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblLwRatio->Location = System::Drawing::Point(127, 29);
+			this->lblLwRatio->Location = System::Drawing::Point(138, 29);
 			this->lblLwRatio->Name = L"lblLwRatio";
 			this->lblLwRatio->Size = System::Drawing::Size(82, 13);
 			this->lblLwRatio->TabIndex = 15;
@@ -451,7 +454,7 @@ namespace CppCLRWinformsProjekt {
 			this->panel1->Controls->Add(this->radDepthAsMm);
 			this->panel1->Controls->Add(this->lblDepth);
 			this->panel1->Controls->Add(this->numDepth);
-			this->panel1->Location = System::Drawing::Point(332, 11);
+			this->panel1->Location = System::Drawing::Point(352, 19);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(121, 149);
 			this->panel1->TabIndex = 38;
@@ -526,7 +529,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->numDia1->DecimalPlaces = 2;
 			this->numDia1->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numDia1->Location = System::Drawing::Point(6, 45);
+			this->numDia1->Location = System::Drawing::Point(22, 45);
 			this->numDia1->Name = L"numDia1";
 			this->numDia1->Size = System::Drawing::Size(100, 20);
 			this->numDia1->TabIndex = 25;
@@ -535,7 +538,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txtPavilionBulge
 			// 
-			this->txtPavilionBulge->Location = System::Drawing::Point(350, 231);
+			this->txtPavilionBulge->Location = System::Drawing::Point(388, 231);
 			this->txtPavilionBulge->Name = L"txtPavilionBulge";
 			this->txtPavilionBulge->Size = System::Drawing::Size(85, 20);
 			this->txtPavilionBulge->TabIndex = 33;
@@ -544,25 +547,16 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txtGirdleThickness
 			// 
-			this->txtGirdleThickness->Location = System::Drawing::Point(237, 231);
+			this->txtGirdleThickness->Location = System::Drawing::Point(276, 231);
 			this->txtGirdleThickness->Name = L"txtGirdleThickness";
 			this->txtGirdleThickness->Size = System::Drawing::Size(85, 20);
 			this->txtGirdleThickness->TabIndex = 32;
 			this->txtGirdleThickness->Text = L"0%";
 			this->txtGirdleThickness->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
-			// txtOther
-			// 
-			this->txtOther->Location = System::Drawing::Point(130, 231);
-			this->txtOther->Name = L"txtOther";
-			this->txtOther->Size = System::Drawing::Size(85, 20);
-			this->txtOther->TabIndex = 31;
-			this->txtOther->Text = L"0%";
-			this->txtOther->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
 			// txtGlobAdjust
 			// 
-			this->txtGlobAdjust->Location = System::Drawing::Point(18, 231);
+			this->txtGlobAdjust->Location = System::Drawing::Point(164, 231);
 			this->txtGlobAdjust->Name = L"txtGlobAdjust";
 			this->txtGlobAdjust->Size = System::Drawing::Size(85, 20);
 			this->txtGlobAdjust->TabIndex = 30;
@@ -571,7 +565,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// tbPavilionBulge
 			// 
-			this->tbPavilionBulge->Location = System::Drawing::Point(345, 193);
+			this->tbPavilionBulge->Location = System::Drawing::Point(378, 193);
 			this->tbPavilionBulge->Maximum = 30;
 			this->tbPavilionBulge->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->MinimumSize = System::Drawing::Size(104, 30);
@@ -583,7 +577,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// tbGirdleThickness
 			// 
-			this->tbGirdleThickness->Location = System::Drawing::Point(232, 193);
+			this->tbGirdleThickness->Location = System::Drawing::Point(267, 193);
 			this->tbGirdleThickness->Maximum = 15;
 			this->tbGirdleThickness->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->MinimumSize = System::Drawing::Size(104, 30);
@@ -596,29 +590,17 @@ namespace CppCLRWinformsProjekt {
 			// cbRecut
 			// 
 			this->cbRecut->AutoSize = true;
-			this->cbRecut->Location = System::Drawing::Point(18, 143);
+			this->cbRecut->Location = System::Drawing::Point(40, 257);
 			this->cbRecut->Name = L"cbRecut";
 			this->cbRecut->Size = System::Drawing::Size(61, 17);
 			this->cbRecut->TabIndex = 12;
 			this->cbRecut->Text = L"Recut\?";
 			this->cbRecut->UseVisualStyleBackColor = true;
 			// 
-			// tbOtherNudge
-			// 
-			this->tbOtherNudge->Location = System::Drawing::Point(123, 193);
-			this->tbOtherNudge->MaximumSize = System::Drawing::Size(104, 30);
-			this->tbOtherNudge->Minimum = -10;
-			this->tbOtherNudge->MinimumSize = System::Drawing::Size(104, 30);
-			this->tbOtherNudge->Name = L"tbOtherNudge";
-			this->tbOtherNudge->Size = System::Drawing::Size(104, 45);
-			this->tbOtherNudge->TabIndex = 27;
-			this->tbOtherNudge->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
-			this->tbOtherNudge->Scroll += gcnew System::EventHandler(this, &Form1::tbOtherNudge_Scroll);
-			// 
 			// cbInterpolate
 			// 
 			this->cbInterpolate->AutoSize = true;
-			this->cbInterpolate->Location = System::Drawing::Point(106, 143);
+			this->cbInterpolate->Location = System::Drawing::Point(40, 234);
 			this->cbInterpolate->Name = L"cbInterpolate";
 			this->cbInterpolate->Size = System::Drawing::Size(82, 17);
 			this->cbInterpolate->TabIndex = 11;
@@ -627,7 +609,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// tbGlobalAdj
 			// 
-			this->tbGlobalAdj->Location = System::Drawing::Point(10, 193);
+			this->tbGlobalAdj->Location = System::Drawing::Point(156, 193);
 			this->tbGlobalAdj->Maximum = 25;
 			this->tbGlobalAdj->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbGlobalAdj->Minimum = -25;
@@ -641,7 +623,7 @@ namespace CppCLRWinformsProjekt {
 			// lblPavilionBulge
 			// 
 			this->lblPavilionBulge->AutoSize = true;
-			this->lblPavilionBulge->Location = System::Drawing::Point(358, 176);
+			this->lblPavilionBulge->Location = System::Drawing::Point(392, 176);
 			this->lblPavilionBulge->Name = L"lblPavilionBulge";
 			this->lblPavilionBulge->Size = System::Drawing::Size(74, 13);
 			this->lblPavilionBulge->TabIndex = 24;
@@ -650,25 +632,16 @@ namespace CppCLRWinformsProjekt {
 			// lblGirdleThickness
 			// 
 			this->lblGirdleThickness->AutoSize = true;
-			this->lblGirdleThickness->Location = System::Drawing::Point(240, 176);
+			this->lblGirdleThickness->Location = System::Drawing::Point(276, 176);
 			this->lblGirdleThickness->Name = L"lblGirdleThickness";
 			this->lblGirdleThickness->Size = System::Drawing::Size(86, 13);
 			this->lblGirdleThickness->TabIndex = 23;
 			this->lblGirdleThickness->Text = L"Girdle Thickness";
 			// 
-			// lblOther
-			// 
-			this->lblOther->AutoSize = true;
-			this->lblOther->Location = System::Drawing::Point(132, 176);
-			this->lblOther->Name = L"lblOther";
-			this->lblOther->Size = System::Drawing::Size(83, 13);
-			this->lblOther->TabIndex = 22;
-			this->lblOther->Text = L"Other % (nudge)";
-			// 
 			// lblGlobAdj
 			// 
 			this->lblGlobAdj->AutoSize = true;
-			this->lblGlobAdj->Location = System::Drawing::Point(25, 176);
+			this->lblGlobAdj->Location = System::Drawing::Point(171, 176);
 			this->lblGlobAdj->Name = L"lblGlobAdj";
 			this->lblGlobAdj->Size = System::Drawing::Size(75, 13);
 			this->lblGlobAdj->TabIndex = 21;
@@ -695,7 +668,7 @@ namespace CppCLRWinformsProjekt {
 			// lblDia1
 			// 
 			this->lblDia1->AutoSize = true;
-			this->lblDia1->Location = System::Drawing::Point(27, 29);
+			this->lblDia1->Location = System::Drawing::Point(43, 29);
 			this->lblDia1->Name = L"lblDia1";
 			this->lblDia1->Size = System::Drawing::Size(58, 13);
 			this->lblDia1->TabIndex = 17;
@@ -711,7 +684,7 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox2->Controls->Add(this->picCut);
 			this->groupBox2->Controls->Add(this->lblSgValue);
 			this->groupBox2->Controls->Add(this->lblCutFactor);
-			this->groupBox2->Controls->Add(this->txtCutSel);
+			this->groupBox2->Controls->Add(this->txtFactor);
 			this->groupBox2->Controls->Add(this->lblSelectedCut);
 			this->groupBox2->Controls->Add(this->comboCut);
 			this->groupBox2->Controls->Add(this->radioBtnGem);
@@ -797,14 +770,14 @@ namespace CppCLRWinformsProjekt {
 			this->lblCutFactor->TabIndex = 18;
 			this->lblCutFactor->Text = L"Cut Factor";
 			// 
-			// txtCutSel
+			// txtFactor
 			// 
-			this->txtCutSel->Location = System::Drawing::Point(79, 108);
-			this->txtCutSel->Name = L"txtCutSel";
-			this->txtCutSel->Size = System::Drawing::Size(100, 20);
-			this->txtCutSel->TabIndex = 17;
-			this->txtCutSel->TextChanged += gcnew System::EventHandler(this, &Form1::txtCutSel_TextChanged);
-			this->txtCutSel->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtCutSel_KeyPress);
+			this->txtFactor->Location = System::Drawing::Point(79, 108);
+			this->txtFactor->Name = L"txtFactor";
+			this->txtFactor->Size = System::Drawing::Size(100, 20);
+			this->txtFactor->TabIndex = 17;
+			this->txtFactor->TextChanged += gcnew System::EventHandler(this, &Form1::txtFactor_TextChanged);
+			this->txtFactor->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtFactor_KeyPress);
 			// 
 			// lblSelectedCut
 			// 
@@ -987,7 +960,6 @@ namespace CppCLRWinformsProjekt {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOtherNudge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGlobalAdj))->EndInit();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
@@ -1017,12 +989,47 @@ namespace CppCLRWinformsProjekt {
 			MessageBox::Show(errorMessage);
 		}
 		else {
-			if (this->radioBtnDia->Checked) {
+			//if (this->radioBtnDia->Checked) {
 
-			}
-			else if (this->radioBtnGem->Checked) {
+			//}
+			//else if (this->radioBtnGem->Checked) {
 
-			}
+			//}
+
+			/*load class with GUI values from user*/
+			//String^ cutName,
+			//	String^ fac,
+			//	String^ d1,
+			//	String^ d2,
+			//	String^ dep,
+			//	String^ sg,
+			//	String^ gt,
+			//	String^ pv,
+			//	String^ adj,
+			//	bool isdiamond,
+			//	bool interp,
+			//	bool recut,
+			//	bool roundish,
+			//	bool depthisperc
+		
+		//System::Decimal^ dep = gcnew System::Decimal;
+			
+			DCalc^ C = gcnew DCalc(
+				this->comboCut->Text,
+				this->txtFactor->Text,
+				this->numDia1->Text,
+				this->numDia2->Text,
+				this->numDepth->Text,
+				this->numSG->Text,
+				this->tbGirdleThickness->Text,
+				this->txtPavilionBulge->Text,
+				this->tbGlobalAdj->Text,
+				this->radioBtnDia->Checked,
+				this->cbInterpolate->Checked,
+				this->cbRecut->Checked,
+				CutDim::isRoundish(this->comboCut->Text),
+				this->radDepthAsPerc->Checked
+			);
 			//DiamondWeightCalculator^ calculateWeight = gcnew DiamondWeightCalculator;
 		} // text is valid
 
@@ -1068,13 +1075,12 @@ namespace CppCLRWinformsProjekt {
 		this->toolStrip->Text = L"Ready..."; // clear all textBox
 		this->tbGlobalAdj->Value = 0;
 		this->tbGirdleThickness->Value = 0;
-		this->tbOtherNudge->Value = 0;
+
 		this->tbPavilionBulge->Value = 0;
 		this->tbGlobalAdj->Value = 0;
 		this->tbGirdleThickness->Value = 0;
 
 		this->txtGlobAdjust->Text = L"0%";
-		this->txtOther->Text = L"0%";
 		this->txtPavilionBulge->Text = L"0%";
 		this->txtGirdleThickness->Text = L"0%";
 
@@ -1311,24 +1317,24 @@ namespace CppCLRWinformsProjekt {
 			this->lblDia1->Text = "Length";
 			this->lblDia2->Text = "Width";
 		}
-		if (Form1::radioBtnGem->Checked) {
+		if (this->radioBtnGem->Checked) {
 			GemCut^ gc = gcnew GemCut; // Declare object
 			gc->dictInitializer();
 			String^ myGemCut = gc->getCut(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
 			//MessageBox::Show(myGemCut);
-			Form1::txtCutSel->Text = myGemCut;
+			this->txtFactor->Text = myGemCut;
 
 			EmbeddedImage^ gCutImage = gcnew EmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
 			gCutImage->setName(this->comboCut->Text);
 			this->picCut->Image = gCutImage->getName();
 		}
-		else if (Form1::radioBtnDia->Checked) {
+		else if (this->radioBtnDia->Checked) {
 			DiamondCut^ dc = gcnew DiamondCut; // Declare object
 			dc->dictInitializer();
 			String^ myDiamondCut = dc->getCut(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
 			//MessageBox::Show(myDiamondCut);
-			Form1::txtCutSel->Text = myDiamondCut;
+			this->txtFactor->Text = myDiamondCut;
 		}
 		EmbeddedImage^ dCutImage = gcnew EmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
@@ -1345,13 +1351,13 @@ namespace CppCLRWinformsProjekt {
 			//do nothing - just close dialog
 		}
 	}
-	private: System::Void txtCutSel_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	private: System::Void txtFactor_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
 		{
 			// Only allow 1 decimal point
 			if (e->KeyChar == '.')
 			{
-				if (this->txtCutSel->Text->Contains(".") && !this->txtCutSel->SelectedText->Contains("."))
+				if (this->txtFactor->Text->Contains(".") && !this->txtFactor->SelectedText->Contains("."))
 					e->Handled = true;
 			}
 			// Accept only digits "." and the Backspace character
@@ -1362,7 +1368,7 @@ namespace CppCLRWinformsProjekt {
 	}
 	private: System::Void radioBtnDia_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
-		this->txtCutSel->Clear();
+		this->txtFactor->Clear();
 		this->comboCut->ResetText();
 		this->comboCut->SelectedText = "choose from below";
 		this->comboGems->ResetText();
@@ -1385,7 +1391,7 @@ namespace CppCLRWinformsProjekt {
 		this->picCut->Image = defaultRBC->getName();
 	}
 	private: System::Void radioBtnGem_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		this->txtCutSel->Clear();
+		this->txtFactor->Clear();
 		this->comboCut->ResetText();
 		this->comboCut->SelectedText = "choose from below";
 
@@ -1412,11 +1418,6 @@ namespace CppCLRWinformsProjekt {
 
 		this->txtGlobAdjust->Text = this->tbGlobalAdj->Value.ToString() + "%";
 	}
-	private: System::Void tbOtherNudge_Scroll(System::Object^ sender, System::EventArgs^ e) {
-
-		this->txtOther->Text = this->tbOtherNudge->Value.ToString() + "%";
-	}
-
 	private: System::Void tbGirdleThickness_Scroll(System::Object^ sender, System::EventArgs^ e) {
 		this->txtGirdleThickness->Text = this->tbGirdleThickness->Value.ToString() + "%";
 		String^ gThk = "thingirdle";
@@ -1463,7 +1464,7 @@ namespace CppCLRWinformsProjekt {
 		bulgeImage->setName(pBulge);
 		this->picBulge->Image = bulgeImage->getName();
 	}
-	private: System::Void txtCutSel_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->onScreenInfo(); // print depth percentage and L/W Ratio

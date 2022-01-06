@@ -42,6 +42,12 @@
     <ClInclude Include="CutDim.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="DCalc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="GCalc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -69,6 +75,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="CutDim.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="DCalc.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="GCalc.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
