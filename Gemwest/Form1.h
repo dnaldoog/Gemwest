@@ -1039,10 +1039,6 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	//Form1 = ico->getName(); // (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 	//this->Form>Image = defaultCut->getName();
 
-	EmbeddedImage^ lwGuide = gcnew EmbeddedImage;
-	lwGuide->setName("lwguide");
-	this->picLWlines->Image = lwGuide->getName();
-
 	EmbeddedImage^ defaultCut = gcnew EmbeddedImage;
 	defaultCut->setName("round brilliant");
 	this->picCut->Image = defaultCut->getName();
@@ -1474,14 +1470,38 @@ private: System::Void txtCutSel_TextChanged(System::Object^ sender, System::Even
 
 
 private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	bool isRoundish = true;
 	if (!this->numDia1->Text->Equals("0.00")) {
+
 		if (!this->numDia2->Text->Equals("0.00")) {
 			double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
 			double lengthInMm = System::Convert::ToDouble(this->numDia1->Text);
 			double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
+			double lwRatio;
+			double depthPercentage;
 
-			double lwRatio = Math::Round(lengthInMm / widthInMm, 2);
-			double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+			/* the cut hasn't been chosen so we need to determine how to calculate Width
+			Should it be just Width or Diameter-1 + Diameter-2/2 ?
+			*/
+			if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
+				isRoundish == true;
+			}
+			else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
+				isRoundish == false;
+			}
+			else {
+				isRoundish = CutDim::isRoundish(this->comboCut->Text);
+			}
+			if (isRoundish) {
+				lwRatio = Math::Round(lengthInMm / widthInMm, 2);
+				widthInMm = (widthInMm + lengthInMm) / 2;
+				depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+			}
+			else {
+				lwRatio = Math::Round(lengthInMm / widthInMm, 2);
+				depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+			}
+
 
 			String^ lwString = System::Convert::ToString(lwRatio);
 			String^ lWtxt = "LW Ratio = " + lwString + ":1";
@@ -1494,14 +1514,37 @@ private: System::Void numDia2_ValueChanged(System::Object^ sender, System::Event
 }
 
 private: System::Void numDia1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	bool isRoundish = true;
 	if (!this->numDia1->Text->Equals("0.00")) {
+
 		if (!this->numDia2->Text->Equals("0.00")) {
 			double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
 			double lengthInMm = System::Convert::ToDouble(this->numDia1->Text);
 			double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
+			double lwRatio;
+			double depthPercentage;
 
-			double lwRatio = Math::Round(lengthInMm / widthInMm, 2);
-			double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+			/* the cut hasn't been chosen so we need to determine how to calculate Width
+			Should it be just Width or Diameter-1 + Diameter-2/2 ?
+			*/
+			if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
+				isRoundish == true;
+			}else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
+				isRoundish == false;
+			}
+			else {
+				isRoundish = CutDim::isRoundish(this->comboCut->Text);
+			}
+			if (isRoundish) {
+				lwRatio = Math::Round(lengthInMm / widthInMm, 2);
+				widthInMm = (widthInMm + lengthInMm) / 2;
+				depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+			}
+			else {
+				lwRatio = Math::Round(lengthInMm / widthInMm, 2);
+				depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+			}
+
 
 			String^ lwString = System::Convert::ToString(lwRatio);
 			String^ lWtxt = "LW Ratio = " + lwString + ":1";
@@ -1513,14 +1556,38 @@ private: System::Void numDia1_ValueChanged(System::Object^ sender, System::Event
 	}
 }
 private: System::Void numDepth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	bool isRoundish = true;
 	if (!this->numDia1->Text->Equals("0.00")) {
+
 		if (!this->numDia2->Text->Equals("0.00")) {
 			double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
 			double lengthInMm = System::Convert::ToDouble(this->numDia1->Text);
 			double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
+			double lwRatio;
+			double depthPercentage;
 
-			double lwRatio = Math::Round(lengthInMm / widthInMm, 2);
-			double depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+			/* the cut hasn't been chosen so we need to determine how to calculate Width
+			Should it be just Width or Diameter-1 + Diameter-2/2 ?
+			*/
+			if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
+				isRoundish == true;
+			}
+			else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
+				isRoundish == false;
+			}
+			else {
+				isRoundish = CutDim::isRoundish(this->comboCut->Text);
+			}
+			if (isRoundish) {
+				lwRatio = Math::Round(lengthInMm / widthInMm, 2);
+				widthInMm = (widthInMm + lengthInMm) / 2;
+				depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+			}
+			else {
+				lwRatio = Math::Round(lengthInMm / widthInMm, 2);
+				depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
+			}
+
 
 			String^ lwString = System::Convert::ToString(lwRatio);
 			String^ lWtxt = "LW Ratio = " + lwString + ":1";
@@ -1531,6 +1598,7 @@ private: System::Void numDepth_ValueChanged(System::Object^ sender, System::Even
 		} // end numDia1 or numDia2 == 0
 	}
 }
+
 };
 
 }

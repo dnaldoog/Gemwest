@@ -46,6 +46,6 @@ bool CutDim::isRoundish(String^ cutname) {
 	cutDim->Add("triangular cut (dia.)", false);
 	cutDim->Add("trilliant cut (dia.)", false);
 	cutDim->Add("trillion (rounded sides)", false);
-	//this->_cutDim = cutDim;
-	return cutDim[cutname];
+	cutDim->Add("choose from below", false);
+	return cutDim[cutname]; // static method
 }
