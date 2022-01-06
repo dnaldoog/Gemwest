@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "CutDimension.h"
-void CutDimension::init() {
+#include "CutDim.h"
+bool CutDim::isRoundish(String^ cutname) {
 	Dictionary<String^, bool>^ cutDim = gcnew Dictionary<String^, bool>;
 	cutDim->Add("briolette", false);
 	cutDim->Add("cabochon - regular", false);
@@ -46,5 +46,6 @@ void CutDimension::init() {
 	cutDim->Add("triangular cut (dia.)", false);
 	cutDim->Add("trilliant cut (dia.)", false);
 	cutDim->Add("trillion (rounded sides)", false);
-	this->_cutDim = cutDim;
+	//this->_cutDim = cutDim;
+	return cutDim[cutname];
 }

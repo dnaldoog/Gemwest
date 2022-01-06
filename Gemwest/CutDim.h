@@ -3,11 +3,11 @@ using namespace System;
 using namespace System::Collections::Generic;
 using namespace System::Diagnostics;
 
-ref class CutDimension
+ref class CutDim
 {
-private:
-	Dictionary<String^,bool>^ _cutDim;
-	void CutDimension::init();
+public:
+	//Dictionary<String^,bool>^ _cutDim;
+	static bool CutDim::isRoundish(String^);
 
 	//property bool cutProfile
 	//{
