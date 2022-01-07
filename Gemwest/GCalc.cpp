@@ -134,3 +134,16 @@ void GCalc::Initializer(
     _depthIsPerc = depthisperc; // is the incoming Depth a represenatation of percentage or mm?
 
 }
+
+String^ GCalc::calculate() {
+    double Length = System::Convert::ToDouble(_d1);
+    double Width = System::Convert::ToDouble(_d2);
+    double Depth = System::Convert::ToDouble(_depth);
+    double SG = System::Convert::ToDouble(_sg);
+    double Factor = System::Convert::ToDouble(_factor);
+    double sum = Math::Round(Length * Width * Depth * Factor, 2);
+    System::Windows::Forms::MessageBox::Show(">>d:" + _d1 + "d2: " + _d2 + "dp: " + _depth + "F: " + _factor);
+    if (_isDiamond) SG = 1; // the factor laready accounts for specific gravity of 3.52
+    return System::Convert::ToString(sum);
+    //return L"1.00 ct";"
+}
