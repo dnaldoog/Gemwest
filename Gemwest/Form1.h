@@ -508,6 +508,7 @@ private: System::Windows::Forms::TextBox^ txtFactor;
 			this->numDepth->DecimalPlaces = 2;
 			this->numDepth->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
 			this->numDepth->Location = System::Drawing::Point(7, 34);
+			this->numDepth->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
 			this->numDepth->Name = L"numDepth";
 			this->numDepth->Size = System::Drawing::Size(100, 20);
 			this->numDepth->TabIndex = 35;
@@ -519,6 +520,7 @@ private: System::Windows::Forms::TextBox^ txtFactor;
 			this->numDia2->DecimalPlaces = 2;
 			this->numDia2->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
 			this->numDia2->Location = System::Drawing::Point(226, 45);
+			this->numDia2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
 			this->numDia2->Name = L"numDia2";
 			this->numDia2->Size = System::Drawing::Size(100, 20);
 			this->numDia2->TabIndex = 34;
@@ -530,6 +532,7 @@ private: System::Windows::Forms::TextBox^ txtFactor;
 			this->numDia1->DecimalPlaces = 2;
 			this->numDia1->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
 			this->numDia1->Location = System::Drawing::Point(22, 45);
+			this->numDia1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
 			this->numDia1->Name = L"numDia1";
 			this->numDia1->Size = System::Drawing::Size(100, 20);
 			this->numDia1->TabIndex = 25;
@@ -982,6 +985,7 @@ private: System::Windows::Forms::TextBox^ txtFactor;
 
 		this->numDia2->Text = this->numDia1->Text;
 	}
+		   /*************************************************************************************/
 	private: System::Void buttonCalc_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
@@ -989,32 +993,9 @@ private: System::Windows::Forms::TextBox^ txtFactor;
 			MessageBox::Show(errorMessage);
 		}
 		else {
-			//if (this->radioBtnDia->Checked) {
+			DCalc^ C = gcnew DCalc;
 
-			//}
-			//else if (this->radioBtnGem->Checked) {
-
-			//}
-
-			/*load class with GUI values from user*/
-			//String^ cutName,
-			//	String^ fac,
-			//	String^ d1,
-			//	String^ d2,
-			//	String^ dep,
-			//	String^ sg,
-			//	String^ gt,
-			//	String^ pv,
-			//	String^ adj,
-			//	bool isdiamond,
-			//	bool interp,
-			//	bool recut,
-			//	bool roundish,
-			//	bool depthisperc
-		
-		//System::Decimal^ dep = gcnew System::Decimal;
-			
-			DCalc^ C = gcnew DCalc(
+			C->Initializer(
 				this->comboCut->Text,
 				this->txtFactor->Text,
 				this->numDia1->Text,
@@ -1030,6 +1011,7 @@ private: System::Windows::Forms::TextBox^ txtFactor;
 				CutDim::isRoundish(this->comboCut->Text),
 				this->radDepthAsPerc->Checked
 			);
+			this->txtResult->Text = C->calculate();
 			//DiamondWeightCalculator^ calculateWeight = gcnew DiamondWeightCalculator;
 		} // text is valid
 

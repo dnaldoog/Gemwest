@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "DCalc.h"
 
-void DCalc::dictInitializer() {
+void DCalc::fancyCutInitializer() {
     Dictionary<double, double>^ marquise_formulae = gcnew Dictionary<double, double>;
     Dictionary<double, double>^ emerald_formulae = gcnew Dictionary<double, double>;
     Dictionary<double, double>^ pear_formulae = gcnew Dictionary<double, double>;
@@ -45,4 +45,49 @@ void DCalc::dictInitializer() {
     _em_map = em_map;
     _mq_map = mq_map;
     _pe_map = pe_map;
+}
+
+String^ DCalc::calculate() {
+    double Length = System::Convert::ToDouble(_d1);
+    double Width = System::Convert::ToDouble(_d2);
+    double Depth = System::Convert::ToDouble(_depth);
+    double SG = System::Convert::ToDouble(_sg);
+    double Factor = System::Convert::ToDouble(_factor);
+    double sum = Math::Round(Length * Width * Depth * Factor,2);
+    System::Windows::Forms::MessageBox::Show(">>d:" + _d1 + "d2: " + _d2 + "dp: " + _depth + "F: " + _factor);
+    if (_isDiamond) SG = 1; // the factor laready accounts for specific gravity of 3.52
+    return System::Convert::ToString(sum);
+    //return L"1.00 ct";"
+}
+
+void DCalc::Initializer(
+    String^ cutName,
+    String^ fac,
+    String^ d1,
+    String^ d2,
+    String^ dep,
+    String^ sg,
+    String^ gt,
+    String^ pv,
+    String^ adj,
+    bool isdiamond,
+    bool interp,
+    bool recut,
+    bool roundish,
+    bool depthisperc) {
+// load all arrays of fancy cut adjustments
+/*load class with GUI values from user*/
+_cutName = cutName; // name of cut
+_factor = fac; // name of cut
+_d1 = d1; // diameter 1 (could be length)
+_d2 = d2; // diamter 2 (could be width)
+_depth = dep; // depth of stone in millimeters // or percentage
+_sg = sg; //Specific Gravity
+_isDiamond = isdiamond;
+_adj = adj; // user adjustments  
+_interp = interp; // interpolate?
+_recut = recut; // recut?
+_roundish = roundish; // is the cut round necessitating in a different LW formula?
+_depthIsPerc = depthisperc; // is the incoming Depth a represenatation of percentage or mm?
+//if (_isDiamond) { _sg = 1 };
 }

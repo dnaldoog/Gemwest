@@ -18,7 +18,8 @@ private:
     Dictionary<String^, String^>^ _em_map;
     Dictionary<String^, String^>^ _mq_map;
     Dictionary<String^, String^>^ _pe_map;
-    void dictInitializer();
+    //void dictInitializer();
+    /*following are Form1 data passed to object*/
     String^ _cutName; // name of cut
     String^ _factor; // factor selected by cut choice
     String^ _d1; // diameter 1 (could be length)
@@ -33,45 +34,46 @@ private:
     bool _recut; // recut?
     bool _roundish; // is the cut round necessitating in a different LW formula?
     bool _depthIsPerc; // is the incoming Depth a represenatation of percentage or mm?
+    void DCalc::fancyCutInitializer();
 
 public:
- DCalc( // parameters of GUI input passed to function
-     String^ cutName, 
-     String^ fac,
-     String^ d1, 
-     String^ d2, 
-     String^ dep, 
-     String^ sg, 
-     String^ gt,
-     String^ pv,
-     String^ adj, 
-     bool isdiamond, 
-     bool interp, 
-     bool recut, 
-     bool roundish,
-     bool depthisperc
- )
+ // parameters of GUI input passed to function
+     //String^ cutName, 
+     //String^ fac,
+     //String^ d1, 
+     //String^ d2, 
+     //String^ dep, 
+     //String^ sg, 
+     //String^ gt,
+     //String^ pv,
+     //String^ adj, 
+     //bool isdiamond, 
+     //bool interp, 
+     //bool recut, 
+     //bool roundish,
+     //bool depthisperc
+ //)
  
- {
-     this->dictInitializer(); // load all arrays of fancy cut adjustments
-     /*load class with GUI values from user*/
-     _cutName=cutName; // name of cut
-     _factor=fac; // name of cut
-     _d1=d1; // diameter 1 (could be length)
-     _d2=d2; // diamter 2 (could be width)
-     _depth=dep; // depth of stone in millimeters // or percentage
-     _sg=sg; //Specific Gravity
-     _isDiamond = isdiamond;
-     _adj=adj; // user adjustments  
-     _interp=interp; // interpolate?
-     _recut=recut; // recut?
-     _roundish=roundish; // is the cut round necessitating in a different LW formula?
-     _depthIsPerc = depthisperc; // is the incoming Depth a represenatation of percentage or mm?
-     //if (_isDiamond) { _sg = 1 };
- }
- //DCalc^ C=gcnew DCalc(this->comb)
-    /*end constructor*/
+ //{
+    void Initializer(
+        String^ cutName,
+        String^ fac,
+        String^ d1,
+        String^ d2,
+        String^ dep,
+        String^ sg,
+        String^ gt,
+        String^ pv,
+        String^ adj,
+        bool isdiamond,
+        bool interp,
+        bool recut,
+        bool roundish,
+        bool depthisperc
+    );
 
+    /*end constructor*/
+ String^ calculate();
  //property  String^ Calculate;
 };
 
