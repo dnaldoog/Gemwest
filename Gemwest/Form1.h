@@ -993,25 +993,50 @@ private: System::Windows::Forms::TextBox^ txtFactor;
 			MessageBox::Show(errorMessage);
 		}
 		else {
-			DCalc^ C = gcnew DCalc;
+			if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
+				DCalc^ DC = gcnew DCalc;
+				DC->Initializer(
+					this->comboCut->Text,
+					this->txtFactor->Text,
+					this->numDia1->Text,
+					this->numDia2->Text,
+					this->numDepth->Text,
+					this->numSG->Text,
+					this->tbGirdleThickness->Text,
+					this->txtPavilionBulge->Text,
+					this->tbGlobalAdj->Text,
+					this->radioBtnDia->Checked,
+					this->cbInterpolate->Checked,
+					this->cbRecut->Checked,
+					CutDim::isRoundish(this->comboCut->Text),
+					this->radDepthAsPerc->Checked
+				);
+				this->txtResult->Text = DC->calculate();
+			}
+			else { // Calculate the weight of a Gemstone
+				GCalc^ GC = gcnew GCalc;
+				GC->Initializer(
 
-			C->Initializer(
-				this->comboCut->Text,
-				this->txtFactor->Text,
-				this->numDia1->Text,
-				this->numDia2->Text,
-				this->numDepth->Text,
-				this->numSG->Text,
-				this->tbGirdleThickness->Text,
-				this->txtPavilionBulge->Text,
-				this->tbGlobalAdj->Text,
-				this->radioBtnDia->Checked,
-				this->cbInterpolate->Checked,
-				this->cbRecut->Checked,
-				CutDim::isRoundish(this->comboCut->Text),
-				this->radDepthAsPerc->Checked
-			);
-			this->txtResult->Text = C->calculate();
+					this->comboCut->Text,
+					this->comboGems->Text,
+					this->txtFactor->Text,
+					this->numDia1->Text,
+					this->numDia2->Text,
+					this->numDepth->Text,
+					this->numSG->Text,
+					this->tbGirdleThickness->Text,
+					this->txtPavilionBulge->Text,
+					this->tbGlobalAdj->Text,
+					this->radioBtnDia->Checked,
+					this->cbInterpolate->Checked,
+					this->cbRecut->Checked,
+					CutDim::isRoundish(this->comboCut->Text),
+					this->radDepthAsPerc->Checked
+				);
+				this->txtResult->Text = GC->calculate();
+				//this->statusbar->Text=
+
+			}
 			//DiamondWeightCalculator^ calculateWeight = gcnew DiamondWeightCalculator;
 		} // text is valid
 

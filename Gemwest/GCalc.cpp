@@ -105,6 +105,7 @@ String^ GCalc::returnWeight(void) {
 
 void GCalc::Initializer(
     String^ cutName,
+    String^ gemName,
     String^ fac,
     String^ d1,
     String^ d2,
@@ -121,6 +122,7 @@ void GCalc::Initializer(
     // load all arrays of fancy cut adjustments
     /*load class with GUI values from user*/
     _cutName = cutName; // name of cut
+    _gemName = gemName; // name of gem (material)
     _factor = fac; // name of cut
     _d1 = d1; // diameter 1 (could be length)
     _d2 = d2; // diamter 2 (could be width)
@@ -142,7 +144,7 @@ String^ GCalc::calculate() {
     double SG = System::Convert::ToDouble(_sg);
     double Factor = System::Convert::ToDouble(_factor);
     double sum = Math::Round(Length * Width * Depth * Factor, 2);
-    System::Windows::Forms::MessageBox::Show(">>d:" + _d1 + "d2: " + _d2 + "dp: " + _depth + "F: " + _factor);
+    System::Windows::Forms::MessageBox::Show(_gemName+"GEM>>d:" + _d1 + "d2: " + _d2 + "dp: " + _depth + "F: " + _factor);
     if (_isDiamond) SG = 1; // the factor laready accounts for specific gravity of 3.52
     return System::Convert::ToString(sum);
     //return L"1.00 ct";"

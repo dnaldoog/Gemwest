@@ -14,6 +14,7 @@ private:
     //void dictInitializer();
     /*following are Form1 data passed to object*/
     String^ _cutName; // name of cut
+    String^ _gemName; // name of gem (material)
     String^ _factor; // factor selected by cut choice
     String^ _d1; // diameter 1 (could be length)
     String^ _d2; // diamter 2 (could be width)
@@ -40,6 +41,7 @@ String^ returnWeight(void);
 public:
     void Initializer(
         String^ cutName,
+        String^ gemName,
         String^ fac,
         String^ d1,
         String^ d2,
