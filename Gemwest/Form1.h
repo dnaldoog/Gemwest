@@ -52,18 +52,18 @@ namespace CppCLRWinformsProjekt {
 	protected:
 
 	private: System::Windows::Forms::Button^ btnEq;
-		   bool Form1::isRoundish(){
+		   bool Form1::isRoundish() {
 			   bool r = true;
-		   if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
-			   r = true;
-		   }
-		   else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
-			   r = false;
-		   }
-		   else {
-			   r = CutDim::isRoundish(this->comboCut->Text);
-		   }
-		   return r;
+			   if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
+				   r = true;
+			   }
+			   else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
+				   r = false;
+			   }
+			   else {
+				   r = CutDim::isRoundish(this->comboCut->Text);
+			   }
+			   return r;
 		   } //end function isRoundish
 		   void Form1::onScreenInfo() {
 
@@ -158,7 +158,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::TrackBar^ tbGirdleThickness;
 
 	private: System::Windows::Forms::TrackBar^ tbGlobalAdj;
-private: System::Windows::Forms::TextBox^ txtFactor;
+	private: System::Windows::Forms::TextBox^ txtFactor;
 
 
 	private: System::Windows::Forms::Label^ lblSelectedCut;
@@ -199,6 +199,7 @@ private: System::Windows::Forms::TextBox^ txtFactor;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->comboGems = (gcnew System::Windows::Forms::ComboBox());
 			this->btnEq = (gcnew System::Windows::Forms::Button());
 			this->buttonCalc = (gcnew System::Windows::Forms::Button());
@@ -950,6 +951,9 @@ private: System::Windows::Forms::TextBox^ txtFactor;
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->lwguide);
+			//this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Icon = gcnew System::Drawing::Icon(L"app.ico");
+			/*https://www.titanwolf.org/Network/q/03364e6b-35b2-4041-a393-b58f2873ec40/y*/
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"Form1";
 			this->Text = L"Gemwest";
@@ -993,25 +997,50 @@ private: System::Windows::Forms::TextBox^ txtFactor;
 			MessageBox::Show(errorMessage);
 		}
 		else {
-			DCalc^ C = gcnew DCalc;
+			if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
+				DCalc^ DC = gcnew DCalc;
+				DC->Initializer(
+					this->comboCut->Text,
+					this->txtFactor->Text,
+					this->numDia1->Text,
+					this->numDia2->Text,
+					this->numDepth->Text,
+					this->numSG->Text,
+					this->tbGirdleThickness->Text,
+					this->txtPavilionBulge->Text,
+					this->tbGlobalAdj->Text,
+					this->radioBtnDia->Checked,
+					this->cbInterpolate->Checked,
+					this->cbRecut->Checked,
+					CutDim::isRoundish(this->comboCut->Text),
+					this->radDepthAsPerc->Checked
+				);
+				this->txtResult->Text = DC->calculate();
+			}
+			else { // Calculate the weight of a Gemstone
+				GCalc^ GC = gcnew GCalc;
+				GC->Initializer(
 
-			C->Initializer(
-				this->comboCut->Text,
-				this->txtFactor->Text,
-				this->numDia1->Text,
-				this->numDia2->Text,
-				this->numDepth->Text,
-				this->numSG->Text,
-				this->tbGirdleThickness->Text,
-				this->txtPavilionBulge->Text,
-				this->tbGlobalAdj->Text,
-				this->radioBtnDia->Checked,
-				this->cbInterpolate->Checked,
-				this->cbRecut->Checked,
-				CutDim::isRoundish(this->comboCut->Text),
-				this->radDepthAsPerc->Checked
-			);
-			this->txtResult->Text = C->calculate();
+					this->comboCut->Text,
+					this->comboGems->Text,
+					this->txtFactor->Text,
+					this->numDia1->Text,
+					this->numDia2->Text,
+					this->numDepth->Text,
+					this->numSG->Text,
+					this->tbGirdleThickness->Text,
+					this->txtPavilionBulge->Text,
+					this->tbGlobalAdj->Text,
+					this->radioBtnDia->Checked,
+					this->cbInterpolate->Checked,
+					this->cbRecut->Checked,
+					CutDim::isRoundish(this->comboCut->Text),
+					this->radDepthAsPerc->Checked
+				);
+				this->txtResult->Text = GC->calculate();
+				//this->statusbar->Text=
+
+			}
 			//DiamondWeightCalculator^ calculateWeight = gcnew DiamondWeightCalculator;
 		} // text is valid
 

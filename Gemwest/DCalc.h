@@ -37,24 +37,6 @@ private:
     void DCalc::fancyCutInitializer();
 
 public:
- // parameters of GUI input passed to function
-     //String^ cutName, 
-     //String^ fac,
-     //String^ d1, 
-     //String^ d2, 
-     //String^ dep, 
-     //String^ sg, 
-     //String^ gt,
-     //String^ pv,
-     //String^ adj, 
-     //bool isdiamond, 
-     //bool interp, 
-     //bool recut, 
-     //bool roundish,
-     //bool depthisperc
- //)
- 
- //{
     void Initializer(
         String^ cutName,
         String^ fac,
