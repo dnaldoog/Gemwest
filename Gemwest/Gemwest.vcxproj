@@ -143,7 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AboutForm.h">
+    <ClInclude Include="AboutForm1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CutDim.h" />
@@ -173,7 +173,7 @@
     <ClInclude Include="resource1.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AboutForm.cpp" />
+    <ClCompile Include="AboutForm1.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
     <ClCompile Include="CutDim.cpp" />
@@ -199,6 +199,7 @@
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
     <Image Include="..\..\..\..\desktop\icon3.ico" />
+    <Image Include="..\..\..\..\Desktop\tortoiseshell.jpg" />
     <Image Include="app.ico">
       <DeploymentContent>true</DeploymentContent>
     </Image>
@@ -457,6 +458,7 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\triangular_cut.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trilliant_cut.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trillion.png" />
+    <Image Include="D:\Pictures\various\junk\zaniah.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -469,6 +471,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutForm1.resx">
+      <DependentUpon>AboutForm1.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.h</DependentUpon>
     </EmbeddedResource>

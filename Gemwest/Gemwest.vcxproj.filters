@@ -51,13 +51,13 @@
     <ClInclude Include="LogForm.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="AboutForm.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="HelpForm.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="OptionsForm.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AboutForm1.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -98,13 +98,13 @@
     <ClCompile Include="LogForm.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="AboutForm.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="HelpForm.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="OptionsForm.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="AboutForm1.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -887,6 +887,12 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\lwguide.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\Pictures\various\junk\zaniah.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\tortoiseshell.jpg">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>

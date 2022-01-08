@@ -8,7 +8,7 @@
 #include "DCalc.h"
 #include "GCalc.h"
 #include "LogForm.h"
-#include "AboutForm.h"
+#include "AboutForm1.h"
 #include "HelpForm.h"
 #include "OptionsForm.h"
 
@@ -52,9 +52,10 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^ editToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ preferencesToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ helpToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ aboutToolStripMenuItem1;
 
 	protected:
 
@@ -142,7 +143,6 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::ToolStripMenuItem^ viewToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ helpToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ logToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ helpToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ aboutToolStripMenuItem;
 	private: System::Windows::Forms::Label^ lblPavilionBulge;
 
@@ -263,6 +263,7 @@ namespace CppCLRWinformsProjekt {
 			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->helpToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->aboutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->lwguide->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel1->SuspendLayout();
@@ -929,7 +930,7 @@ namespace CppCLRWinformsProjekt {
 			// preferencesToolStripMenuItem
 			// 
 			this->preferencesToolStripMenuItem->Name = L"preferencesToolStripMenuItem";
-			this->preferencesToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->preferencesToolStripMenuItem->Size = System::Drawing::Size(135, 22);
 			this->preferencesToolStripMenuItem->Text = L"&Preferences";
 			this->preferencesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::preferencesToolStripMenuItem_Click);
 			// 
@@ -951,7 +952,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->helpToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->helpToolStripMenuItem1,
-					this->aboutToolStripMenuItem
+					this->aboutToolStripMenuItem1
 			});
 			this->helpToolStripMenuItem->Name = L"helpToolStripMenuItem";
 			this->helpToolStripMenuItem->Size = System::Drawing::Size(44, 20);
@@ -971,6 +972,13 @@ namespace CppCLRWinformsProjekt {
 			this->aboutToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->aboutToolStripMenuItem->Text = L"About";
 			this->aboutToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aboutToolStripMenuItem_Click);
+			// 
+			// aboutToolStripMenuItem1
+			// 
+			this->aboutToolStripMenuItem1->Name = L"aboutToolStripMenuItem1";
+			this->aboutToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
+			this->aboutToolStripMenuItem1->Text = L"About";
+			this->aboutToolStripMenuItem1->Click += gcnew System::EventHandler(this, &Form1::aboutToolStripMenuItem1_Click);
 			// 
 			// Form1
 			// 
@@ -1391,7 +1399,7 @@ namespace CppCLRWinformsProjekt {
 		//{
 		//	//do nothing - just close dialog
 		//}
-		AboutForm^ aform = gcnew AboutForm;
+		AboutForm1^ aform = gcnew AboutForm1;
 		aform->Show();
 		//aform->Activate();
 	}
@@ -1569,17 +1577,23 @@ namespace CppCLRWinformsProjekt {
 		//	//Do stuff
 		//}
 	}
+
 private: System::Void helpToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	OptionsForm^ oform = gcnew OptionsForm;
+	oform->Show();
+
 }
 private: System::Void helpToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	HelpForm^ hform = gcnew HelpForm;
 	hform->Show();
 }
-private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	OptionsForm^ oform = gcnew OptionsForm;
-	oform->Show();
-
+private: System::Void aboutToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+	AboutForm1^ aform = gcnew AboutForm1;
+	aform->Show();
 }
 };
 
