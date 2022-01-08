@@ -7,6 +7,10 @@
 #include "CutDim.h"
 #include "DCalc.h"
 #include "GCalc.h"
+#include "LogForm.h"
+#include "AboutForm.h"
+#include "HelpForm.h"
+#include "OptionsForm.h"
 
 namespace CppCLRWinformsProjekt {
 	//
@@ -36,7 +40,6 @@ namespace CppCLRWinformsProjekt {
 			InitializeComponent();
 
 		}
-
 	protected:
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
@@ -48,6 +51,10 @@ namespace CppCLRWinformsProjekt {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	protected:
+	private: System::Windows::Forms::ToolStripMenuItem^ editToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ preferencesToolStripMenuItem;
 
 	protected:
 
@@ -131,7 +138,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ fileToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ quitToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ editToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ viewToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ helpToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ logToolStripMenuItem;
@@ -199,7 +206,6 @@ namespace CppCLRWinformsProjekt {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->comboGems = (gcnew System::Windows::Forms::ComboBox());
 			this->btnEq = (gcnew System::Windows::Forms::Button());
 			this->buttonCalc = (gcnew System::Windows::Forms::Button());
@@ -207,6 +213,7 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->lblCombinedRoundAverage = (gcnew System::Windows::Forms::Label());
 			this->lblLwRatio = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
@@ -250,12 +257,14 @@ namespace CppCLRWinformsProjekt {
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->quitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->preferencesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->viewToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->logToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->helpToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->lwguide->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->BeginInit();
@@ -394,6 +403,7 @@ namespace CppCLRWinformsProjekt {
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->lwguide->Controls->Add(this->pictureBox1);
 			this->lwguide->Controls->Add(this->lblCombinedRoundAverage);
 			this->lwguide->Controls->Add(this->lblLwRatio);
 			this->lwguide->Controls->Add(this->panel1);
@@ -424,6 +434,14 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->TabStop = false;
 			this->lwguide->Text = L"Calculate";
 			this->lwguide->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(63, 53);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(8, 8);
+			this->pictureBox1->TabIndex = 40;
+			this->pictureBox1->TabStop = false;
 			// 
 			// lblCombinedRoundAverage
 			// 
@@ -865,6 +883,7 @@ namespace CppCLRWinformsProjekt {
 			this->statusbar->Location = System::Drawing::Point(0, 590);
 			this->statusbar->Name = L"statusbar";
 			this->statusbar->Size = System::Drawing::Size(529, 22);
+			this->statusbar->SizingGrip = false;
 			this->statusbar->TabIndex = 14;
 			this->statusbar->Text = L"statusStrip1";
 			// 
@@ -891,7 +910,7 @@ namespace CppCLRWinformsProjekt {
 			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->quitToolStripMenuItem });
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
 			this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
-			this->fileToolStripMenuItem->Text = L"File";
+			this->fileToolStripMenuItem->Text = L"&File";
 			// 
 			// quitToolStripMenuItem
 			// 
@@ -902,22 +921,31 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// editToolStripMenuItem
 			// 
+			this->editToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->preferencesToolStripMenuItem });
 			this->editToolStripMenuItem->Name = L"editToolStripMenuItem";
 			this->editToolStripMenuItem->Size = System::Drawing::Size(39, 20);
-			this->editToolStripMenuItem->Text = L"Edit";
+			this->editToolStripMenuItem->Text = L"&Edit";
+			// 
+			// preferencesToolStripMenuItem
+			// 
+			this->preferencesToolStripMenuItem->Name = L"preferencesToolStripMenuItem";
+			this->preferencesToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->preferencesToolStripMenuItem->Text = L"&Preferences";
+			this->preferencesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::preferencesToolStripMenuItem_Click);
 			// 
 			// viewToolStripMenuItem
 			// 
 			this->viewToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->logToolStripMenuItem });
 			this->viewToolStripMenuItem->Name = L"viewToolStripMenuItem";
 			this->viewToolStripMenuItem->Size = System::Drawing::Size(44, 20);
-			this->viewToolStripMenuItem->Text = L"View";
+			this->viewToolStripMenuItem->Text = L"&View";
 			// 
 			// logToolStripMenuItem
 			// 
 			this->logToolStripMenuItem->Name = L"logToolStripMenuItem";
 			this->logToolStripMenuItem->Size = System::Drawing::Size(91, 22);
-			this->logToolStripMenuItem->Text = L"log";
+			this->logToolStripMenuItem->Text = L"&log";
+			this->logToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::logToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -928,17 +956,19 @@ namespace CppCLRWinformsProjekt {
 			this->helpToolStripMenuItem->Name = L"helpToolStripMenuItem";
 			this->helpToolStripMenuItem->Size = System::Drawing::Size(44, 20);
 			this->helpToolStripMenuItem->Text = L"Help";
+			this->helpToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::helpToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem1
 			// 
 			this->helpToolStripMenuItem1->Name = L"helpToolStripMenuItem1";
-			this->helpToolStripMenuItem1->Size = System::Drawing::Size(107, 22);
+			this->helpToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
 			this->helpToolStripMenuItem1->Text = L"Help";
+			this->helpToolStripMenuItem1->Click += gcnew System::EventHandler(this, &Form1::helpToolStripMenuItem1_Click);
 			// 
 			// aboutToolStripMenuItem
 			// 
 			this->aboutToolStripMenuItem->Name = L"aboutToolStripMenuItem";
-			this->aboutToolStripMenuItem->Size = System::Drawing::Size(107, 22);
+			this->aboutToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->aboutToolStripMenuItem->Text = L"About";
 			this->aboutToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aboutToolStripMenuItem_Click);
 			// 
@@ -951,15 +981,15 @@ namespace CppCLRWinformsProjekt {
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->lwguide);
-			//this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Icon = gcnew System::Drawing::Icon(L"app.ico");
-			/*https://www.titanwolf.org/Network/q/03364e6b-35b2-4041-a393-b58f2873ec40/y*/
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"Form1";
+			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Hide;
 			this->Text = L"Gemwest";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->lwguide->ResumeLayout(false);
 			this->lwguide->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->EndInit();
@@ -1354,13 +1384,16 @@ namespace CppCLRWinformsProjekt {
 	}
 	private: System::Void aboutToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		if (MessageBox::Show(
-			"Gemwest 2.0\nA mounted gemstone ct weight estimator\nMade with C++/CLI",
-			"About Gemwest 2.0", MessageBoxButtons::OK,
-			MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::OK)
-		{
-			//do nothing - just close dialog
-		}
+		//if (MessageBox::Show(
+		//	"Gemwest 2.0\nA mounted gemstone ct weight estimator\nMade with C++/CLI",
+		//	"About Gemwest 2.0", MessageBoxButtons::OK,
+		//	MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::OK)
+		//{
+		//	//do nothing - just close dialog
+		//}
+		AboutForm^ aform = gcnew AboutForm;
+		aform->Show();
+		//aform->Activate();
 	}
 	private: System::Void txtFactor_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
@@ -1524,7 +1557,32 @@ namespace CppCLRWinformsProjekt {
 			this->numDepth->Text = System::Convert::ToString(reversePercentage2mm);
 		}
 	}
-	};
+	public: System::Void logToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+		LogForm^ form = gcnew LogForm;
+		form->Show();
+
+		//	Form^ LogdForm =gcnew Form;
+				//if (LogdForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		//{
+		//	
+		//	//Do stuff
+		//}
+	}
+private: System::Void helpToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void helpToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	HelpForm^ hform = gcnew HelpForm;
+	hform->Show();
+}
+private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	OptionsForm^ oform = gcnew OptionsForm;
+	oform->Show();
+
+}
+};
+
 
 }
 
