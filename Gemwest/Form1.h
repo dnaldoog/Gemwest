@@ -55,7 +55,7 @@ namespace CppCLRWinformsProjekt {
 		double sum = this->tbGirdleThickness->Value + this->tbPavilionBulge->Value + this->tbShapeOutline->Value;
 		this->txtGlobAdjust->Text = System::Convert::ToString(sum)+"%";
 	}
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ editToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ preferencesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ helpToolStripMenuItem1;
@@ -223,10 +223,10 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
+			this->pictAdjArrow = (gcnew System::Windows::Forms::PictureBox());
 			this->txtShapeOutline = (gcnew System::Windows::Forms::TextBox());
 			this->lblShape = (gcnew System::Windows::Forms::Label());
 			this->tbShapeOutline = (gcnew System::Windows::Forms::TrackBar());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->lblCombinedRoundAverage = (gcnew System::Windows::Forms::Label());
 			this->lblLwRatio = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
@@ -276,10 +276,9 @@ namespace CppCLRWinformsProjekt {
 			this->helpToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->pictAdjArrow = (gcnew System::Windows::Forms::PictureBox());
 			this->lwguide->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->BeginInit();
@@ -294,7 +293,6 @@ namespace CppCLRWinformsProjekt {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCut))->BeginInit();
 			this->statusbar->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// comboGems
@@ -422,7 +420,6 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->Controls->Add(this->txtShapeOutline);
 			this->lwguide->Controls->Add(this->lblShape);
 			this->lwguide->Controls->Add(this->tbShapeOutline);
-			this->lwguide->Controls->Add(this->pictureBox1);
 			this->lwguide->Controls->Add(this->lblCombinedRoundAverage);
 			this->lwguide->Controls->Add(this->lblLwRatio);
 			this->lwguide->Controls->Add(this->panel1);
@@ -452,6 +449,14 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->TabStop = false;
 			this->lwguide->Text = L"Calculate";
 			this->lwguide->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
+			// 
+			// pictAdjArrow
+			// 
+			this->pictAdjArrow->Location = System::Drawing::Point(77, 223);
+			this->pictAdjArrow->Name = L"pictAdjArrow";
+			this->pictAdjArrow->Size = System::Drawing::Size(86, 20);
+			this->pictAdjArrow->TabIndex = 44;
+			this->pictAdjArrow->TabStop = false;
 			// 
 			// txtShapeOutline
 			// 
@@ -483,14 +488,6 @@ namespace CppCLRWinformsProjekt {
 			this->tbShapeOutline->TabIndex = 41;
 			this->tbShapeOutline->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbShapeOutline->Scroll += gcnew System::EventHandler(this, &Form1::tbShapeOutline_Scroll);
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Location = System::Drawing::Point(63, 53);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(8, 8);
-			this->pictureBox1->TabIndex = 40;
-			this->pictureBox1->TabStop = false;
 			// 
 			// lblCombinedRoundAverage
 			// 
@@ -1017,14 +1014,6 @@ namespace CppCLRWinformsProjekt {
 			this->aboutToolStripMenuItem->Text = L"About";
 			this->aboutToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aboutToolStripMenuItem_Click);
 			// 
-			// pictAdjArrow
-			// 
-			this->pictAdjArrow->Location = System::Drawing::Point(77, 223);
-			this->pictAdjArrow->Name = L"pictAdjArrow";
-			this->pictAdjArrow->Size = System::Drawing::Size(86, 20);
-			this->pictAdjArrow->TabIndex = 44;
-			this->pictAdjArrow->TabStop = false;
-			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1042,8 +1031,8 @@ namespace CppCLRWinformsProjekt {
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->lwguide->ResumeLayout(false);
 			this->lwguide->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->EndInit();
@@ -1062,7 +1051,6 @@ namespace CppCLRWinformsProjekt {
 			this->statusbar->PerformLayout();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
