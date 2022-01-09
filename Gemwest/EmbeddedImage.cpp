@@ -51,7 +51,7 @@ void EmbeddedImage::loadResources()
 	myRez->Add("beryl heliodor", "beryl heliodor");
 	myRez->Add("beryl maxixe", "beryl maxixe");
 	myRez->Add("beryl morganite", "beryl morganite");
-		myRez->Add("biron created emerald","biron created emerald");	//no entry
+	myRez->Add("biron created emerald","biron created emerald");	//no entry
 	myRez->Add("blende", "blende");
 	myRez->Add("bloodstone", "bloodstone");
 	myRez->Add("blue topaz", "blue topaz");
@@ -88,7 +88,7 @@ void EmbeddedImage::loadResources()
 	myRez->Add("chrysocolla", "chrysocolla");
 	myRez->Add("chrysoprase", "chrysoprase");
 	myRez->Add("citrine", "citrine");
-	myRez->Add("colourless beryl", "colourless beryl");
+	myRez->Add("colourless beryl", "beryl colourless");
 	myRez->Add("conch pearl", "conch pearl");
 	myRez->Add("copal resin", "copal resin");
 	myRez->Add("coral", "coral");
@@ -110,8 +110,8 @@ void EmbeddedImage::loadResources()
 	myRez->Add("eight cut", "eight_cut");
 	myRez->Add("ekanite", "ekanite");
 	myRez->Add("emerald", "emerald");
-		myRez->Add("emerald (Biron)","biron created emerald");	// emerald (Biron)
-		myRez->Add("emerald (Chatham)","");	// emerald (Biron)
+	myRez->Add("emerald (Biron)","biron created emerald");	// emerald (Biron)
+	myRez->Add("emerald (Chatham)","");	// emerald (Biron)
 	myRez->Add("emerald (Gilson)", "emerald (Gilson)");
 	myRez->Add("emerald cut", "emerald_cut");	// gem
 	myRez->Add("emerald cut diamond", "emerald_cut_diamond");
@@ -143,7 +143,7 @@ void EmbeddedImage::loadResources()
 	myRez->Add("heart", "heart");
 	myRez->Add("heart brilliant", "heart_brilliant");
 	myRez->Add("heliodor", "heliodor");
-		myRez->Add("heliotrope","heliotrope");	// heliotrope
+	myRez->Add("heliotrope","heliotrope");	// heliotrope
 	myRez->Add("hematite", "hematite");
 	myRez->Add("hemimorphite", "hemimorphite");
 	myRez->Add("hessonite", "hessonite");
@@ -211,7 +211,7 @@ void EmbeddedImage::loadResources()
 	myRez->Add("rectangle step cut", "rectangle_step_cut");
 	myRez->Add("rectangle with cut corners", "rectangle_with_cut_corners");
 	myRez->Add("rectangular cushion", "rectangular_cushion");
-	myRez->Add("rhodochrosite", "rhodochroisite");
+	myRez->Add("rhodochrosite", "rhodochrosite");
 	myRez->Add("rhodonite", "rhodonite");
 	myRez->Add("rose cut", "rose_cut");
 	myRez->Add("round bead", "round_bead");
@@ -247,13 +247,13 @@ void EmbeddedImage::loadResources()
 	myRez->Add("sugilite", "sugilite");
 	myRez->Add("synthetic corundum", "synthetic corundum");
 	myRez->Add("taaffeite", "taaffeite");
-		myRez->Add("synthetic spinel","spinel synthetic");	// synthetic spinel
-		myRez->Add("tanzanite","tanzanite");	//tanzanite
-		myRez->Add("vesuvianite","vesuvianite");	// vesuvianite
+	myRez->Add("synthetic spinel","spinel synthetic");	// synthetic spinel
+	myRez->Add("tanzanite","tanzanite");	//tanzanite
+	myRez->Add("vesuvianite","vesuvianite");	// vesuvianite
 	myRez->Add("tapered baguette", "tapered_baguette");
 	myRez->Add("tektite", "tektite");
-		myRez->Add("thickgirdle","thickgirdle");	
-		myRez->Add("thingirdle","thingirdle");	
+	myRez->Add("thickgirdle","thickgirdle");	
+	myRez->Add("thingirdle","thingirdle");	
 	myRez->Add("topaz", "topaz");
 	myRez->Add("tortoiseshell", "tortoiseshell");
 	myRez->Add("tourmaline", "tourmaline");
@@ -274,6 +274,8 @@ void EmbeddedImage::loadResources()
 	myRez->Add("zoisite", "zoisite");
 	myRez->Add("gw", "gw"); // icon file
 	myRez->Add("checkDepth", "checkDepth"); // when depth percentage is strange!
+	myRez->Add("zaniah", "zaniah"); // Author's logo!
+	myRez->Add("adjustmentarrow", "adjustmentarrow"); // Gui component
 	this->setRez(myRez);
 
 }

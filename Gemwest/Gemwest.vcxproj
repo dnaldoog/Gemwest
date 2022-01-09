@@ -198,7 +198,11 @@
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\adjustmentarrow.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\rhodochrosite.jpg" />
     <Image Include="..\..\..\..\desktop\icon3.ico" />
+    <Image Include="..\..\..\..\Desktop\rhodochrosite.png" />
     <Image Include="..\..\..\..\Desktop\tortoiseshell.jpg" />
     <Image Include="app.ico">
       <DeploymentContent>true</DeploymentContent>

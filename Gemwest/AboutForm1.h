@@ -58,9 +58,9 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// pictureZaniahLogo
 			// 
-			this->pictureZaniahLogo->Location = System::Drawing::Point(59, 12);
+			this->pictureZaniahLogo->Location = System::Drawing::Point(103, 12);
 			this->pictureZaniahLogo->Name = L"pictureZaniahLogo";
-			this->pictureZaniahLogo->Size = System::Drawing::Size(155, 50);
+			this->pictureZaniahLogo->Size = System::Drawing::Size(78, 27);
 			this->pictureZaniahLogo->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureZaniahLogo->TabIndex = 0;
 			this->pictureZaniahLogo->TabStop = false;
@@ -75,7 +75,7 @@ namespace CppCLRWinformsProjekt {
 			this->Name = L"AboutForm1";
 			this->Text = L"AboutForm1";
 			this->Load += gcnew System::EventHandler(this, &AboutForm1::AboutForm1_Load);
-			//(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureZaniahLogo))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureZaniahLogo))->EndInit();
 			this->ResumeLayout(false);
 
 		}

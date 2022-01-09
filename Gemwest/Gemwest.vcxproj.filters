@@ -895,6 +895,18 @@
     <Image Include="..\..\..\..\Desktop\tortoiseshell.jpg">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\adjustmentarrow.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\gw.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\rhodochrosite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\rhodochrosite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">
