@@ -143,6 +143,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AboutForm1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CutDim.h" />
     <ClInclude Include="DCalc.h" />
     <ClInclude Include="DiamondCut.h" />
@@ -152,6 +155,15 @@
     </ClInclude>
     <ClInclude Include="GCalc.h" />
     <ClInclude Include="GemCut.h" />
+    <ClInclude Include="HelpForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LogForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="OptionsForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Pixmaps.h" />
     <ClInclude Include="Resource.h">
@@ -161,6 +173,7 @@
     <ClInclude Include="resource1.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AboutForm1.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
     <ClCompile Include="CutDim.cpp" />
@@ -170,6 +183,9 @@
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="GCalc.cpp" />
     <ClCompile Include="GemCut.cpp" />
+    <ClCompile Include="HelpForm.cpp" />
+    <ClCompile Include="LogForm.cpp" />
+    <ClCompile Include="OptionsForm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -182,7 +198,12 @@
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\adjustmentarrow.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\rhodochrosite.jpg" />
     <Image Include="..\..\..\..\desktop\icon3.ico" />
+    <Image Include="..\..\..\..\Desktop\rhodochrosite.png" />
+    <Image Include="..\..\..\..\Desktop\tortoiseshell.jpg" />
     <Image Include="app.ico">
       <DeploymentContent>true</DeploymentContent>
     </Image>
@@ -441,8 +462,12 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\triangular_cut.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trilliant_cut.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\trillion.png" />
+    <Image Include="D:\Pictures\various\junk\zaniah.png" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -450,8 +475,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutForm1.resx">
+      <DependentUpon>AboutForm1.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogForm.resx">
+      <DependentUpon>LogForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsForm.resx">
+      <DependentUpon>OptionsForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx" />
   </ItemGroup>
