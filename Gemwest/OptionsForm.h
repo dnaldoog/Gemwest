@@ -1,4 +1,5 @@
 #pragma once
+//#include "Form1.h"
 
 namespace CppCLRWinformsProjekt {
 
@@ -12,15 +13,19 @@ namespace CppCLRWinformsProjekt {
 	/// <summary>
 	/// Summary for OptionsForm
 	/// </summary>
+ 
 	public ref class OptionsForm : public System::Windows::Forms::Form
 	{
+	private:
 	public:
-		OptionsForm(void)
+		//void Form1 f(Form1^ f1);
+		OptionsForm()
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
+		
 		}
 
 	protected:
@@ -34,10 +39,65 @@ namespace CppCLRWinformsProjekt {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::RadioButton^ radioButton1;
-	private: System::Windows::Forms::RadioButton^ radioButton2;
+	public:
+		 property String^ limit
+		{
+			String^ get()
+			{
+				// return the value of the private field
+				return num1000Limit->Text;
+			}
+		}
+
+		 property bool _1000
+		 {
+			 bool get()
+			 {
+				 // return the value of the private field
+				 return cbOptionsShow1000->Checked;
+			 }
+		 }		 
+		 
+		 property bool _1000under
+		 {
+			 bool get()
+			 {
+				 // return the value of the private field
+				 return cb1000forStonesUnder->Checked;
+			 }
+		 }
+
+		 property bool recut
+		 {
+			 bool get()
+			 {
+				 // return the value of the private field
+				 return cbRecutEstimation->Checked;
+			 }
+		 }
+
+		 property bool logAll
+		 {
+			 bool get()
+			 {
+				 // return the value of the private field
+				 return cbRecordToLog->Checked;
+			 }
+		 }
+
+
+
 	private: System::Windows::Forms::Button^ btnCloseOptions;
+	private: System::Windows::Forms::CheckBox^ cbOptionsShow1000;
+	private: System::Windows::Forms::CheckBox^ cb1000forStonesUnder;
+
+	private: System::Windows::Forms::CheckBox^ cbRecutEstimation;
+
+	private: System::Windows::Forms::NumericUpDown^ num1000Limit;
+	private: System::Windows::Forms::Label^ lbl100mm;
+	private: System::Windows::Forms::CheckBox^ cbRecordToLog;
+	private: System::Windows::Forms::Label^ lblHeaderPreferences;
+
 	protected:
 
 	private:
@@ -53,46 +113,20 @@ namespace CppCLRWinformsProjekt {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->btnCloseOptions = (gcnew System::Windows::Forms::Button());
+			this->cbOptionsShow1000 = (gcnew System::Windows::Forms::CheckBox());
+			this->cb1000forStonesUnder = (gcnew System::Windows::Forms::CheckBox());
+			this->cbRecutEstimation = (gcnew System::Windows::Forms::CheckBox());
+			this->num1000Limit = (gcnew System::Windows::Forms::NumericUpDown());
+			this->lbl100mm = (gcnew System::Windows::Forms::Label());
+			this->cbRecordToLog = (gcnew System::Windows::Forms::CheckBox());
+			this->lblHeaderPreferences = (gcnew System::Windows::Forms::Label());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->num1000Limit))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(36, 38);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
-			// 
-			// radioButton1
-			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(133, 38);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(85, 17);
-			this->radioButton1->TabIndex = 1;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"radioButton1";
-			this->radioButton1->UseVisualStyleBackColor = true;
-			// 
-			// radioButton2
-			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(133, 61);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(85, 17);
-			this->radioButton2->TabIndex = 2;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"radioButton2";
-			this->radioButton2->UseVisualStyleBackColor = true;
 			// 
 			// btnCloseOptions
 			// 
-			this->btnCloseOptions->Location = System::Drawing::Point(36, 226);
+			this->btnCloseOptions->Location = System::Drawing::Point(12, 165);
 			this->btnCloseOptions->Name = L"btnCloseOptions";
 			this->btnCloseOptions->Size = System::Drawing::Size(75, 23);
 			this->btnCloseOptions->TabIndex = 3;
@@ -100,24 +134,104 @@ namespace CppCLRWinformsProjekt {
 			this->btnCloseOptions->UseVisualStyleBackColor = true;
 			this->btnCloseOptions->Click += gcnew System::EventHandler(this, &OptionsForm::btnCloseOptions_Click);
 			// 
+			// cbOptionsShow1000
+			// 
+			this->cbOptionsShow1000->AutoSize = true;
+			this->cbOptionsShow1000->Location = System::Drawing::Point(13, 51);
+			this->cbOptionsShow1000->Name = L"cbOptionsShow1000";
+			this->cbOptionsShow1000->Size = System::Drawing::Size(168, 17);
+			this->cbOptionsShow1000->TabIndex = 4;
+			this->cbOptionsShow1000->Text = L"Show 1/1000ct for all stones\?";
+			this->cbOptionsShow1000->UseVisualStyleBackColor = true;
+			// 
+			// cb1000forStonesUnder
+			// 
+			this->cb1000forStonesUnder->AutoSize = true;
+			this->cb1000forStonesUnder->Location = System::Drawing::Point(13, 74);
+			this->cb1000forStonesUnder->Name = L"cb1000forStonesUnder";
+			this->cb1000forStonesUnder->Size = System::Drawing::Size(191, 17);
+			this->cb1000forStonesUnder->TabIndex = 5;
+			this->cb1000forStonesUnder->Text = L"Show 1/1000ct for stones under ->";
+			this->cb1000forStonesUnder->UseVisualStyleBackColor = true;
+			// 
+			// cbRecutEstimation
+			// 
+			this->cbRecutEstimation->AutoSize = true;
+			this->cbRecutEstimation->Location = System::Drawing::Point(13, 110);
+			this->cbRecutEstimation->Name = L"cbRecutEstimation";
+			this->cbRecutEstimation->Size = System::Drawing::Size(120, 17);
+			this->cbRecutEstimation->TabIndex = 6;
+			this->cbRecutEstimation->Text = L"RECUT Estimation\?";
+			this->cbRecutEstimation->UseVisualStyleBackColor = true;
+			// 
+			// num1000Limit
+			// 
+			this->num1000Limit->Location = System::Drawing::Point(198, 73);
+			this->num1000Limit->Name = L"num1000Limit";
+			this->num1000Limit->Size = System::Drawing::Size(47, 20);
+			this->num1000Limit->TabIndex = 7;
+			// 
+			// lbl100mm
+			// 
+			this->lbl100mm->AutoSize = true;
+			this->lbl100mm->Location = System::Drawing::Point(251, 76);
+			this->lbl100mm->Name = L"lbl100mm";
+			this->lbl100mm->Size = System::Drawing::Size(23, 13);
+			this->lbl100mm->TabIndex = 8;
+			this->lbl100mm->Text = L"mm";
+			// 
+			// cbRecordToLog
+			// 
+			this->cbRecordToLog->AutoSize = true;
+			this->cbRecordToLog->Location = System::Drawing::Point(13, 133);
+			this->cbRecordToLog->Name = L"cbRecordToLog";
+			this->cbRecordToLog->Size = System::Drawing::Size(122, 17);
+			this->cbRecordToLog->TabIndex = 9;
+			this->cbRecordToLog->Text = L"Log all calculations\?";
+			this->cbRecordToLog->UseVisualStyleBackColor = true;
+			// 
+			// lblHeaderPreferences
+			// 
+			this->lblHeaderPreferences->AutoSize = true;
+			this->lblHeaderPreferences->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblHeaderPreferences->Location = System::Drawing::Point(89, 9);
+			this->lblHeaderPreferences->Name = L"lblHeaderPreferences";
+			this->lblHeaderPreferences->Size = System::Drawing::Size(106, 20);
+			this->lblHeaderPreferences->TabIndex = 10;
+			this->lblHeaderPreferences->Text = L"Preferences";
+			this->lblHeaderPreferences->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
 			// OptionsForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(284, 207);
+			this->Controls->Add(this->lblHeaderPreferences);
+			this->Controls->Add(this->cbRecordToLog);
+			this->Controls->Add(this->lbl100mm);
+			this->Controls->Add(this->num1000Limit);
+			this->Controls->Add(this->cbRecutEstimation);
+			this->Controls->Add(this->cb1000forStonesUnder);
+			this->Controls->Add(this->cbOptionsShow1000);
 			this->Controls->Add(this->btnCloseOptions);
-			this->Controls->Add(this->radioButton2);
-			this->Controls->Add(this->radioButton1);
-			this->Controls->Add(this->button1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->Name = L"OptionsForm";
-			this->Text = L"OptionsForm";
+			this->Text = L"Preferences";
+			this->Load += gcnew System::EventHandler(this, &OptionsForm::OptionsForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->num1000Limit))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void btnCloseOptions_Click(System::Object^ sender, System::EventArgs^ e) {
-		Close();
+		this->Visible = false;
+		//Application::Restart();
+		//Form1^ f1 = gcnew Form1;
+		//f1->Refresh();
 	}
+private: System::Void OptionsForm_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

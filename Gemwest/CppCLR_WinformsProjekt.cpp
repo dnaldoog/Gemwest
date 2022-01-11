@@ -10,12 +10,14 @@ using namespace System;
 #include "Form1.h"
 
 using namespace System::Windows::Forms;
-//using namespace System::Collections::Generic;
 
+//private delegate void DelOpt();
 [STAThread]
 int main() {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Application::Run(gcnew CppCLRWinformsProjekt::Form1()); 
+
+
 	return 0;
 }

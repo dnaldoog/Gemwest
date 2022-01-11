@@ -20,9 +20,12 @@ private:
     String^ _d2; // diamter 2 (could be width)
     String^ _depth; // depth of stone in millimeters
     String^ _sg; //Specific Gravity
+
+    String^ _adj; // total user adjustments  
     String^ _gt; // girdle thickness
     String^ _pv; // pavilion bulge
-    String^ _adj; // user adjustments  
+    String^ _so; // shape outline
+
     bool _isDiamond; // is it a diamond (not as found in the gem listing)
     bool _interp; // interpolate?
     bool _recut; // recut?
@@ -47,9 +50,11 @@ public:
         String^ d2,
         String^ dep,
         String^ sg,
+        String^ adj,
         String^ gt,
         String^ pv,
-        String^ adj,
+        String^ so,
+
         bool isdiamond,
         bool interp,
         bool recut,
