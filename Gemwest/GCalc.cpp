@@ -111,9 +111,11 @@ void GCalc::Initializer(
     String^ d2,
     String^ dep,
     String^ sg,
+    String^ adj,
     String^ gt,
     String^ pv,
-    String^ adj,
+    String^ so,
+
     bool isdiamond,
     bool interp,
     bool recut,

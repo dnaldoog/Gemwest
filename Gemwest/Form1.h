@@ -28,10 +28,16 @@ namespace CppCLRWinformsProjekt {
 	/// <summary>
 	/// Zusammenfassung für Form1
 	/// </summary>
-	public ref class Form1 : public System::Windows::Forms::Form
+	public ref class Form1 : public System::Windows::Forms::Form 
 	{
 	public:
+		//First you have to create a static parent form’s instance inside a new ref class in “Form1.h” :
 
+		//	public ref class FormInst : public Form1
+		//{
+		//public:
+			//static Form1^ form1;
+		//};
 		Form1(void)
 		{
 
@@ -41,6 +47,15 @@ namespace CppCLRWinformsProjekt {
 
 		}
 	protected:
+		//void Dispose(Boolean disposing)
+		//{
+		//	if (disposing && components)
+		//	{
+		//		components->Dispose();
+		//	}
+		//	__super::Dispose(disposing);
+		//}
+
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
 		/// </summary>
@@ -65,8 +80,12 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ lblShape;
 	private: System::Windows::Forms::TrackBar^ tbShapeOutline;
 	private: System::Windows::Forms::PictureBox^ pictAdjArrow;
+	private: System::Windows::Forms::TextBox^ textBox1;
 
-
+	public:
+		Void test(String^ arp) {
+			   this->textBox1->Text = arp;
+		   }
 	protected:
 
 	private: System::Windows::Forms::Button^ btnEq;
@@ -276,6 +295,7 @@ namespace CppCLRWinformsProjekt {
 			this->helpToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->lwguide->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->BeginInit();
@@ -416,6 +436,7 @@ namespace CppCLRWinformsProjekt {
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->lwguide->Controls->Add(this->textBox1);
 			this->lwguide->Controls->Add(this->pictAdjArrow);
 			this->lwguide->Controls->Add(this->txtShapeOutline);
 			this->lwguide->Controls->Add(this->lblShape);
@@ -448,7 +469,6 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
 			this->lwguide->Text = L"Calculate";
-			this->lwguide->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
 			// 
 			// pictAdjArrow
 			// 
@@ -980,7 +1000,7 @@ namespace CppCLRWinformsProjekt {
 			this->logToolStripMenuItem->Name = L"logToolStripMenuItem";
 			this->logToolStripMenuItem->Size = System::Drawing::Size(91, 22);
 			this->logToolStripMenuItem->Text = L"&log";
-			this->logToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::logToolStripMenuItem_Click);
+			//this->logToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::logToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -1013,6 +1033,13 @@ namespace CppCLRWinformsProjekt {
 			this->aboutToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->aboutToolStripMenuItem->Text = L"About";
 			this->aboutToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aboutToolStripMenuItem_Click);
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(22, 108);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(100, 20);
+			this->textBox1->TabIndex = 45;
 			// 
 			// Form1
 			// 
@@ -1056,6 +1083,12 @@ namespace CppCLRWinformsProjekt {
 
 		}
 #pragma endregion
+		OptionsForm of2;
+
+		String^ tmp = of2.limit;
+		bool recordToLog = of2.logAll;
+		bool setTo1000s = of2._1000;
+
 
 	private: System::Void btnEq_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1079,9 +1112,10 @@ namespace CppCLRWinformsProjekt {
 					this->numDia2->Text,
 					this->numDepth->Text,
 					this->numSG->Text,
-					this->tbGirdleThickness->Text,
 					this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+					this->txtGirdleThickness->Text,
 					this->txtPavilionBulge->Text,
+					this->txtShapeOutline->Text,
 					this->radioBtnDia->Checked,
 					this->cbInterpolate->Checked,
 					this->cbRecut->Checked,
@@ -1102,8 +1136,9 @@ namespace CppCLRWinformsProjekt {
 					this->numDepth->Text,
 					this->numSG->Text,
 					this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-					this->tbGirdleThickness->Text,
+					this->txtGirdleThickness->Text,
 					this->txtPavilionBulge->Text,
+					this->txtShapeOutline->Text,
 					this->radioBtnDia->Checked,
 					this->cbInterpolate->Checked,
 					this->cbRecut->Checked,
@@ -1111,25 +1146,17 @@ namespace CppCLRWinformsProjekt {
 					this->radDepthAsPerc->Checked
 				);
 				this->txtResult->Text = GC->calculate();
-				//this->statusbar->Text=
-
 			}
-			//DiamondWeightCalculator^ calculateWeight = gcnew DiamondWeightCalculator;
+
 		} // text is valid
 
 	}
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-		//EmbeddedImage^ ico = gcnew EmbeddedImage;
-		//ico->setName("gw");
-		//this->Icon = cli::safe_cast<System::Drawing::Icon^>(ico->getName());
 
-		//this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject("IDI_ICON1
-
-		//EmbeddedImage^ ico = gcnew EmbeddedImage;
-		//ico->setName(L"$this.Icon");
-		//Form1 = ico->getName(); // (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-		//this->Form>Image = defaultCut->getName();
-
+		if (setTo1000s == true) {
+			this->numDia1->DecimalPlaces = 3;
+		}
+		
 		EmbeddedImage^ adjarrow = gcnew EmbeddedImage;
 		adjarrow->setName("adjustmentarrow");
 		this->pictAdjArrow->Image = adjarrow->getName();
@@ -1165,7 +1192,6 @@ namespace CppCLRWinformsProjekt {
 		this->tbPavilionBulge->Value = 0;
 		this->tbGirdleThickness->Value = 0;
 		this->tbShapeOutline->Value = 0;
-
 		this->txtGlobAdjust->Text = L"0%";
 		this->txtPavilionBulge->Text = L"0%";
 		this->txtGirdleThickness->Text = L"0%";
@@ -1382,8 +1408,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 		Close();
 	}
-	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
-	}
+
 	private: System::Void quitToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (MessageBox::Show(
 			"Really quit program?",
@@ -1606,36 +1631,35 @@ namespace CppCLRWinformsProjekt {
 			this->numDepth->Text = System::Convert::ToString(reversePercentage2mm);
 		}
 	}
-	public: System::Void logToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	
-		LogForm^ form = gcnew LogForm;
-		form->Show();
+	//public: System::Void logToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	//
+	//	LogForm^ form = gcnew LogForm;
+	//	form->Show();
 
-		//	Form^ LogdForm =gcnew Form;
-				//if (LogdForm->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-		//{
-		//	
-		//	//Do stuff
-		//}
-	}
+	//}
 
 private: System::Void helpToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
 }
-private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	OptionsForm^ oform = gcnew OptionsForm;
-	oform->Show();
 
+private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	of2.ShowDialog();
+	if (of2._1000 == true) {
+		this->numDia1->DecimalPlaces = 3;
+	}
+	else {
+		this->numDia1->DecimalPlaces = 2;
+	}
 }
 private: System::Void helpToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	HelpForm^ hform = gcnew HelpForm;
-	hform->Show();
+	hform->Visible=true;
 }
 private: System::Void aboutToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 	AboutForm1^ aform = gcnew AboutForm1;
 	aform->Show();
-}
+	}
 
 };
 
