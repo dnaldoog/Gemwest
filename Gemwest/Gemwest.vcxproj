@@ -114,6 +114,9 @@
       <EntryPointSymbol>main</EntryPointSymbol>
       <EmbedManagedResourceFile>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise.png;%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
     </Link>
+    <PostBuildEvent>
+      <Command>copy app.config "$(TargetPath).config"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -469,6 +472,7 @@
       <HintPath>..\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -491,6 +495,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Gemwest.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

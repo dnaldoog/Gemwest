@@ -24,7 +24,7 @@ bool CutDim::isRoundish(String^ cutname) {
 	cutDim->Add("rectangular cushion", false);
 	cutDim->Add("triangle", false);
 	cutDim->Add("asscher", true);
-	cutDim->Add("barion", 2);
+	cutDim->Add("barion", true);
 	cutDim->Add("cushion brilliant", false);
 	cutDim->Add("eight cut", true);
 	cutDim->Add("emerald cut diamond", false);

@@ -40,7 +40,7 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 	public:
-		 property String^ limit
+		 property String^ proplimit
 		{
 			String^ get()
 			{
@@ -49,16 +49,22 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 
-		 property bool _1000
+		 property bool prop1000
 		 {
 			 bool get()
 			 {
 				 // return the value of the private field
 				 return cbOptionsShow1000->Checked;
 			 }
+			 void set(bool pb)
+			 {
+				 // return the value of the private field
+				 cbOptionsShow1000->Checked=pb;
+
+			 }
 		 }		 
 		 
-		 property bool _1000under
+		 property bool prop1000under
 		 {
 			 bool get()
 			 {
@@ -67,7 +73,7 @@ namespace CppCLRWinformsProjekt {
 			 }
 		 }
 
-		 property bool recut
+		 property bool propRecut
 		 {
 			 bool get()
 			 {
@@ -76,12 +82,18 @@ namespace CppCLRWinformsProjekt {
 			 }
 		 }
 
-		 property bool logAll
+		 property bool propLogAll
 		 {
 			 bool get()
 			 {
 				 // return the value of the private field
 				 return cbRecordToLog->Checked;
+			 }
+			 void set(bool pb)
+			 {
+				 // return the value of the private field
+				 cbRecordToLog->Checked = pb;
+
 			 }
 		 }
 
@@ -126,7 +138,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// btnCloseOptions
 			// 
-			this->btnCloseOptions->Location = System::Drawing::Point(12, 165);
+			this->btnCloseOptions->Location = System::Drawing::Point(12, 134);
 			this->btnCloseOptions->Name = L"btnCloseOptions";
 			this->btnCloseOptions->Size = System::Drawing::Size(75, 23);
 			this->btnCloseOptions->TabIndex = 3;
@@ -147,17 +159,18 @@ namespace CppCLRWinformsProjekt {
 			// cb1000forStonesUnder
 			// 
 			this->cb1000forStonesUnder->AutoSize = true;
-			this->cb1000forStonesUnder->Location = System::Drawing::Point(13, 74);
+			this->cb1000forStonesUnder->Location = System::Drawing::Point(13, 5);
 			this->cb1000forStonesUnder->Name = L"cb1000forStonesUnder";
 			this->cb1000forStonesUnder->Size = System::Drawing::Size(191, 17);
 			this->cb1000forStonesUnder->TabIndex = 5;
 			this->cb1000forStonesUnder->Text = L"Show 1/1000ct for stones under ->";
 			this->cb1000forStonesUnder->UseVisualStyleBackColor = true;
+			this->cb1000forStonesUnder->Visible = false;
 			// 
 			// cbRecutEstimation
 			// 
 			this->cbRecutEstimation->AutoSize = true;
-			this->cbRecutEstimation->Location = System::Drawing::Point(13, 110);
+			this->cbRecutEstimation->Location = System::Drawing::Point(13, 76);
 			this->cbRecutEstimation->Name = L"cbRecutEstimation";
 			this->cbRecutEstimation->Size = System::Drawing::Size(120, 17);
 			this->cbRecutEstimation->TabIndex = 6;
@@ -166,24 +179,26 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// num1000Limit
 			// 
-			this->num1000Limit->Location = System::Drawing::Point(198, 73);
+			this->num1000Limit->Location = System::Drawing::Point(198, 4);
 			this->num1000Limit->Name = L"num1000Limit";
 			this->num1000Limit->Size = System::Drawing::Size(47, 20);
 			this->num1000Limit->TabIndex = 7;
+			this->num1000Limit->Visible = false;
 			// 
 			// lbl100mm
 			// 
 			this->lbl100mm->AutoSize = true;
-			this->lbl100mm->Location = System::Drawing::Point(251, 76);
+			this->lbl100mm->Location = System::Drawing::Point(251, 7);
 			this->lbl100mm->Name = L"lbl100mm";
 			this->lbl100mm->Size = System::Drawing::Size(23, 13);
 			this->lbl100mm->TabIndex = 8;
 			this->lbl100mm->Text = L"mm";
+			this->lbl100mm->Visible = false;
 			// 
 			// cbRecordToLog
 			// 
 			this->cbRecordToLog->AutoSize = true;
-			this->cbRecordToLog->Location = System::Drawing::Point(13, 133);
+			this->cbRecordToLog->Location = System::Drawing::Point(13, 101);
 			this->cbRecordToLog->Name = L"cbRecordToLog";
 			this->cbRecordToLog->Size = System::Drawing::Size(122, 17);
 			this->cbRecordToLog->TabIndex = 9;
@@ -206,7 +221,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 207);
+			this->ClientSize = System::Drawing::Size(284, 184);
 			this->Controls->Add(this->lblHeaderPreferences);
 			this->Controls->Add(this->cbRecordToLog);
 			this->Controls->Add(this->lbl100mm);
