@@ -60,10 +60,7 @@
     <ClInclude Include="AboutForm1.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="TestCPlusPlus.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="SaveSettings.h">
+    <ClInclude Include="BridgeCS.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -113,10 +110,7 @@
     <ClCompile Include="AboutForm1.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="TestCPlusPlus.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="SaveSettings.cpp">
+    <ClCompile Include="BridgeCS.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

@@ -26,9 +26,9 @@ namespace CSconfig.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool logtofile {
+        public string logtofile {
             get {
-                return ((bool)(this["logtofile"]));
+                return ((string)(this["logtofile"]));
             }
             set {
                 this["logtofile"] = value;

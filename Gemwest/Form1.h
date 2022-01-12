@@ -11,7 +11,7 @@
 #include "AboutForm1.h"
 #include "HelpForm.h"
 #include "OptionsForm.h"
-#include "TestCPlusPlus.h"
+#include "BridgeCS.h"
 
 
 namespace CppCLRWinformsProjekt {
@@ -38,13 +38,6 @@ namespace CppCLRWinformsProjekt {
 	public ref class Form1 : public System::Windows::Forms::Form 
 	{
 	public:
-		//First you have to create a static parent form’s instance inside a new ref class in “Form1.h” :
-
-		//	public ref class FormInst : public Form1
-		//{
-		//public:
-			//static Form1^ form1;
-		//};
 		Form1(void)
 		{
 
@@ -54,14 +47,6 @@ namespace CppCLRWinformsProjekt {
 
 		}
 	protected:
-		//void Dispose(Boolean disposing)
-		//{
-		//	if (disposing && components)
-		//	{
-		//		components->Dispose();
-		//	}
-		//	__super::Dispose(disposing);
-		//}
 
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
@@ -83,18 +68,13 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::ToolStripMenuItem^ helpToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ aboutToolStripMenuItem1;
 	private: System::Windows::Forms::TextBox^ txtShapeOutline;
-
 	private: System::Windows::Forms::Label^ lblShape;
 	private: System::Windows::Forms::TrackBar^ tbShapeOutline;
 	private: System::Windows::Forms::PictureBox^ pictAdjArrow;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::TextBox^ textBox1;
 
 	public:
-		Void test(String^ arp) {
-			   this->textBox1->Text = arp;
-		   }
+
 	protected:
 
 	private: System::Windows::Forms::Button^ btnEq;
@@ -124,7 +104,8 @@ namespace CppCLRWinformsProjekt {
 					   double depthPercentage;
 					   double depthMm;
 
-					   /* the cut hasn't been chosen so we need to determine how to calculate Width
+					   /* 
+					   cut hasn't been chosen so we need to determine how to calculate Width
 					   Should it be just Width or Diameter-1 + Diameter-2/2 ?
 					   */
 
@@ -183,44 +164,27 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::ToolStripMenuItem^ logToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ aboutToolStripMenuItem;
 	private: System::Windows::Forms::Label^ lblPavilionBulge;
-
 	private: System::Windows::Forms::Label^ lblGirdleThickness;
-
-
-
 	private: System::Windows::Forms::Label^ lblGlobAdj;
-
 	private: System::Windows::Forms::Label^ lblResult;
-
 	private: System::Windows::Forms::Label^ lblDepth;
-
 	private: System::Windows::Forms::Label^ lblDia2;
-
 	private: System::Windows::Forms::Label^ lblDia1;
 	private: System::Windows::Forms::TrackBar^ tbPavilionBulge;
-
-
 	private: System::Windows::Forms::TrackBar^ tbGirdleThickness;
-
-
 	private: System::Windows::Forms::TextBox^ txtFactor;
-
-
 	private: System::Windows::Forms::Label^ lblSelectedCut;
-
 	private: System::Windows::Forms::ComboBox^ comboCut;
 	private: System::Windows::Forms::Label^ lblSgValue;
 	private: System::Windows::Forms::Label^ lblCutFactor;
 	private: System::Windows::Forms::ComboBox^ comboGems;
 	private: System::Windows::Forms::TextBox^ txtPavilionBulge;
 	private: System::Windows::Forms::TextBox^ txtGirdleThickness;
-
 	private: System::Windows::Forms::TextBox^ txtGlobAdjust;
 	private: System::Windows::Forms::PictureBox^ picGem;
 	private: System::Windows::Forms::PictureBox^ picCut;
 	private: System::Windows::Forms::PictureBox^ picBulge;
 	private: System::Windows::Forms::PictureBox^ picGirdle;
-
 	private: System::Windows::Forms::ToolStripStatusLabel^ toolStrip;
 	private: System::Windows::Forms::NumericUpDown^ numSG;
 	private: System::Windows::Forms::NumericUpDown^ numDepth;
@@ -252,7 +216,6 @@ namespace CppCLRWinformsProjekt {
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->pictAdjArrow = (gcnew System::Windows::Forms::PictureBox());
 			this->txtShapeOutline = (gcnew System::Windows::Forms::TextBox());
 			this->lblShape = (gcnew System::Windows::Forms::Label());
@@ -306,7 +269,6 @@ namespace CppCLRWinformsProjekt {
 			this->helpToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->lwguide->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->BeginInit();
@@ -447,9 +409,7 @@ namespace CppCLRWinformsProjekt {
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->lwguide->Controls->Add(this->button1);
 			this->lwguide->Controls->Add(this->label1);
-			this->lwguide->Controls->Add(this->textBox1);
 			this->lwguide->Controls->Add(this->pictAdjArrow);
 			this->lwguide->Controls->Add(this->txtShapeOutline);
 			this->lwguide->Controls->Add(this->lblShape);
@@ -491,13 +451,6 @@ namespace CppCLRWinformsProjekt {
 			this->label1->Size = System::Drawing::Size(35, 13);
 			this->label1->TabIndex = 46;
 			this->label1->Text = L"label1";
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(22, 108);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
-			this->textBox1->TabIndex = 45;
 			// 
 			// pictAdjArrow
 			// 
@@ -1062,16 +1015,6 @@ namespace CppCLRWinformsProjekt {
 			this->aboutToolStripMenuItem->Text = L"About";
 			this->aboutToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aboutToolStripMenuItem_Click);
 			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(168, 95);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 47;
-			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
-			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1114,18 +1057,17 @@ namespace CppCLRWinformsProjekt {
 
 		}
 #pragma endregion
-		//public:
-		OptionsForm myPreferences; // declare Object
-		//private:
-	
-String^ getDecPlacesFromConfig = ConfigurationSettings::AppSettings["decPlaces"];
-String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
-//
-//String^ getDecPlacesFromConfig = ::AppSettings["decPlaces"];
-//String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
 
+		OptionsForm myPreferences; // declare Object pointing to Options Form
 
+		BridgeCS^ loadData = gcnew BridgeCS;
+		String^ getDecPlacesFromConfig = loadData->propBridge1000; //ConfigurationSettings::AppSettings["decPlaces"];
+		String^ getLogAllFromConfig = loadData->propBridgeLog;//ConfigurationSettings::AppSettings["logAll"];
 
+		/*Old system C++ but only saves to READ ONLY Application folder*/
+		/*Needed to implement in C# using CSConfig.dll*/
+		//String^ getDecPlacesFromConfig = ::AppSettings["decPlaces"];
+		//String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
 		//String^ tmp = myPreferences.proplimit; NOT USED RIGHT NOW
 		//bool recordToLog = myPreferences.propLogAll;
 		//bool setTo1000s = myPreferences.prop1000;
@@ -1193,38 +1135,29 @@ String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
 
 	}
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-	/****************LOAD CONFIG FILES***************************/
-
-	
-			bool set1000s = false;
-		bool setLogging = false;
-		if (!System::String::IsNullOrEmpty(getDecPlacesFromConfig)){
+	/****************LOAD CONFIG FILES***************************/	
+		bool set1000s = false; //   these variables are sent to GUI
+		bool setLogging = false; //   these variables are sent to GUI
+		if (!System::String::IsNullOrEmpty(getDecPlacesFromConfig)){ 
 			if (getDecPlacesFromConfig->Equals("3")) {
 				set1000s = true;
-				//myPreferences.prop1000(true); 
 			}
 			else {
-				//myPreferences.prop1000(false);
 				set1000s = false;
 			}
 			myPreferences.prop1000 = set1000s;
 		} // not null or empty
 		/****************************************************/
-		if (!System::String::IsNullOrEmpty(getLogAllFromConfig)) {
+		if(!System::String::IsNullOrEmpty(getLogAllFromConfig)) {
 			if (getLogAllFromConfig->Equals("true")) {
 				setLogging = true;
-				//myPreferences.prop1000(true); 
 			}
 			else {
-				//myPreferences.prop1000(false);
 				setLogging = false;
 			}
 			myPreferences.propLogAll = setLogging;
 		}//not null or empty
 		/****************************************************/
-
-	
-
 		
 		String^ greeting = ConfigurationManager::AppSettings["greeting"];
 		Console::WriteLine(greeting);
@@ -1268,12 +1201,9 @@ String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
 		this->txtPavilionBulge->Text = L"0%";
 		this->txtGirdleThickness->Text = L"0%";
 		this->txtShapeOutline->Text = L"0%";
-
-
 	}
 	private: System::Void txtResult_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-
-	}
+			}
 	private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 
 		Dictionary<String^, String^>^ sg;
@@ -1466,10 +1396,7 @@ String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
 		sg->Add("zircon (normal)", "4.69");
 		sg->Add("zirconia (cubic)", "5.7");
 		sg->Add("zoisite", "3.35");
-
-		//MessageBox::Show("you chose :: " + this->comboGems->Text + " sg = " + sg[comboGems->Text]);
-
-			/**************************IMAGE MANAGEMENT**************************/
+		/**************************IMAGE MANAGEMENT**************************/
 		EmbeddedImage^ gemImage = gcnew EmbeddedImage;
 		if (sg->ContainsKey(this->comboGems->Text)) {
 			gemImage->setName(this->comboGems->Text);
@@ -1526,17 +1453,8 @@ String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
 		this->picCut->Image = dCutImage->getName();
 	}
 	private: System::Void aboutToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
-		//if (MessageBox::Show(
-		//	"Gemwest 2.0\nA mounted gemstone ct weight estimator\nMade with C++/CLI",
-		//	"About Gemwest 2.0", MessageBoxButtons::OK,
-		//	MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::OK)
-		//{
-		//	//do nothing - just close dialog
-		//}
 		AboutForm1^ aform = gcnew AboutForm1;
 		aform->Show();
-		//aform->Activate();
 	}
 	private: System::Void txtFactor_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
@@ -1703,16 +1621,8 @@ String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
 			this->numDepth->Text = System::Convert::ToString(reversePercentage2mm);
 		}
 	}
-	//public: System::Void logToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	//
-	//	LogForm^ form = gcnew LogForm;
-	//	form->Show();
-
-	//}
-
 private: System::Void helpToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
-}
+	}
 
 private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	myPreferences.ShowDialog();
@@ -1745,22 +1655,24 @@ private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender,
 		decplaces = "2";
 	}
 
+	BridgeCS^ settingsSave = gcnew BridgeCS;
+	settingsSave->propBridge1000 = decplaces;
+	settingsSave->propBridgeLog = logAllcalculations;
+
+	/*This is old code for C++ but it only saves to Application Folder*/
 	//String^ decPlaces = ConfigurationSettings::AppSettings["decPlaces"];
 	//String^ log = ConfigurationSettings::AppSettings["log"];
 	//Console::WriteLine("{0} - {1}", firstName, name);
 
-	System::Configuration::Configuration^ config = ConfigurationManager::OpenExeConfiguration(ConfigurationUserLevel::None);
-	//config->AppSettings->Settings->Remove("firstName");
-	config->AppSettings->Settings->Remove("decPlaces");
-	config->AppSettings->Settings->Remove("logAll");
+	//System::Configuration::Configuration^ config = ConfigurationManager::OpenExeConfiguration(ConfigurationUserLevel::None);
+	//config->AppSettings->Settings->Remove("decPlaces");
+	//config->AppSettings->Settings->Remove("logAll");
 
-	config->AppSettings->Settings->Add("decPlaces",decplaces);
-	config->AppSettings->Settings->Add("logAll", logAllcalculations);
-	config->Save(ConfigurationSaveMode::Modified);
-	ConfigurationManager::RefreshSection("appSettings");
+	//config->AppSettings->Settings->Add("decPlaces",decplaces);
+	//config->AppSettings->Settings->Add("logAll", logAllcalculations);
+	//config->Save(ConfigurationSaveMode::Modified);
+	//ConfigurationManager::RefreshSection("appSettings");
 
-	//firstName = ConfigurationSettings::AppSettings["firstName"];
-	//Console::WriteLine("{0} - {1}", firstName, name);
 }
 private: System::Void helpToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1771,19 +1683,5 @@ private: System::Void aboutToolStripMenuItem1_Click(System::Object^ sender, Syst
 	AboutForm1^ aform = gcnew AboutForm1;
 	aform->Show();
 	}
-
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	//ManagedCPlusPlus^ addme = gcnew TestCPlusPlus;
-	TestCPlusPlus::ManagedCPlusPlus^ Add = gcnew TestCPlusPlus::ManagedCPlusPlus;
-	MessageBox::Show("C# "+ Add->Add(3, 4));
-}
 };
-
-
 }
-
-
-
-
-
-
