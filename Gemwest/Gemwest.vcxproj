@@ -174,6 +174,8 @@
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
     </ClInclude>
     <ClInclude Include="resource1.h" />
+    <ClInclude Include="SaveSettings.h" />
+    <ClInclude Include="TestCPlusPlus.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutForm1.cpp" />
@@ -196,6 +198,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Pixmaps.cpp" />
+    <ClCompile Include="SaveSettings.cpp" />
+    <ClCompile Include="TestCPlusPlus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
@@ -468,9 +472,6 @@
     <Image Include="D:\Pictures\various\junk\zaniah.png" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -498,6 +499,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSconfig\CSconfig.csproj">
+      <Project>{2adaa3e1-3235-40b0-b612-91dba784ecf1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNetLib\DotNetLib.csproj">
+      <Project>{80735332-dfef-4d50-b9e6-0cba50a786dd}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

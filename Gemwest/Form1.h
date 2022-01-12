@@ -11,6 +11,8 @@
 #include "AboutForm1.h"
 #include "HelpForm.h"
 #include "OptionsForm.h"
+#include "TestCPlusPlus.h"
+
 
 namespace CppCLRWinformsProjekt {
 	//
@@ -25,6 +27,10 @@ namespace CppCLRWinformsProjekt {
 	using namespace System::Resources;
 	using namespace System::Drawing;
 	using namespace System::Configuration;
+	//using namespace 
+	//using namespace CSettings;
+
+	
 
 	/// <summary>
 	/// Zusammenfassung für Form1
@@ -82,6 +88,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::TrackBar^ tbShapeOutline;
 	private: System::Windows::Forms::PictureBox^ pictAdjArrow;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::TextBox^ textBox1;
 
 	public:
@@ -244,6 +251,7 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->pictAdjArrow = (gcnew System::Windows::Forms::PictureBox());
 			this->txtShapeOutline = (gcnew System::Windows::Forms::TextBox());
@@ -298,7 +306,7 @@ namespace CppCLRWinformsProjekt {
 			this->helpToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->lwguide->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->BeginInit();
@@ -439,6 +447,7 @@ namespace CppCLRWinformsProjekt {
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->lwguide->Controls->Add(this->button1);
 			this->lwguide->Controls->Add(this->label1);
 			this->lwguide->Controls->Add(this->textBox1);
 			this->lwguide->Controls->Add(this->pictAdjArrow);
@@ -473,6 +482,15 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
 			this->lwguide->Text = L"Calculate";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(76, 72);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(35, 13);
+			this->label1->TabIndex = 46;
+			this->label1->Text = L"label1";
 			// 
 			// textBox1
 			// 
@@ -1044,14 +1062,15 @@ namespace CppCLRWinformsProjekt {
 			this->aboutToolStripMenuItem->Text = L"About";
 			this->aboutToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::aboutToolStripMenuItem_Click);
 			// 
-			// label1
+			// button1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(76, 72);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
-			this->label1->TabIndex = 46;
-			this->label1->Text = L"label1";
+			this->button1->Location = System::Drawing::Point(168, 95);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 47;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
 			// Form1
 			// 
@@ -1098,9 +1117,12 @@ namespace CppCLRWinformsProjekt {
 		//public:
 		OptionsForm myPreferences; // declare Object
 		//private:
+	
 String^ getDecPlacesFromConfig = ConfigurationSettings::AppSettings["decPlaces"];
 String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
-//String^ log2 = ConfigurationSettings::AppSettings["Idontexist"];
+//
+//String^ getDecPlacesFromConfig = ::AppSettings["decPlaces"];
+//String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
 
 
 
@@ -1171,41 +1193,37 @@ String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
 
 	}
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-		//String^ decPlaces = ConfigurationSettings::AppSettings["decPlaces"];
-		//String^ log = ConfigurationSettings::AppSettings["logAll"];
-		//String^ log2 = ConfigurationSettings::AppSettings["Idontexist"];
-		//if (decPlaces == "3") {
-		//	this->numDia1->DecimalPlaces = 3;
-		//	this->numDia1->Increment = System::Decimal(0.001);
-		//}
-		//else {
-		//	this->numDia1->DecimalPlaces = 2;
-		//	this->numDia1->Increment = System::Decimal(0.01);
+	/****************LOAD CONFIG FILES***************************/
 
-		//}
-		//bool x=myPreferences.prop1000;
-		bool set1000s = false;
+	
+			bool set1000s = false;
 		bool setLogging = false;
-		if (getDecPlacesFromConfig->Equals("3")) { 
-			set1000s = true;
-			//myPreferences.prop1000(true); 
-		}
-		else {
-			//myPreferences.prop1000(false);
-			set1000s = false;
-		}
-		if (getLogAllFromConfig->Equals("true")) {
-			setLogging = true;
-			//myPreferences.prop1000(true); 
-		}
-		else {
-			//myPreferences.prop1000(false);
-			setLogging = false;
-		}
-		//OptionsForm^ mp = gcnew OptionsForm;
-		//mp->prop1000 = set1000s;
-		myPreferences.prop1000=set1000s;
-		myPreferences.propLogAll=setLogging;
+		if (!System::String::IsNullOrEmpty(getDecPlacesFromConfig)){
+			if (getDecPlacesFromConfig->Equals("3")) {
+				set1000s = true;
+				//myPreferences.prop1000(true); 
+			}
+			else {
+				//myPreferences.prop1000(false);
+				set1000s = false;
+			}
+			myPreferences.prop1000 = set1000s;
+		} // not null or empty
+		/****************************************************/
+		if (!System::String::IsNullOrEmpty(getLogAllFromConfig)) {
+			if (getLogAllFromConfig->Equals("true")) {
+				setLogging = true;
+				//myPreferences.prop1000(true); 
+			}
+			else {
+				//myPreferences.prop1000(false);
+				setLogging = false;
+			}
+			myPreferences.propLogAll = setLogging;
+		}//not null or empty
+		/****************************************************/
+
+	
 
 		
 		String^ greeting = ConfigurationManager::AppSettings["greeting"];
@@ -1731,9 +1749,7 @@ private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender,
 	//String^ log = ConfigurationSettings::AppSettings["log"];
 	//Console::WriteLine("{0} - {1}", firstName, name);
 
-	System::Configuration::Configuration^ config =
-		ConfigurationManager::OpenExeConfiguration(
-			ConfigurationUserLevel::None);
+	System::Configuration::Configuration^ config = ConfigurationManager::OpenExeConfiguration(ConfigurationUserLevel::None);
 	//config->AppSettings->Settings->Remove("firstName");
 	config->AppSettings->Settings->Remove("decPlaces");
 	config->AppSettings->Settings->Remove("logAll");
@@ -1756,6 +1772,11 @@ private: System::Void aboutToolStripMenuItem1_Click(System::Object^ sender, Syst
 	aform->Show();
 	}
 
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	//ManagedCPlusPlus^ addme = gcnew TestCPlusPlus;
+	TestCPlusPlus::ManagedCPlusPlus^ Add = gcnew TestCPlusPlus::ManagedCPlusPlus;
+	MessageBox::Show("C# "+ Add->Add(3, 4));
+}
 };
 
 
