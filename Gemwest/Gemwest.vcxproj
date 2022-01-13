@@ -162,7 +162,6 @@
     <ClInclude Include="HelpForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="kitty.h" />
     <ClInclude Include="LogForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -189,7 +188,6 @@
     <ClCompile Include="GCalc.cpp" />
     <ClCompile Include="GemCut.cpp" />
     <ClCompile Include="HelpForm.cpp" />
-    <ClCompile Include="kitty.cpp" />
     <ClCompile Include="LogForm.cpp" />
     <ClCompile Include="OptionsForm.cpp" />
     <ClCompile Include="pch.cpp">
