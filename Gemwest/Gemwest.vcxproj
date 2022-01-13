@@ -150,6 +150,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="BridgeCS.h" />
+    <ClInclude Include="BridgeCSxpm.h" />
     <ClInclude Include="CutDim.h" />
     <ClInclude Include="DCalc.h" />
     <ClInclude Include="DiamondCut.h" />
@@ -180,6 +181,7 @@
     <ClCompile Include="AboutForm1.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="BridgeCS.cpp" />
+    <ClCompile Include="BridgeCSxpm.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
     <ClCompile Include="CutDim.cpp" />
     <ClCompile Include="DCalc.cpp" />
@@ -212,6 +214,13 @@
     <Image Include="app.ico">
       <DeploymentContent>true</DeploymentContent>
     </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw128.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw16.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw24.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw256.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw32.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw48.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gwest_win.ico" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_big.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_med.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_non.png" />
@@ -501,6 +510,9 @@
   <ItemGroup>
     <ProjectReference Include="..\CSconfig\CSconfig.csproj">
       <Project>{2adaa3e1-3235-40b0-b612-91dba784ecf1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CSpixmap\CSpixmap.csproj">
+      <Project>{55794ecf-757b-49e0-8dbb-58cd25956635}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

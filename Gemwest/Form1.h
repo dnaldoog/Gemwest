@@ -71,7 +71,8 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ lblShape;
 	private: System::Windows::Forms::TrackBar^ tbShapeOutline;
 	private: System::Windows::Forms::PictureBox^ pictAdjArrow;
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::PictureBox^ picRecut;
+
 
 	public:
 
@@ -79,6 +80,7 @@ namespace CppCLRWinformsProjekt {
 
 	private: System::Windows::Forms::Button^ btnEq;
 		   bool Form1::isRoundish() {
+			   this->cbRecut->Visible = true;
 			   bool r = true;
 			   if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
 				   r = true;
@@ -215,7 +217,7 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->picRecut = (gcnew System::Windows::Forms::PictureBox());
 			this->pictAdjArrow = (gcnew System::Windows::Forms::PictureBox());
 			this->txtShapeOutline = (gcnew System::Windows::Forms::TextBox());
 			this->lblShape = (gcnew System::Windows::Forms::Label());
@@ -270,6 +272,7 @@ namespace CppCLRWinformsProjekt {
 			this->aboutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->lwguide->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRecut))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->BeginInit();
 			this->panel1->SuspendLayout();
@@ -409,7 +412,7 @@ namespace CppCLRWinformsProjekt {
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->lwguide->Controls->Add(this->label1);
+			this->lwguide->Controls->Add(this->picRecut);
 			this->lwguide->Controls->Add(this->pictAdjArrow);
 			this->lwguide->Controls->Add(this->txtShapeOutline);
 			this->lwguide->Controls->Add(this->lblShape);
@@ -442,15 +445,16 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
 			this->lwguide->Text = L"Calculate";
+			this->lwguide->Enter += gcnew System::EventHandler(this, &Form1::lwguide_Enter);
 			// 
-			// label1
+			// picRecut
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(76, 72);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
-			this->label1->TabIndex = 46;
-			this->label1->Text = L"label1";
+			this->picRecut->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picRecut->Location = System::Drawing::Point(226, 96);
+			this->picRecut->Name = L"picRecut";
+			this->picRecut->Size = System::Drawing::Size(82, 64);
+			this->picRecut->TabIndex = 47;
+			this->picRecut->TabStop = false;
 			// 
 			// pictAdjArrow
 			// 
@@ -480,6 +484,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// tbShapeOutline
 			// 
+			this->tbShapeOutline->LargeChange = 1;
 			this->tbShapeOutline->Location = System::Drawing::Point(370, 193);
 			this->tbShapeOutline->Maximum = 30;
 			this->tbShapeOutline->MaximumSize = System::Drawing::Size(104, 30);
@@ -579,7 +584,7 @@ namespace CppCLRWinformsProjekt {
 			this->numDepth->Name = L"numDepth";
 			this->numDepth->Size = System::Drawing::Size(100, 20);
 			this->numDepth->TabIndex = 35;
-			this->numDepth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 25, 0, 0, 0 });
+			this->numDepth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 54, 0, 0, 65536 });
 			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged);
 			// 
 			// numDia2
@@ -591,7 +596,7 @@ namespace CppCLRWinformsProjekt {
 			this->numDia2->Name = L"numDia2";
 			this->numDia2->Size = System::Drawing::Size(100, 20);
 			this->numDia2->TabIndex = 34;
-			this->numDia2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			this->numDia2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9, 0, 0, 0 });
 			this->numDia2->ValueChanged += gcnew System::EventHandler(this, &Form1::numDia2_ValueChanged);
 			// 
 			// numDia1
@@ -603,7 +608,7 @@ namespace CppCLRWinformsProjekt {
 			this->numDia1->Name = L"numDia1";
 			this->numDia1->Size = System::Drawing::Size(100, 20);
 			this->numDia1->TabIndex = 25;
-			this->numDia1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			this->numDia1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9, 0, 0, 0 });
 			this->numDia1->ValueChanged += gcnew System::EventHandler(this, &Form1::numDia1_ValueChanged);
 			// 
 			// txtPavilionBulge
@@ -636,6 +641,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// tbPavilionBulge
 			// 
+			this->tbPavilionBulge->LargeChange = 1;
 			this->tbPavilionBulge->Location = System::Drawing::Point(267, 193);
 			this->tbPavilionBulge->Maximum = 30;
 			this->tbPavilionBulge->MaximumSize = System::Drawing::Size(104, 30);
@@ -648,6 +654,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// tbGirdleThickness
 			// 
+			this->tbGirdleThickness->LargeChange = 1;
 			this->tbGirdleThickness->Location = System::Drawing::Point(156, 193);
 			this->tbGirdleThickness->Maximum = 30;
 			this->tbGirdleThickness->MaximumSize = System::Drawing::Size(104, 30);
@@ -662,22 +669,26 @@ namespace CppCLRWinformsProjekt {
 			// cbRecut
 			// 
 			this->cbRecut->AutoSize = true;
-			this->cbRecut->Location = System::Drawing::Point(264, 141);
+			this->cbRecut->Location = System::Drawing::Point(43, 272);
 			this->cbRecut->Name = L"cbRecut";
 			this->cbRecut->Size = System::Drawing::Size(61, 17);
 			this->cbRecut->TabIndex = 12;
 			this->cbRecut->Text = L"Recut\?";
 			this->cbRecut->UseVisualStyleBackColor = true;
+			this->cbRecut->Visible = false;
+			this->cbRecut->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbRecut_CheckedChanged);
 			// 
 			// cbInterpolate
 			// 
 			this->cbInterpolate->AutoSize = true;
-			this->cbInterpolate->Location = System::Drawing::Point(264, 118);
+			this->cbInterpolate->Location = System::Drawing::Point(43, 271);
 			this->cbInterpolate->Name = L"cbInterpolate";
 			this->cbInterpolate->Size = System::Drawing::Size(82, 17);
 			this->cbInterpolate->TabIndex = 11;
 			this->cbInterpolate->Text = L"Interpolate\?";
 			this->cbInterpolate->UseVisualStyleBackColor = true;
+			this->cbInterpolate->Visible = false;
+			this->cbInterpolate->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbInterpolate_CheckedChanged);
 			// 
 			// lblPavilionBulge
 			// 
@@ -835,6 +846,7 @@ namespace CppCLRWinformsProjekt {
 			this->txtFactor->Name = L"txtFactor";
 			this->txtFactor->Size = System::Drawing::Size(100, 20);
 			this->txtFactor->TabIndex = 17;
+			this->txtFactor->Text = L"0.0061";
 			this->txtFactor->TextChanged += gcnew System::EventHandler(this, &Form1::txtFactor_TextChanged);
 			this->txtFactor->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtFactor_KeyPress);
 			// 
@@ -887,7 +899,7 @@ namespace CppCLRWinformsProjekt {
 			this->comboCut->Name = L"comboCut";
 			this->comboCut->Size = System::Drawing::Size(121, 21);
 			this->comboCut->TabIndex = 15;
-			this->comboCut->Text = L"choose from below";
+			this->comboCut->Text = L"round brilliant";
 			this->comboCut->SelectedIndexChanged += gcnew System::EventHandler(this, &Form1::comboCut_SelectedIndexChanged);
 			// 
 			// radioBtnGem
@@ -1032,6 +1044,7 @@ namespace CppCLRWinformsProjekt {
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->lwguide->ResumeLayout(false);
 			this->lwguide->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRecut))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->EndInit();
 			this->panel1->ResumeLayout(false);
@@ -1159,9 +1172,9 @@ namespace CppCLRWinformsProjekt {
 		}//not null or empty
 		/****************************************************/
 		
-		String^ greeting = ConfigurationManager::AppSettings["greeting"];
-		Console::WriteLine(greeting);
-		this->label1->Text = greeting;
+		//String^ greeting = ConfigurationManager::AppSettings["greeting"];
+		//Console::WriteLine(greeting);
+		//this->label1->Text = greeting;
 		EmbeddedImage^ adjarrow = gcnew EmbeddedImage;
 		adjarrow->setName("adjustmentarrow");
 		this->pictAdjArrow->Image = adjarrow->getName();
@@ -1683,5 +1696,11 @@ private: System::Void aboutToolStripMenuItem1_Click(System::Object^ sender, Syst
 	AboutForm1^ aform = gcnew AboutForm1;
 	aform->Show();
 	}
+private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void cbInterpolate_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void lwguide_Enter(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
