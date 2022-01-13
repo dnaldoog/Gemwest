@@ -1756,16 +1756,18 @@ namespace CppCLRWinformsProjekt {
 	private: System::Void Form1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 		//virtual Void Form1::OnPaint(PaintEventArgs ^ pe) override
 	//	{
-			Graphics^ g = e->Graphics;
-			g->Clear(Color::Black);
+			//Graphics^ g = e->Graphics;
+			//g->Clear(Color::Black);
 
-			Pen^ redPen = gcnew Pen(Color::Red, 3.0f);
+			//Pen^ redPen = gcnew Pen(Color::Red, 3.0f);
 
-			// Draw rectangle to screen.
-			g->DrawRectangle(redPen, 0, 0, 82, 64);
+			//// Draw rectangle to screen.
+			//g->DrawRectangle(redPen, 0, 0, 82, 64);
 		//}
 	}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
 private: System::Void logToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	LogForm^ lform = gcnew LogForm;
 	lform->Visible = true;
