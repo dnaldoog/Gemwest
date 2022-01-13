@@ -12,6 +12,15 @@ ref class DCalc
 
     */
 private:
+
+
+String^ dia_round_formula(void);
+String^ dia_oval_formula(void);
+String^ dia_lwd_formula(void);
+String^ dia_tapered_baguette_formula(void);
+
+
+
     Dictionary<double, double>^ _marquise_formulae;
     Dictionary<double, double>^ _emerald_formulae;
     Dictionary<double, double>^ _pear_formulae;

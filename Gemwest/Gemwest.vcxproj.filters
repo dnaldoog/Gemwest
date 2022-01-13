@@ -33,9 +33,6 @@
     <ClInclude Include="EmbeddedImage.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Pixmaps.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="resource1.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -84,9 +81,6 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="EmbeddedImage.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Pixmaps.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="CutDim.cpp">
@@ -911,6 +905,30 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="..\..\..\..\Desktop\rhodochrosite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw16.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw24.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw32.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw48.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw128.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw256.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gwest_win.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\defrec.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>

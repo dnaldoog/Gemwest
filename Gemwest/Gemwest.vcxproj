@@ -169,7 +169,6 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Pixmaps.h" />
     <ClInclude Include="Resource.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
@@ -197,13 +196,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Pixmaps.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\adjustmentarrow.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\defrec.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\gw.ico" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\rhodochrosite.jpg" />
     <Image Include="..\..\..\..\desktop\icon3.ico" />
@@ -212,6 +211,13 @@
     <Image Include="app.ico">
       <DeploymentContent>true</DeploymentContent>
     </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw128.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw16.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw24.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw256.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw32.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw48.ico" />
+    <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gwest_win.ico" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_big.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_med.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\bulge_non.png" />

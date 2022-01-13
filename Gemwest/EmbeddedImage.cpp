@@ -276,6 +276,8 @@ void EmbeddedImage::loadResources()
 	myRez->Add("checkDepth", "checkDepth"); // when depth percentage is strange!
 	myRez->Add("zaniah", "zaniah"); // Author's logo!
 	myRez->Add("adjustmentarrow", "adjustmentarrow"); // Gui component
+	myRez->Add("defrec", "defrec"); // depth % component
+	myRez->Add("shallow", "shallow"); // Gui recut series
 	this->setRez(myRez);
 
 }
