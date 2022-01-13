@@ -33,9 +33,6 @@
     <ClInclude Include="EmbeddedImage.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Pixmaps.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="resource1.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -63,7 +60,7 @@
     <ClInclude Include="BridgeCS.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="BridgeCSxpm.h">
+    <ClInclude Include="kitty.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -87,9 +84,6 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="EmbeddedImage.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Pixmaps.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="CutDim.cpp">
@@ -116,7 +110,7 @@
     <ClCompile Include="BridgeCS.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="BridgeCSxpm.cpp">
+    <ClCompile Include="kitty.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -938,6 +932,9 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gwest_win.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\defrec.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>

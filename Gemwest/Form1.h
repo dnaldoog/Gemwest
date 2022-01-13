@@ -12,6 +12,8 @@
 #include "HelpForm.h"
 #include "OptionsForm.h"
 #include "BridgeCS.h"
+//#include "DrawDepthPercentage.h"
+
 
 
 namespace CppCLRWinformsProjekt {
@@ -22,20 +24,17 @@ namespace CppCLRWinformsProjekt {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 	using namespace System::Diagnostics;
 	using namespace System::Resources;
-	using namespace System::Drawing;
 	using namespace System::Configuration;
-	//using namespace 
-	//using namespace CSettings;
 
-	
 
 	/// <summary>
 	/// Zusammenfassung für Form1
 	/// </summary>
-	public ref class Form1 : public System::Windows::Forms::Form 
+	public ref class Form1 : public System::Windows::Forms::Form
 	{
 	public:
 		Form1(void)
@@ -60,7 +59,7 @@ namespace CppCLRWinformsProjekt {
 		}
 	private: void combine_adjustments() {
 		double sum = this->tbGirdleThickness->Value + this->tbPavilionBulge->Value + this->tbShapeOutline->Value;
-		this->txtGlobAdjust->Text = System::Convert::ToString(sum)+"%";
+		this->txtGlobAdjust->Text = System::Convert::ToString(sum) + "%";
 	}
 
 	private: System::Windows::Forms::ToolStripMenuItem^ editToolStripMenuItem;
@@ -72,6 +71,10 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::TrackBar^ tbShapeOutline;
 	private: System::Windows::Forms::PictureBox^ pictAdjArrow;
 	private: System::Windows::Forms::PictureBox^ picRecut;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::PictureBox^ picDepth;
+	private: System::Windows::Forms::Label^ lblDP;
+	private: System::Windows::Forms::Label^ lblRecut;
 
 
 	public:
@@ -106,7 +109,7 @@ namespace CppCLRWinformsProjekt {
 					   double depthPercentage;
 					   double depthMm;
 
-					   /* 
+					   /*
 					   cut hasn't been chosen so we need to determine how to calculate Width
 					   Should it be just Width or Diameter-1 + Diameter-2/2 ?
 					   */
@@ -217,6 +220,10 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
+			this->lblDP = (gcnew System::Windows::Forms::Label());
+			this->lblRecut = (gcnew System::Windows::Forms::Label());
+			this->picDepth = (gcnew System::Windows::Forms::PictureBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->picRecut = (gcnew System::Windows::Forms::PictureBox());
 			this->pictAdjArrow = (gcnew System::Windows::Forms::PictureBox());
 			this->txtShapeOutline = (gcnew System::Windows::Forms::TextBox());
@@ -272,6 +279,7 @@ namespace CppCLRWinformsProjekt {
 			this->aboutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->lwguide->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRecut))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->BeginInit();
@@ -412,6 +420,10 @@ namespace CppCLRWinformsProjekt {
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->lwguide->Controls->Add(this->lblDP);
+			this->lwguide->Controls->Add(this->lblRecut);
+			this->lwguide->Controls->Add(this->picDepth);
+			this->lwguide->Controls->Add(this->button1);
 			this->lwguide->Controls->Add(this->picRecut);
 			this->lwguide->Controls->Add(this->pictAdjArrow);
 			this->lwguide->Controls->Add(this->txtShapeOutline);
@@ -445,7 +457,44 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
 			this->lwguide->Text = L"Calculate";
-			this->lwguide->Enter += gcnew System::EventHandler(this, &Form1::lwguide_Enter);
+			// 
+			// lblDP
+			// 
+			this->lblDP->AutoSize = true;
+			this->lblDP->Location = System::Drawing::Point(243, 80);
+			this->lblDP->Name = L"lblDP";
+			this->lblDP->Size = System::Drawing::Size(47, 13);
+			this->lblDP->TabIndex = 51;
+			this->lblDP->Text = L"Depth %";
+			// 
+			// lblRecut
+			// 
+			this->lblRecut->AutoSize = true;
+			this->lblRecut->Location = System::Drawing::Point(158, 80);
+			this->lblRecut->Name = L"lblRecut";
+			this->lblRecut->Size = System::Drawing::Size(36, 13);
+			this->lblRecut->TabIndex = 50;
+			this->lblRecut->Text = L"Recut";
+			// 
+			// picDepth
+			// 
+			this->picDepth->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picDepth->Location = System::Drawing::Point(138, 96);
+			this->picDepth->Name = L"picDepth";
+			this->picDepth->Size = System::Drawing::Size(82, 64);
+			this->picDepth->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picDepth->TabIndex = 49;
+			this->picDepth->TabStop = false;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(28, 96);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 48;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
 			// picRecut
 			// 
@@ -453,6 +502,7 @@ namespace CppCLRWinformsProjekt {
 			this->picRecut->Location = System::Drawing::Point(226, 96);
 			this->picRecut->Name = L"picRecut";
 			this->picRecut->Size = System::Drawing::Size(82, 64);
+			this->picRecut->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picRecut->TabIndex = 47;
 			this->picRecut->TabStop = false;
 			// 
@@ -669,26 +719,24 @@ namespace CppCLRWinformsProjekt {
 			// cbRecut
 			// 
 			this->cbRecut->AutoSize = true;
-			this->cbRecut->Location = System::Drawing::Point(43, 272);
+			this->cbRecut->Location = System::Drawing::Point(42, 253);
 			this->cbRecut->Name = L"cbRecut";
 			this->cbRecut->Size = System::Drawing::Size(61, 17);
 			this->cbRecut->TabIndex = 12;
 			this->cbRecut->Text = L"Recut\?";
 			this->cbRecut->UseVisualStyleBackColor = true;
 			this->cbRecut->Visible = false;
-			this->cbRecut->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbRecut_CheckedChanged);
 			// 
 			// cbInterpolate
 			// 
 			this->cbInterpolate->AutoSize = true;
-			this->cbInterpolate->Location = System::Drawing::Point(43, 271);
+			this->cbInterpolate->Location = System::Drawing::Point(43, 275);
 			this->cbInterpolate->Name = L"cbInterpolate";
 			this->cbInterpolate->Size = System::Drawing::Size(82, 17);
 			this->cbInterpolate->TabIndex = 11;
 			this->cbInterpolate->Text = L"Interpolate\?";
 			this->cbInterpolate->UseVisualStyleBackColor = true;
 			this->cbInterpolate->Visible = false;
-			this->cbInterpolate->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbInterpolate_CheckedChanged);
 			// 
 			// lblPavilionBulge
 			// 
@@ -992,8 +1040,9 @@ namespace CppCLRWinformsProjekt {
 			// logToolStripMenuItem
 			// 
 			this->logToolStripMenuItem->Name = L"logToolStripMenuItem";
-			this->logToolStripMenuItem->Size = System::Drawing::Size(91, 22);
+			this->logToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->logToolStripMenuItem->Text = L"&log";
+			this->logToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::logToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -1042,8 +1091,10 @@ namespace CppCLRWinformsProjekt {
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Hide;
 			this->Text = L"Gemwest";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
+			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::Form1_Paint);
 			this->lwguide->ResumeLayout(false);
 			this->lwguide->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRecut))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->EndInit();
@@ -1148,10 +1199,10 @@ namespace CppCLRWinformsProjekt {
 
 	}
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-	/****************LOAD CONFIG FILES***************************/	
+		/****************LOAD CONFIG FILES***************************/
 		bool set1000s = false; //   these variables are sent to GUI
 		bool setLogging = false; //   these variables are sent to GUI
-		if (!System::String::IsNullOrEmpty(getDecPlacesFromConfig)){ 
+		if (!System::String::IsNullOrEmpty(getDecPlacesFromConfig)) {
 			if (getDecPlacesFromConfig->Equals("3")) {
 				set1000s = true;
 			}
@@ -1161,7 +1212,7 @@ namespace CppCLRWinformsProjekt {
 			myPreferences.prop1000 = set1000s;
 		} // not null or empty
 		/****************************************************/
-		if(!System::String::IsNullOrEmpty(getLogAllFromConfig)) {
+		if (!System::String::IsNullOrEmpty(getLogAllFromConfig)) {
 			if (getLogAllFromConfig->Equals("true")) {
 				setLogging = true;
 			}
@@ -1171,10 +1222,15 @@ namespace CppCLRWinformsProjekt {
 			myPreferences.propLogAll = setLogging;
 		}//not null or empty
 		/****************************************************/
-		
-		//String^ greeting = ConfigurationManager::AppSettings["greeting"];
-		//Console::WriteLine(greeting);
-		//this->label1->Text = greeting;
+		EmbeddedImage^ rc = gcnew EmbeddedImage;
+		rc->setName("shallow");
+		this->picRecut->Image = rc->getName();
+
+		EmbeddedImage^ dp = gcnew EmbeddedImage;
+		dp->setName("defrec");
+		this->picDepth->Image = dp->getName();
+
+
 		EmbeddedImage^ adjarrow = gcnew EmbeddedImage;
 		adjarrow->setName("adjustmentarrow");
 		this->pictAdjArrow->Image = adjarrow->getName();
@@ -1216,7 +1272,7 @@ namespace CppCLRWinformsProjekt {
 		this->txtShapeOutline->Text = L"0%";
 	}
 	private: System::Void txtResult_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-			}
+	}
 	private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 
 		Dictionary<String^, String^>^ sg;
@@ -1634,73 +1690,85 @@ namespace CppCLRWinformsProjekt {
 			this->numDepth->Text = System::Convert::ToString(reversePercentage2mm);
 		}
 	}
-private: System::Void helpToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void helpToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 
-private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	myPreferences.ShowDialog();
-	String^ decplaces = "2";
-	String^ logAllcalculations = "false";
-	if (myPreferences.propLogAll) {
-		logAllcalculations = "true";
+	private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		myPreferences.ShowDialog();
+		String^ decplaces = "2";
+		String^ logAllcalculations = "false";
+		if (myPreferences.propLogAll) {
+			logAllcalculations = "true";
+		}
+		if (myPreferences.prop1000 == true) {
+
+			this->numDia1->DecimalPlaces = 3;
+			this->numDia1->Increment = System::Decimal(0.001);
+
+			this->numDia2->DecimalPlaces = 3;
+			this->numDia2->Increment = System::Decimal(0.001);
+
+			this->numDepth->DecimalPlaces = 3;
+			this->numDepth->Increment = System::Decimal(0.001);
+			decplaces = "3";
+		}
+		else {
+			this->numDia1->DecimalPlaces = 2;
+			this->numDia1->Increment = System::Decimal(0.01);
+
+			this->numDia2->DecimalPlaces = 2;
+			this->numDia2->Increment = System::Decimal(0.01);
+
+			this->numDepth->DecimalPlaces = 2;
+			this->numDepth->Increment = System::Decimal(0.01);
+			decplaces = "2";
+		}
+
+		BridgeCS^ settingsSave = gcnew BridgeCS;
+		settingsSave->propBridge1000 = decplaces;
+		settingsSave->propBridgeLog = logAllcalculations;
+
+		/*This is old code for C++ but it only saves to Application Folder*/
+		//String^ decPlaces = ConfigurationSettings::AppSettings["decPlaces"];
+		//String^ log = ConfigurationSettings::AppSettings["log"];
+		//Console::WriteLine("{0} - {1}", firstName, name);
+
+		//System::Configuration::Configuration^ config = ConfigurationManager::OpenExeConfiguration(ConfigurationUserLevel::None);
+		//config->AppSettings->Settings->Remove("decPlaces");
+		//config->AppSettings->Settings->Remove("logAll");
+
+		//config->AppSettings->Settings->Add("decPlaces",decplaces);
+		//config->AppSettings->Settings->Add("logAll", logAllcalculations);
+		//config->Save(ConfigurationSaveMode::Modified);
+		//ConfigurationManager::RefreshSection("appSettings");
+
 	}
-	if (myPreferences.prop1000 == true) {
-	
-		this->numDia1->DecimalPlaces = 3;
-		this->numDia1->Increment = System::Decimal(0.001);
+	private: System::Void helpToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		this->numDia2->DecimalPlaces = 3;
-		this->numDia2->Increment = System::Decimal(0.001);
-
-		this->numDepth->DecimalPlaces = 3;
-		this->numDepth->Increment = System::Decimal(0.001);
-		decplaces = "3";
+		HelpForm^ hform = gcnew HelpForm;
+		hform->Visible = true;
 	}
-	else {
-		this->numDia1->DecimalPlaces = 2;
-		this->numDia1->Increment = System::Decimal(0.01);
-
-		this->numDia2->DecimalPlaces = 2;
-		this->numDia2->Increment = System::Decimal(0.01);
-
-		this->numDepth->DecimalPlaces = 2;
-		this->numDepth->Increment = System::Decimal(0.01);
-		decplaces = "2";
+	private: System::Void aboutToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+		AboutForm1^ aform = gcnew AboutForm1;
+		aform->Show();
 	}
 
-	BridgeCS^ settingsSave = gcnew BridgeCS;
-	settingsSave->propBridge1000 = decplaces;
-	settingsSave->propBridgeLog = logAllcalculations;
+	private: System::Void Form1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+		//virtual Void Form1::OnPaint(PaintEventArgs ^ pe) override
+	//	{
+			Graphics^ g = e->Graphics;
+			g->Clear(Color::Black);
 
-	/*This is old code for C++ but it only saves to Application Folder*/
-	//String^ decPlaces = ConfigurationSettings::AppSettings["decPlaces"];
-	//String^ log = ConfigurationSettings::AppSettings["log"];
-	//Console::WriteLine("{0} - {1}", firstName, name);
+			Pen^ redPen = gcnew Pen(Color::Red, 3.0f);
 
-	//System::Configuration::Configuration^ config = ConfigurationManager::OpenExeConfiguration(ConfigurationUserLevel::None);
-	//config->AppSettings->Settings->Remove("decPlaces");
-	//config->AppSettings->Settings->Remove("logAll");
-
-	//config->AppSettings->Settings->Add("decPlaces",decplaces);
-	//config->AppSettings->Settings->Add("logAll", logAllcalculations);
-	//config->Save(ConfigurationSaveMode::Modified);
-	//ConfigurationManager::RefreshSection("appSettings");
-
-}
-private: System::Void helpToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	HelpForm^ hform = gcnew HelpForm;
-	hform->Visible=true;
-}
-private: System::Void aboutToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
-	AboutForm1^ aform = gcnew AboutForm1;
-	aform->Show();
+			// Draw rectangle to screen.
+			g->DrawRectangle(redPen, 0, 0, 82, 64);
+		//}
 	}
-private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void cbInterpolate_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void lwguide_Enter(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {}
+private: System::Void logToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	LogForm^ lform = gcnew LogForm;
+	lform->Visible = true;
 }
 };
 }
