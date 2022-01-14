@@ -59,12 +59,89 @@ namespace CppCLRWinformsProjekt {
 		}
 	private:
 
+		void onScreenInfo() {
+			//Form1::Invalidate();
+
+			//bool isRoundish = this->isRoundish();
+			if (!this->numDia1->Text->Equals("0.00")) {
+
+				if (!this->numDia2->Text->Equals("0.00")) {
+					System::Decimal dep = System::Convert::ToDecimal(this->numDepth->Text);
+					System::Decimal len = System::Convert::ToDecimal(this->numDia1->Text);
+					System::Decimal wid = System::Convert::ToDecimal(this->numDia2->Text);
+					System::Decimal lwRatio;
+					System::Decimal depthPercentage;
+					System::Decimal depmm;
+
+					/*
+					cut hasn't been chosen so we need to determine how to calculate Width
+					Should it be just Width or Diameter-1 + Diameter-2/2 ?
+					*/
+
+
+					if (CutDim::isRoundish(this->comboCut->Text)) {
+						lwRatio = Math::Round(len / wid, 2);
+						wid.Divide(wid.Add(wid, len), 2);
+						depthPercentage.Round(depthPercentage.Divide(dep, wid) * 100, 2);
+						depmm.Round(depmm.Divide(depmm.Multiply(wid, dep), 100), 2);
+						this->lblCombinedRoundAverage->Text = "AV:" + System::Convert::ToString(wid.Round(wid, 2));
+					}
+					else {
+						this->lblCombinedRoundAverage->Text = "";
+					}
+					depthPercentage = depthPercentage.Round(depthPercentage.Multiply(depthPercentage.Divide(dep, wid), 100), 2);
+					depmm.Round(depmm.Divide(depmm.Multiply(wid, dep), 100), 2);
+
+					String^ lwString = System::Convert::ToString(lwRatio);
+					String^ lWtxt = "LW Ratio = " + lwString + ":1";
+					String^ percString = System::Convert::ToString(depthPercentage);
+					String^ mmString = System::Convert::ToString(depmm);
+
+					if (this->radDepthAsPerc->Checked) {
+						this->lblDepthPerc->Text = "Depth = " + mmString + "mm";
+						this->lblHiddenDepth->Text = this->numDepth->Text;
+						//   this->draw_depth(this->numDepth->Text);
+					}
+					else {
+						this->lblDepthPerc->Text = "Depth = " + percString + "%";
+						//this->lblHiddenDepth->Text = percString;
+						this->lblHiddenDepth->Text = percString;
+						//  this->draw_depth(percString);
+					}
+					this->lblLwRatio->Text = lWtxt;
+					if (len >= wid) {
+						draw_lw(lwString);
+					}
+					else if (wid > len) {
+						this->picLW->Image = nullptr;
+						this->picLW->Refresh();
+						EmbeddedImage^ cd = gcnew EmbeddedImage;
+cd->setName("checklength");
+this->picLW->Image = cd->getName();
+					}
+					
+					//this->Invalidate();   request a delayed Repaint by the normal MessageLoop system    
+	 // forces Repaint of invalidated area 
+//this->Refresh();    // Combines Invalidate() and Update(
+					//this->lblHiddenLW->Text = lwString;
+				} // end numDia1 or numDia2 == 0
+
+			}
+			Form1::Update();
+		}
 		void combine_adjustments() {
-			double sum = this->tbGirdleThickness->Value + this->tbPavilionBulge->Value + this->tbShapeOutline->Value;
+
+			Double sum;
+			sum=this->tbGirdleThickness->Value+this->tbPavilionBulge->Value+this->tbShapeOutline->Value;
 			this->txtGlobAdjust->Text = System::Convert::ToString(sum) + "%";
 		}
 
 		void draw_depth(String^ perc) {
+			//delete this->picDepth->Image;
+			this->picDepth->Image = nullptr;
+			this->picDepth->Refresh();
+			//this->Refresh();
+			//this->Refresh();
 			//this->Invalidate();  // request a delayed Repaint by the normal MessageLoop system    
 //this->Update();      // forces Repaint of invalidated area 
 //this->Refresh();     // Combines Invalidate() and Update(
@@ -72,16 +149,17 @@ namespace CppCLRWinformsProjekt {
 			//double percentage = Math::Round(this->picRecut->Height * divider, 2);
 			Double percentage = System::Convert::ToDouble(this->picDepth->Height) * divider;
 			//this->label1->Text = System::Convert::ToString(percentage);
-			Graphics^ g = picDepth->CreateGraphics();
+			Graphics^ gd = picDepth->CreateGraphics();
 			//g->Clear(Color::LightGray);
 			//Pen^ pen = gcnew Pen(Color::Blue);
 			//Brush^ brush = gcnew Brush(Color::CornflowerBlue);
 			//Rectangle  r= Rectangle(0, System::Convert::ToInt32(percentage), System::Convert::ToInt32(this->picDepth->Width), System::Convert::ToInt32(this->picRecut->Height));
 			Rectangle  r = Rectangle(0, 0, this->picDepth->Width, System::Convert::ToInt32(percentage));
-			this->label1->Text = System::Convert::ToString("Div " + divider + "\n%:" + percentage + "\nH " + this->picDepth->Height);
-			if (divider >= 1.00) { g->FillRectangle(Brushes::Orange, r); }
-			else { g->FillRectangle(Brushes::CornflowerBlue, r); }
+			//this->label1->Text = System::Convert::ToString("Div " + divider + "\n%:" + percentage + "\nH " + this->picDepth->Height);
+			if (divider >= 1.00) { gd->FillRectangle(Brushes::Orange, r); }
+			else { gd->FillRectangle(Brushes::CornflowerBlue, r); }
 
+			//delete gd;
 
 			//	cli::array<Point>^ xy = gcnew { Point(5,5), Point(12, 13), Point(14,12),Point(80,50),Point(5,5) };
 				//cli::array<Point>^ poly = gcnew array<Point>{ Point(5,5), Point(12, 13), Point(14,12),Point(80,50),Point(5,5) };
@@ -93,7 +171,61 @@ namespace CppCLRWinformsProjekt {
 	//g->FillRectangle(pen, Rectangle(System::Convert::ToInt32(0), System::Convert::ToInt32(percentage), System::Convert::ToInt32(this->picDepth->Width), System::Convert::ToInt32(this->picRecut->Height));		
 	//this->picDepth->Image = pImage;
 			//this->Refresh();
+
 		}
+
+		void draw_lw(String^ lwStr) {
+			//delete this->picLW->Image;
+			this->picLW->Image = nullptr;
+			this->picLW->Refresh();
+			//Double divider = System::Convert::ToDouble(this->lblHiddenDepth->Text) / 100;
+			//Double percentage = System::Convert::ToDouble(this->picDepth->Height) * divider;
+			//this->Invalidate();
+			//this->Refresh
+			//this->Refresh();
+			double push = 0;
+			double shrink = 0.8;
+			Graphics^ gl = this->picLW->CreateGraphics();
+			double lw = System::Convert::ToDouble(lwStr) - push * shrink;
+			double w = System::Convert::ToDouble(this->picLW->Width - push) * shrink;
+			double l = System::Convert::ToDouble(this->picLW->Height - push) * shrink;
+
+			w = (w / lw) - push * shrink;
+
+			Pen^ myPen = gcnew Pen(Color::RoyalBlue, 2);
+			float halfPenWidth = myPen->Width * 0.5f;
+
+			double placeCentre = (this->picLW->Width / 2) - (w / 2)- halfPenWidth;//; ((this->picLW->Width / 2) - w / 2);
+			/*Subtract the Text Size from the Circle Size and divide that by 2 so you get the position on which you can draw the Text Centered.*/
+			//double placeCentre = ((this->picLW->Width / 2) - w / 2) / shrink;
+			//System::Convert::ToInt32(this->picLW->Height));
+
+			Rectangle  r = Rectangle(System::Convert::ToInt32(placeCentre), System::Convert::ToInt32(6), System::Convert::ToInt32(w), System::Convert::ToInt32(l));
+
+			//if (w > l) { // this is never reached
+
+			//}
+			//
+			gl->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::HighQuality;
+			gl->DrawEllipse(myPen, r);
+			//System::Convert::ToInt32(this->picLW->Width), System::Convert::ToInt32(this->picRecut->LW));
+			//delete gl;
+
+			/*private void DrawEllipseRectangle(PaintEventArgs e)
+{
+	// Create pen.
+	Pen blackPen = new Pen(Color.Black, 3);
+
+	// Create rectangle for ellipse.
+	Rectangle rect = new Rectangle(0, 0, 200, 100);
+
+	// Draw ellipse to screen.
+	e.Graphics.DrawEllipse(blackPen, rect);
+}*/
+
+
+
+		} // end function draw LW Rectangle
 
 	private: System::Windows::Forms::ToolStripMenuItem^ editToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ preferencesToolStripMenuItem;
@@ -106,12 +238,15 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::PictureBox^ picRecut;
 
 	private: System::Windows::Forms::PictureBox^ picDepth;
-	private: System::Windows::Forms::Label^ lblDP;
+
 	private: System::Windows::Forms::Label^ lblRecut;
 	private: System::Windows::Forms::Label^ lblHiddenDepth;
 	private: System::Windows::Forms::GroupBox^ groupBoxCalculate;
 	private: System::Windows::Forms::Label^ lblWeightInCarats;
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::PictureBox^ picLW;
+
+
+	private: System::Windows::Forms::PictureBox^ picShapeOutline;
 
 
 
@@ -120,73 +255,6 @@ namespace CppCLRWinformsProjekt {
 	protected:
 
 	private: System::Windows::Forms::Button^ btnEq;
-		   bool Form1::isRoundish() {
-			   this->cbRecut->Visible = true;
-			   bool r = true;
-			   if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
-				   r = true;
-			   }
-			   else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
-				   r = false;
-			   }
-			   else {
-				   r = CutDim::isRoundish(this->comboCut->Text);
-			   }
-			   return r;
-		   } //end function isRoundish
-		   void Form1::onScreenInfo() {
-
-			   bool isRoundish = this->isRoundish();
-			   if (!this->numDia1->Text->Equals("0.00")) {
-
-				   if (!this->numDia2->Text->Equals("0.00")) {
-					   double depthInMm = System::Convert::ToDouble(this->numDepth->Text);
-					   double lengthInMm = System::Convert::ToDouble(this->numDia1->Text);
-					   double widthInMm = System::Convert::ToDouble(this->numDia2->Text);
-					   double lwRatio;
-					   double depthPercentage;
-					   double depthMm;
-
-					   /*
-					   cut hasn't been chosen so we need to determine how to calculate Width
-					   Should it be just Width or Diameter-1 + Diameter-2/2 ?
-					   */
-
-
-					   if (isRoundish) {
-						   lwRatio = Math::Round(lengthInMm / widthInMm, 2);
-						   widthInMm = (widthInMm + lengthInMm) / 2;
-						   depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
-						   depthMm = Math::Round((widthInMm * depthInMm) / 100, 2);
-						   this->lblCombinedRoundAverage->Text = "Av:" + System::Convert::ToString(Math::Round(widthInMm, 2));
-					   }
-					   else {
-						   this->lblCombinedRoundAverage->Text = "";
-					   }
-					   depthPercentage = Math::Round((depthInMm / widthInMm) * 100, 2);
-					   depthMm = Math::Round((widthInMm * depthInMm) / 100, 2);
-
-					   String^ lwString = System::Convert::ToString(lwRatio);
-					   String^ lWtxt = "LW Ratio = " + lwString + ":1";
-					   String^ percString = System::Convert::ToString(depthPercentage);
-					   String^ mmString = System::Convert::ToString(depthMm);
-
-					   if (this->radDepthAsPerc->Checked) {
-						   this->lblDepthPerc->Text = "Depth = " + mmString + "mm";
-						   this->lblHiddenDepth->Text = this->numDepth->Text;
-						   //   this->draw_depth(this->numDepth->Text);
-					   }
-					   else {
-						   this->lblDepthPerc->Text = "Depth = " + percString + "%";
-						   //this->lblHiddenDepth->Text = percString;
-						   this->lblHiddenDepth->Text = percString;
-						   //  this->draw_depth(percString);
-					   }
-					   this->lblLwRatio->Text = lWtxt;
-				   } // end numDia1 or numDia2 == 0
-			   }
-		   }
-
 	private: System::Windows::Forms::Button^ buttonCalc;
 	private: System::Windows::Forms::Button^ buttonClear;
 	private: System::Windows::Forms::TextBox^ txtResult;
@@ -242,6 +310,11 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::RadioButton^ radDepthAsPerc;
 	private: System::Windows::Forms::RadioButton^ radDepthAsMm;
 	private: System::Windows::Forms::Label^ lblCombinedRoundAverage;
+	private: System::Windows::Forms::GroupBox^ groupBoxChooseDiaOrGem;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TextBox^ txtEstRecut;
+
+
 	protected:
 	private:
 		/// <summary>
@@ -264,9 +337,15 @@ namespace CppCLRWinformsProjekt {
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->picShapeOutline = (gcnew System::Windows::Forms::PictureBox());
+			this->lblDepthPerc = (gcnew System::Windows::Forms::Label());
+			this->picGirdle = (gcnew System::Windows::Forms::PictureBox());
+			this->picBulge = (gcnew System::Windows::Forms::PictureBox());
 			this->lblHiddenDepth = (gcnew System::Windows::Forms::Label());
-			this->lblDP = (gcnew System::Windows::Forms::Label());
+			this->picLW = (gcnew System::Windows::Forms::PictureBox());
+			this->lblDepth = (gcnew System::Windows::Forms::Label());
 			this->picDepth = (gcnew System::Windows::Forms::PictureBox());
+			this->numDepth = (gcnew System::Windows::Forms::NumericUpDown());
 			this->pictAdjArrow = (gcnew System::Windows::Forms::PictureBox());
 			this->txtShapeOutline = (gcnew System::Windows::Forms::TextBox());
 			this->lblShape = (gcnew System::Windows::Forms::Label());
@@ -275,10 +354,7 @@ namespace CppCLRWinformsProjekt {
 			this->lblLwRatio = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->radDepthAsPerc = (gcnew System::Windows::Forms::RadioButton());
-			this->lblDepthPerc = (gcnew System::Windows::Forms::Label());
 			this->radDepthAsMm = (gcnew System::Windows::Forms::RadioButton());
-			this->lblDepth = (gcnew System::Windows::Forms::Label());
-			this->numDepth = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numDia2 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numDia1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->txtPavilionBulge = (gcnew System::Windows::Forms::TextBox());
@@ -296,9 +372,8 @@ namespace CppCLRWinformsProjekt {
 			this->cbRecut = (gcnew System::Windows::Forms::CheckBox());
 			this->cbInterpolate = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->txtEstRecut = (gcnew System::Windows::Forms::TextBox());
 			this->numSG = (gcnew System::Windows::Forms::NumericUpDown());
-			this->picGirdle = (gcnew System::Windows::Forms::PictureBox());
-			this->picBulge = (gcnew System::Windows::Forms::PictureBox());
 			this->picGem = (gcnew System::Windows::Forms::PictureBox());
 			this->picCut = (gcnew System::Windows::Forms::PictureBox());
 			this->lblSgValue = (gcnew System::Windows::Forms::Label());
@@ -323,12 +398,17 @@ namespace CppCLRWinformsProjekt {
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBoxCalculate = (gcnew System::Windows::Forms::GroupBox());
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
+			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
 			this->lwguide->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picShapeOutline))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picLW))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->BeginInit();
 			this->panel1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->BeginInit();
@@ -336,13 +416,12 @@ namespace CppCLRWinformsProjekt {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRecut))->BeginInit();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numSG))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGem))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCut))->BeginInit();
 			this->statusbar->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->groupBoxCalculate->SuspendLayout();
+			this->groupBoxChooseDiaOrGem->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// comboGems
@@ -401,7 +480,7 @@ namespace CppCLRWinformsProjekt {
 					L"tourmaline schorl", L"tourmaline", L"turquoise", L"uvarovite", L"variscite", L"vesuvianite", L"vivianite", L"water opal", L"yttrium aluminate YAG",
 					L"zircon (metamict)", L"zircon (normal)", L"zirconia (cubic)", L"zoisite"
 			});
-			this->comboGems->Location = System::Drawing::Point(79, 42);
+			this->comboGems->Location = System::Drawing::Point(90, 28);
 			this->comboGems->Name = L"comboGems";
 			this->comboGems->Size = System::Drawing::Size(121, 21);
 			this->comboGems->TabIndex = 8;
@@ -410,7 +489,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// btnEq
 			// 
-			this->btnEq->Location = System::Drawing::Point(160, 45);
+			this->btnEq->Location = System::Drawing::Point(154, 29);
 			this->btnEq->Name = L"btnEq";
 			this->btnEq->Size = System::Drawing::Size(37, 20);
 			this->btnEq->TabIndex = 1;
@@ -459,7 +538,7 @@ namespace CppCLRWinformsProjekt {
 			// lbllSelectedSG
 			// 
 			this->lbllSelectedSG->AutoSize = true;
-			this->lbllSelectedSG->Location = System::Drawing::Point(3, 44);
+			this->lbllSelectedSG->Location = System::Drawing::Point(14, 30);
 			this->lbllSelectedSG->Name = L"lbllSelectedSG";
 			this->lbllSelectedSG->Size = System::Drawing::Size(62, 13);
 			this->lbllSelectedSG->TabIndex = 9;
@@ -469,9 +548,15 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->lwguide->Controls->Add(this->label1);
+			this->lwguide->Controls->Add(this->picShapeOutline);
+			this->lwguide->Controls->Add(this->lblDepthPerc);
+			this->lwguide->Controls->Add(this->picGirdle);
+			this->lwguide->Controls->Add(this->picBulge);
 			this->lwguide->Controls->Add(this->lblHiddenDepth);
-			this->lwguide->Controls->Add(this->lblDP);
+			this->lwguide->Controls->Add(this->picLW);
+			this->lwguide->Controls->Add(this->lblDepth);
 			this->lwguide->Controls->Add(this->picDepth);
+			this->lwguide->Controls->Add(this->numDepth);
 			this->lwguide->Controls->Add(this->pictAdjArrow);
 			this->lwguide->Controls->Add(this->txtShapeOutline);
 			this->lwguide->Controls->Add(this->lblShape);
@@ -494,55 +579,119 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->Controls->Add(this->btnEq);
 			this->lwguide->Location = System::Drawing::Point(12, 27);
 			this->lwguide->Name = L"lwguide";
-			this->lwguide->Size = System::Drawing::Size(505, 265);
+			this->lwguide->Size = System::Drawing::Size(505, 334);
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
-			this->lwguide->Text = L"Calculate";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(57, 117);
+			this->label1->Location = System::Drawing::Point(307, 63);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(35, 13);
-			this->label1->TabIndex = 53;
+			this->label1->TabIndex = 55;
 			this->label1->Text = L"label1";
+			// 
+			// picShapeOutline
+			// 
+			this->picShapeOutline->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->picShapeOutline->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picShapeOutline->Location = System::Drawing::Point(373, 259);
+			this->picShapeOutline->Name = L"picShapeOutline";
+			this->picShapeOutline->Size = System::Drawing::Size(85, 67);
+			this->picShapeOutline->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picShapeOutline->TabIndex = 54;
+			this->picShapeOutline->TabStop = false;
+			// 
+			// lblDepthPerc
+			// 
+			this->lblDepthPerc->AutoSize = true;
+			this->lblDepthPerc->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblDepthPerc->Location = System::Drawing::Point(202, 63);
+			this->lblDepthPerc->Name = L"lblDepthPerc";
+			this->lblDepthPerc->Size = System::Drawing::Size(79, 13);
+			this->lblDepthPerc->TabIndex = 16;
+			this->lblDepthPerc->Text = L"Depth = 50%";
+			// 
+			// picGirdle
+			// 
+			this->picGirdle->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->picGirdle->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picGirdle->Location = System::Drawing::Point(165, 259);
+			this->picGirdle->Name = L"picGirdle";
+			this->picGirdle->Size = System::Drawing::Size(85, 67);
+			this->picGirdle->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picGirdle->TabIndex = 23;
+			this->picGirdle->TabStop = false;
+			// 
+			// picBulge
+			// 
+			this->picBulge->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->picBulge->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picBulge->Location = System::Drawing::Point(270, 259);
+			this->picBulge->Name = L"picBulge";
+			this->picBulge->Size = System::Drawing::Size(85, 67);
+			this->picBulge->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picBulge->TabIndex = 22;
+			this->picBulge->TabStop = false;
 			// 
 			// lblHiddenDepth
 			// 
 			this->lblHiddenDepth->AutoSize = true;
 			this->lblHiddenDepth->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblHiddenDepth->Location = System::Drawing::Point(304, 80);
+			this->lblHiddenDepth->Location = System::Drawing::Point(304, 0);
 			this->lblHiddenDepth->Name = L"lblHiddenDepth";
 			this->lblHiddenDepth->Size = System::Drawing::Size(13, 13);
 			this->lblHiddenDepth->TabIndex = 52;
 			this->lblHiddenDepth->Text = L"0";
 			this->lblHiddenDepth->TextChanged += gcnew System::EventHandler(this, &Form1::lblHiddenDepth_TextChanged);
 			// 
-			// lblDP
+			// picLW
 			// 
-			this->lblDP->AutoSize = true;
-			this->lblDP->Location = System::Drawing::Point(254, 80);
-			this->lblDP->Name = L"lblDP";
-			this->lblDP->Size = System::Drawing::Size(47, 13);
-			this->lblDP->TabIndex = 51;
-			this->lblDP->Text = L"Depth %";
+			this->picLW->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picLW->Location = System::Drawing::Point(56, 79);
+			this->picLW->Name = L"picLW";
+			this->picLW->Size = System::Drawing::Size(72, 72);
+			this->picLW->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
+			this->picLW->TabIndex = 53;
+			this->picLW->TabStop = false;
+			// 
+			// lblDepth
+			// 
+			this->lblDepth->AutoSize = true;
+			this->lblDepth->Location = System::Drawing::Point(377, 12);
+			this->lblDepth->Name = L"lblDepth";
+			this->lblDepth->Size = System::Drawing::Size(61, 13);
+			this->lblDepth->TabIndex = 19;
+			this->lblDepth->Text = L"Depth (mm)";
 			// 
 			// picDepth
 			// 
 			this->picDepth->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picDepth->Location = System::Drawing::Point(228, 96);
+			this->picDepth->Location = System::Drawing::Point(203, 79);
 			this->picDepth->Name = L"picDepth";
 			this->picDepth->Size = System::Drawing::Size(98, 72);
 			this->picDepth->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picDepth->TabIndex = 49;
 			this->picDepth->TabStop = false;
-			this->picDepth->Click += gcnew System::EventHandler(this, &Form1::picDepth_Click);
+			// 
+			// numDepth
+			// 
+			this->numDepth->DecimalPlaces = 2;
+			this->numDepth->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
+			this->numDepth->Location = System::Drawing::Point(363, 30);
+			this->numDepth->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
+			this->numDepth->Name = L"numDepth";
+			this->numDepth->Size = System::Drawing::Size(98, 20);
+			this->numDepth->TabIndex = 35;
+			this->numDepth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 54, 0, 0, 65536 });
+			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged);
 			// 
 			// pictAdjArrow
 			// 
-			this->pictAdjArrow->Location = System::Drawing::Point(77, 223);
+			this->pictAdjArrow->Location = System::Drawing::Point(77, 212);
 			this->pictAdjArrow->Name = L"pictAdjArrow";
 			this->pictAdjArrow->Size = System::Drawing::Size(86, 20);
 			this->pictAdjArrow->TabIndex = 44;
@@ -550,7 +699,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txtShapeOutline
 			// 
-			this->txtShapeOutline->Location = System::Drawing::Point(374, 229);
+			this->txtShapeOutline->Location = System::Drawing::Point(373, 218);
 			this->txtShapeOutline->Name = L"txtShapeOutline";
 			this->txtShapeOutline->Size = System::Drawing::Size(85, 20);
 			this->txtShapeOutline->TabIndex = 43;
@@ -560,7 +709,7 @@ namespace CppCLRWinformsProjekt {
 			// lblShape
 			// 
 			this->lblShape->AutoSize = true;
-			this->lblShape->Location = System::Drawing::Point(385, 177);
+			this->lblShape->Location = System::Drawing::Point(385, 166);
 			this->lblShape->Name = L"lblShape";
 			this->lblShape->Size = System::Drawing::Size(74, 13);
 			this->lblShape->TabIndex = 42;
@@ -569,10 +718,10 @@ namespace CppCLRWinformsProjekt {
 			// tbShapeOutline
 			// 
 			this->tbShapeOutline->LargeChange = 1;
-			this->tbShapeOutline->Location = System::Drawing::Point(370, 193);
-			this->tbShapeOutline->Maximum = 30;
+			this->tbShapeOutline->Location = System::Drawing::Point(370, 182);
+			this->tbShapeOutline->Maximum = 15;
 			this->tbShapeOutline->MaximumSize = System::Drawing::Size(104, 30);
-			this->tbShapeOutline->Minimum = -20;
+			this->tbShapeOutline->Minimum = -10;
 			this->tbShapeOutline->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbShapeOutline->Name = L"tbShapeOutline";
 			this->tbShapeOutline->Size = System::Drawing::Size(104, 45);
@@ -585,20 +734,21 @@ namespace CppCLRWinformsProjekt {
 			this->lblCombinedRoundAverage->AutoSize = true;
 			this->lblCombinedRoundAverage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->lblCombinedRoundAverage->Location = System::Drawing::Point(259, 11);
+			this->lblCombinedRoundAverage->Location = System::Drawing::Point(152, 13);
 			this->lblCombinedRoundAverage->Name = L"lblCombinedRoundAverage";
-			this->lblCombinedRoundAverage->Size = System::Drawing::Size(0, 13);
+			this->lblCombinedRoundAverage->Size = System::Drawing::Size(42, 13);
 			this->lblCombinedRoundAverage->TabIndex = 39;
+			this->lblCombinedRoundAverage->Text = L"AV: 0.0";
 			this->lblCombinedRoundAverage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblLwRatio
 			// 
 			this->lblLwRatio->AutoSize = true;
-			this->lblLwRatio->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblLwRatio->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblLwRatio->Location = System::Drawing::Point(138, 29);
+			this->lblLwRatio->Location = System::Drawing::Point(44, 63);
 			this->lblLwRatio->Name = L"lblLwRatio";
-			this->lblLwRatio->Size = System::Drawing::Size(82, 13);
+			this->lblLwRatio->Size = System::Drawing::Size(97, 13);
 			this->lblLwRatio->TabIndex = 15;
 			this->lblLwRatio->Text = L"LW Ratio =  0:0";
 			// 
@@ -606,19 +756,16 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->panel1->Controls->Add(this->radDepthAsPerc);
-			this->panel1->Controls->Add(this->lblDepthPerc);
 			this->panel1->Controls->Add(this->radDepthAsMm);
-			this->panel1->Controls->Add(this->lblDepth);
-			this->panel1->Controls->Add(this->numDepth);
-			this->panel1->Location = System::Drawing::Point(352, 19);
+			this->panel1->Location = System::Drawing::Point(363, 79);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(121, 149);
+			this->panel1->Size = System::Drawing::Size(98, 72);
 			this->panel1->TabIndex = 38;
 			// 
 			// radDepthAsPerc
 			// 
 			this->radDepthAsPerc->AutoSize = true;
-			this->radDepthAsPerc->Location = System::Drawing::Point(18, 89);
+			this->radDepthAsPerc->Location = System::Drawing::Point(26, 39);
 			this->radDepthAsPerc->Name = L"radDepthAsPerc";
 			this->radDepthAsPerc->Size = System::Drawing::Size(39, 17);
 			this->radDepthAsPerc->TabIndex = 37;
@@ -626,22 +773,11 @@ namespace CppCLRWinformsProjekt {
 			this->radDepthAsPerc->UseVisualStyleBackColor = true;
 			this->radDepthAsPerc->CheckedChanged += gcnew System::EventHandler(this, &Form1::radDepthAsPerc_CheckedChanged);
 			// 
-			// lblDepthPerc
-			// 
-			this->lblDepthPerc->AutoSize = true;
-			this->lblDepthPerc->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblDepthPerc->Location = System::Drawing::Point(15, 119);
-			this->lblDepthPerc->Name = L"lblDepthPerc";
-			this->lblDepthPerc->Size = System::Drawing::Size(79, 13);
-			this->lblDepthPerc->TabIndex = 16;
-			this->lblDepthPerc->Text = L"Depth = 50%";
-			// 
 			// radDepthAsMm
 			// 
 			this->radDepthAsMm->AutoSize = true;
 			this->radDepthAsMm->Checked = true;
-			this->radDepthAsMm->Location = System::Drawing::Point(18, 66);
+			this->radDepthAsMm->Location = System::Drawing::Point(26, 16);
 			this->radDepthAsMm->Name = L"radDepthAsMm";
 			this->radDepthAsMm->Size = System::Drawing::Size(47, 17);
 			this->radDepthAsMm->TabIndex = 36;
@@ -650,35 +786,14 @@ namespace CppCLRWinformsProjekt {
 			this->radDepthAsMm->UseVisualStyleBackColor = true;
 			this->radDepthAsMm->CheckedChanged += gcnew System::EventHandler(this, &Form1::radDepthAsMm_CheckedChanged);
 			// 
-			// lblDepth
-			// 
-			this->lblDepth->AutoSize = true;
-			this->lblDepth->Location = System::Drawing::Point(42, 18);
-			this->lblDepth->Name = L"lblDepth";
-			this->lblDepth->Size = System::Drawing::Size(36, 13);
-			this->lblDepth->TabIndex = 19;
-			this->lblDepth->Text = L"Depth";
-			// 
-			// numDepth
-			// 
-			this->numDepth->DecimalPlaces = 2;
-			this->numDepth->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numDepth->Location = System::Drawing::Point(7, 34);
-			this->numDepth->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
-			this->numDepth->Name = L"numDepth";
-			this->numDepth->Size = System::Drawing::Size(100, 20);
-			this->numDepth->TabIndex = 35;
-			this->numDepth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 54, 0, 0, 65536 });
-			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged);
-			// 
 			// numDia2
 			// 
 			this->numDia2->DecimalPlaces = 2;
 			this->numDia2->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numDia2->Location = System::Drawing::Point(227, 45);
+			this->numDia2->Location = System::Drawing::Point(203, 30);
 			this->numDia2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
 			this->numDia2->Name = L"numDia2";
-			this->numDia2->Size = System::Drawing::Size(100, 20);
+			this->numDia2->Size = System::Drawing::Size(98, 20);
 			this->numDia2->TabIndex = 34;
 			this->numDia2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9, 0, 0, 0 });
 			this->numDia2->ValueChanged += gcnew System::EventHandler(this, &Form1::numDia2_ValueChanged);
@@ -687,17 +802,17 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->numDia1->DecimalPlaces = 2;
 			this->numDia1->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numDia1->Location = System::Drawing::Point(22, 45);
+			this->numDia1->Location = System::Drawing::Point(43, 28);
 			this->numDia1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
 			this->numDia1->Name = L"numDia1";
-			this->numDia1->Size = System::Drawing::Size(100, 20);
+			this->numDia1->Size = System::Drawing::Size(98, 20);
 			this->numDia1->TabIndex = 25;
 			this->numDia1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9, 0, 0, 0 });
 			this->numDia1->ValueChanged += gcnew System::EventHandler(this, &Form1::numDia1_ValueChanged);
 			// 
 			// txtPavilionBulge
 			// 
-			this->txtPavilionBulge->Location = System::Drawing::Point(277, 231);
+			this->txtPavilionBulge->Location = System::Drawing::Point(269, 218);
 			this->txtPavilionBulge->Name = L"txtPavilionBulge";
 			this->txtPavilionBulge->Size = System::Drawing::Size(85, 20);
 			this->txtPavilionBulge->TabIndex = 33;
@@ -706,7 +821,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txtGirdleThickness
 			// 
-			this->txtGirdleThickness->Location = System::Drawing::Point(165, 231);
+			this->txtGirdleThickness->Location = System::Drawing::Point(165, 218);
 			this->txtGirdleThickness->Name = L"txtGirdleThickness";
 			this->txtGirdleThickness->Size = System::Drawing::Size(85, 20);
 			this->txtGirdleThickness->TabIndex = 32;
@@ -715,7 +830,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txtGlobAdjust
 			// 
-			this->txtGlobAdjust->Location = System::Drawing::Point(40, 202);
+			this->txtGlobAdjust->Location = System::Drawing::Point(40, 191);
 			this->txtGlobAdjust->Name = L"txtGlobAdjust";
 			this->txtGlobAdjust->ReadOnly = true;
 			this->txtGlobAdjust->Size = System::Drawing::Size(85, 20);
@@ -726,7 +841,7 @@ namespace CppCLRWinformsProjekt {
 			// tbPavilionBulge
 			// 
 			this->tbPavilionBulge->LargeChange = 1;
-			this->tbPavilionBulge->Location = System::Drawing::Point(267, 193);
+			this->tbPavilionBulge->Location = System::Drawing::Point(263, 182);
 			this->tbPavilionBulge->Maximum = 30;
 			this->tbPavilionBulge->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->MinimumSize = System::Drawing::Size(104, 30);
@@ -739,8 +854,8 @@ namespace CppCLRWinformsProjekt {
 			// tbGirdleThickness
 			// 
 			this->tbGirdleThickness->LargeChange = 1;
-			this->tbGirdleThickness->Location = System::Drawing::Point(156, 193);
-			this->tbGirdleThickness->Maximum = 30;
+			this->tbGirdleThickness->Location = System::Drawing::Point(156, 182);
+			this->tbGirdleThickness->Maximum = 20;
 			this->tbGirdleThickness->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->Minimum = -5;
 			this->tbGirdleThickness->MinimumSize = System::Drawing::Size(104, 30);
@@ -753,7 +868,7 @@ namespace CppCLRWinformsProjekt {
 			// lblPavilionBulge
 			// 
 			this->lblPavilionBulge->AutoSize = true;
-			this->lblPavilionBulge->Location = System::Drawing::Point(281, 176);
+			this->lblPavilionBulge->Location = System::Drawing::Point(281, 165);
 			this->lblPavilionBulge->Name = L"lblPavilionBulge";
 			this->lblPavilionBulge->Size = System::Drawing::Size(74, 13);
 			this->lblPavilionBulge->TabIndex = 24;
@@ -762,7 +877,7 @@ namespace CppCLRWinformsProjekt {
 			// lblGirdleThickness
 			// 
 			this->lblGirdleThickness->AutoSize = true;
-			this->lblGirdleThickness->Location = System::Drawing::Point(165, 176);
+			this->lblGirdleThickness->Location = System::Drawing::Point(165, 165);
 			this->lblGirdleThickness->Name = L"lblGirdleThickness";
 			this->lblGirdleThickness->Size = System::Drawing::Size(86, 13);
 			this->lblGirdleThickness->TabIndex = 23;
@@ -771,7 +886,7 @@ namespace CppCLRWinformsProjekt {
 			// lblGlobAdj
 			// 
 			this->lblGlobAdj->AutoSize = true;
-			this->lblGlobAdj->Location = System::Drawing::Point(37, 176);
+			this->lblGlobAdj->Location = System::Drawing::Point(37, 165);
 			this->lblGlobAdj->Name = L"lblGlobAdj";
 			this->lblGlobAdj->Size = System::Drawing::Size(75, 13);
 			this->lblGlobAdj->TabIndex = 21;
@@ -780,7 +895,7 @@ namespace CppCLRWinformsProjekt {
 			// lblDia2
 			// 
 			this->lblDia2->AutoSize = true;
-			this->lblDia2->Location = System::Drawing::Point(248, 29);
+			this->lblDia2->Location = System::Drawing::Point(223, 14);
 			this->lblDia2->Name = L"lblDia2";
 			this->lblDia2->Size = System::Drawing::Size(58, 13);
 			this->lblDia2->TabIndex = 18;
@@ -789,7 +904,7 @@ namespace CppCLRWinformsProjekt {
 			// lblDia1
 			// 
 			this->lblDia1->AutoSize = true;
-			this->lblDia1->Location = System::Drawing::Point(43, 29);
+			this->lblDia1->Location = System::Drawing::Point(63, 12);
 			this->lblDia1->Name = L"lblDia1";
 			this->lblDia1->Size = System::Drawing::Size(58, 13);
 			this->lblDia1->TabIndex = 17;
@@ -798,7 +913,7 @@ namespace CppCLRWinformsProjekt {
 			// lblRecut
 			// 
 			this->lblRecut->AutoSize = true;
-			this->lblRecut->Location = System::Drawing::Point(243, 28);
+			this->lblRecut->Location = System::Drawing::Point(430, 16);
 			this->lblRecut->Name = L"lblRecut";
 			this->lblRecut->Size = System::Drawing::Size(36, 13);
 			this->lblRecut->TabIndex = 50;
@@ -807,7 +922,7 @@ namespace CppCLRWinformsProjekt {
 			// picRecut
 			// 
 			this->picRecut->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picRecut->Location = System::Drawing::Point(223, 44);
+			this->picRecut->Location = System::Drawing::Point(325, 14);
 			this->picRecut->Name = L"picRecut";
 			this->picRecut->Size = System::Drawing::Size(82, 64);
 			this->picRecut->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -817,32 +932,31 @@ namespace CppCLRWinformsProjekt {
 			// cbRecut
 			// 
 			this->cbRecut->AutoSize = true;
-			this->cbRecut->Location = System::Drawing::Point(223, 146);
+			this->cbRecut->Location = System::Drawing::Point(300, 84);
 			this->cbRecut->Name = L"cbRecut";
-			this->cbRecut->Size = System::Drawing::Size(61, 17);
+			this->cbRecut->Size = System::Drawing::Size(197, 17);
 			this->cbRecut->TabIndex = 12;
-			this->cbRecut->Text = L"Recut\?";
+			this->cbRecut->Text = L"Estimate Recut : Round Stones only";
 			this->cbRecut->UseVisualStyleBackColor = true;
 			this->cbRecut->Visible = false;
 			// 
 			// cbInterpolate
 			// 
 			this->cbInterpolate->AutoSize = true;
-			this->cbInterpolate->Location = System::Drawing::Point(223, 123);
+			this->cbInterpolate->Location = System::Drawing::Point(300, 107);
 			this->cbInterpolate->Name = L"cbInterpolate";
-			this->cbInterpolate->Size = System::Drawing::Size(82, 17);
+			this->cbInterpolate->Size = System::Drawing::Size(173, 17);
 			this->cbInterpolate->TabIndex = 11;
-			this->cbInterpolate->Text = L"Interpolate\?";
+			this->cbInterpolate->Text = L"Interpolate Fancy Cut Formula\?";
 			this->cbInterpolate->UseVisualStyleBackColor = true;
 			this->cbInterpolate->Visible = false;
 			// 
 			// groupBox2
 			// 
 			this->groupBox2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->groupBox2->Controls->Add(this->txtEstRecut);
 			this->groupBox2->Controls->Add(this->numSG);
-			this->groupBox2->Controls->Add(this->picGirdle);
 			this->groupBox2->Controls->Add(this->lblRecut);
-			this->groupBox2->Controls->Add(this->picBulge);
 			this->groupBox2->Controls->Add(this->picGem);
 			this->groupBox2->Controls->Add(this->picRecut);
 			this->groupBox2->Controls->Add(this->picCut);
@@ -851,57 +965,42 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox2->Controls->Add(this->txtFactor);
 			this->groupBox2->Controls->Add(this->lblSelectedCut);
 			this->groupBox2->Controls->Add(this->comboCut);
-			this->groupBox2->Controls->Add(this->radioBtnGem);
-			this->groupBox2->Controls->Add(this->radioBtnDia);
 			this->groupBox2->Controls->Add(this->comboGems);
 			this->groupBox2->Controls->Add(this->lbllSelectedSG);
 			this->groupBox2->Controls->Add(this->cbInterpolate);
 			this->groupBox2->Controls->Add(this->cbRecut);
 			this->groupBox2->ForeColor = System::Drawing::Color::Black;
-			this->groupBox2->Location = System::Drawing::Point(12, 375);
+			this->groupBox2->Location = System::Drawing::Point(12, 473);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(505, 207);
+			this->groupBox2->Size = System::Drawing::Size(505, 159);
 			this->groupBox2->TabIndex = 13;
 			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Select Gem / Cut";
+			// 
+			// txtEstRecut
+			// 
+			this->txtEstRecut->Location = System::Drawing::Point(412, 57);
+			this->txtEstRecut->Name = L"txtEstRecut";
+			this->txtEstRecut->ReadOnly = true;
+			this->txtEstRecut->Size = System::Drawing::Size(85, 20);
+			this->txtEstRecut->TabIndex = 56;
+			this->txtEstRecut->Text = L"0.00 ct";
+			this->txtEstRecut->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// numSG
 			// 
 			this->numSG->DecimalPlaces = 2;
 			this->numSG->Enabled = false;
 			this->numSG->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numSG->Location = System::Drawing::Point(79, 72);
+			this->numSG->Location = System::Drawing::Point(90, 58);
 			this->numSG->Name = L"numSG";
 			this->numSG->Size = System::Drawing::Size(100, 20);
 			this->numSG->TabIndex = 24;
-			// 
-			// picGirdle
-			// 
-			this->picGirdle->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->picGirdle->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picGirdle->Location = System::Drawing::Point(409, 123);
-			this->picGirdle->Name = L"picGirdle";
-			this->picGirdle->Size = System::Drawing::Size(82, 67);
-			this->picGirdle->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->picGirdle->TabIndex = 23;
-			this->picGirdle->TabStop = false;
-			// 
-			// picBulge
-			// 
-			this->picBulge->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->picBulge->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picBulge->Location = System::Drawing::Point(409, 44);
-			this->picBulge->Name = L"picBulge";
-			this->picBulge->Size = System::Drawing::Size(82, 64);
-			this->picBulge->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->picBulge->TabIndex = 22;
-			this->picBulge->TabStop = false;
 			// 
 			// picGem
 			// 
 			this->picGem->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picGem->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picGem->Location = System::Drawing::Point(325, 44);
+			this->picGem->Location = System::Drawing::Point(226, 14);
 			this->picGem->Name = L"picGem";
 			this->picGem->Size = System::Drawing::Size(64, 64);
 			this->picGem->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -911,9 +1010,9 @@ namespace CppCLRWinformsProjekt {
 			// picCut
 			// 
 			this->picCut->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picCut->Location = System::Drawing::Point(325, 126);
+			this->picCut->Location = System::Drawing::Point(226, 84);
 			this->picCut->Name = L"picCut";
-			this->picCut->Size = System::Drawing::Size(64, 64);
+			this->picCut->Size = System::Drawing::Size(64, 67);
 			this->picCut->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->picCut->TabIndex = 20;
 			this->picCut->TabStop = false;
@@ -921,7 +1020,7 @@ namespace CppCLRWinformsProjekt {
 			// lblSgValue
 			// 
 			this->lblSgValue->AutoSize = true;
-			this->lblSgValue->Location = System::Drawing::Point(37, 74);
+			this->lblSgValue->Location = System::Drawing::Point(48, 60);
 			this->lblSgValue->Name = L"lblSgValue";
 			this->lblSgValue->Size = System::Drawing::Size(28, 13);
 			this->lblSgValue->TabIndex = 19;
@@ -930,7 +1029,7 @@ namespace CppCLRWinformsProjekt {
 			// lblCutFactor
 			// 
 			this->lblCutFactor->AutoSize = true;
-			this->lblCutFactor->Location = System::Drawing::Point(9, 134);
+			this->lblCutFactor->Location = System::Drawing::Point(20, 120);
 			this->lblCutFactor->Name = L"lblCutFactor";
 			this->lblCutFactor->Size = System::Drawing::Size(56, 13);
 			this->lblCutFactor->TabIndex = 18;
@@ -938,7 +1037,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txtFactor
 			// 
-			this->txtFactor->Location = System::Drawing::Point(79, 131);
+			this->txtFactor->Location = System::Drawing::Point(90, 117);
 			this->txtFactor->Name = L"txtFactor";
 			this->txtFactor->Size = System::Drawing::Size(100, 20);
 			this->txtFactor->TabIndex = 17;
@@ -949,7 +1048,7 @@ namespace CppCLRWinformsProjekt {
 			// lblSelectedCut
 			// 
 			this->lblSelectedCut->AutoSize = true;
-			this->lblSelectedCut->Location = System::Drawing::Point(42, 108);
+			this->lblSelectedCut->Location = System::Drawing::Point(53, 94);
 			this->lblSelectedCut->Name = L"lblSelectedCut";
 			this->lblSelectedCut->Size = System::Drawing::Size(23, 13);
 			this->lblSelectedCut->TabIndex = 16;
@@ -991,7 +1090,7 @@ namespace CppCLRWinformsProjekt {
 					L"pear brilliant", L"princess brilliant", L"oval brilliant", L"round brilliant", L"rose cut", L"small baguette", L"square cut (dia.)",
 					L"tapered baguette", L"semi circle cut (dia.)", L"triangular cut (dia.)", L"radiant cut (dia.)", L"trilliant cut (dia.)", L"trillion (rounded sides)"
 			});
-			this->comboCut->Location = System::Drawing::Point(79, 104);
+			this->comboCut->Location = System::Drawing::Point(90, 90);
 			this->comboCut->Name = L"comboCut";
 			this->comboCut->Size = System::Drawing::Size(121, 21);
 			this->comboCut->TabIndex = 15;
@@ -1001,7 +1100,7 @@ namespace CppCLRWinformsProjekt {
 			// radioBtnGem
 			// 
 			this->radioBtnGem->AutoSize = true;
-			this->radioBtnGem->Location = System::Drawing::Point(79, 185);
+			this->radioBtnGem->Location = System::Drawing::Point(327, 8);
 			this->radioBtnGem->Name = L"radioBtnGem";
 			this->radioBtnGem->Size = System::Drawing::Size(73, 17);
 			this->radioBtnGem->TabIndex = 14;
@@ -1013,7 +1112,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->radioBtnDia->AutoSize = true;
 			this->radioBtnDia->Checked = true;
-			this->radioBtnDia->Location = System::Drawing::Point(79, 159);
+			this->radioBtnDia->Location = System::Drawing::Point(105, 8);
 			this->radioBtnDia->Name = L"radioBtnDia";
 			this->radioBtnDia->Size = System::Drawing::Size(67, 17);
 			this->radioBtnDia->TabIndex = 13;
@@ -1025,7 +1124,7 @@ namespace CppCLRWinformsProjekt {
 			// statusbar
 			// 
 			this->statusbar->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStrip });
-			this->statusbar->Location = System::Drawing::Point(0, 590);
+			this->statusbar->Location = System::Drawing::Point(0, 635);
 			this->statusbar->Name = L"statusbar";
 			this->statusbar->Size = System::Drawing::Size(529, 22);
 			this->statusbar->SizingGrip = false;
@@ -1131,7 +1230,7 @@ namespace CppCLRWinformsProjekt {
 			this->groupBoxCalculate->Controls->Add(this->txtResult);
 			this->groupBoxCalculate->Controls->Add(this->buttonCalc);
 			this->groupBoxCalculate->Controls->Add(this->buttonClear);
-			this->groupBoxCalculate->Location = System::Drawing::Point(12, 298);
+			this->groupBoxCalculate->Location = System::Drawing::Point(12, 359);
 			this->groupBoxCalculate->Name = L"groupBoxCalculate";
 			this->groupBoxCalculate->Size = System::Drawing::Size(505, 71);
 			this->groupBoxCalculate->TabIndex = 16;
@@ -1146,11 +1245,22 @@ namespace CppCLRWinformsProjekt {
 			this->lblWeightInCarats->TabIndex = 53;
 			this->lblWeightInCarats->Text = L"Weight in carats.";
 			// 
+			// groupBoxChooseDiaOrGem
+			// 
+			this->groupBoxChooseDiaOrGem->Controls->Add(this->radioBtnGem);
+			this->groupBoxChooseDiaOrGem->Controls->Add(this->radioBtnDia);
+			this->groupBoxChooseDiaOrGem->Location = System::Drawing::Point(12, 436);
+			this->groupBoxChooseDiaOrGem->Name = L"groupBoxChooseDiaOrGem";
+			this->groupBoxChooseDiaOrGem->Size = System::Drawing::Size(505, 31);
+			this->groupBoxChooseDiaOrGem->TabIndex = 17;
+			this->groupBoxChooseDiaOrGem->TabStop = false;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(529, 612);
+			this->ClientSize = System::Drawing::Size(529, 657);
+			this->Controls->Add(this->groupBoxChooseDiaOrGem);
 			this->Controls->Add(this->groupBoxCalculate);
 			this->Controls->Add(this->statusbar);
 			this->Controls->Add(this->menuStrip1);
@@ -1161,14 +1271,19 @@ namespace CppCLRWinformsProjekt {
 			this->Name = L"Form1";
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Hide;
 			this->Text = L"Gemwest";
+			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load_1);
 			this->lwguide->ResumeLayout(false);
 			this->lwguide->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picShapeOutline))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picLW))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->EndInit();
@@ -1177,8 +1292,6 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numSG))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGem))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCut))->EndInit();
 			this->statusbar->ResumeLayout(false);
@@ -1187,6 +1300,8 @@ namespace CppCLRWinformsProjekt {
 			this->menuStrip1->PerformLayout();
 			this->groupBoxCalculate->ResumeLayout(false);
 			this->groupBoxCalculate->PerformLayout();
+			this->groupBoxChooseDiaOrGem->ResumeLayout(false);
+			this->groupBoxChooseDiaOrGem->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1201,11 +1316,11 @@ namespace CppCLRWinformsProjekt {
 
 		/*Old system C++ but only saves to READ ONLY Application folder*/
 		/*Needed to implement in C# using CSConfig.dll*/
-		//String^ getDecPlacesFromConfig = ::AppSettings["decPlaces"];
-		//String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
-		//String^ tmp = myPreferences.proplimit; NOT USED RIGHT NOW
-		//bool recordToLog = myPreferences.propLogAll;
-		//bool setTo1000s = myPreferences.prop1000;
+		/*String^ getDecPlacesFromConfig = ::AppSettings["decPlaces"];
+		String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
+		String^ tmp = myPreferences.proplimit; NOT USED RIGHT NOW
+		bool recordToLog = myPreferences.propLogAll;
+		bool setTo1000s = myPreferences.prop1000;*/
 
 
 	private: System::Void btnEq_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1270,60 +1385,7 @@ namespace CppCLRWinformsProjekt {
 
 	}
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-		/****************LOAD CONFIG FILES***************************/
-		bool set1000s = false; //   these variables are sent to GUI
-		bool setLogging = false; //   these variables are sent to GUI
-		if (!System::String::IsNullOrEmpty(getDecPlacesFromConfig)) {
-			if (getDecPlacesFromConfig->Equals("3")) {
-				set1000s = true;
-			}
-			else {
-				set1000s = false;
-			}
-			myPreferences.prop1000 = set1000s;
-		} // not null or empty
-		/****************************************************/
-		if (!System::String::IsNullOrEmpty(getLogAllFromConfig)) {
-			if (getLogAllFromConfig->Equals("true")) {
-				setLogging = true;
-			}
-			else {
-				setLogging = false;
-			}
-			myPreferences.propLogAll = setLogging;
-		}//not null or empty
-		/****************************************************/
-		EmbeddedImage^ rc = gcnew EmbeddedImage;
-		rc->setName("shallow");
-		this->picRecut->Image = rc->getName();
 
-		EmbeddedImage^ dp = gcnew EmbeddedImage;
-		dp->setName("defrec");
-		this->picDepth->Image = dp->getName();
-
-
-		EmbeddedImage^ adjarrow = gcnew EmbeddedImage;
-		adjarrow->setName("adjustmentarrow");
-		this->pictAdjArrow->Image = adjarrow->getName();
-
-		EmbeddedImage^ defaultCut = gcnew EmbeddedImage;
-		defaultCut->setName("round brilliant");
-		this->picCut->Image = defaultCut->getName();
-
-		EmbeddedImage^ defaultBulge = gcnew EmbeddedImage;
-		defaultBulge->setName("bulge_non");
-		this->picBulge->Image = defaultBulge->getName();
-
-		EmbeddedImage^ defaultGem = gcnew EmbeddedImage;
-		defaultGem->setName("diamond");
-		this->picGem->Image = defaultGem->getName();
-
-		EmbeddedImage^ defaultGirdle = gcnew EmbeddedImage;
-		defaultGirdle->setName("thingirdle");
-		this->picGirdle->Image = defaultGirdle->getName();
-
-		EmbeddedImage^ checkDepth = gcnew EmbeddedImage;
-		checkDepth->setName("checkDepth");
 	}
 
 	private: System::Void buttonClear_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1661,8 +1723,44 @@ namespace CppCLRWinformsProjekt {
 	}
 
 	private: System::Void tbShapeOutline_Scroll(System::Object^ sender, System::EventArgs^ e) {
+		/*
+		* Shape Outline
+		* Wide corners on cut corner squares and rectangles can decrease weight as much as 5%.
+		* For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10%. Occasionally, straight shoulders will require a deduction of 1% to 5%.
+		*  and (sometimes) pears will have a very short keel or none at all. This will reduce the weight by 1% to 3%.
+		* Triangles with straight sides will require a reduction of up to 10%.
+		*/
 		combine_adjustments();
 		this->txtShapeOutline->Text = this->tbShapeOutline->Value.ToString() + "%";
+
+		String^ so = "so3";
+
+		if (this->tbShapeOutline->Value < -3) {
+			so = "so1";
+		}
+		else if (this->tbShapeOutline->Value < 0) {
+			so = "so2";
+		}
+		else if (this->tbShapeOutline->Value < 1) {
+			so = "so3";
+		}
+		else if (this->tbShapeOutline->Value < 5) {
+			so = "so4";
+		}
+		else if (this->tbShapeOutline->Value < 10) {
+			so = "so5";
+		}
+		else if (this->tbShapeOutline->Value < 16) {
+			so = "so6";
+		}
+		else {
+			so = "so3";
+		}
+		this->label1->Text = L": " + so;
+		EmbeddedImage^ shapeOutlineImage = gcnew EmbeddedImage;
+		/**************************IMAGE MANAGEMENT**************************/
+		shapeOutlineImage->setName(so);
+		this->picShapeOutline->Image = shapeOutlineImage->getName();
 	}
 	private: System::Void tbGirdleThickness_Scroll(System::Object^ sender, System::EventArgs^ e) {
 		combine_adjustments();
@@ -1671,18 +1769,29 @@ namespace CppCLRWinformsProjekt {
 		if (this->tbGirdleThickness->Value < 4) {
 			gThk = "thingirdle";
 		}
-		else if (this->tbGirdleThickness->Value < 7) {
+		else if (this->tbGirdleThickness->Value < 10) {
 			gThk = "mediumgirdle";
 		}
-		else if (this->tbGirdleThickness->Value < 11) {
+		else if (this->tbGirdleThickness->Value < 14) {
 			gThk = "thickgirdle";
 		}
-		else if (this->tbGirdleThickness->Value < 16) {
+		else if (this->tbGirdleThickness->Value < 21) {
 			gThk = "sthickgirdle";
 		}
 		else {
 			gThk = "thingirdle";
 		}
+		/*Thin girdle, subtract 1% to 2%.
+Slightly thick, add 1% to 2%.
+Thick, add 3% to 4%.
+Very thick, add 5% to 6%.
+Extra thick, add 7% to 10%.
+Pavilion Bulge
+Slight, add 3% to 5%.
+Noticeable, add 6% to 8%.
+Obvious, add 9% to 12%.
+Extreme, add 13% to 18%.
+A long culet due to steep pavilion angles can add up to 5%.*/
 		EmbeddedImage^ girdleImage = gcnew EmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
 		girdleImage->setName(gThk);
@@ -1724,10 +1833,42 @@ namespace CppCLRWinformsProjekt {
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
 	}
 	private: System::Void radDepthAsMm_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		/*I don't do anything because when I am clicked or lose focus radDepthAsPerc fires!*/
+		this->lblDepth->Text = "Depth (mm)";
+		//->numDepth->DecimalPlaces = 2;
+		//this->numDepth->Increment = System::Decimal(0.01);
+
+		if (myPreferences.propLogAll) {
+			// = "true";
+		}
+		if (myPreferences.prop1000 == true) {
+
+			this->numDia1->DecimalPlaces = 3;
+			this->numDia1->Increment = System::Decimal(0.001);
+
+			this->numDia2->DecimalPlaces = 3;
+			this->numDia2->Increment = System::Decimal(0.001);
+
+			this->numDepth->DecimalPlaces = 3;
+			this->numDepth->Increment = System::Decimal(0.001);
+			//decplaces = "3";
+		}
+		else {
+			this->numDia1->DecimalPlaces = 2;
+			this->numDia1->Increment = System::Decimal(0.01);
+
+			this->numDia2->DecimalPlaces = 2;
+			this->numDia2->Increment = System::Decimal(0.01);
+
+			this->numDepth->DecimalPlaces = 2;
+			this->numDepth->Increment = System::Decimal(0.01);
+			//decplaces = "2";
+		}
 	}
 	private: System::Void radDepthAsPerc_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		/*Use Percentage (%) as Depth data entry*/
+		this->lblDepth->Text = "Depth (%)";
+		this->numDepth->DecimalPlaces = 1;
+		this->numDepth->Increment = System::Decimal(0.1);
 		bool isRoundish = true;
 		//double currentDepthInPercentage = System::Convert::ToDouble(this->numDepth->Text);
 		System::Decimal  lengthInMm = System::Convert::ToDecimal(this->numDia1->Text);
@@ -1736,17 +1877,17 @@ namespace CppCLRWinformsProjekt {
 		System::Decimal reverseMm2Perc;
 		System::Decimal reversePercentage2mm;
 
-		if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
-			isRoundish = true;
-		}
-		else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
-			isRoundish = false;
-		}
-		else {
-			isRoundish = CutDim::isRoundish(this->comboCut->Text);
-		}
-		/*********************************************************************************/
-		if (isRoundish) {
+		/*	if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
+				isRoundish = true;
+			}
+			else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
+				isRoundish = false;
+			}
+			else {*/
+			//	isRoundish = CutDim::isRoundish(this->comboCut->Text);
+			//}
+			/*********************************************************************************/
+		if (CutDim::isRoundish(this->comboCut->Text)) {
 			//lwRatio = System::Decimal::Round(lengthInMm / widthInMm, 2);
 			widthInMm.Add(lengthInMm, widthInMm) / 2;
 
@@ -1799,19 +1940,19 @@ namespace CppCLRWinformsProjekt {
 		settingsSave->propBridge1000 = decplaces;
 		settingsSave->propBridgeLog = logAllcalculations;
 
-		/*This is old code for C++ but it only saves to Application Folder*/
-		//String^ decPlaces = ConfigurationSettings::AppSettings["decPlaces"];
-		//String^ log = ConfigurationSettings::AppSettings["log"];
-		//Console::WriteLine("{0} - {1}", firstName, name);
+		/*This is old code for C++ but it only saves to Application Folder
+		String^ decPlaces = ConfigurationSettings::AppSettings["decPlaces"];
+		String^ log = ConfigurationSettings::AppSettings["log"];
+		Console::WriteLine("{0} - {1}", firstName, name);
 
-		//System::Configuration::Configuration^ config = ConfigurationManager::OpenExeConfiguration(ConfigurationUserLevel::None);
-		//config->AppSettings->Settings->Remove("decPlaces");
-		//config->AppSettings->Settings->Remove("logAll");
+		System::Configuration::Configuration^ config = ConfigurationManager::OpenExeConfiguration(ConfigurationUserLevel::None);
+		config->AppSettings->Settings->Remove("decPlaces");
+		config->AppSettings->Settings->Remove("logAll");
 
-		//config->AppSettings->Settings->Add("decPlaces",decplaces);
-		//config->AppSettings->Settings->Add("logAll", logAllcalculations);
-		//config->Save(ConfigurationSaveMode::Modified);
-		//ConfigurationManager::RefreshSection("appSettings");
+		config->AppSettings->Settings->Add("decPlaces",decplaces);
+		config->AppSettings->Settings->Add("logAll", logAllcalculations);
+		config->Save(ConfigurationSaveMode::Modified);
+		ConfigurationManager::RefreshSection("appSettings");*/
 
 	}
 	private: System::Void helpToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1823,19 +1964,6 @@ namespace CppCLRWinformsProjekt {
 		AboutForm1^ aform = gcnew AboutForm1;
 		aform->Show();
 	}
-
-		   //private: System::Void Form1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-		   //virtual Void Form1::OnPaint(PaintEventArgs ^ pe) override
-			  //	{
-					  //Graphics^ g = e->Graphics;
-					  //g->Clear(Color::Black);
-
-					  //Pen^ redPen = gcnew Pen(Color::Red, 3.0f);
-
-					  //// Draw rectangle to screen.
-					  //g->DrawRectangle(redPen, 0, 0, 82, 64);
-				  //}
-			  //}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	}
@@ -1845,13 +1973,76 @@ namespace CppCLRWinformsProjekt {
 	}
 	private: System::Void lblHiddenDepth_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
-		//this->Invalidate();  // request a delayed Repaint by the normal MessageLoop system    
-		//this->Update();      // forces Repaint of invalidated area 
-		this->Refresh();     // Combines Invalidate() and Update(
+		//this->Invalidate();   request a delayed Repaint by the normal MessageLoop system    
+		//this->Update();      forces Repaint of invalidated area 
+		//this->Refresh();    // Combines Invalidate() and Update(
 		this->draw_depth(this->lblHiddenDepth->Text);
 
 	}
-	private: System::Void picDepth_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	private: System::Void Form1_Load_1(System::Object^ sender, System::EventArgs^ e) {
+		/****************LOAD CONFIG FILES***************************/
+
+		EmbeddedImage^ rc = gcnew EmbeddedImage;
+		rc->setName("recut");
+		this->picRecut->Image = rc->getName();
+
+		//EmbeddedImage^ dp = gcnew EmbeddedImage;
+		//dp->setName("defrec");
+		//this->picDepth->Image = dp->getName();
+
+		EmbeddedImage^ adjarrow = gcnew EmbeddedImage;
+		adjarrow->setName("adjustmentarrow");
+		this->pictAdjArrow->Image = adjarrow->getName();
+
+		EmbeddedImage^ defaultCut = gcnew EmbeddedImage;
+		defaultCut->setName("round brilliant");
+		this->picCut->Image = defaultCut->getName();
+
+		EmbeddedImage^ defaultBulge = gcnew EmbeddedImage;
+		defaultBulge->setName("bulge_non");
+		this->picBulge->Image = defaultBulge->getName();
+
+		EmbeddedImage^ defaultShapeOutline = gcnew EmbeddedImage;
+		defaultShapeOutline->setName("so3");
+		this->picShapeOutline->Image = defaultShapeOutline->getName();
+
+		EmbeddedImage^ defaultGem = gcnew EmbeddedImage;
+		defaultGem->setName("diamond");
+		this->picGem->Image = defaultGem->getName();
+
+		EmbeddedImage^ defaultGirdle = gcnew EmbeddedImage;
+		defaultGirdle->setName("thingirdle");
+		this->picGirdle->Image = defaultGirdle->getName();
+
+		/*EmbeddedImage^ checkDepth = gcnew EmbeddedImage;
+		checkDepth->setName("checkDepth")*/
+
+		bool set1000s = false; //   these variables are sent to GUI
+		bool setLogging = false; //   these variables are sent to GUI
+		if (!System::String::IsNullOrEmpty(getDecPlacesFromConfig)) {
+			if (getDecPlacesFromConfig->Equals("3")) {
+				set1000s = true;
+			}
+			else {
+				set1000s = false;
+			}
+			myPreferences.prop1000 = set1000s;
+		} // not null or empty
+		/****************************************************/
+		if (!System::String::IsNullOrEmpty(getLogAllFromConfig)) {
+			if (getLogAllFromConfig->Equals("true")) {
+				setLogging = true;
+			}
+			else {
+				setLogging = false;
+			}
+			myPreferences.propLogAll = setLogging;
+		}//not null or empty
+		/****************************************************/
+
 	}
+
+
 	};
 }

@@ -274,10 +274,19 @@ void EmbeddedImage::loadResources()
 	myRez->Add("zoisite", "zoisite");
 	myRez->Add("gw", "gw"); // icon file
 	myRez->Add("checkDepth", "checkDepth"); // when depth percentage is strange!
+	myRez->Add("checklength", "checkLW"); // when LW percentage is strange!
 	myRez->Add("zaniah", "zaniah"); // Author's logo!
 	myRez->Add("adjustmentarrow", "adjustmentarrow"); // Gui component
 	myRez->Add("defrec", "defrec"); // depth % component
+	myRez->Add("recut", "recut_init"); // Gui recut series
 	myRez->Add("shallow", "shallow"); // Gui recut series
+	myRez->Add("deep_stone", "deep_stone"); // Gui recut series
+	myRez->Add("so1", "so_low_very"); //Shape Outlines
+	myRez->Add("so2", "so_low_01"); //Shape Outlines
+	myRez->Add("so3", "so_ok"); //Shape Outlines
+	myRez->Add("so4", "so_high_01"); //Shape Outlines
+	myRez->Add("so5", "so_high_02"); //Shape Outlines
+	myRez->Add("so6", "so_high_03"); //Shape Outlines
 	this->setRez(myRez);
 
 }

@@ -931,6 +931,789 @@
     <Image Include="..\..\..\..\Desktop\gwCLI_project\defrec.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\so_high_01.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\so_high_02.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\so_high_03.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\so_low_very.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\so_ok.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="agate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="albite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="alexandrite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="almandine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="amazonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="amber.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="amethyst.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="andalusite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="apatite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="aquamarine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="aragonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="asscher.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="aventurine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="aventurine quartz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="axinite (ferro-axinite).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="azurite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="bakelite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="barion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="benitoite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="beryl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="beryl aquamarine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="beryl colourless.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="beryl heliodor.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="beryl maxixe.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="beryl morganite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="biron created emerald.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="blende.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="bloodstone.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="blue topaz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="bonamite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="bowenite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="brazilianite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="briolette.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="bulge_big.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="bulge_med.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="bulge_non.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="bulge_sml.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="cabochon_high_domed.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="cabochon_low_domed.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="cabochon_regular.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="calcite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="calculator.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="californite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="carborundum.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="carnelian.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="cassiterite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="cat%27s eye chrysoberyl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="celluloid.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chalcedony.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chalcedony agate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chalcedony aventurine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chalcedony carnelian.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chalcedony heliotrope.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chalcedony moss agate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chalcedony onyx.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="checkDepth.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chrome diopside.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chrysoberyl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chrysoberyl alexandrite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chrysoberyl cat%27s eye.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chrysoberyl cymophane.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chrysocolla.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="chrysoprase.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="citrine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="colorless beryl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="conch pearl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="copal resin.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="coral.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="cornelian.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="corundum.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="corundum ruby.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="corundum sapphire.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="corundum synthetic.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="crocidolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="cubic zirconia.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="cushion_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="cymophane.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="cz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="danburite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="datolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="defrec.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="demantoid.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="diamond.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="diopside.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="edit-clear.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="eight_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="ekanite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="emerald.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="emerald (Biron).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="emerald (Chatham).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="emerald (Gilson).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="emerald_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="emerald_cut_diamond.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="enstatite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="epidote.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="euclase.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="fibrolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="fire opal.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="flanders_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="fluorite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="garnet.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="garnet almandine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="garnet demantoid.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="garnet hessonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="garnet mali.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="garnet pyrope.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="garnet spessartine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="garnet uvarovite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="ggg.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="glass.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="golden beryl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="goshenite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="grossular.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="grossular garnet.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="haematite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="hambergite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="heart.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="heart_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="heliodor.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="heliotrope.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="hematite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="hemimorphite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="hessonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="hiddenite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="howlite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="idocrase.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="Image.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="imperial topaz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="iolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="jade.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="jadeite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="jasper.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="jet.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="kornerupine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="kunzite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="kyanite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="lapis lazuli.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="larimar.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="lazurite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="lepidolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="lithium niobate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="long_rectangle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="malachite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="mali garnet.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="marcasite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="marquise.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="marquise_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="maw-sit-sit.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="maxixe.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="mediumgirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="moissanite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="morganite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="moss agate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="nephrite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="noimage.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="obsidian.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="odontolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="old_european_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="old_mine_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="onyx.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="opal.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="oval.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="oval_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="painite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="pear_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="pear_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="pearl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="periclase.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="peridot.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="phenakite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="pink beryl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="pink topaz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="pleonaste.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="porcelain.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="prehnite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="princess_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="pseudophite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="pyrites.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="pyrope.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="quartz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="quartz amethyst.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="quartz aventurine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="quartz chalcedony.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="quartz citrine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="radiant_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="rectangle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="rectangle_step_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="rectangle_with_cut_corners.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="rectangular_cushion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="recut_init.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="rhodochrosite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="rhodonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="rose_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="round_bead.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="round_brilliant.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="round_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="ruby.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="rutile.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="sapphire.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="sard.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="scapolite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="scheelite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="schorl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="semi_circle_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="seraphinite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="serpentine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="shallow.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="silica glass.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="sinhalite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="small_baguette.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="smithsonite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="spessartine.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="sphalerite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="sphene.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="spinel.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="spinel synthetic.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="spodumene.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="square_cushion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="square_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="square_cut_diamond.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="square_step_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="square_with_cut_corners.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="sthickgirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="strontium titanate.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="sugilite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="synthetic corundum.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="synthetic spinel.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="taaffeite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="tanzanite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="tapered_baguette.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="tektite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="thickgirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="thingirdle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="topaz.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="tortoiseshell.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="tourmaline.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="tourmaline schorl.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="triangle.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="triangular_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="trilliant_cut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="trillion.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="turquoise.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="uvarovite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="variscite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="vesuvianite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="vivianite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="water opal.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="yttrium aluminate YAG.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="zaniah.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="zircon (metamict).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="zircon (normal).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="zirconia (cubic).jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="zoisite.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\deep_stone.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\graphics\so_low_01.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\checkLW.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">
