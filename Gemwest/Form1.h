@@ -98,7 +98,7 @@ namespace CppCLRWinformsProjekt {
 
 					String^ lwString = System::Convert::ToString(lwRatio);
 					String^ lWtxt = "LW Ratio = " + lwString + ":1";
-					String^ percString = System::Convert::ToString(depthPercentage);
+					String^ percString = System::Convert::ToString(Math::Round(depthPercentage,2));
 					String^ mmString = System::Convert::ToString(depmm);
 
 					if (this->radDepthAsPerc->Checked) {
@@ -147,8 +147,8 @@ namespace CppCLRWinformsProjekt {
 			//this->Refresh();
 			//this->Refresh();
 			//this->Invalidate();  // request a delayed Repaint by the normal MessageLoop system    
-//this->Update();      // forces Repaint of invalidated area 
-//this->Refresh();     // Combines Invalidate() and Update(
+			//this->Update();      // forces Repaint of invalidated area 
+			//this->Refresh();     // Combines Invalidate() and Update(
 			Double divider = System::Convert::ToDouble(this->lblHiddenDepth->Text) / 100;
 			//double percentage = Math::Round(this->picRecut->Height * divider, 2);
 			Double percentage = System::Convert::ToDouble(this->picDepth->Height) * divider;
@@ -315,7 +315,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::RadioButton^ radDepthAsMm;
 	private: System::Windows::Forms::Label^ lblCombinedRoundAverage;
 	private: System::Windows::Forms::GroupBox^ groupBoxChooseDiaOrGem;
-	private: System::Windows::Forms::Label^ label1;
+
 	private: System::Windows::Forms::TextBox^ txtEstRecut;
 
 
@@ -340,7 +340,6 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->picShapeOutline = (gcnew System::Windows::Forms::PictureBox());
 			this->lblDepthPerc = (gcnew System::Windows::Forms::Label());
 			this->picGirdle = (gcnew System::Windows::Forms::PictureBox());
@@ -551,7 +550,6 @@ namespace CppCLRWinformsProjekt {
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->lwguide->Controls->Add(this->label1);
 			this->lwguide->Controls->Add(this->picShapeOutline);
 			this->lwguide->Controls->Add(this->lblDepthPerc);
 			this->lwguide->Controls->Add(this->picGirdle);
@@ -586,15 +584,6 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->Size = System::Drawing::Size(505, 334);
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(307, 63);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
-			this->label1->TabIndex = 55;
-			this->label1->Text = L"label1";
 			// 
 			// picShapeOutline
 			// 
@@ -650,6 +639,7 @@ namespace CppCLRWinformsProjekt {
 			this->lblHiddenDepth->Size = System::Drawing::Size(13, 13);
 			this->lblHiddenDepth->TabIndex = 52;
 			this->lblHiddenDepth->Text = L"0";
+			this->lblHiddenDepth->Visible = false;
 			this->lblHiddenDepth->TextChanged += gcnew System::EventHandler(this, &Form1::lblHiddenDepth_TextChanged);
 			// 
 			// picLW
@@ -1760,7 +1750,7 @@ namespace CppCLRWinformsProjekt {
 		else {
 			so = "so3";
 		}
-		this->label1->Text = L": " + so;
+		//this->label1->Text = L": " + so;
 		EmbeddedImage^ shapeOutlineImage = gcnew EmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
 		shapeOutlineImage->setName(so);
