@@ -66,13 +66,17 @@ namespace CppCLRWinformsProjekt {
 			if (!this->numDia1->Text->Equals("0.00")) {
 
 				if (!this->numDia2->Text->Equals("0.00")) {
-					System::Decimal dep = System::Convert::ToDecimal(this->numDepth->Text);
-					System::Decimal len = System::Convert::ToDecimal(this->numDia1->Text);
-					System::Decimal wid = System::Convert::ToDecimal(this->numDia2->Text);
-					System::Decimal lwRatio;
-					System::Decimal depthPercentage;
-					System::Decimal depmm;
-
+					double dep = System::Convert::ToDouble(this->numDepth->Text);
+					double len = System::Convert::ToDouble(this->numDia1->Text);
+					double wid = System::Convert::ToDouble(this->numDia2->Text);
+					double lwRatio;
+					double depthPercentage;
+					double depmm;
+					if (dep == 0.00 || len == 0.00 || wid == 0.00) {
+						/*https://social.msdn.microsoft.com/Forums/vstudio/en-US/5ac4c768-2c33-4636-a700-d0b3fafeac68/warning-c4965-implicit-box-of-integer-0-use-nullptr-or-explicit-cast*/
+						MessageBox::Show("Division by Zero detected!");
+						return;
+					}
 					/*
 					cut hasn't been chosen so we need to determine how to calculate Width
 					Should it be just Width or Diameter-1 + Diameter-2/2 ?
@@ -81,16 +85,16 @@ namespace CppCLRWinformsProjekt {
 
 					if (CutDim::isRoundish(this->comboCut->Text)) {
 						lwRatio = Math::Round(len / wid, 2);
-						wid.Divide(wid.Add(wid, len), 2);
-						depthPercentage.Round(depthPercentage.Divide(dep, wid) * 100, 2);
-						depmm.Round(depmm.Divide(depmm.Multiply(wid, dep), 100), 2);
-						this->lblCombinedRoundAverage->Text = "AV:" + System::Convert::ToString(wid.Round(wid, 2));
+						wid = (wid + len) / 2;
+						depthPercentage = (dep / wid) * 100;
+						depmm = (wid * dep) / 100;
+						this->lblCombinedRoundAverage->Text = "AV:" + System::Convert::ToString(Math::Round(wid, 2));
 					}
 					else {
 						this->lblCombinedRoundAverage->Text = "";
 					}
-					depthPercentage = depthPercentage.Round(depthPercentage.Multiply(depthPercentage.Divide(dep, wid), 100), 2);
-					depmm.Round(depmm.Divide(depmm.Multiply(wid, dep), 100), 2);
+					depthPercentage = (dep / wid) * 100;
+					depmm = (wid * dep) / 100;
 
 					String^ lwString = System::Convert::ToString(lwRatio);
 					String^ lWtxt = "LW Ratio = " + lwString + ":1";
@@ -116,15 +120,15 @@ namespace CppCLRWinformsProjekt {
 						this->picLW->Image = nullptr;
 						this->picLW->Refresh();
 						EmbeddedImage^ cd = gcnew EmbeddedImage;
-cd->setName("checklength");
-this->picLW->Image = cd->getName();
+						cd->setName("checklength");
+						this->picLW->Image = cd->getName();
 					}
-					
+
 					//this->Invalidate();   request a delayed Repaint by the normal MessageLoop system    
-	 // forces Repaint of invalidated area 
-//this->Refresh();    // Combines Invalidate() and Update(
+					// forces Repaint of invalidated area 
+					//this->Refresh();    // Combines Invalidate() and Update(
 					//this->lblHiddenLW->Text = lwString;
-				} // end numDia1 or numDia2 == 0
+				} 	// end numDia1 or numDia2 == 0
 
 			}
 			Form1::Update();
