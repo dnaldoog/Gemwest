@@ -201,11 +201,16 @@
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\actinolite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\adjustmentarrow.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\ammolite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\checkLW.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\defrec.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\padparadscha.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\paraiba.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\rhodochrosite.jpg" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\tigerseye.png" />
     <Image Include="..\..\..\..\desktop\icon3.ico" />
     <Image Include="..\..\..\..\Desktop\rhodochrosite.png" />
     <Image Include="..\..\..\..\Desktop\tortoiseshell.jpg" />

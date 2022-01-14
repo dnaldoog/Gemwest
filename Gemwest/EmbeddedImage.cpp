@@ -27,12 +27,14 @@ void EmbeddedImage::loadResources()
 	Dictionary<String^, String^>^ myRez = gcnew Dictionary<String^, String^>;
 	myRez->Add("choose from below", "");
 	myRez->Add("agate", "agate");
+	myRez->Add("actinolite", "actinolite");
 	myRez->Add("albite", "albite");
 	myRez->Add("alexandrite", "alexandrite");
 	myRez->Add("almandine", "almandine");
 	myRez->Add("amazonite", "amazonite");
 	myRez->Add("amber", "amber");
 	myRez->Add("amethyst", "amethyst");
+	myRez->Add("ammolite", "ammolite");
 	myRez->Add("andalusite", "andalusite");
 	myRez->Add("apatite", "apatite");
 	myRez->Add("aquamarine", "aquamarine");
@@ -186,6 +188,8 @@ void EmbeddedImage::loadResources()
 	myRez->Add("oval brilliant", "oval_brilliant");
 	myRez->Add("oval cut", "oval");
 	myRez->Add("painite", "painite");
+	myRez->Add("padparadscha", "padparadscha");
+	myRez->Add("paraíba tourmaline", "paraiba");
 	myRez->Add("pear brilliant", "pear_brilliant");
 	myRez->Add("pear cut", "pear_cut");
 	myRez->Add("pearl", "pearl");
@@ -254,6 +258,7 @@ void EmbeddedImage::loadResources()
 	myRez->Add("tektite", "tektite");
 	myRez->Add("thickgirdle","thickgirdle");	
 	myRez->Add("thingirdle","thingirdle");	
+	myRez->Add("tiger eye","tigerseye");	
 	myRez->Add("topaz", "topaz");
 	myRez->Add("tortoiseshell", "tortoiseshell");
 	myRez->Add("tourmaline", "tourmaline");

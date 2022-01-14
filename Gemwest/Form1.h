@@ -429,59 +429,35 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// comboGems
 			// 
-			this->comboGems->AutoCompleteCustomSource->AddRange(gcnew cli::array< System::String^  >(186) {
-				L"agate", L"albite", L"alexandrite",
-					L"almandine", L"amazonite", L"amber", L"amethyst", L"andalusite", L"apatite", L"aquamarine", L"aragonite", L"aventurine quartz",
-					L"aventurine", L"axinite (Ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl aquamarine", L"beryl colourless", L"beryl heliodor",
-					L"beryl morganite", L"beryl", L"beryl maxixe", L"blende", L"bloodstone", L"blue topaz", L"bonamite", L"bowenite", L"brazilianite",
-					L"calcite", L"californite", L"carborundum", L"carnelian", L"cassiterite", L"cat\'s eye chrysoberyl", L"celluloid", L"chalcedony agate",
-					L"chalcedony aventurine", L"chalcedony carnelian", L"chalcedony heliotrope", L"chalcedony moss agate", L"chalcedony onyx", L"chalcedony",
-					L"chrome diopside", L"chrysoberyl alexandrite", L"chrysoberyl cat\'s eye", L"chrysoberyl cymophane", L"chrysoberyl", L"chrysocolla",
-					L"chrysoprase", L"citrine", L"colourless beryl", L"conch pearl", L"copal resin", L"coral", L"cornelian", L"corundum ruby", L"corundum sapphire",
-					L"corundum synthetic", L"corundum", L"crocidolite", L"cubic zirconia", L"cymophane", L"cz", L"danburite", L"datolite", L"demantoid",
-					L"diamond", L"diopside", L"ekanite", L"emerald (Gilson)", L"emerald", L"enstatite", L"epidote", L"euclase", L"fibrolite", L"fire opal",
-					L"fluorite", L"garnet almandine", L"garnet demantoid", L"garnet grossular (pure)", L"garnet hessonite", L"garnet (mali)", L"garnet pyrope",
-					L"garnet spessartine", L"garnet uvarovite", L"garnet", L"ggg", L"glass", L"golden beryl", L"goshenite", L"grossular garnet",
-					L"grossular", L"grossular (pure)", L"haematite", L"hambergite", L"heliodor", L"hematite", L"hemimorphite", L"hessonite", L"hiddenite",
-					L"howlite", L"idocrase", L"imperial topaz", L"iolite", L"jadeite", L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite",
-					L"lapis lazuli", L"larimar", L"lazulite", L"lepidolite", L"lithium niobate", L"malachite", L"mali garnet", L"marcasite", L"maw-sit-sit",
-					L"maxixe", L"moissanite", L"morganite", L"moss agate", L"nephrite", L"obsidian", L"odontolite", L"onyx", L"opal", L"painite",
-					L"pearl", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite",
-					L"pyrites", L"pyrope", L"quartz amethyst", L"quartz aventurine", L"quartz chalcedony", L"quartz citrine", L"quartz", L"rhodochrosite",
-					L"rhodonite", L"ruby", L"rutile", L"sapphire", L"sard", L"scapolite", L"scheelite", L"schorl", L"serpentine", L"seraphinite",
-					L"silica glass", L"sinhalite", L"smithsonite", L"spessartine", L"sphalerite", L"sphene", L"spinel synthetic", L"spinel", L"spodumene",
-					L"strontium titanate", L"sugilite", L"synthetic corundum", L"taaffeite", L"tektite", L"topaz", L"tortoiseshell", L"tourmaline Schorl",
-					L"tourmaline", L"turquoise", L"uvarovite", L"variscite", L"vivianite", L"water opal", L"yttrium aluminate YAG", L"zircon (metamict)",
-					L"zircon (normal)", L"zirconia (cubic)", L"zoisite"
-			});
 			this->comboGems->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::Suggest;
 			this->comboGems->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboGems->Enabled = false;
 			this->comboGems->FormattingEnabled = true;
-			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(188) {
-				L"agate", L"albite", L"alexandrite", L"almandine",
-					L"amazonite", L"amber", L"amethyst", L"andalusite", L"apatite", L"aquamarine", L"aragonite", L"aventurine quartz", L"aventurine",
-					L"axinite (ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl aquamarine", L"beryl colourless", L"beryl heliodor",
-					L"beryl morganite", L"beryl", L"beryl maxixe", L"blende", L"bloodstone", L"blue topaz", L"bonamite", L"bowenite", L"brazilianite",
-					L"calcite", L"californite", L"carborundum", L"carnelian", L"cassiterite", L"cat\'s eye chrysoberyl", L"celluloid", L"chalcedony agate",
-					L"chalcedony aventurine", L"chalcedony carnelian", L"chalcedony heliotrope", L"chalcedony moss agate", L"chalcedony onyx", L"chalcedony",
-					L"chrome diopside", L"chrysoberyl alexandrite", L"chrysoberyl cat\'s eye", L"chrysoberyl cymophane", L"chrysoberyl", L"chrysocolla",
-					L"chrysoprase", L"citrine", L"colourless beryl", L"conch pearl", L"copal resin", L"coral", L"cornelian", L"corundum ruby", L"corundum sapphire",
-					L"corundum synthetic", L"corundum", L"crocidolite", L"cubic zirconia", L"cymophane", L"cz", L"danburite", L"datolite", L"demantoid",
-					L"diamond", L"diopside", L"ekanite", L"emerald (Gilson)", L"emerald", L"enstatite", L"epidote", L"euclase", L"fibrolite", L"fire opal",
-					L"fluorite", L"garnet almandine", L"garnet demantoid", L"garnet grossular (pure)", L"garnet hessonite", L"garnet (mali)", L"garnet pyrope",
-					L"garnet spessartine", L"garnet uvarovite", L"garnet", L"ggg", L"glass", L"golden beryl", L"goshenite", L"grossular garnet",
-					L"grossular", L"grossular (pure)", L"haematite", L"hambergite", L"heliodor", L"hematite", L"hemimorphite", L"hessonite", L"hiddenite",
-					L"howlite", L"idocrase", L"imperial topaz", L"iolite", L"jadeite", L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite",
-					L"lapis lazuli", L"larimar", L"lazulite", L"lepidolite", L"lithium niobate", L"malachite", L"mali garnet", L"marcasite", L"maw-sit-sit",
-					L"maxixe", L"moissanite", L"morganite", L"moss agate", L"nephrite", L"obsidian", L"odontolite", L"onyx", L"opal", L"painite",
-					L"pearl", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite",
-					L"pyrites", L"pyrope", L"quartz amethyst", L"quartz aventurine", L"quartz chalcedony", L"quartz citrine", L"quartz", L"rhodochrosite",
-					L"rhodonite", L"ruby", L"rutile", L"sapphire", L"sard", L"scapolite", L"scheelite", L"schorl", L"serpentine", L"seraphinite",
-					L"silica glass", L"sinhalite", L"smithsonite", L"spessartine", L"sphalerite", L"sphene", L"spinel synthetic", L"spinel", L"spodumene",
-					L"strontium titanate", L"sugilite", L"synthetic corundum", L"taaffeite", L"tanzanite", L"tektite", L"topaz", L"tortoiseshell",
-					L"tourmaline schorl", L"tourmaline", L"turquoise", L"uvarovite", L"variscite", L"vesuvianite", L"vivianite", L"water opal", L"yttrium aluminate YAG",
-					L"zircon (metamict)", L"zircon (normal)", L"zirconia (cubic)", L"zoisite"
+			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(194) {
+				L"actinolite", L"agate", L"albite", L"alexandrite",
+					L"almandine", L"almandine", L"amazonite", L"amber", L"amethyst", L"ammolite", L"andalusite", L"apatite", L"aquamarine", L"aragonite",
+					L"aventurine quartz", L"aventurine", L"axinite (ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl aquamarine",
+					L"beryl colourless", L"beryl heliodor", L"beryl morganite", L"beryl", L"beryl maxixe", L"blende", L"bloodstone", L"blue topaz",
+					L"bonamite", L"bowenite", L"brazilianite", L"calcite", L"californite", L"carborundum", L"carnelian", L"cassiterite", L"cat\'s eye chrysoberyl",
+					L"celluloid", L"chalcedony agate", L"chalcedony aventurine", L"chalcedony carnelian", L"chalcedony heliotrope", L"chalcedony moss agate",
+					L"chalcedony onyx", L"chalcedony", L"chrome diopside", L"chrysoberyl alexandrite", L"chrysoberyl cat\'s eye", L"chrysoberyl cymophane",
+					L"chrysoberyl", L"chrysocolla", L"chrysoprase", L"citrine", L"colourless beryl", L"conch pearl", L"copal resin", L"coral", L"cornelian",
+					L"corundum ruby", L"corundum sapphire", L"corundum synthetic", L"corundum", L"crocidolite", L"cubic zirconia", L"cymophane",
+					L"cz", L"danburite", L"datolite", L"demantoid", L"diamond", L"diopside", L"ekanite", L"emerald (Gilson)", L"emerald", L"enstatite",
+					L"epidote", L"euclase", L"fibrolite", L"fire opal", L"fluorite", L"garnet almandine", L"garnet demantoid", L"garnet grossular (pure)",
+					L"garnet hessonite", L"garnet (mali)", L"garnet pyrope", L"garnet spessartine", L"garnet uvarovite", L"garnet", L"ggg", L"glass",
+					L"golden beryl", L"goshenite", L"grossular garnet", L"grossular", L"grossular (pure)", L"haematite", L"hambergite", L"heliodor",
+					L"hematite", L"hemimorphite", L"hessonite", L"hiddenite", L"howlite", L"idocrase", L"imperial topaz", L"iolite", L"jadeite",
+					L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite", L"lapis lazuli", L"larimar", L"lazulite", L"lepidolite", L"lithium niobate",
+					L"malachite", L"mali garnet", L"marcasite", L"maw-sit-sit", L"maxixe", L"moissanite", L"morganite", L"moss agate", L"nephrite",
+					L"obsidian", L"odontolite", L"onyx", L"opal", L"padparadscha", L"painite", L"paraíba tourmaline", L"pearl", L"periclase", L"peridot",
+					L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite", L"pyrites", L"pyrope", L"quartz amethyst",
+					L"quartz aventurine", L"quartz chalcedony", L"quartz citrine", L"quartz", L"rhodochrosite", L"rhodonite", L"ruby", L"rutile",
+					L"sapphire", L"sard", L"scapolite", L"scheelite", L"schorl", L"serpentine", L"seraphinite", L"silica glass", L"sinhalite", L"smithsonite",
+					L"spessartine", L"sphalerite", L"sphene", L"spinel synthetic", L"spinel", L"spodumene", L"strontium titanate", L"sugilite", L"synthetic corundum",
+					L"taaffeite", L"tanzanite", L"tektite", L"tiger eye", L"topaz", L"tortoiseshell", L"tourmaline schorl", L"tourmaline", L"turquoise",
+					L"uvarovite", L"variscite", L"vesuvianite", L"vivianite", L"water opal", L"yttrium aluminate YAG", L"zircon (metamict)", L"zircon (normal)",
+					L"zirconia (cubic)", L"zoisite"
 			});
 			this->comboGems->Location = System::Drawing::Point(90, 28);
 			this->comboGems->Name = L"comboGems";
@@ -1050,9 +1026,9 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// comboCut
 			// 
-			this->comboCut->AutoCompleteCustomSource->AddRange(gcnew cli::array< System::String^  >(186) {
+			this->comboCut->AutoCompleteCustomSource->AddRange(gcnew cli::array< System::String^  >(187) {
 				L"agate", L"albite", L"alexandrite",
-					L"almandine", L"amazonite", L"amber", L"amethyst", L"andalusite", L"apatite", L"aquamarine", L"aragonite", L"aventurine quartz",
+					L"almandine", L"amazonite", L"amber", L"ammolite", L"amethyst", L"andalusite", L"apatite", L"aquamarine", L"aragonite", L"aventurine quartz",
 					L"aventurine", L"axinite (Ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl aquamarine", L"beryl colourless", L"beryl heliodor",
 					L"beryl morganite", L"beryl", L"beryl maxixe", L"blende", L"bloodstone", L"blue topaz", L"bonamite", L"bowenite", L"brazilianite",
 					L"calcite", L"californite", L"carborundum", L"carnelian", L"cassiterite", L"cat\'s eye chrysoberyl", L"celluloid", L"chalcedony agate",
@@ -1406,11 +1382,13 @@ namespace CppCLRWinformsProjekt {
 		sg = gcnew Dictionary<String^, String^>();
 		sg->Add("agate", "2.6");
 		sg->Add("albite", "2.58");
+		sg->Add("actinolite", "3.01");
 		sg->Add("alexandrite", "3.71");
 		sg->Add("almandine", "4");
 		sg->Add("amazonite", "2.56");
 		sg->Add("amber", "1.08");
 		sg->Add("amethyst", "2.65");
+		sg->Add("ammolite", "2.80");
 		sg->Add("andalusite", "3.15");
 		sg->Add("apatite", "3.2");
 		sg->Add("aquamarine", "2.69");
@@ -1534,6 +1512,8 @@ namespace CppCLRWinformsProjekt {
 		sg->Add("onyx", "2.6");
 		sg->Add("opal", "2.15");
 		sg->Add("painite", "4.01");
+		sg->Add("padparadscha", "4.00");
+		sg->Add("paraíba tourmaline", "3.05");
 		sg->Add("pearl", "2.71");
 		sg->Add("periclase", "3.59");
 		sg->Add("peridot", "3.34");
@@ -1577,6 +1557,7 @@ namespace CppCLRWinformsProjekt {
 		sg->Add("taaffeite", "3.61");
 		sg->Add("tanzanite", "3.35");
 		sg->Add("tektite", "2.4");
+		sg->Add("tiger eye", "2.8");
 		sg->Add("topaz", "3.53");
 		sg->Add("tortoiseshell", "1.29");
 		sg->Add("tourmaline schorl", "3.06");

@@ -1714,6 +1714,21 @@
     <Image Include="..\..\..\..\Desktop\gwCLI_project\checkLW.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\padparadscha.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\tigerseye.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\paraiba.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\ammolite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\actinolite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">
