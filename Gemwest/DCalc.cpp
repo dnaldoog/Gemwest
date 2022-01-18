@@ -2,9 +2,9 @@
 #include "DCalc.h"
 
 void DCalc::fancyCutInitializer() {
-	Dictionary<double, double>^ marquise_formulae = gcnew Dictionary<double, double>;
-	Dictionary<double, double>^ emerald_formulae = gcnew Dictionary<double, double>;
-	Dictionary<double, double>^ pear_formulae = gcnew Dictionary<double, double>;
+	Dictionary<Double, Double>^ marquise_formulae = gcnew Dictionary<Double, Double>;
+	Dictionary<Double, Double>^ emerald_formulae = gcnew Dictionary<Double, Double>;
+	Dictionary<Double, Double>^ pear_formulae = gcnew Dictionary<Double, Double>;
 	Dictionary<String^, String^>^ em_map = gcnew Dictionary<String^, String^>;
 	Dictionary<String^, String^>^ mq_map = gcnew Dictionary<String^, String^>;
 	Dictionary<String^, String^>^ pe_map = gcnew Dictionary<String^, String^>;
@@ -54,11 +54,11 @@ String^ DCalc::calculate() {
 		return this->dia_lwd_formula() + "ct";
 
 	}
-	//double Length = System::Convert::ToDouble(_d1);
-	//double Width = System::Convert::ToDouble(_d2);
-	//double Depth = System::Convert::ToDouble(_depth);
-	//double SG = System::Convert::ToDouble(_sg);
-	//double Factor = System::Convert::ToDouble(_factor);
+	//Double Length = System::Convert::ToDouble(_d1);
+	//Double Width = System::Convert::ToDouble(_d2);
+	//Double Depth = System::Convert::ToDouble(_depth);
+	//Double SG = System::Convert::ToDouble(_sg);
+	//Double Factor = System::Convert::ToDouble(_factor);
 
 	//switch (index) {
 	//case ROUNDCUTFORMULA:
@@ -89,7 +89,7 @@ String^ DCalc::calculate() {
 	//	answer = "error";
 	//	break;
 	//}
-	//double sum = Math::Round(Length * Width * Depth * Factor, 2);
+	//Double sum = Math::Round(Length * Width * Depth * Factor, 2);
 	//System::Windows::Forms::MessageBox::Show("DIA>>d:" + _d1 + "d2: " + _d2 + "dp: " + _depth + "F: " + _factor);
 	//if (_isDiamond) SG = 1; // the factor laready accounts for specific gravity of 3.52
 	//return System::Convert::ToString(sum);
@@ -106,11 +106,11 @@ void DCalc::Initializer(
 	String^ gt,
 	String^ pv,
 	String^ so,
-	bool isdiamond,
-	bool interp,
-	bool recut,
-	bool roundish,
-	bool depthisperc) {
+	Boolean isdiamond,
+	Boolean interp,
+	Boolean recut,
+	Boolean roundish,
+	Boolean depthisperc) {
 	// load all arrays of fancy cut adjustments
 	/*load class with GUI values from user*/
 	_cutName = cutName; // name of cut
@@ -152,88 +152,10 @@ String^ DCalc::dia_oval_formula(void) {
 	factor = System::Convert::ToDouble(_factor);
 	adjust = (100+System::Convert::ToDouble(_adj))/100;
 	Double avDiameter = (length + width) / 2;
-	if (_depthIsPerc) { depth = (avDiameter * depth) / 100; } // we need to convert depth to mm
 	calculate = Math::Round(((avDiameter * avDiameter) * depth * factor)*adjust,2);
 	return System::Convert::ToString(calculate);
 }
 String^ DCalc::dia_lwd_formula(void) {
 	return this->dia_oval_formula();
 }
-String^ DCalc::dia_tapered_baguette_formula(void) {
-	//String^ minwidth, maxwidth;
-	//String^ w = returnWidth();
-	///*********************************************************************************
-	// *
-	// *   String ^List list = str.split(rx);
-	// *
-	// * Length x (MaxWidth+MinWidth)/2 * depth * adjustments * 0.00915
-	// *
-	// *
-	// *
-	// *********************************************************************************/
-	//String^ List list;
-	//list = w.split(",");
-	//if (list.count() != 2) {
-
-	//}
-	//else {
-	//    maxwidth = list[0];
-	//    minwidth = list[1];
-	//}
-
-
-	//Double calculate, addminmax;
-	//addminmax = ((maxwidth.toDouble() + minwidth.toDouble()) / 2);
-	//sum_all_adjustments();
-	//calculate = _length.toDouble() * addminmax * _depth.toDouble() * _adjustments.toDouble() * _factor.toDouble();
-	//int x = returnDecPlaces(addminmax);
-	//return String ^ ::number(calculate, 'f', x);
-	return "tbag";
-}
-
-//String^ DCalc::fancy_dia_formula(FDF* a, bool interpolate) {
-	//String^ lwratio = returnLengthToWidth();
-	//Double factor, calculate;
-	//factor = returnFancyFactor(a, lwratio.toDouble(), interpolate);
-	//sum_all_adjustments();
-	//calculate = (_length.toDouble() * _width.toDouble()) * _depth.toDouble() * _adjustments.toDouble() * factor;
-	//this->write_Factor(String ^ ::number(factor, 'f', 6));
-	//int x = returnDecPlaces(_width.toDouble());
-	//return String ^ ::number(calculate, 'f', x);
-//}
-
-/*
-Step 3: Formulas for Estimating Cabochon Gem Weight
-Flat-bottomed cabs actually range from 0.0023 to 0.0029. Those with a bottom bulge range from 0.0024 to 0.0030. As a general rule, use the following formulas:
-
-High-Domed Cabs
-Length ? width ? depth ? SG ? 0.0026
-
-Low-Domed Cabs
-Length ? width ? depth ? SG ? 0.0029
-
-Step 4: Adjusting Your Gem Weight Estimate
-If the stone you’re examining isn’t well-proportioned or has a very thin or thick girdle, adjust your gem weight estimate as follows:
-
-Girdle
-Use an average of the girdle thickness. Don’t base your reading on a bulge at the top of a heart or the point of a gem.
-
-Thin girdle, subtract 1% to 2%.
-Slightly thick, add 1% to 2%.
-Thick, add 3% to 4%.
-Very thick, add 5% to 6%.
-Extra thick, add 7% to 10%.
-Pavilion Bulge
-Slight, add 3% to 5%.
-Noticeable, add 6% to 8%.
-Obvious, add 9% to 12%.
-Extreme, add 13% to 18%.
-A long culet due to steep pavilion angles can add up to 5%.
-
-Shape Outline
-Wide corners on cut corner squares and rectangles can decrease weight as much as 5%.
-For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10%. Occasionally, straight shoulders will require a deduction of 1% to 5%.
-Marquise and (sometimes) pears will have a very short keel or none at all. This will reduce the weight by 1% to 3%.
-Triangles with straight sides will require a reduction of up to 10%.
-*/
 

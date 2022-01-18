@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "GCalc.h"
 String^ GCalc::gem_round_formula(void) {
-    //double calculate;
+    //Double calculate;
     //String^ sg = returnSG();
     //String^ depth = returnDepth();
-    //double avd = returnAvdiameter().todouble();
+    //Double avd = returnAvdiameter().todouble();
     //String^ fac = returnFactor();
     //sum_all_adjustments();
     //String^ adj = returnAdj();
@@ -15,12 +15,12 @@ String^ GCalc::gem_round_formula(void) {
     return dummy;
 }
 String^ GCalc::gem_round_bead_formula(void) {
-    //double calculate;
+    //Double calculate;
     //String^ length = returnLength();
-    //double avd = length.todouble();
+    //Double avd = length.todouble();
     //String^ sg = returnSG();
     //String^ fac = returnFactor();
-    //double avdcubed = avd * avd * avd;
+    //Double avdcubed = avd * avd * avd;
     //sum_all_adjustments();
     //String^ adj = returnAdj();
     //calculate = (avdcubed)*sg.todouble() * adj.todouble() * fac.todouble();
@@ -31,7 +31,7 @@ String^ GCalc::gem_round_bead_formula(void) {
     return dummy;
 }
 String^ GCalc::gem_lwd_formula(void) {
-    //double calculate;
+    //Double calculate;
     //String^ length = returnLength();
     //String^ width = returnWidth();
     //String^ sg = returnSG();
@@ -46,7 +46,7 @@ String^ GCalc::gem_lwd_formula(void) {
     return dummy;
 }
 String^ GCalc::gem_oval_formula(void) {
-    //double calculate;
+    //Double calculate;
     //String^ length = returnLength();
     //String^ width = returnWidth();
     //String^ sg = returnSG();
@@ -54,7 +54,7 @@ String^ GCalc::gem_oval_formula(void) {
     //String^ fac = returnFactor();
     //sum_all_adjustments();
     //String^ adj = returnAdj();
-    //double oval_av = (length.todouble() + width.todouble()) / 2;
+    //Double oval_av = (length.todouble() + width.todouble()) / 2;
     //calculate = (oval_av * oval_av) * depth.todouble() * sg.todouble() * adj.todouble() * fac.todouble();
     //int x = returnDecPlaces(calculate);
     //return String ^ ::number(calculate, 'f', x);
@@ -62,7 +62,7 @@ String^ GCalc::gem_oval_formula(void) {
     return dummy;
 }
 String^ GCalc::gem_briolette_formula(void) {
-    //double calculate;
+    //Double calculate;
     //String^ length = returnLength();
     //String^ width = returnWidth();
     //String^ sg = returnSG();
@@ -116,11 +116,11 @@ void GCalc::Initializer(
     String^ pv,
     String^ so,
 
-    bool isdiamond,
-    bool interp,
-    bool recut,
-    bool roundish,
-    bool depthisperc) {
+    Boolean isdiamond,
+    Boolean interp,
+    Boolean recut,
+    Boolean roundish,
+    Boolean depthisperc) {
     // load all arrays of fancy cut adjustments
     /*load class with GUI values from user*/
     _cutName = cutName; // name of cut
@@ -140,12 +140,12 @@ void GCalc::Initializer(
 }
 
 String^ GCalc::calculate() {
-    double Length = System::Convert::ToDouble(_d1);
-    double Width = System::Convert::ToDouble(_d2);
-    double Depth = System::Convert::ToDouble(_depth);
-    double SG = System::Convert::ToDouble(_sg);
-    double Factor = System::Convert::ToDouble(_factor);
-    double sum = Math::Round(Length * Width * Depth * Factor, 2);
+    Double Length = System::Convert::ToDouble(_d1);
+    Double Width = System::Convert::ToDouble(_d2);
+    Double Depth = System::Convert::ToDouble(_depth);
+    Double SG = System::Convert::ToDouble(_sg);
+    Double Factor = System::Convert::ToDouble(_factor);
+    Double sum = Math::Round(Length * Width * Depth * Factor, 2);
     System::Windows::Forms::MessageBox::Show(_gemName+"GEM>>d:" + _d1 + "d2: " + _d2 + "dp: " + _depth + "F: " + _factor);
     if (_isDiamond) SG = 1; // the factor laready accounts for specific gravity of 3.52
     return System::Convert::ToString(sum);

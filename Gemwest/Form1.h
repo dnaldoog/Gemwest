@@ -6,6 +6,7 @@
 #include "resource1.h"
 #include "CutDim.h"
 #include "DCalc.h"
+#include "TaperedBaguette.h"
 #include "GCalc.h"
 #include "LogForm.h"
 #include "AboutForm1.h"
@@ -13,8 +14,6 @@
 #include "OptionsForm.h"
 #include "BridgeCS.h"
 //#include "DrawDepthPercentage.h"
-
-
 
 namespace CppCLRWinformsProjekt {
 	//
@@ -62,16 +61,16 @@ namespace CppCLRWinformsProjekt {
 		void onScreenInfo() {
 			//Form1::Invalidate();
 
-			//bool isRoundish = this->isRoundish();
+			//Boolean isRoundish = this->isRoundish();
 			if (!this->numDia1->Text->Equals("0.00")) {
 
 				if (!this->numDia2->Text->Equals("0.00")) {
-					double dep = System::Convert::ToDouble(this->numDepth->Text);
-					double len = System::Convert::ToDouble(this->numDia1->Text);
-					double wid = System::Convert::ToDouble(this->numDia2->Text);
-					double lwRatio;
-					double depthPercentage;
-					double depmm;
+					Double dep = System::Convert::ToDouble(this->numDepth->Text);
+					Double len = System::Convert::ToDouble(this->numDia1->Text);
+					Double wid = System::Convert::ToDouble(this->numDia2->Text);
+					Double lwRatio;
+					Double depthPercentage;
+					Double depmm;
 					if (dep == 0.00 || len == 0.00 || wid == 0.00) {
 						/*https://social.msdn.microsoft.com/Forums/vstudio/en-US/5ac4c768-2c33-4636-a700-d0b3fafeac68/warning-c4965-implicit-box-of-integer-0-use-nullptr-or-explicit-cast*/
 						MessageBox::Show("Division by Zero detected!");
@@ -150,7 +149,7 @@ namespace CppCLRWinformsProjekt {
 			//this->Update();      // forces Repaint of invalidated area 
 			//this->Refresh();     // Combines Invalidate() and Update(
 			Double divider = System::Convert::ToDouble(this->lblHiddenDepth->Text) / 100;
-			//double percentage = Math::Round(this->picRecut->Height * divider, 2);
+			//Double percentage = Math::Round(this->picRecut->Height * divider, 2);
 			Double percentage = System::Convert::ToDouble(this->picDepth->Height) * divider;
 			//this->label1->Text = System::Convert::ToString(percentage);
 			Graphics^ gd = picDepth->CreateGraphics();
@@ -168,7 +167,7 @@ namespace CppCLRWinformsProjekt {
 			//	cli::array<Point>^ xy = gcnew { Point(5,5), Point(12, 13), Point(14,12),Point(80,50),Point(5,5) };
 				//cli::array<Point>^ poly = gcnew array<Point>{ Point(5,5), Point(12, 13), Point(14,12),Point(80,50),Point(5,5) };
 				/*
-	array<double> ^ values = gcnew array<double>(4);*/
+	array<Double> ^ values = gcnew array<Double>(4);*/
 	//g->FillPolygon(Brushes::Blue,poly);
 
 	//g->FillRectangle(pen,rect);
@@ -180,54 +179,56 @@ namespace CppCLRWinformsProjekt {
 
 		void draw_lw(String^ lwStr) {
 			//delete this->picLW->Image;
-			this->picLW->Image = nullptr;
-			this->picLW->Refresh();
-			//Double divider = System::Convert::ToDouble(this->lblHiddenDepth->Text) / 100;
-			//Double percentage = System::Convert::ToDouble(this->picDepth->Height) * divider;
-			//this->Invalidate();
-			//this->Refresh
-			//this->Refresh();
-			double push = 0;
-			double shrink = 0.8;
-			Graphics^ gl = this->picLW->CreateGraphics();
-			double lw = System::Convert::ToDouble(lwStr) - push * shrink;
-			double w = System::Convert::ToDouble(this->picLW->Width - push) * shrink;
-			double l = System::Convert::ToDouble(this->picLW->Height - push) * shrink;
+			if (!this->comboCut->Text->Equals("tapered baguette")) {
+				this->picLW->Image = nullptr;
+				this->picLW->Refresh();
+				//Double divider = System::Convert::ToDouble(this->lblHiddenDepth->Text) / 100;
+				//Double percentage = System::Convert::ToDouble(this->picDepth->Height) * divider;
+				//this->Invalidate();
+				//this->Refresh
+				//this->Refresh();
+				Double push = 0;
+				Double shrink = 0.8;
+				Graphics^ gl = this->picLW->CreateGraphics();
+				Double lw = System::Convert::ToDouble(lwStr) - push * shrink;
+				Double w = System::Convert::ToDouble(this->picLW->Width - push) * shrink;
+				Double l = System::Convert::ToDouble(this->picLW->Height - push) * shrink;
 
-			w = (w / lw) - push * shrink;
+				w = (w / lw) - push * shrink;
 
-			Pen^ myPen = gcnew Pen(Color::RoyalBlue, 2);
-			float halfPenWidth = myPen->Width * 0.5f;
+				Pen^ myPen = gcnew Pen(Color::RoyalBlue, 2);
+				Single halfPenWidth = myPen->Width * 0.5f;
 
-			double placeCentre = (this->picLW->Width / 2) - (w / 2)- halfPenWidth;//; ((this->picLW->Width / 2) - w / 2);
-			/*Subtract the Text Size from the Circle Size and divide that by 2 so you get the position on which you can draw the Text Centered.*/
-			//double placeCentre = ((this->picLW->Width / 2) - w / 2) / shrink;
-			//System::Convert::ToInt32(this->picLW->Height));
+				Double placeCentre = (this->picLW->Width / 2) - (w / 2) - halfPenWidth;//; ((this->picLW->Width / 2) - w / 2);
+				/*Subtract the Text Size from the Circle Size and divide that by 2 so you get the position on which you can draw the Text Centered.*/
+				//Double placeCentre = ((this->picLW->Width / 2) - w / 2) / shrink;
+				//System::Convert::ToInt32(this->picLW->Height));
 
-			Rectangle  r = Rectangle(System::Convert::ToInt32(placeCentre), System::Convert::ToInt32(6), System::Convert::ToInt32(w), System::Convert::ToInt32(l));
+				RectangleF  r = RectangleF(System::Convert::ToSingle(placeCentre), System::Convert::ToSingle(6), System::Convert::ToSingle(w), System::Convert::ToSingle(l));
+				//Rectangle  r = Rectangle(System::Convert::ToInt32(placeCentre), System::Convert::ToInt32(6), System::Convert::ToInt32(w), System::Convert::ToInt32(l));
 
-			//if (w > l) { // this is never reached
+				//if (w > l) { // this is never reached
 
-			//}
-			//
-			gl->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::HighQuality;
-			gl->DrawEllipse(myPen, r);
-			//System::Convert::ToInt32(this->picLW->Width), System::Convert::ToInt32(this->picRecut->LW));
-			//delete gl;
+				//}
+				//
+				gl->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::HighQuality;
+				gl->DrawEllipse(myPen, r);
+				//System::Convert::ToInt32(this->picLW->Width), System::Convert::ToInt32(this->picRecut->LW));
+				//delete gl;
 
-			/*private void DrawEllipseRectangle(PaintEventArgs e)
-{
-	// Create pen.
-	Pen blackPen = new Pen(Color.Black, 3);
+				/*private void DrawEllipseRectangle(PaintEventArgs e)
+	{
+		// Create pen.
+		Pen blackPen = new Pen(Color.Black, 3);
 
-	// Create rectangle for ellipse.
-	Rectangle rect = new Rectangle(0, 0, 200, 100);
+		// Create rectangle for ellipse.
+		Rectangle rect = new Rectangle(0, 0, 200, 100);
 
-	// Draw ellipse to screen.
-	e.Graphics.DrawEllipse(blackPen, rect);
-}*/
+		// Draw ellipse to screen.
+		e.Graphics.DrawEllipse(blackPen, rect);
+	}*/
 
-
+			}// if not tapered baguette crashing at line 206
 
 		} // end function draw LW Rectangle
 
@@ -317,6 +318,9 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::GroupBox^ groupBoxChooseDiaOrGem;
 
 	private: System::Windows::Forms::TextBox^ txtEstRecut;
+private: System::Windows::Forms::NumericUpDown^ numTaperedBaguetteMaxWidth;
+private: System::Windows::Forms::Label^ lblMaxWidth;
+
 
 
 	protected:
@@ -340,6 +344,8 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
+			this->lblMaxWidth = (gcnew System::Windows::Forms::Label());
+			this->numTaperedBaguetteMaxWidth = (gcnew System::Windows::Forms::NumericUpDown());
 			this->picShapeOutline = (gcnew System::Windows::Forms::PictureBox());
 			this->lblDepthPerc = (gcnew System::Windows::Forms::Label());
 			this->picGirdle = (gcnew System::Windows::Forms::PictureBox());
@@ -403,6 +409,7 @@ namespace CppCLRWinformsProjekt {
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
 			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
 			this->lwguide->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numTaperedBaguetteMaxWidth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picShapeOutline))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->BeginInit();
@@ -433,7 +440,7 @@ namespace CppCLRWinformsProjekt {
 			this->comboGems->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboGems->Enabled = false;
 			this->comboGems->FormattingEnabled = true;
-			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(194) {
+			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(200) {
 				L"actinolite", L"agate", L"albite", L"alexandrite",
 					L"almandine", L"almandine", L"amazonite", L"amber", L"amethyst", L"ammolite", L"andalusite", L"apatite", L"aquamarine", L"aragonite",
 					L"aventurine quartz", L"aventurine", L"axinite (ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl aquamarine",
@@ -449,13 +456,14 @@ namespace CppCLRWinformsProjekt {
 					L"golden beryl", L"goshenite", L"grossular garnet", L"grossular", L"grossular (pure)", L"haematite", L"hambergite", L"heliodor",
 					L"hematite", L"hemimorphite", L"hessonite", L"hiddenite", L"howlite", L"idocrase", L"imperial topaz", L"iolite", L"jadeite",
 					L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite", L"lapis lazuli", L"larimar", L"lazulite", L"lepidolite", L"lithium niobate",
-					L"malachite", L"mali garnet", L"marcasite", L"maw-sit-sit", L"maxixe", L"moissanite", L"morganite", L"moss agate", L"nephrite",
-					L"obsidian", L"odontolite", L"onyx", L"opal", L"padparadscha", L"painite", L"paraíba tourmaline", L"pearl", L"periclase", L"peridot",
-					L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite", L"pyrites", L"pyrope", L"quartz amethyst",
-					L"quartz aventurine", L"quartz chalcedony", L"quartz citrine", L"quartz", L"rhodochrosite", L"rhodonite", L"ruby", L"rutile",
-					L"sapphire", L"sard", L"scapolite", L"scheelite", L"schorl", L"serpentine", L"seraphinite", L"silica glass", L"sinhalite", L"smithsonite",
-					L"spessartine", L"sphalerite", L"sphene", L"spinel synthetic", L"spinel", L"spodumene", L"strontium titanate", L"sugilite", L"synthetic corundum",
-					L"taaffeite", L"tanzanite", L"tektite", L"tiger eye", L"topaz", L"tortoiseshell", L"tourmaline schorl", L"tourmaline", L"turquoise",
+					L"malachite", L"malaia garnet", L"mali garnet", L"marcasite", L"maw-sit-sit", L"maxixe", L"moissanite", L"moldavite", L"morganite",
+					L"moss agate", L"nephrite", L"obsidian", L"odontolite", L"onyx", L"opal", L"padparadscha", L"painite", L"paraíba tourmaline",
+					L"pearl", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite",
+					L"pyrites", L"pyrope", L"quartz amethyst", L"quartz aventurine", L"quartz chalcedony", L"quartz citrine", L"quartz rutillated",
+					L"quartz", L"rhodochrosite", L"rhodonite", L"rubbelite", L"ruby", L"rutile", L"rutillated quartz", L"sapphire", L"sard", L"scapolite",
+					L"scheelite", L"schorl", L"serpentine", L"seraphinite", L"silica glass", L"sinhalite", L"smithsonite", L"spessartine", L"sphalerite",
+					L"sphene", L"spinel synthetic", L"spinel", L"spodumene", L"strontium titanate", L"sugilite", L"synthetic corundum", L"taaffeite",
+					L"tanzanite", L"tektite", L"tiger eye", L"titanite", L"topaz", L"tortoiseshell", L"tourmaline schorl", L"tourmaline", L"turquoise",
 					L"uvarovite", L"variscite", L"vesuvianite", L"vivianite", L"water opal", L"yttrium aluminate YAG", L"zircon (metamict)", L"zircon (normal)",
 					L"zirconia (cubic)", L"zoisite"
 			});
@@ -526,6 +534,8 @@ namespace CppCLRWinformsProjekt {
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->lwguide->Controls->Add(this->lblMaxWidth);
+			this->lwguide->Controls->Add(this->numTaperedBaguetteMaxWidth);
 			this->lwguide->Controls->Add(this->picShapeOutline);
 			this->lwguide->Controls->Add(this->lblDepthPerc);
 			this->lwguide->Controls->Add(this->picGirdle);
@@ -560,6 +570,29 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->Size = System::Drawing::Size(505, 334);
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
+			// 
+			// lblMaxWidth
+			// 
+			this->lblMaxWidth->AutoSize = true;
+			this->lblMaxWidth->Location = System::Drawing::Point(281, 14);
+			this->lblMaxWidth->Name = L"lblMaxWidth";
+			this->lblMaxWidth->Size = System::Drawing::Size(58, 13);
+			this->lblMaxWidth->TabIndex = 56;
+			this->lblMaxWidth->Text = L"Max Width";
+			this->lblMaxWidth->Visible = false;
+			// 
+			// numTaperedBaguetteMaxWidth
+			// 
+			this->numTaperedBaguetteMaxWidth->DecimalPlaces = 2;
+			this->numTaperedBaguetteMaxWidth->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
+			this->numTaperedBaguetteMaxWidth->Location = System::Drawing::Point(284, 30);
+			this->numTaperedBaguetteMaxWidth->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
+			this->numTaperedBaguetteMaxWidth->Name = L"numTaperedBaguetteMaxWidth";
+			this->numTaperedBaguetteMaxWidth->Size = System::Drawing::Size(55, 20);
+			this->numTaperedBaguetteMaxWidth->TabIndex = 55;
+			this->numTaperedBaguetteMaxWidth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9, 0, 0, 0 });
+			this->numTaperedBaguetteMaxWidth->Visible = false;
+			this->numTaperedBaguetteMaxWidth->ValueChanged += gcnew System::EventHandler(this, &Form1::numTaperedBaguetteMaxWidth_ValueChanged);
 			// 
 			// picShapeOutline
 			// 
@@ -610,7 +643,7 @@ namespace CppCLRWinformsProjekt {
 			this->lblHiddenDepth->AutoSize = true;
 			this->lblHiddenDepth->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblHiddenDepth->Location = System::Drawing::Point(304, 0);
+			this->lblHiddenDepth->Location = System::Drawing::Point(14, 79);
 			this->lblHiddenDepth->Name = L"lblHiddenDepth";
 			this->lblHiddenDepth->Size = System::Drawing::Size(13, 13);
 			this->lblHiddenDepth->TabIndex = 52;
@@ -631,7 +664,7 @@ namespace CppCLRWinformsProjekt {
 			// lblDepth
 			// 
 			this->lblDepth->AutoSize = true;
-			this->lblDepth->Location = System::Drawing::Point(377, 12);
+			this->lblDepth->Location = System::Drawing::Point(375, 14);
 			this->lblDepth->Name = L"lblDepth";
 			this->lblDepth->Size = System::Drawing::Size(61, 13);
 			this->lblDepth->TabIndex = 19;
@@ -760,7 +793,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->numDia2->DecimalPlaces = 2;
 			this->numDia2->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numDia2->Location = System::Drawing::Point(203, 30);
+			this->numDia2->Location = System::Drawing::Point(205, 30);
 			this->numDia2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
 			this->numDia2->Name = L"numDia2";
 			this->numDia2->Size = System::Drawing::Size(98, 20);
@@ -1244,6 +1277,7 @@ namespace CppCLRWinformsProjekt {
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load_1);
 			this->lwguide->ResumeLayout(false);
 			this->lwguide->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numTaperedBaguetteMaxWidth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picShapeOutline))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBulge))->EndInit();
@@ -1289,8 +1323,8 @@ namespace CppCLRWinformsProjekt {
 		/*String^ getDecPlacesFromConfig = ::AppSettings["decPlaces"];
 		String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
 		String^ tmp = myPreferences.proplimit; NOT USED RIGHT NOW
-		bool recordToLog = myPreferences.propLogAll;
-		bool setTo1000s = myPreferences.prop1000;*/
+		Boolean recordToLog = myPreferences.propLogAll;
+		Boolean setTo1000s = myPreferences.prop1000;*/
 
 
 	private: System::Void btnEq_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1301,32 +1335,48 @@ namespace CppCLRWinformsProjekt {
 	private: System::Void buttonCalc_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
+		 
 		if (this->comboCut->Text->Contains("choose")) {
 			MessageBox::Show(errorMessage);
 		}
 		else {
 			if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
-				DCalc^ DC = gcnew DCalc;
-				DC->Initializer(
+				if (this->comboCut->Text->Equals("tapered baguette"))
 
-					this->comboCut->Text,
-					this->txtFactor->Text,
-					this->numDia1->Text,
-					this->numDia2->Text,
-					this->numDepth->Text,
-					this->numSG->Text,
-					this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-					this->txtGirdleThickness->Text,
-					this->txtPavilionBulge->Text,
-					this->txtShapeOutline->Text,
-					this->radioBtnDia->Checked,
-					this->cbInterpolate->Checked,
-					this->cbRecut->Checked,
-					CutDim::isRoundish(this->comboCut->Text),
-					this->radDepthAsPerc->Checked
-				);
-				this->txtResult->Text = DC->calculate();
-			}
+				{
+					TaperedBaguette^ TB = gcnew TaperedBaguette( // constructor
+						this->numDia2->Text,
+						this->numTaperedBaguetteMaxWidth->Text,
+						this->numDia1->Text,
+						this->numDepth->Text,
+						this->txtFactor->Text,
+						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+						System::Convert::ToBoolean(this->radDepthAsPerc->Checked));
+					this->txtResult->Text = TB->calculate();
+				}
+				else {
+					DCalc^ DC = gcnew DCalc;
+					DC->Initializer(
+
+						this->comboCut->Text,
+						this->txtFactor->Text,
+						this->numDia1->Text,
+						this->numDia2->Text,
+						this->numDepth->Text,
+						this->numSG->Text,
+						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+						this->txtGirdleThickness->Text,
+						this->txtPavilionBulge->Text,
+						this->txtShapeOutline->Text,
+						this->radioBtnDia->Checked,
+						this->cbInterpolate->Checked,
+						this->cbRecut->Checked,
+						CutDim::isRoundish(this->comboCut->Text),
+						this->radDepthAsPerc->Checked
+					);
+					this->txtResult->Text = DC->calculate();
+				}
+			} // is tapered baguette or other
 			else { // Calculate the weight of a Gemstone
 				GCalc^ GC = gcnew GCalc;
 				GC->Initializer(
@@ -1499,11 +1549,13 @@ namespace CppCLRWinformsProjekt {
 		sg->Add("lepidolite", "2.8");
 		sg->Add("lithium niobate", "4.64");
 		sg->Add("malachite", "3.8");
+		sg->Add("malaia garnet", "3.08");
 		sg->Add("mali garnet", "3.67");
 		sg->Add("marcasite", "4.9");
 		sg->Add("maw-sit-sit", "3");
 		sg->Add("maxixe", "2.71");
 		sg->Add("moissanite", "3.15");
+		sg->Add("moldavite", "2.36");
 		sg->Add("morganite", "2.7");
 		sg->Add("moss agate", "2.6");
 		sg->Add("nephrite", "3.00");
@@ -1530,11 +1582,14 @@ namespace CppCLRWinformsProjekt {
 		sg->Add("quartz aventurine", "2.66");
 		sg->Add("quartz chalcedony", "2.61");
 		sg->Add("quartz citrine", "2.65");
+		sg->Add("quartz rutillated", "4.23");
 		sg->Add("quartz", "2.65");
 		sg->Add("rhodochrosite", "3.6");
 		sg->Add("rhodonite", "3.6");
+		sg->Add("rubbelite", "3.06");
 		sg->Add("ruby", "3.99");
 		sg->Add("rutile", "4.25");
+		sg->Add("rutillated quartz", "4.23");
 		sg->Add("sapphire", "3.99");
 		sg->Add("sard", "2.61");
 		sg->Add("scapolite", "2.7");
@@ -1558,6 +1613,7 @@ namespace CppCLRWinformsProjekt {
 		sg->Add("tanzanite", "3.35");
 		sg->Add("tektite", "2.4");
 		sg->Add("tiger eye", "2.8");
+		sg->Add("titanite", "3.53");
 		sg->Add("topaz", "3.53");
 		sg->Add("tortoiseshell", "1.29");
 		sg->Add("tourmaline schorl", "3.06");
@@ -1595,6 +1651,14 @@ namespace CppCLRWinformsProjekt {
 		}
 	}
 	private: System::Void comboCut_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		/*reset tapered baguette settings*/
+		this->numTaperedBaguetteMaxWidth->Hide();
+		this->lblMaxWidth->Hide();
+		this->numDia2->Width = this->numDia1->Width;
+		this->lblDia2->Text = L"Diameter-2";
+		this->lblDia2->Location = Point(223, 14);
+		this->numDia2->Location = Point(205, 30);
+
 		if (CutDim::isRoundish(this->comboCut->Text)) {
 			//MessageBox::Show("it's a round cut");
 			this->lblDia1->Text = "Diameter-1";
@@ -1624,10 +1688,24 @@ namespace CppCLRWinformsProjekt {
 			//MessageBox::Show(myDiamondCut);
 			this->txtFactor->Text = myDiamondCut;
 		}
+
+
+		if (this->comboCut->Text->Equals("tapered baguette")) {
+			/*change labels and make min width/max width appear*/
+			this->numTaperedBaguetteMaxWidth->Show();
+			this->lblMaxWidth->Show();
+			this->numDia2->Width = this->numTaperedBaguetteMaxWidth->Width;
+			this->lblDia2->Location = Point(223,14);
+			this->numDia2->Location = Point(223,30);
+
+			this->lblDia2->Text = L"Min Width";
+		}
 		EmbeddedImage^ dCutImage = gcnew EmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
 		dCutImage->setName(this->comboCut->Text);
 		this->picCut->Image = dCutImage->getName();
+
+
 	}
 	private: System::Void aboutToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		AboutForm1^ aform = gcnew AboutForm1;
@@ -1844,8 +1922,8 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 		this->lblDepth->Text = "Depth (%)";
 		this->numDepth->DecimalPlaces = 1;
 		this->numDepth->Increment = System::Decimal(0.1);
-		bool isRoundish = true;
-		//double currentDepthInPercentage = System::Convert::ToDouble(this->numDepth->Text);
+		Boolean isRoundish = true;
+		//Double currentDepthInPercentage = System::Convert::ToDouble(this->numDepth->Text);
 		System::Decimal  lengthInMm = System::Convert::ToDecimal(this->numDia1->Text);
 		System::Decimal  widthInMm = System::Convert::ToDecimal(this->numDia2->Text);
 		//System::Decimal lwRatio;
@@ -1993,8 +2071,8 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 		/*EmbeddedImage^ checkDepth = gcnew EmbeddedImage;
 		checkDepth->setName("checkDepth")*/
 
-		bool set1000s = false; //   these variables are sent to GUI
-		bool setLogging = false; //   these variables are sent to GUI
+		Boolean set1000s = false; //   these variables are sent to GUI
+		Boolean setLogging = false; //   these variables are sent to GUI
 		if (!System::String::IsNullOrEmpty(getDecPlacesFromConfig)) {
 			if (getDecPlacesFromConfig->Equals("3")) {
 				set1000s = true;
@@ -2019,5 +2097,8 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 	}
 
 
-	};
+
+private: System::Void numTaperedBaguetteMaxWidth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+};
 }

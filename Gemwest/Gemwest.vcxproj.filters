@@ -60,6 +60,9 @@
     <ClInclude Include="BridgeCS.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="TaperedBaguette.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -105,6 +108,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="BridgeCS.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="TaperedBaguette.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1727,6 +1733,18 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="..\..\..\..\Desktop\gwCLI_project\actinolite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\malaia_garnet.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\molldavite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\rubellite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_project\rutillatedquartz.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>

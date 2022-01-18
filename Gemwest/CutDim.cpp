@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CutDim.h"
-bool CutDim::isRoundish(String^ cutname) {
-	Dictionary<String^, bool>^ cutDim = gcnew Dictionary<String^, bool>;
+Boolean CutDim::isRoundish(String^ cutname) {
+	Dictionary<String^, Boolean>^ cutDim = gcnew Dictionary<String^, Boolean>;
 	cutDim->Add("briolette", false);
 	cutDim->Add("cabochon - regular", false);
 	cutDim->Add("cabochon - high domed cabs", false);

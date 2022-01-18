@@ -17,18 +17,20 @@ private:
 String^ dia_round_formula(void);
 String^ dia_oval_formula(void);
 String^ dia_lwd_formula(void);
-String^ dia_tapered_baguette_formula(void);
+//String^ dia_tapered_baguette_formula(void);
 
 
 
-    Dictionary<double, double>^ _marquise_formulae;
-    Dictionary<double, double>^ _emerald_formulae;
-    Dictionary<double, double>^ _pear_formulae;
+
+    Dictionary<Double, Double>^ _marquise_formulae;
+    Dictionary<Double, Double>^ _emerald_formulae;
+    Dictionary<Double, Double>^ _pear_formulae;
     Dictionary<String^, String^>^ _em_map;
     Dictionary<String^, String^>^ _mq_map;
     Dictionary<String^, String^>^ _pe_map;
     //void dictInitializer();
     /*following are Form1 data passed to object*/
+protected:
     String^ _cutName; // name of cut
     String^ _factor; // factor selected by cut choice
     String^ _d1; // diameter 1 (could be length)
@@ -41,11 +43,11 @@ String^ dia_tapered_baguette_formula(void);
     String^ _pv; // pavilion bulge
     String^ _so; // shape outline
  
-    bool _isDiamond; // is it a diamond (not as found in the gem listing)
-    bool _interp; // interpolate?
-    bool _recut; // recut?
-    bool _roundish; // is the cut round necessitating in a different LW formula?
-    bool _depthIsPerc; // is the incoming Depth a represenatation of percentage or mm?
+    Boolean _isDiamond; // is it a diamond (not as found in the gem listing)
+    Boolean _interp; // interpolate?
+    Boolean _recut; // recut?
+    Boolean _roundish; // is the cut round necessitating in a different LW formula?
+    Boolean _depthIsPerc; // is the incoming Depth a represenatation of percentage or mm?
     void DCalc::fancyCutInitializer();
 
 public:
@@ -61,15 +63,42 @@ public:
         String^ pv,
         String^ so,
 
-        bool isdiamond,
-        bool interp,
-        bool recut,
-        bool roundish,
-        bool depthisperc
+        Boolean isdiamond,
+        Boolean interp,
+        Boolean recut,
+        Boolean roundish,
+        Boolean depthisperc
     );
 
     /*end constructor*/
  String^ calculate();
  //property  String^ Calculate;
-};
 
+public:
+static String^ dia_tapered_baguette_formula(String^ length, String^ minw, String^ maxw, String^ depth, String^ factor, String^ adj,Boolean perc) {
+
+    Double l = System::Convert::ToDouble(length);
+    Double minwidth = System::Convert::ToDouble(minw);
+    Double maxwidth = System::Convert::ToDouble(maxw);
+    Double d = System::Convert::ToDouble(depth);
+    Double f = System::Convert::ToDouble(factor);
+    Double a = System::Convert::ToDouble(adj);
+    a = (100 + a) / 100;
+    
+    if (perc) { d = (((minwidth + maxwidth) / 2)*l) * d / 100; } // we need to convert depth to mm
+   // if (perc) { d = ((l+((minwidth + maxwidth) / 2)) * d) / 100; } // we need to convert depth to mm
+
+    //NOT SURE ABOUT THE ABOVE
+    /*********************************************************************************
+ *
+ *   String ^List list = str.split(rx);
+ *
+ * Length x (MaxWidth+MinWidth)/2 * depth * adjustments * 0.00915
+ *
+ *
+ *
+ *********************************************************************************/
+    Double myResult = l * ((minwidth + maxwidth) / 2) * d * f * a;// don't forget to round to 3 if set tp 0.0003 in preferences
+    return System::Convert::ToString(Math::Round(myResult,2));
+}
+};
