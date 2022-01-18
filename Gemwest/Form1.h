@@ -1,13 +1,13 @@
 #pragma once
 #include <map>
-#include "DiamondCut.h"
-#include "GemCut.h"
-#include "EmbeddedImage.h"
+#include "CDiamondCut.h"
+#include "CGemCut.h"
+#include "CEmbeddedImage.h"
 #include "resource1.h"
-#include "CutDim.h"
-#include "DCalc.h"
-#include "TaperedBaguette.h"
-#include "GCalc.h"
+#include "CCutDim.h"
+#include "CDcalc.h"
+#include "CTaperedBaguette.h"
+#include "CGcalc.h"
 #include "LogForm.h"
 #include "AboutForm1.h"
 #include "HelpForm.h"
@@ -82,7 +82,7 @@ namespace CppCLRWinformsProjekt {
 					*/
 
 
-					if (CutDim::isRoundish(this->comboCut->Text)) {
+					if (CCutDim::isRoundish(this->comboCut->Text)) {
 						lwRatio = Math::Round(len / wid, 2);
 						wid = (wid + len) / 2;
 						depthPercentage = (dep / wid) * 100;
@@ -118,7 +118,7 @@ namespace CppCLRWinformsProjekt {
 					else if (wid > len) {
 						this->picLW->Image = nullptr;
 						this->picLW->Refresh();
-						EmbeddedImage^ cd = gcnew EmbeddedImage;
+						CEmbeddedImage^ cd = gcnew CEmbeddedImage;
 						cd->setName("checklength");
 						this->picLW->Image = cd->getName();
 					}
@@ -179,7 +179,7 @@ namespace CppCLRWinformsProjekt {
 
 		void draw_lw(String^ lwStr) {
 			//delete this->picLW->Image;
-			if (!this->comboCut->Text->Equals("tapered baguette")) {
+			if (!this->comboCut->Text->Equals(TAPBAG)) {
 				this->picLW->Image = nullptr;
 				this->picLW->Refresh();
 				//Double divider = System::Convert::ToDouble(this->lblHiddenDepth->Text) / 100;
@@ -1333,7 +1333,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 	}
 		   /*************************************************************************************/
 	private: System::Void buttonCalc_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		CDcalc^ p;
 		String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
 		 
 		if (this->comboCut->Text->Contains("choose")) {
@@ -1341,21 +1341,60 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 		}
 		else {
 			if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
-				if (this->comboCut->Text->Equals("tapered baguette"))
+				if (this->comboCut->Text->Equals(TAPBAG))
 
 				{
-					TaperedBaguette^ TB = gcnew TaperedBaguette( // constructor
-						this->numDia2->Text,
-						this->numTaperedBaguetteMaxWidth->Text,
-						this->numDia1->Text,
-						this->numDepth->Text,
-						this->txtFactor->Text,
-						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-						System::Convert::ToBoolean(this->radDepthAsPerc->Checked));
-					this->txtResult->Text = TB->calculate();
+					////TaperedBaguette^ TB = gcnew TaperedBaguette(this->numDia2->Text,
+					////	this->numTaperedBaguetteMaxWidth->Text): DCalc::Initializer(
+					////String^ maxw(this->numTaperedBaguetteMaxWidth->Text);
+					////TaperedBaguette^ TB = gcnew TaperedBaguette(String^ min=this->numDia2->Text,String^ max= this->numTaperedBaguetteMaxWidth->Text)(_maxW(max);
+					//TaperedBaguette^ TB = gcnew TaperedBaguette; //_maxW(min);): System::DCalc(
+					////	//_maxW(maxw);
+					//	this->comboCut->Text,
+					//	this->txtFactor->Text,
+					//	this->numDia1->Text,
+					//	this->numDia2->Text,
+					//	this->numDepth->Text,
+					//	this->numSG->Text,
+					//	this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+					//	this->txtGirdleThickness->Text,
+					//	this->txtPavilionBulge->Text,
+					//	this->txtShapeOutline->Text,
+					//	this->radioBtnDia->Checked,
+					//	this->cbInterpolate->Checked,
+					//	this->cbRecut->Checked,
+					//	CCutDim::isRoundish(this->comboCut->Text),
+					//	this->radDepthAsPerc->Checked 
+					//	this->comboCut->Text,
+					//	this->txtFactor->Text,
+					//	this->numDia1->Text,
+					//	this->numDia2->Text,
+					//	this->numDepth->Text,
+					//	this->numSG->Text,
+					//	this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+					//	this->txtGirdleThickness->Text,
+					//	this->txtPavilionBulge->Text,
+					//	this->txtShapeOutline->Text,
+					//	this->radioBtnDia->Checked,
+					//	this->cbInterpolate->Checked,
+					//	this->cbRecut->Checked,
+					//	CCutDim::isRoundish(this->comboCut->Text),
+					//	this->radDepthAsPerc->Checked
+					//);// constructor
+					//TaperedBaguette^ TB = gcnew TaperedBaguette( // constructor
+						//this->numDia2->Text,
+						//this->numTaperedBaguetteMaxWidth->Text,
+						//this->numDia1->Text,
+						//this->numDepth->Text,
+						//this->txtFactor->Text,
+						//this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+						//System::Convert::ToBoolean(this->radDepthAsPerc->Checked));
+					//p = TB;
+
 				}
 				else {
-					DCalc^ DC = gcnew DCalc;
+					CDcalc^ DC = gcnew CDcalc;
+					p = DC;
 					DC->Initializer(
 
 						this->comboCut->Text,
@@ -1371,14 +1410,15 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 						this->radioBtnDia->Checked,
 						this->cbInterpolate->Checked,
 						this->cbRecut->Checked,
-						CutDim::isRoundish(this->comboCut->Text),
+						CCutDim::isRoundish(this->comboCut->Text),
 						this->radDepthAsPerc->Checked
 					);
-					this->txtResult->Text = DC->calculate();
+					//this->txtResult->Text = DC->calculate();
 				}
+				this->txtResult->Text = p->print();
 			} // is tapered baguette or other
 			else { // Calculate the weight of a Gemstone
-				GCalc^ GC = gcnew GCalc;
+				CGcalc^ GC = gcnew CGcalc;
 				GC->Initializer(
 
 					this->comboCut->Text,
@@ -1395,7 +1435,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 					this->radioBtnDia->Checked,
 					this->cbInterpolate->Checked,
 					this->cbRecut->Checked,
-					CutDim::isRoundish(this->comboCut->Text),
+					CCutDim::isRoundish(this->comboCut->Text),
 					this->radDepthAsPerc->Checked
 				);
 				this->txtResult->Text = GC->calculate();
@@ -1630,7 +1670,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 		sg->Add("zirconia (cubic)", "5.7");
 		sg->Add("zoisite", "3.35");
 		/**************************IMAGE MANAGEMENT**************************/
-		EmbeddedImage^ gemImage = gcnew EmbeddedImage;
+		CEmbeddedImage^ gemImage = gcnew CEmbeddedImage;
 		if (sg->ContainsKey(this->comboGems->Text)) {
 			gemImage->setName(this->comboGems->Text);
 			this->picGem->Image = gemImage->getName();
@@ -1659,7 +1699,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 		this->lblDia2->Location = Point(223, 14);
 		this->numDia2->Location = Point(205, 30);
 
-		if (CutDim::isRoundish(this->comboCut->Text)) {
+		if (CCutDim::isRoundish(this->comboCut->Text)) {
 			//MessageBox::Show("it's a round cut");
 			this->lblDia1->Text = "Diameter-1";
 			this->lblDia2->Text = "Diameter-2";
@@ -1670,19 +1710,19 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->lblDia2->Text = "Width";
 		}
 		if (this->radioBtnGem->Checked) {
-			GemCut^ gc = gcnew GemCut; // Declare object
+			CGemCut^ gc = gcnew CGemCut; // Declare object
 			gc->dictInitializer();
 			String^ myGemCut = gc->getCut(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
 			//MessageBox::Show(myGemCut);
 			this->txtFactor->Text = myGemCut;
 
-			EmbeddedImage^ gCutImage = gcnew EmbeddedImage;
+			CEmbeddedImage^ gCutImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
 			gCutImage->setName(this->comboCut->Text);
 			this->picCut->Image = gCutImage->getName();
 		}
 		else if (this->radioBtnDia->Checked) {
-			DiamondCut^ dc = gcnew DiamondCut; // Declare object
+			CDiamondCut^ dc = gcnew CDiamondCut; // Declare object
 			dc->dictInitializer();
 			String^ myDiamondCut = dc->getCut(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
 			//MessageBox::Show(myDiamondCut);
@@ -1690,7 +1730,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 		}
 
 
-		if (this->comboCut->Text->Equals("tapered baguette")) {
+		if (this->comboCut->Text->Equals(TAPBAG)) {
 			/*change labels and make min width/max width appear*/
 			this->numTaperedBaguetteMaxWidth->Show();
 			this->lblMaxWidth->Show();
@@ -1700,7 +1740,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 
 			this->lblDia2->Text = L"Min Width";
 		}
-		EmbeddedImage^ dCutImage = gcnew EmbeddedImage;
+		CEmbeddedImage^ dCutImage = gcnew CEmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
 		dCutImage->setName(this->comboCut->Text);
 		this->picCut->Image = dCutImage->getName();
@@ -1737,7 +1777,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 		this->comboGems->Enabled = false;
 		this->numSG->Enabled = false;
 		array<String^>^ dias = gcnew array<String^>{};
-		DiamondCut^ dc = gcnew DiamondCut; // Declare object
+		CDiamondCut^ dc = gcnew CDiamondCut; // Declare object
 		if (dc != nullptr) {
 			dc->dictInitializer();
 			dias = dc->getCutNames();
@@ -1745,7 +1785,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			Form1::comboCut->Items->AddRange(dias);
 		} // != null
 
-		EmbeddedImage^ defaultRBC = gcnew EmbeddedImage;
+		CEmbeddedImage^ defaultRBC = gcnew CEmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
 		defaultRBC->setName("round brilliant");
 		this->picCut->Image = defaultRBC->getName();
@@ -1761,7 +1801,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 		this->comboGems->Enabled = true;
 		this->numSG->Enabled = true;
 		array<String^>^ gems = gcnew array<String^>{};
-		GemCut^ gc = gcnew GemCut; // Declare object
+		CGemCut^ gc = gcnew CGemCut; // Declare object
 		if (gc != nullptr) {
 			gc->dictInitializer();
 			gems = gc->getCutNames();
@@ -1769,7 +1809,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			Form1::comboCut->Items->AddRange(gems);
 
 		} // != null
-		EmbeddedImage^ defaultGemCut = gcnew EmbeddedImage;
+		CEmbeddedImage^ defaultGemCut = gcnew CEmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
 		defaultGemCut->setName("oval cut");
 		this->picCut->Image = defaultGemCut->getName();
@@ -1810,7 +1850,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			so = "so3";
 		}
 		//this->label1->Text = L": " + so;
-		EmbeddedImage^ shapeOutlineImage = gcnew EmbeddedImage;
+		CEmbeddedImage^ shapeOutlineImage = gcnew CEmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
 		shapeOutlineImage->setName(so);
 		this->picShapeOutline->Image = shapeOutlineImage->getName();
@@ -1845,7 +1885,7 @@ Noticeable, add 6% to 8%.
 Obvious, add 9% to 12%.
 Extreme, add 13% to 18%.
 A long culet due to steep pavilion angles can add up to 5%.*/
-		EmbeddedImage^ girdleImage = gcnew EmbeddedImage;
+		CEmbeddedImage^ girdleImage = gcnew CEmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
 		girdleImage->setName(gThk);
 		this->picGirdle->Image = girdleImage->getName();
@@ -1869,7 +1909,7 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 		else {
 			pBulge = "bulge_non";
 		}
-		EmbeddedImage^ bulgeImage = gcnew EmbeddedImage;
+		CEmbeddedImage^ bulgeImage = gcnew CEmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
 		bulgeImage->setName(pBulge);
 		this->picBulge->Image = bulgeImage->getName();
@@ -1937,10 +1977,10 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 				isRoundish = false;
 			}
 			else {*/
-			//	isRoundish = CutDim::isRoundish(this->comboCut->Text);
+			//	isRoundish = CCutDim::isRoundish(this->comboCut->Text);
 			//}
 			/*********************************************************************************/
-		if (CutDim::isRoundish(this->comboCut->Text)) {
+		if (CCutDim::isRoundish(this->comboCut->Text)) {
 			//lwRatio = System::Decimal::Round(lengthInMm / widthInMm, 2);
 			widthInMm.Add(lengthInMm, widthInMm) / 2;
 
@@ -2036,39 +2076,39 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 	private: System::Void Form1_Load_1(System::Object^ sender, System::EventArgs^ e) {
 		/****************LOAD CONFIG FILES***************************/
 
-		EmbeddedImage^ rc = gcnew EmbeddedImage;
+		CEmbeddedImage^ rc = gcnew CEmbeddedImage;
 		rc->setName("recut");
 		this->picRecut->Image = rc->getName();
 
-		//EmbeddedImage^ dp = gcnew EmbeddedImage;
+		//CEmbeddedImage^ dp = gcnew CEmbeddedImage;
 		//dp->setName("defrec");
 		//this->picDepth->Image = dp->getName();
 
-		EmbeddedImage^ adjarrow = gcnew EmbeddedImage;
+		CEmbeddedImage^ adjarrow = gcnew CEmbeddedImage;
 		adjarrow->setName("adjustmentarrow");
 		this->pictAdjArrow->Image = adjarrow->getName();
 
-		EmbeddedImage^ defaultCut = gcnew EmbeddedImage;
+		CEmbeddedImage^ defaultCut = gcnew CEmbeddedImage;
 		defaultCut->setName("round brilliant");
 		this->picCut->Image = defaultCut->getName();
 
-		EmbeddedImage^ defaultBulge = gcnew EmbeddedImage;
+		CEmbeddedImage^ defaultBulge = gcnew CEmbeddedImage;
 		defaultBulge->setName("bulge_non");
 		this->picBulge->Image = defaultBulge->getName();
 
-		EmbeddedImage^ defaultShapeOutline = gcnew EmbeddedImage;
+		CEmbeddedImage^ defaultShapeOutline = gcnew CEmbeddedImage;
 		defaultShapeOutline->setName("so3");
 		this->picShapeOutline->Image = defaultShapeOutline->getName();
 
-		EmbeddedImage^ defaultGem = gcnew EmbeddedImage;
+		CEmbeddedImage^ defaultGem = gcnew CEmbeddedImage;
 		defaultGem->setName("diamond");
 		this->picGem->Image = defaultGem->getName();
 
-		EmbeddedImage^ defaultGirdle = gcnew EmbeddedImage;
+		CEmbeddedImage^ defaultGirdle = gcnew CEmbeddedImage;
 		defaultGirdle->setName("thingirdle");
 		this->picGirdle->Image = defaultGirdle->getName();
 
-		/*EmbeddedImage^ checkDepth = gcnew EmbeddedImage;
+		/*CEmbeddedImage^ checkDepth = gcnew CEmbeddedImage;
 		checkDepth->setName("checkDepth")*/
 
 		Boolean set1000s = false; //   these variables are sent to GUI

@@ -6,7 +6,7 @@ using namespace System;
 //{
 //    return 0;
 //}
-
+#define TAPBAG "tapered baguette"
 #include "Form1.h"
 
 using namespace System::Windows::Forms;

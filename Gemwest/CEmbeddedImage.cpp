@@ -1,13 +1,13 @@
 #include "pch.h"
-#include "EmbeddedImage.h"
+#include "CEmbeddedImage.h"
 #include <cstddef>
 
-void EmbeddedImage::setName(String^ resourceName) {
+void CEmbeddedImage::setName(String^ resourceName) {
 	_itemName = resourceName;
 	this->loadResources();
 	}
 
-Drawing::Bitmap^ EmbeddedImage::getName() {
+Drawing::Bitmap^ CEmbeddedImage::getName() {
 	Reflection::Assembly^ cutAssembly = Reflection::Assembly::GetExecutingAssembly();
 	String^ cutRezName = cutAssembly->GetName()->Name + resxFile;
 	//Note: add your resourcefile name here, i.e. ".MyResourceFile" as it appears in solution explorer, without its extension
@@ -22,7 +22,7 @@ Drawing::Bitmap^ EmbeddedImage::getName() {
 	}
 }
 	
-void EmbeddedImage::loadResources()
+void CEmbeddedImage::loadResources()
 {
 	Dictionary<String^, String^>^ myRez = gcnew Dictionary<String^, String^>;
 	myRez->Add("choose from below", "");
@@ -302,6 +302,6 @@ void EmbeddedImage::loadResources()
 
 }
 
-void EmbeddedImage::setRez(Dictionary<String^, String^>^ arr) {
+void CEmbeddedImage::setRez(Dictionary<String^, String^>^ arr) {
 	this->_rezImages = arr;
 };

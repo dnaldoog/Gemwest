@@ -3,9 +3,9 @@ using namespace System;
 using namespace System::Collections::Generic;
 using namespace System::Diagnostics;
 
-ref class CutDim
+ref class CCutDim
 {
 public:
-	static bool CutDim::isRoundish(String^);
+	static bool CCutDim::isRoundish(String^);
 };
 

@@ -150,15 +150,16 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="BridgeCS.h" />
-    <ClInclude Include="CutDim.h" />
-    <ClInclude Include="DCalc.h" />
-    <ClInclude Include="DiamondCut.h" />
-    <ClInclude Include="EmbeddedImage.h" />
+    <ClInclude Include="CCalculator.h" />
+    <ClInclude Include="CCutDim.h" />
+    <ClInclude Include="CDcalc.h" />
+    <ClInclude Include="CDiamondCut.h" />
+    <ClInclude Include="CEmbeddedImage.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="GCalc.h" />
-    <ClInclude Include="GemCut.h" />
+    <ClInclude Include="CGcalc.h" />
+    <ClInclude Include="CGemCut.h" />
     <ClInclude Include="HelpForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -174,20 +175,21 @@
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
     </ClInclude>
     <ClInclude Include="resource1.h" />
-    <ClInclude Include="TaperedBaguette.h" />
+    <ClInclude Include="CTaperedBaguette.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutForm1.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="BridgeCS.cpp" />
+    <ClCompile Include="CBridgeCS.cpp" />
+    <ClCompile Include="CCalculator.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
-    <ClCompile Include="CutDim.cpp" />
-    <ClCompile Include="DCalc.cpp" />
-    <ClCompile Include="DiamondCut.cpp" />
-    <ClCompile Include="EmbeddedImage.cpp" />
+    <ClCompile Include="CCutDim.cpp" />
+    <ClCompile Include="CDcalc.cpp" />
+    <ClCompile Include="CDiamondCut.cpp" />
+    <ClCompile Include="CEmbeddedImage.cpp" />
     <ClCompile Include="Form1.cpp" />
-    <ClCompile Include="GCalc.cpp" />
-    <ClCompile Include="GemCut.cpp" />
+    <ClCompile Include="CGcalc.cpp" />
+    <ClCompile Include="CGemCut.cpp" />
     <ClCompile Include="HelpForm.cpp" />
     <ClCompile Include="LogForm.cpp" />
     <ClCompile Include="OptionsForm.cpp" />
@@ -197,7 +199,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TaperedBaguette.cpp" />
+    <ClCompile Include="CTaperedBaguette.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />

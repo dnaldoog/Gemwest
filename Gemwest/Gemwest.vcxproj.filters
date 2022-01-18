@@ -24,25 +24,25 @@
     <ClInclude Include="Form1.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="DiamondCut.h">
+    <ClInclude Include="CDiamondCut.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="GemCut.h">
+    <ClInclude Include="CGemCut.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="EmbeddedImage.h">
+    <ClInclude Include="CEmbeddedImage.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="resource1.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="CutDim.h">
+    <ClInclude Include="CCutDim.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="DCalc.h">
+    <ClInclude Include="CDcalc.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="GCalc.h">
+    <ClInclude Include="CGcalc.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="LogForm.h">
@@ -60,7 +60,10 @@
     <ClInclude Include="BridgeCS.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="TaperedBaguette.h">
+    <ClInclude Include="CTaperedBaguette.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="CCalculator.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -77,22 +80,22 @@
     <ClCompile Include="Form1.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="DiamondCut.cpp">
+    <ClCompile Include="CDiamondCut.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="GemCut.cpp">
+    <ClCompile Include="CGemCut.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="EmbeddedImage.cpp">
+    <ClCompile Include="CEmbeddedImage.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="CutDim.cpp">
+    <ClCompile Include="CCutDim.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="DCalc.cpp">
+    <ClCompile Include="CDcalc.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="GCalc.cpp">
+    <ClCompile Include="CGcalc.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="LogForm.cpp">
@@ -107,10 +110,13 @@
     <ClCompile Include="AboutForm1.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="BridgeCS.cpp">
+    <ClCompile Include="CBridgeCS.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="TaperedBaguette.cpp">
+    <ClCompile Include="CTaperedBaguette.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CCalculator.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

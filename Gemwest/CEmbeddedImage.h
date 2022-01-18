@@ -2,7 +2,7 @@
 using namespace System;
 using namespace System::Collections::Generic; // used for Dictionary
 
-ref class EmbeddedImage
+ref class CEmbeddedImage
 {
 private:
 	String^ _itemName;

@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "GCalc.h"
-String^ GCalc::gem_round_formula(void) {
+#include "CGcalc.h"
+String^ CGcalc::gem_round_formula(void) {
     //Double calculate;
     //String^ sg = returnSG();
     //String^ depth = returnDepth();
@@ -14,7 +14,7 @@ String^ GCalc::gem_round_formula(void) {
     String^ dummy = "";
     return dummy;
 }
-String^ GCalc::gem_round_bead_formula(void) {
+String^ CGcalc::gem_round_bead_formula(void) {
     //Double calculate;
     //String^ length = returnLength();
     //Double avd = length.todouble();
@@ -30,7 +30,7 @@ String^ GCalc::gem_round_bead_formula(void) {
     String^ dummy = "";
     return dummy;
 }
-String^ GCalc::gem_lwd_formula(void) {
+String^ CGcalc::gem_lwd_formula(void) {
     //Double calculate;
     //String^ length = returnLength();
     //String^ width = returnWidth();
@@ -45,7 +45,7 @@ String^ GCalc::gem_lwd_formula(void) {
     String^ dummy = "";
     return dummy;
 }
-String^ GCalc::gem_oval_formula(void) {
+String^ CGcalc::gem_oval_formula(void) {
     //Double calculate;
     //String^ length = returnLength();
     //String^ width = returnWidth();
@@ -61,7 +61,7 @@ String^ GCalc::gem_oval_formula(void) {
     String^ dummy = "";
     return dummy;
 }
-String^ GCalc::gem_briolette_formula(void) {
+String^ CGcalc::gem_briolette_formula(void) {
     //Double calculate;
     //String^ length = returnLength();
     //String^ width = returnWidth();
@@ -76,7 +76,7 @@ String^ GCalc::gem_briolette_formula(void) {
     String^ dummy = "";
     return dummy;
 }
-String^ GCalc::returnWeight(void) {
+String^ CGcalc::returnWeight(void) {
     //String^ answer, cut_table = "gem_cuts";
     //String^ c = returnCut();
     //int index = 0;
@@ -103,7 +103,7 @@ String^ GCalc::returnWeight(void) {
     return dummy;
     }
 
-void GCalc::Initializer(
+void CGcalc::Initializer(
     String^ cutName,
     String^ gemName,
     String^ fac,
@@ -123,31 +123,31 @@ void GCalc::Initializer(
     Boolean depthisperc) {
     // load all arrays of fancy cut adjustments
     /*load class with GUI values from user*/
-    _cutName = cutName; // name of cut
-    _gemName = gemName; // name of gem (material)
-    _factor = fac; // name of cut
-    _d1 = d1; // diameter 1 (could be length)
-    _d2 = d2; // diamter 2 (could be width)
-    _depth = dep; // depth of stone in millimeters // or percentage
-    _sg = sg; //Specific Gravity
-    _isDiamond = isdiamond;
-    _adj = adj; // user adjustments  
-    _interp = interp; // interpolate?
-    _recut = recut; // recut?
-    _roundish = roundish; // is the cut round necessitating in a different LW formula?
-    _depthIsPerc = depthisperc; // is the incoming Depth a represenatation of percentage or mm?
+    m_cutName = cutName; // name of cut
+    m_gemName = gemName; // name of gem (material)
+    m_factor = fac; // name of cut
+    m_d1 = d1; // diameter 1 (could be length)
+   m_d2 = d2; // diamter 2 (could be width)
+    m_depth = dep; // depth of stone in millimeters // or percentage
+    m_sg = sg; //Specific Gravity
+    m_isDiamond = isdiamond;
+    m_adj = adj; // user adjustments  
+    m_interp = interp; // interpolate?
+   m_recut = recut; // recut?
+    m_roundish = roundish; // is the cut round necessitating in a different LW formula?
+    m_depthIsPerc = depthisperc; // is the incoming Depth a represenatation of percentage or mm?
 
 }
 
-String^ GCalc::calculate() {
-    Double Length = System::Convert::ToDouble(_d1);
-    Double Width = System::Convert::ToDouble(_d2);
-    Double Depth = System::Convert::ToDouble(_depth);
-    Double SG = System::Convert::ToDouble(_sg);
-    Double Factor = System::Convert::ToDouble(_factor);
+String^ CGcalc::calculate() {
+    Double Length = System::Convert::ToDouble(m_d1);
+    Double Width = System::Convert::ToDouble(m_d2);
+    Double Depth = System::Convert::ToDouble(m_depth);
+    Double SG = System::Convert::ToDouble(m_sg);
+    Double Factor = System::Convert::ToDouble(m_factor);
     Double sum = Math::Round(Length * Width * Depth * Factor, 2);
-    System::Windows::Forms::MessageBox::Show(_gemName+"GEM>>d:" + _d1 + "d2: " + _d2 + "dp: " + _depth + "F: " + _factor);
-    if (_isDiamond) SG = 1; // the factor laready accounts for specific gravity of 3.52
+    System::Windows::Forms::MessageBox::Show(m_gemName+"GEM>>d:" + m_d1 + "d2: " + m_d2 + "dp: " +m_depth + "F: " + m_factor);
+    if (m_isDiamond) SG = 1; // the factor laready accounts for specific gravity of 3.52
     return System::Convert::ToString(sum);
     //return L"1.00 ct";"
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "EmbeddedImage.h"
+#include "CEmbeddedImage.h"
 
 namespace CppCLRWinformsProjekt {
 	using namespace System;
@@ -84,7 +84,7 @@ namespace CppCLRWinformsProjekt {
 
 	}
 	private: System::Void AboutForm1_Load(System::Object^ sender, System::EventArgs^ e) {
-		EmbeddedImage^ zimage = gcnew EmbeddedImage;
+		CEmbeddedImage^ zimage = gcnew CEmbeddedImage;
 		zimage->setName("zaniah");
 		this->pictureZaniahLogo->Image = zimage->getName();
 		//this->ResumeLayout(false);
