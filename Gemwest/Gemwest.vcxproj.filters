@@ -66,6 +66,15 @@
     <ClInclude Include="CCalculator.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="CDround.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="CDnonround.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="CDfancy.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -117,6 +126,15 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="CCalculator.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CDround.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CDnonround.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CDfancy.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

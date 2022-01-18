@@ -5,8 +5,11 @@
 #include "CEmbeddedImage.h"
 #include "resource1.h"
 #include "CCutDim.h"
-#include "CDcalc.h"
+//#include "CDcalc.h"
 #include "CTaperedBaguette.h"
+#include "CDround.h"
+#include "CDnonround.h"
+#include "CDfancy.h"
 #include "CGcalc.h"
 #include "LogForm.h"
 #include "AboutForm1.h"
@@ -1333,7 +1336,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 	}
 		   /*************************************************************************************/
 	private: System::Void buttonCalc_Click(System::Object^ sender, System::EventArgs^ e) {
-		CDcalc^ p;
+		CDcalc^ p=nullptr;
 		String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
 		 
 		if (this->comboCut->Text->Contains("choose")) {
@@ -1344,58 +1347,33 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 				if (this->comboCut->Text->Equals(TAPBAG))
 
 				{
-					////TaperedBaguette^ TB = gcnew TaperedBaguette(this->numDia2->Text,
-					////	this->numTaperedBaguetteMaxWidth->Text): DCalc::Initializer(
-					////String^ maxw(this->numTaperedBaguetteMaxWidth->Text);
-					////TaperedBaguette^ TB = gcnew TaperedBaguette(String^ min=this->numDia2->Text,String^ max= this->numTaperedBaguetteMaxWidth->Text)(_maxW(max);
-					//TaperedBaguette^ TB = gcnew TaperedBaguette; //_maxW(min);): System::DCalc(
-					////	//_maxW(maxw);
-					//	this->comboCut->Text,
-					//	this->txtFactor->Text,
-					//	this->numDia1->Text,
-					//	this->numDia2->Text,
-					//	this->numDepth->Text,
-					//	this->numSG->Text,
-					//	this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-					//	this->txtGirdleThickness->Text,
-					//	this->txtPavilionBulge->Text,
-					//	this->txtShapeOutline->Text,
-					//	this->radioBtnDia->Checked,
-					//	this->cbInterpolate->Checked,
-					//	this->cbRecut->Checked,
-					//	CCutDim::isRoundish(this->comboCut->Text),
-					//	this->radDepthAsPerc->Checked 
-					//	this->comboCut->Text,
-					//	this->txtFactor->Text,
-					//	this->numDia1->Text,
-					//	this->numDia2->Text,
-					//	this->numDepth->Text,
-					//	this->numSG->Text,
-					//	this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-					//	this->txtGirdleThickness->Text,
-					//	this->txtPavilionBulge->Text,
-					//	this->txtShapeOutline->Text,
-					//	this->radioBtnDia->Checked,
-					//	this->cbInterpolate->Checked,
-					//	this->cbRecut->Checked,
-					//	CCutDim::isRoundish(this->comboCut->Text),
-					//	this->radDepthAsPerc->Checked
-					//);// constructor
-					//TaperedBaguette^ TB = gcnew TaperedBaguette( // constructor
-						//this->numDia2->Text,
-						//this->numTaperedBaguetteMaxWidth->Text,
-						//this->numDia1->Text,
-						//this->numDepth->Text,
-						//this->txtFactor->Text,
-						//this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-						//System::Convert::ToBoolean(this->radDepthAsPerc->Checked));
-					//p = TB;
-
+					CTaperedBaguette^ TB = gcnew CTaperedBaguette;
+				
+					TB->Initializer(
+						this->comboCut->Text,
+						this->txtFactor->Text,
+						this->numDia1->Text,
+						this->numDia2->Text,
+						this->numDepth->Text,
+						this->numSG->Text,
+						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+						this->txtGirdleThickness->Text,
+						this->txtPavilionBulge->Text,
+						this->txtShapeOutline->Text,
+						this->radioBtnDia->Checked,
+						this->cbInterpolate->Checked,
+						this->cbRecut->Checked,
+						CCutDim::isRoundish(this->comboCut->Text),
+						this->radDepthAsPerc->Checked
+						
+							);
+					TB->maxW = this->numTaperedBaguetteMaxWidth->Text;
+					p = TB;
 				}
 				else {
-					CDcalc^ DC = gcnew CDcalc;
-					p = DC;
-					DC->Initializer(
+					CDround^ RC = gcnew CDround;
+
+					RC->Initializer(
 
 						this->comboCut->Text,
 						this->txtFactor->Text,
@@ -1413,9 +1391,9 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 						CCutDim::isRoundish(this->comboCut->Text),
 						this->radDepthAsPerc->Checked
 					);
-					//this->txtResult->Text = DC->calculate();
+					p = RC;
 				}
-				this->txtResult->Text = p->print();
+				this->txtResult->Text = System::Convert::ToString(Math::Round(p->term(),2))+"ct";
 			} // is tapered baguette or other
 			else { // Calculate the weight of a Gemstone
 				CGcalc^ GC = gcnew CGcalc;
@@ -1438,7 +1416,6 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 					CCutDim::isRoundish(this->comboCut->Text),
 					this->radDepthAsPerc->Checked
 				);
-				this->txtResult->Text = GC->calculate();
 			}
 
 		} // text is valid

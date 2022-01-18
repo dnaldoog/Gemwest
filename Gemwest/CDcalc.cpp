@@ -47,11 +47,12 @@
 //	_pe_map = pe_map;
 //}
 Double CDcalc::term() {
-	if (m_roundish) {
-		return this->dia_round_formula(); }
-	else {
-		return this->dia_lwd_formula();
-	}
+	//if (m_roundish) {
+	//	return this->dia_round_formula(); }
+	//else {
+	//	return this->dia_lwd_formula();
+	return 5.00;
+	
 	//Double Length = System::Convert::ToDouble(_d1);
 	//Double Width = System::Convert::ToDouble(_d2);
 	//Double Depth = System::Convert::ToDouble(_depth);

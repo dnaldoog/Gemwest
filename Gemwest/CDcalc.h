@@ -80,7 +80,7 @@ public:
 
 public:
 	String^ print() {
-		return System::Convert::ToString(5 + "many ct");
+		return System::Convert::ToString(5 + "many CDcalc");
 	}
 	virtual Double term();
 	//static String^ dia_tapered_baguette_formula(String^ length, String^ minw, String^ maxw, String^ depth, String^ factor, String^ adj,Boolean perc) {
