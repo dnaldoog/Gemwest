@@ -8,9 +8,10 @@ ref class CDiamondCut
 private:
 	Dictionary<String^, String^>^ m_diaCut;
 	array<String^>^ m_diaCutNames;
+	void setCut(Dictionary<String^, String^>^);
 public:
 	void dictInitializer();
-	void setCut(Dictionary<String^, String^>^);
+
 	String^ getCut(String^ key);
 	array<String^>^ getCutNames();
 

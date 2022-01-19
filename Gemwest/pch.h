@@ -6,7 +6,11 @@
 
 #ifndef PCH_H
 #define PCH_H
-
+#define TAPBAG "tapered baguette"
+//#define HART "heart brilliant"
+#define MARQ "marquise brilliant"
+#define PEAR "pear brilliant"
+#define EMER "emerald cut diamond"
 // Fügen Sie hier Header hinzu, die vorkompiliert werden sollen.
 
 #endif //PCH_H

@@ -5,7 +5,7 @@
 #include "CEmbeddedImage.h"
 #include "resource1.h"
 #include "CCutDim.h"
-//#include "CDcalc.h"
+#include "CDcalc.h"
 #include "CTaperedBaguette.h"
 #include "CDround.h"
 #include "CDnonround.h"
@@ -16,7 +16,6 @@
 #include "HelpForm.h"
 #include "OptionsForm.h"
 #include "BridgeCS.h"
-//#include "DrawDepthPercentage.h"
 
 namespace CppCLRWinformsProjekt {
 	//
@@ -125,6 +124,16 @@ namespace CppCLRWinformsProjekt {
 						cd->setName("checklength");
 						this->picLW->Image = cd->getName();
 					}
+					if (this->comboCut->Text->Equals(MARQ) 
+						|| this->comboCut->Text->Equals(PEAR) || this->comboCut->Text->Equals(EMER)) {
+						CDfancy^ fancyFactor = gcnew CDfancy;
+						fancyFactor->dictInitializer();
+						fancyFactor->length = len;
+						fancyFactor->width = wid;
+						fancyFactor->fancyType = this->comboCut->Text;
+						this->txtFactor->Text = fancyFactor->setFancyRecutFactor();
+
+					}
 
 					//this->Invalidate();   request a delayed Repaint by the normal MessageLoop system    
 					// forces Repaint of invalidated area 
@@ -180,7 +189,9 @@ namespace CppCLRWinformsProjekt {
 
 		}
 
-		void draw_lw(String^ lwStr) {
+		void draw_lw(String^ lwStr) {	}
+			
+			void draw_lw2(String^ lwStr) {
 			//delete this->picLW->Image;
 			if (!this->comboCut->Text->Equals(TAPBAG)) {
 				this->picLW->Image = nullptr;
@@ -1350,10 +1361,10 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 					CTaperedBaguette^ TB = gcnew CTaperedBaguette;
 					TB->maxW = this->numTaperedBaguetteMaxWidth->Text;
 					p = TB;
-				}else if(this->comboCut->Text->Equals(HART)) {
-					CDfancy^ HT = gcnew CDfancy;
-					HT->fancyType = HART;
-						p = HT;
+				//}else if(this->comboCut->Text->Equals(HART)) {
+				//	CDfancy^ HT = gcnew CDfancy;
+				//	HT->fancyType = HART;
+				//		p = HT;
 				}
 				else if (this->comboCut->Text->Equals(MARQ)) {
 					CDfancy^ MQ = gcnew CDfancy;
@@ -1364,6 +1375,11 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 						CDfancy^ PR = gcnew CDfancy;
 							PR->fancyType = PEAR;
 							p = PR;
+				}
+				else if (this->comboCut->Text->Equals(EMER)) {
+					CDfancy^ EM = gcnew CDfancy;
+					EM->fancyType = EMER;
+					p = EM;
 				}
 				else if (CCutDim::isRoundish(this->comboCut->Text)){
 					CDround^ RC = gcnew CDround;
