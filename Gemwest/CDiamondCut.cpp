@@ -1,9 +1,9 @@
 #include "pch.h"
-#include "DiamondCut.h"
+#include "CDiamondCut.h"
 //#include <cstddef>
 
 
-void DiamondCut::dictInitializer(){
+void CDiamondCut::dictInitializer(){
 Dictionary<String^, String^>^ diaCut = gcnew Dictionary<String^, String^>;
 array<String^>^ diaCutNames = gcnew array<String^>{
 		"asscher",
@@ -54,23 +54,23 @@ diaCut->Add("triangular cut (dia.)", "0.0057");
 diaCut->Add("trilliant cut (dia.)", "0.0057");
 diaCut->Add("trillion (rounded sides)", "0.0059");
 this->setCut(diaCut);
-this->_diaCutNames = diaCutNames;
+this->m_diaCutNames = diaCutNames;
 }
 
-	void DiamondCut::setCut(Dictionary<String^, String^>^ arr) {
-		this->_diaCut = arr;
+	void CDiamondCut::setCut(Dictionary<String^, String^>^ arr) {
+		this->m_diaCut = arr;
 
 	}
 
-	String^ DiamondCut::getCut(String^ key) {
+	String^ CDiamondCut::getCut(String^ key) {
 		//if (this->_diaCut != nullptr) {
-			return this->_diaCut[key];
+			return this->m_diaCut[key];
 		//}else{
 		//	return "not found";
 		//}
 
 	}
 
-	array<String^>^ DiamondCut::getCutNames() {
-		return _diaCutNames;
+	array<String^>^ CDiamondCut::getCutNames() {
+		return m_diaCutNames;
 	}

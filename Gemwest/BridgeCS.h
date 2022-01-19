@@ -46,6 +46,6 @@ public:
 	//String^ load1000();
 	//String^ loadLog();
 	//void save1000(String^);
-	//void saveLog(bool);
+	//void saveLog(Boolean);
 };
 

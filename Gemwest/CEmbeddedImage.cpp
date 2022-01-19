@@ -1,13 +1,13 @@
 #include "pch.h"
-#include "EmbeddedImage.h"
+#include "CEmbeddedImage.h"
 #include <cstddef>
 
-void EmbeddedImage::setName(String^ resourceName) {
+void CEmbeddedImage::setName(String^ resourceName) {
 	_itemName = resourceName;
 	this->loadResources();
 	}
 
-Drawing::Bitmap^ EmbeddedImage::getName() {
+Drawing::Bitmap^ CEmbeddedImage::getName() {
 	Reflection::Assembly^ cutAssembly = Reflection::Assembly::GetExecutingAssembly();
 	String^ cutRezName = cutAssembly->GetName()->Name + resxFile;
 	//Note: add your resourcefile name here, i.e. ".MyResourceFile" as it appears in solution explorer, without its extension
@@ -22,7 +22,7 @@ Drawing::Bitmap^ EmbeddedImage::getName() {
 	}
 }
 	
-void EmbeddedImage::loadResources()
+void CEmbeddedImage::loadResources()
 {
 	Dictionary<String^, String^>^ myRez = gcnew Dictionary<String^, String^>;
 	myRez->Add("choose from below", "");
@@ -168,6 +168,7 @@ void EmbeddedImage::loadResources()
 	myRez->Add("lithium niobate", "lithium niobate");
 	myRez->Add("long rectangle", "long_rectangle");
 	myRez->Add("malachite", "malachite");
+	myRez->Add("malaia garnet", "malaia_garnet");
 	myRez->Add("mali garnet", "mali garnet");
 	myRez->Add("marcasite", "marcasite");
 	myRez->Add("marquise", "marquise");
@@ -176,6 +177,7 @@ void EmbeddedImage::loadResources()
 	myRez->Add("maxixe", "maxixe");
 	myRez->Add("mediumgirdle", "mediumgirdle");
 	myRez->Add("moissanite", "moissanite");
+	myRez->Add("moldavite", "molldavite");
 	myRez->Add("morganite", "morganite");
 	myRez->Add("moss agate", "moss agate");
 	myRez->Add("nephrite", "nephrite");
@@ -210,6 +212,7 @@ void EmbeddedImage::loadResources()
 	myRez->Add("quartz aventurine", "quartz aventurine");
 	myRez->Add("quartz chalcedony", "quartz chalcedony");
 	myRez->Add("quartz citrine", "quartz citrine");
+	myRez->Add("quartz rutillated", "rutillatedquartz");
 	myRez->Add("radiant cut (dia.)", "radiant_cut");
 	myRez->Add("rectangle", "rectangle");
 	myRez->Add("rectangle step cut", "rectangle_step_cut");
@@ -221,8 +224,10 @@ void EmbeddedImage::loadResources()
 	myRez->Add("round bead", "round_bead");
 	myRez->Add("round brilliant", "round_brilliant");
 	myRez->Add("round cut", "round_cut");
+	myRez->Add("rubbelite", "rubellite");
 	myRez->Add("ruby", "ruby");
 	myRez->Add("rutile", "rutile");
+	myRez->Add("rutillated quartz", "rutillatedquartz");
 	myRez->Add("sapphire", "sapphire");
 	myRez->Add("sard", "sard");
 	myRez->Add("scapolite", "scapolite");
@@ -258,6 +263,7 @@ void EmbeddedImage::loadResources()
 	myRez->Add("tektite", "tektite");
 	myRez->Add("thickgirdle","thickgirdle");	
 	myRez->Add("thingirdle","thingirdle");	
+	myRez->Add("titanite","sphene");	
 	myRez->Add("tiger eye","tigerseye");	
 	myRez->Add("topaz", "topaz");
 	myRez->Add("tortoiseshell", "tortoiseshell");
@@ -296,6 +302,6 @@ void EmbeddedImage::loadResources()
 
 }
 
-void EmbeddedImage::setRez(Dictionary<String^, String^>^ arr) {
+void CEmbeddedImage::setRez(Dictionary<String^, String^>^ arr) {
 	this->_rezImages = arr;
 };

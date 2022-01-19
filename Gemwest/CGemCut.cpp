@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "GemCut.h"
+#include "CGemCut.h"
 
-void GemCut::dictInitializer() {
+void CGemCut::dictInitializer() {
 	Dictionary<String^, String^>^ gemCut = gcnew Dictionary<String^, String^>;
 	array<String^>^ gemCutNames = gcnew array<String^>{
 			"briolette",
@@ -49,19 +49,19 @@ void GemCut::dictInitializer() {
 	gemCut->Add("rectangular cushion", "0.0022");
 	gemCut->Add("triangle", "0.0018");
 	this->setCut(gemCut);
-	this->_gemCutNames = gemCutNames;
+	this->m_gemCutNames = gemCutNames;
 }
 
-void GemCut::setCut(Dictionary<String^, String^>^ arr) {
-	this->_gemCut = arr;
-
-}
-
-String^ GemCut::getCut(String^ key) {
-	return this->_gemCut[key];
+void CGemCut::setCut(Dictionary<String^, String^>^ arr) {
+	this->m_gemCut = arr;
 
 }
 
-array<String^>^ GemCut::getCutNames() {
-	return _gemCutNames;
+String^ CGemCut::getCut(String^ key) {
+	return this->m_gemCut[key];
+
+}
+
+array<String^>^ CGemCut::getCutNames() {
+	return m_gemCutNames;
 }
