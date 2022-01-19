@@ -1348,32 +1348,32 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 
 				{
 					CTaperedBaguette^ TB = gcnew CTaperedBaguette;
-				
-					TB->Initializer(
-						this->comboCut->Text,
-						this->txtFactor->Text,
-						this->numDia1->Text,
-						this->numDia2->Text,
-						this->numDepth->Text,
-						this->numSG->Text,
-						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-						this->txtGirdleThickness->Text,
-						this->txtPavilionBulge->Text,
-						this->txtShapeOutline->Text,
-						this->radioBtnDia->Checked,
-						this->cbInterpolate->Checked,
-						this->cbRecut->Checked,
-						CCutDim::isRoundish(this->comboCut->Text),
-						this->radDepthAsPerc->Checked
-						
-							);
 					TB->maxW = this->numTaperedBaguetteMaxWidth->Text;
 					p = TB;
+				}else if(this->comboCut->Text->Equals(HART)) {
+					CDfancy^ HT = gcnew CDfancy;
+					HT->fancyType = HART;
+						p = HT;
+				}
+				else if (this->comboCut->Text->Equals(MARQ)) {
+					CDfancy^ MQ = gcnew CDfancy;
+						MQ->fancyType = MARQ;
+						p = MQ;
+				}
+				else if (this->comboCut->Text->Equals(PEAR)) {
+						CDfancy^ PR = gcnew CDfancy;
+							PR->fancyType = PEAR;
+							p = PR;
+				}
+				else if (CCutDim::isRoundish(this->comboCut->Text)){
+					CDround^ RC = gcnew CDround;
+					p = RC;
 				}
 				else {
-					CDround^ RC = gcnew CDround;
-
-					RC->Initializer(
+					CDnonround^ NR = gcnew CDnonround;
+					p = NR;
+				}
+					p->Initializer(
 
 						this->comboCut->Text,
 						this->txtFactor->Text,
@@ -1388,12 +1388,12 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 						this->radioBtnDia->Checked,
 						this->cbInterpolate->Checked,
 						this->cbRecut->Checked,
-						CCutDim::isRoundish(this->comboCut->Text),
+						//CCutDim::isRoundish(this->comboCut->Text),
 						this->radDepthAsPerc->Checked
 					);
-					p = RC;
-				}
-				this->txtResult->Text = System::Convert::ToString(Math::Round(p->term(),2))+"ct";
+				
+				
+				this->txtResult->Text = System::Convert::ToString(Math::Round(p->term(),3))+"ct";
 			} // is tapered baguette or other
 			else { // Calculate the weight of a Gemstone
 				CGcalc^ GC = gcnew CGcalc;

@@ -17,9 +17,9 @@ ref class CDcalc
 private:
 
 
-	Double dia_round_formula(void);
-	Double dia_oval_formula(void);
-	Double dia_lwd_formula(void);
+	//Double dia_round_formula(void);
+	//Double dia_oval_formula(void);
+	//Double dia_lwd_formula(void);
 	//String^ dia_tapered_baguette_formula(void);
 
 
@@ -49,7 +49,7 @@ protected:
 	Boolean m_isDiamond; // is it a diamond (not as found in the gem listing)
 	Boolean m_interp; // interpolate?
 	Boolean m_recut; // recut?
-	Boolean m_roundish; // is the cut round necessitating in a different LW formula?
+	//Boolean m_roundish; // is the cut round necessitating in a different LW formula?
 	Boolean m_depthIsPerc; // is the incoming Depth a represenatation of percentage or mm?
 	//void DCalc::fancyCutInitializer();
 
@@ -69,7 +69,7 @@ public:
 		Boolean isdiamond,
 		Boolean interp,
 		Boolean recut,
-		Boolean roundish,
+		//Boolean roundish,
 		Boolean depthisperc
 	);
 
@@ -82,7 +82,7 @@ public:
 	String^ print() {
 		return System::Convert::ToString(5 + "many CDcalc");
 	}
-	virtual Double term();
+	virtual Double term() override;
 	//static String^ dia_tapered_baguette_formula(String^ length, String^ minw, String^ maxw, String^ depth, String^ factor, String^ adj,Boolean perc) {
 	//
 	//    Double l = System::Convert::ToDouble(length);

@@ -7,6 +7,10 @@ using namespace System;
 //    return 0;
 //}
 #define TAPBAG "tapered baguette"
+#define HART "heart brilliant"
+#define MARQ "marquise brilliant"
+#define PEAR "pear brilliant"
+
 #include "Form1.h"
 
 using namespace System::Windows::Forms;
