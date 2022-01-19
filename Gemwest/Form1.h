@@ -78,6 +78,7 @@ namespace CppCLRWinformsProjekt {
 						MessageBox::Show("Division by Zero detected!");
 						return;
 					}
+					lwRatio = len / wid;
 					/*
 					cut hasn't been chosen so we need to determine how to calculate Width
 					Should it be just Width or Diameter-1 + Diameter-2/2 ?
@@ -85,7 +86,7 @@ namespace CppCLRWinformsProjekt {
 
 
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
-						lwRatio = Math::Round(len / wid, 2);
+						
 						wid = (wid + len) / 2;
 						depthPercentage = (dep / wid) * 100;
 						depmm = (wid * dep) / 100;
@@ -97,7 +98,7 @@ namespace CppCLRWinformsProjekt {
 					depthPercentage = (dep / wid) * 100;
 					depmm = (wid * dep) / 100;
 
-					String^ lwString = System::Convert::ToString(lwRatio);
+					String^ lwString = System::Convert::ToString(Math::Round(lwRatio,2));
 					String^ lWtxt = "LW Ratio = " + lwString + ":1";
 					String^ percString = System::Convert::ToString(Math::Round(depthPercentage,2));
 					String^ mmString = System::Convert::ToString(depmm);
