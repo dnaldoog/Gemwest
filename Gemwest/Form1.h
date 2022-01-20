@@ -58,6 +58,107 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 	private:
+
+		void calculate_carat_weight() {
+
+			CDcalc^ p = nullptr;
+			String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
+
+			if (this->comboCut->Text->Contains("choose")) {
+				MessageBox::Show(errorMessage);
+			}
+			else {
+				if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
+					if (this->comboCut->Text->Equals(TAPBAG))
+
+					{
+						CTaperedBaguette^ TB = gcnew CTaperedBaguette;
+						TB->maxW = this->numTaperedBaguetteMaxWidth->Text;
+						p = TB;
+					}
+					else if (this->comboCut->Text->Equals(MARQ)) {
+						CDfancy^ MQ = gcnew CDfancy;
+						MQ->fancyType = MARQ;
+						p = MQ;
+					}
+					else if (this->comboCut->Text->Equals(PEAR)) {
+						CDfancy^ PR = gcnew CDfancy;
+						PR->fancyType = PEAR;
+						p = PR;
+					}
+					else if (this->comboCut->Text->Equals(EMER)) {
+						CDfancy^ EM = gcnew CDfancy;
+						EM->fancyType = EMER;
+						p = EM;
+					}
+					/*		else if (this->comboCut->Text->Equals(OVAL)) {
+								CDfancy^ OV = gcnew CDfancy;
+								OV->fancyType = OVAL;
+								p = OV;
+							}*/
+					else if (this->comboCut->Text->Equals(RADI)) {
+						CDfancy^ RI = gcnew CDfancy;
+						RI->fancyType = RADI;
+						p = RI;
+					}
+					else if (CCutDim::isRoundish(this->comboCut->Text)) {
+						CDround^ RC = gcnew CDround;
+						p = RC;
+					}
+					else {
+						CDcalc^ defaultCutFormula = gcnew CDcalc;
+						p = defaultCutFormula;
+					}
+					p->Initializer(
+
+						this->comboCut->Text,
+						this->txtFactor->Text,
+						this->numDia1->Text,
+						this->numDia2->Text,
+						this->numDepth->Text,
+						this->numSG->Text,
+						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+						this->txtGirdleThickness->Text,
+						this->txtPavilionBulge->Text,
+						this->txtShapeOutline->Text,
+						this->radioBtnDia->Checked,
+						this->cbInterpolate->Checked,
+						this->cbRecut->Checked,
+						this->radDepthAsPerc->Checked
+					);
+
+
+					this->txtResult->Text = System::Convert::ToString(Math::Round(p->term(), 3)) + "ct";
+				} // is tapered baguette or other
+				else { // Calculate the weight of a Gemstone
+					CGcalc^ GC = gcnew CGcalc;
+					GC->Initializer(
+
+						this->comboCut->Text,
+						this->comboGems->Text,
+						this->txtFactor->Text,
+						this->numDia1->Text,
+						this->numDia2->Text,
+						this->numDepth->Text,
+						this->numSG->Text,
+						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+						this->txtGirdleThickness->Text,
+						this->txtPavilionBulge->Text,
+						this->txtShapeOutline->Text,
+						this->radioBtnDia->Checked,
+						this->cbInterpolate->Checked,
+						this->cbRecut->Checked,
+						CCutDim::isRoundish(this->comboCut->Text),
+						this->radDepthAsPerc->Checked
+					);
+				}
+
+			} // text is valid
+
+
+		} // main calculation code
+
+
 		Boolean fancyCutSelected(String^ sel) {
 			Boolean ret = false;
 			if (sel->Equals(MARQ) || sel->Equals(PEAR) || sel->Equals(EMER) || sel->Equals(RADI))
@@ -151,6 +252,7 @@ namespace CppCLRWinformsProjekt {
 
 			}
 			Form1::Update();
+			this->calculate_carat_weight();
 		}
 		void combine_adjustments() {
 
@@ -1356,99 +1458,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 	}
 		   /*************************************************************************************/
 	private: System::Void buttonCalc_Click(System::Object^ sender, System::EventArgs^ e) {
-		CDcalc^ p=nullptr;
-		String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
-		 
-		if (this->comboCut->Text->Contains("choose")) {
-			MessageBox::Show(errorMessage);
-		}
-		else {
-			if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
-				if (this->comboCut->Text->Equals(TAPBAG))
-
-				{
-					CTaperedBaguette^ TB = gcnew CTaperedBaguette;
-					TB->maxW = this->numTaperedBaguetteMaxWidth->Text;
-					p = TB;
-				}
-				else if (this->comboCut->Text->Equals(MARQ)) {
-					CDfancy^ MQ = gcnew CDfancy;
-						MQ->fancyType = MARQ;
-						p = MQ;
-				}
-				else if (this->comboCut->Text->Equals(PEAR)) {
-						CDfancy^ PR = gcnew CDfancy;
-							PR->fancyType = PEAR;
-							p = PR;
-				}
-				else if (this->comboCut->Text->Equals(EMER)) {
-					CDfancy^ EM = gcnew CDfancy;
-					EM->fancyType = EMER;
-					p = EM;
-				}
-		/*		else if (this->comboCut->Text->Equals(OVAL)) {
-					CDfancy^ OV = gcnew CDfancy;
-					OV->fancyType = OVAL;
-					p = OV;
-				}*/
-				else if (this->comboCut->Text->Equals(RADI)) {
-					CDfancy^ RI = gcnew CDfancy;
-					RI->fancyType = RADI;
-					p = RI;
-				}
-				else if (CCutDim::isRoundish(this->comboCut->Text)){
-					CDround^ RC = gcnew CDround;
-					p = RC;
-				}
-				else {
-					CDcalc^ defaultCutFormula = gcnew CDcalc;
-					p = defaultCutFormula;
-				}
-					p->Initializer(
-
-						this->comboCut->Text,
-						this->txtFactor->Text,
-						this->numDia1->Text,
-						this->numDia2->Text,
-						this->numDepth->Text,
-						this->numSG->Text,
-						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-						this->txtGirdleThickness->Text,
-						this->txtPavilionBulge->Text,
-						this->txtShapeOutline->Text,
-						this->radioBtnDia->Checked,
-						this->cbInterpolate->Checked,
-						this->cbRecut->Checked,
-						this->radDepthAsPerc->Checked
-					);
-				
-				
-				this->txtResult->Text = System::Convert::ToString(Math::Round(p->term(),3))+"ct";
-			} // is tapered baguette or other
-			else { // Calculate the weight of a Gemstone
-				CGcalc^ GC = gcnew CGcalc;
-				GC->Initializer(
-
-					this->comboCut->Text,
-					this->comboGems->Text,
-					this->txtFactor->Text,
-					this->numDia1->Text,
-					this->numDia2->Text,
-					this->numDepth->Text,
-					this->numSG->Text,
-					this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-					this->txtGirdleThickness->Text,
-					this->txtPavilionBulge->Text,
-					this->txtShapeOutline->Text,
-					this->radioBtnDia->Checked,
-					this->cbInterpolate->Checked,
-					this->cbRecut->Checked,
-					CCutDim::isRoundish(this->comboCut->Text),
-					this->radDepthAsPerc->Checked
-				);
-			}
-
-		} // text is valid
+		this->calculate_carat_weight();
 
 	}
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -1869,10 +1879,14 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 		/**************************IMAGE MANAGEMENT**************************/
 		shapeOutlineImage->setName(so);
 		this->picShapeOutline->Image = shapeOutlineImage->getName();
+		//this->calculate_carat_weight();
 	}
 	private: System::Void tbGirdleThickness_Scroll(System::Object^ sender, System::EventArgs^ e) {
 		combine_adjustments();
+
 		this->txtGirdleThickness->Text = this->tbGirdleThickness->Value.ToString() + "%";
+
+
 		String^ gThk = "thingirdle";
 		if (this->tbGirdleThickness->Value < 4) {
 			gThk = "thingirdle";
@@ -1904,6 +1918,7 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 		/**************************IMAGE MANAGEMENT**************************/
 		girdleImage->setName(gThk);
 		this->picGirdle->Image = girdleImage->getName();
+		//this->calculate_carat_weight();
 	}
 	private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::EventArgs^ e) {
 		combine_adjustments();
@@ -1928,6 +1943,7 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 		/**************************IMAGE MANAGEMENT**************************/
 		bulgeImage->setName(pBulge);
 		this->picBulge->Image = bulgeImage->getName();
+		//this->calculate_carat_weight();
 	}
 	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -1935,7 +1951,8 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
 	}
 	private: System::Void numDia1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-		this->onScreenInfo(); // print depth percentage and L/W Ratio	
+		this->onScreenInfo(); // print depth percentage and L/W Ratio
+
 	}
 	private: System::Void numDepth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
@@ -2150,5 +2167,6 @@ private: System::Void cbInterpolate_CheckedChanged(System::Object^ sender, Syste
 }
 private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
+
 };
 }
