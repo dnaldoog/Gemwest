@@ -69,10 +69,10 @@
     <ClInclude Include="CDround.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="CDnonround.h">
+    <ClInclude Include="CDfancy.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="CDfancy.h">
+    <ClInclude Include="Recut.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -131,10 +131,10 @@
     <ClCompile Include="CDround.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="CDnonround.cpp">
+    <ClCompile Include="CDfancy.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="CDfancy.cpp">
+    <ClCompile Include="Recut.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

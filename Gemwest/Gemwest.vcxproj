@@ -155,7 +155,6 @@
     <ClInclude Include="CDcalc.h" />
     <ClInclude Include="CDfancy.h" />
     <ClInclude Include="CDiamondCut.h" />
-    <ClInclude Include="CDnonround.h" />
     <ClInclude Include="CDround.h" />
     <ClInclude Include="CEmbeddedImage.h" />
     <ClInclude Include="Form1.h">
@@ -173,6 +172,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Recut.h" />
     <ClInclude Include="Resource.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
@@ -186,7 +186,6 @@
     <ClCompile Include="CBridgeCS.cpp" />
     <ClCompile Include="CCalculator.cpp" />
     <ClCompile Include="CDfancy.cpp" />
-    <ClCompile Include="CDnonround.cpp" />
     <ClCompile Include="CDround.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
     <ClCompile Include="CCutDim.cpp" />
@@ -206,6 +205,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="CTaperedBaguette.cpp" />
+    <ClCompile Include="Recut.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />

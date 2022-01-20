@@ -7,10 +7,11 @@
 #ifndef PCH_H
 #define PCH_H
 #define TAPBAG "tapered baguette"
-//#define HART "heart brilliant"
 #define MARQ "marquise brilliant"
 #define PEAR "pear brilliant"
 #define EMER "emerald cut diamond"
+//#define OVAL "oval brilliant"
+#define RADI "radiant cut (dia.)"
 // Fügen Sie hier Header hinzu, die vorkompiliert werden sollen.
 
 #endif //PCH_H
