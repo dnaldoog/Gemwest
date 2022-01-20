@@ -72,6 +72,9 @@
     <ClInclude Include="CDfancy.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Recut.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -129,6 +132,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="CDfancy.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Recut.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

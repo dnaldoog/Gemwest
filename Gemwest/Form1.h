@@ -8,7 +8,6 @@
 #include "CDcalc.h"
 #include "CTaperedBaguette.h"
 #include "CDround.h"
-#include "CDnonround.h"
 #include "CDfancy.h"
 #include "CGcalc.h"
 #include "LogForm.h"
@@ -59,10 +58,17 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 	private:
+		Boolean fancyCutSelected(String^ sel) {
+			Boolean ret = false;
+			if (sel->Equals(MARQ) || sel->Equals(PEAR) || sel->Equals(EMER) || sel->Equals(RADI))
+				ret = true;
+			return ret;
+		} // check whether a fancy cut was selected
 
 		void onScreenInfo() {
 			//Form1::Invalidate();
-
+			this->cbInterpolate->Enabled = false;
+			this->cbRecut->Enabled = false;
 			//Boolean isRoundish = this->isRoundish();
 			if (!this->numDia1->Text->Equals("0.00")) {
 
@@ -86,7 +92,7 @@ namespace CppCLRWinformsProjekt {
 
 
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
-						
+						this->cbRecut->Enabled = true;
 						wid = (wid + len) / 2;
 						depthPercentage = (dep / wid) * 100;
 						depmm = (wid * dep) / 100;
@@ -125,8 +131,8 @@ namespace CppCLRWinformsProjekt {
 						cd->setName("checklength");
 						this->picLW->Image = cd->getName();
 					}
-					if (this->comboCut->Text->Equals(MARQ) 
-						|| this->comboCut->Text->Equals(PEAR) || this->comboCut->Text->Equals(EMER)) {
+					if (fancyCutSelected(this->comboCut->Text)) {
+						this->cbInterpolate->Enabled = true;
 						CDfancy^ fancyFactor = gcnew CDfancy;
 						fancyFactor->dictInitializer();
 						fancyFactor->interpolate=this->cbInterpolate->Checked;
@@ -705,7 +711,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->numDepth->Name = L"numDepth";
 			this->numDepth->Size = System::Drawing::Size(98, 20);
 			this->numDepth->TabIndex = 35;
-			this->numDepth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 54, 0, 0, 65536 });
+			this->numDepth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 4, 0, 0, 0 });
 			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged);
 			// 
 			// pictAdjArrow
@@ -814,7 +820,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->numDia2->Name = L"numDia2";
 			this->numDia2->Size = System::Drawing::Size(98, 20);
 			this->numDia2->TabIndex = 34;
-			this->numDia2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9, 0, 0, 0 });
+			this->numDia2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
 			this->numDia2->ValueChanged += gcnew System::EventHandler(this, &Form1::numDia2_ValueChanged);
 			// 
 			// numDia1
@@ -826,7 +832,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->numDia1->Name = L"numDia1";
 			this->numDia1->Size = System::Drawing::Size(98, 20);
 			this->numDia1->TabIndex = 25;
-			this->numDia1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9, 0, 0, 0 });
+			this->numDia1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
 			this->numDia1->ValueChanged += gcnew System::EventHandler(this, &Form1::numDia1_ValueChanged);
 			// 
 			// txtPavilionBulge
@@ -953,15 +959,16 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->cbRecut->AutoSize = true;
 			this->cbRecut->Location = System::Drawing::Point(300, 84);
 			this->cbRecut->Name = L"cbRecut";
-			this->cbRecut->Size = System::Drawing::Size(197, 17);
+			this->cbRecut->Size = System::Drawing::Size(189, 17);
 			this->cbRecut->TabIndex = 12;
-			this->cbRecut->Text = L"Estimate Recut : Round Stones only";
+			this->cbRecut->Text = L"Estimate Recut : Round Diamonds";
 			this->cbRecut->UseVisualStyleBackColor = true;
 			this->cbRecut->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbRecut_CheckedChanged);
 			// 
 			// cbInterpolate
 			// 
 			this->cbInterpolate->AutoSize = true;
+			this->cbInterpolate->Enabled = false;
 			this->cbInterpolate->Location = System::Drawing::Point(300, 107);
 			this->cbInterpolate->Name = L"cbInterpolate";
 			this->cbInterpolate->Size = System::Drawing::Size(173, 17);
@@ -1379,11 +1386,11 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 					EM->fancyType = EMER;
 					p = EM;
 				}
-				else if (this->comboCut->Text->Equals(OVAL)) {
+		/*		else if (this->comboCut->Text->Equals(OVAL)) {
 					CDfancy^ OV = gcnew CDfancy;
 					OV->fancyType = OVAL;
 					p = OV;
-				}
+				}*/
 				else if (this->comboCut->Text->Equals(RADI)) {
 					CDfancy^ RI = gcnew CDfancy;
 					RI->fancyType = RADI;
@@ -1691,6 +1698,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 		}
 	}
 	private: System::Void comboCut_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		this->cbRecut->Enabled = false;
 		/*reset tapered baguette settings*/
 		this->numTaperedBaguetteMaxWidth->Hide();
 		this->lblMaxWidth->Hide();
@@ -1698,8 +1706,15 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 		this->lblDia2->Text = L"Diameter-2";
 		this->lblDia2->Location = Point(223, 14);
 		this->numDia2->Location = Point(205, 30);
+		if (fancyCutSelected(this->comboCut->Text)){
+			this->cbInterpolate->Enabled = true;
+		}
+		else {
+			this->cbInterpolate->Enabled = false;
 
+		}
 		if (CCutDim::isRoundish(this->comboCut->Text)) {
+			this->cbRecut->Enabled = true;
 			//MessageBox::Show("it's a round cut");
 			this->lblDia1->Text = "Diameter-1";
 			this->lblDia2->Text = "Diameter-2";
