@@ -129,6 +129,7 @@ namespace CppCLRWinformsProjekt {
 						|| this->comboCut->Text->Equals(PEAR) || this->comboCut->Text->Equals(EMER)) {
 						CDfancy^ fancyFactor = gcnew CDfancy;
 						fancyFactor->dictInitializer();
+						fancyFactor->interpolate=this->cbInterpolate->Checked;
 						fancyFactor->length = len;
 						fancyFactor->width = wid;
 						fancyFactor->fancyType = this->comboCut->Text;
@@ -956,7 +957,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->cbRecut->TabIndex = 12;
 			this->cbRecut->Text = L"Estimate Recut : Round Stones only";
 			this->cbRecut->UseVisualStyleBackColor = true;
-			this->cbRecut->Visible = false;
+			this->cbRecut->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbRecut_CheckedChanged);
 			// 
 			// cbInterpolate
 			// 
@@ -967,7 +968,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->cbInterpolate->TabIndex = 11;
 			this->cbInterpolate->Text = L"Interpolate Fancy Cut Formula\?";
 			this->cbInterpolate->UseVisualStyleBackColor = true;
-			this->cbInterpolate->Visible = false;
+			this->cbInterpolate->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbInterpolate_CheckedChanged);
 			// 
 			// groupBox2
 			// 
@@ -1362,10 +1363,6 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 					CTaperedBaguette^ TB = gcnew CTaperedBaguette;
 					TB->maxW = this->numTaperedBaguetteMaxWidth->Text;
 					p = TB;
-				//}else if(this->comboCut->Text->Equals(HART)) {
-				//	CDfancy^ HT = gcnew CDfancy;
-				//	HT->fancyType = HART;
-				//		p = HT;
 				}
 				else if (this->comboCut->Text->Equals(MARQ)) {
 					CDfancy^ MQ = gcnew CDfancy;
@@ -1382,13 +1379,23 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 					EM->fancyType = EMER;
 					p = EM;
 				}
+				else if (this->comboCut->Text->Equals(OVAL)) {
+					CDfancy^ OV = gcnew CDfancy;
+					OV->fancyType = OVAL;
+					p = OV;
+				}
+				else if (this->comboCut->Text->Equals(RADI)) {
+					CDfancy^ RI = gcnew CDfancy;
+					RI->fancyType = RADI;
+					p = RI;
+				}
 				else if (CCutDim::isRoundish(this->comboCut->Text)){
 					CDround^ RC = gcnew CDround;
 					p = RC;
 				}
 				else {
-					CDnonround^ NR = gcnew CDnonround;
-					p = NR;
+					CDcalc^ defaultCutFormula = gcnew CDcalc;
+					p = defaultCutFormula;
 				}
 					p->Initializer(
 
@@ -1405,7 +1412,6 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 						this->radioBtnDia->Checked,
 						this->cbInterpolate->Checked,
 						this->cbRecut->Checked,
-						//CCutDim::isRoundish(this->comboCut->Text),
 						this->radDepthAsPerc->Checked
 					);
 				
@@ -1964,16 +1970,6 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 		System::Decimal reverseMm2Perc;
 		System::Decimal reversePercentage2mm;
 
-		/*	if (this->lblDia1->Text->Equals("Diameter-1") && this->comboCut->Text->Equals("choose from below")) {
-				isRoundish = true;
-			}
-			else if (this->lblDia1->Text->Equals("Length") && this->comboCut->Text->Equals("choose from below")) {
-				isRoundish = false;
-			}
-			else {*/
-			//	isRoundish = CCutDim::isRoundish(this->comboCut->Text);
-			//}
-			/*********************************************************************************/
 		if (CCutDim::isRoundish(this->comboCut->Text)) {
 			//lwRatio = System::Decimal::Round(lengthInMm / widthInMm, 2);
 			widthInMm.Add(lengthInMm, widthInMm) / 2;
@@ -2133,6 +2129,11 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 
 
 private: System::Void numTaperedBaguetteMaxWidth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void cbInterpolate_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	this->onScreenInfo();
+}
+private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

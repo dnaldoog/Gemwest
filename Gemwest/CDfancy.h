@@ -8,6 +8,7 @@ private:
     String^ m_fancy;
     Double m_length;
     Double m_width;
+    Boolean m_interpolate;
 
     Dictionary<String^, String^>^ m_marquise_formulae;// = gcnew Dictionary<String^, String^>;
     Dictionary<String^, String^>^ m_pear_formulae;// = gcnew Dictionary<String^, String^>;
@@ -43,10 +44,17 @@ public:
             m_width = w;
         }
     }
+    property Boolean interpolate
+    {
+        Boolean get() { return m_interpolate; }
+        void set(Boolean b)
+        {
+            m_interpolate = b;
+        }
+    }
 
-
-    //virtual Double term() override;
     void dictInitializer();
+    Double interpolateFactor();
 
     Double lw();  // return length to width ratio
     String^ setFancyRecutFactor(); // calculate the correct factor for fancy cut stones

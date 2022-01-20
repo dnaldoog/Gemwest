@@ -69,9 +69,6 @@
     <ClInclude Include="CDround.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="CDnonround.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="CDfancy.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -129,9 +126,6 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="CDround.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="CDnonround.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="CDfancy.cpp">
