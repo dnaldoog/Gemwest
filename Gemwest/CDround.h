@@ -5,5 +5,7 @@ ref class CDround :
 {
 public:
     virtual Double term() override;
+   // String^ return_recut() override;
+
 };
 

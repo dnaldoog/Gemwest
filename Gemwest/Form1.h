@@ -61,7 +61,7 @@ namespace CppCLRWinformsProjekt {
 
 		void calculate_carat_weight() {
 
-			CDcalc^ p = nullptr;
+			CDcalc^ p = nullptr;			
 			String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
 
 			if (this->comboCut->Text->Contains("choose")) {
@@ -69,6 +69,7 @@ namespace CppCLRWinformsProjekt {
 			}
 			else {
 				if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
+
 					if (this->comboCut->Text->Equals(TAPBAG))
 
 					{
@@ -102,9 +103,9 @@ namespace CppCLRWinformsProjekt {
 						p = RI;
 					}
 					else if (CCutDim::isRoundish(this->comboCut->Text)) {
-						CDround^ RC = gcnew CDround;
+						CDround^ RC = gcnew CDround;						
 						p = RC;
-					}
+												}
 					else {
 						CDcalc^ defaultCutFormula = gcnew CDcalc;
 						p = defaultCutFormula;
@@ -127,7 +128,10 @@ namespace CppCLRWinformsProjekt {
 						this->radDepthAsPerc->Checked
 					);
 
-
+					if (CCutDim::isRoundish(this->comboCut->Text)) {
+						//this->txtEstRecut->Text = p->return_recut() + " ct";
+						this->txtEstRecut->Text = p->recut_weight() + " ct";
+					}
 					this->txtResult->Text = System::Convert::ToString(Math::Round(p->term(), 3)) + "ct";
 				} // is tapered baguette or other
 				else { // Calculate the weight of a Gemstone
