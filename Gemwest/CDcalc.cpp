@@ -75,3 +75,45 @@ Double CDcalc::term() {
 	return c;
 }
 
+String^ CDcalc::recut_weight() {
+	Double l, w, d, f, a;
+	l = System::Convert::ToDouble(m_d1);
+	w = System::Convert::ToDouble(m_d2);
+	d = System::Convert::ToDouble(m_depth);
+	a = System::Convert::ToDouble(m_adj);
+	f = System::Convert::ToDouble(m_factor);
+	Double^ p = nullptr;
+	const Double lowThreshold = 55;/*ie threshold is 54%*/
+	const Double highThreshold = 62;/*ie threshold is 62%*/
+	Double newDiameter = (l + w) / 2;
+	Double newDepth = d;
+	Double recutWeight;
+	/*****************************/
+	Double depthpercentage = w / d;/*get original depth percentage*/
+	//Int16 dpCompareWithThreshold = (guint16)depthpercentage;/*cast*/
+	//g_print("dpCompareWithThreshold %d\n",dpCompareWithThreshold);
+	//tooltipString = g_strdup_printf("Depth Percentage%4.0f%% falls within %d and %d", depthpercentage, lowThreshold, highThreshold);
+	//cutLegendLabel = g_strdup_printf("No Recut:: %4.0f%%", depthpercentage);
+	//print_RECUTIMAGE_PIX(noimage_c, tooltipString, cutLegendLabel);/*reset image*/
+	/*****************************/
+	Double DeepStone = (w * 62) / 100;
+	Double ShallowStone = (d * 100) / 58;
+	/*****************************/
+	//if (strcmp(cText, DIAOVALCUT) == 0 || strcmp(cText, DIAROUND) == 0 || strcmp(cText, DIAOLDMINE) == 0 || strcmp(cText, DIAOLDEURO) == 0) {
+		//print_RECUTIMAGE_PIX(noRecut_c, tooltipString, cutLegendLabel);
+	if (depthpercentage < lowThreshold) {/*it's a shallow stone*/
+		//p = ShallowStone;
+		newDiameter = ShallowStone;
+		//tooltipString = "shallow stone";
+		//print_RECUTIMAGE_PIX(shallow, tooltipString, tooltipString);
+	}
+	if (depthpercentage > highThreshold) {/*it's a deep stone*/
+		//tooltipString = "deep stone";
+		//p = DeepStone;
+		newDepth = DeepStone;
+		//print_RECUTIMAGE_PIX(deep, tooltipString, tooltipString);
+	}
+	recutWeight = (newDiameter * newDiameter) * newDepth * 0.0061;
+
+	return System::Convert::ToString(Math::Round(recutWeight,3));
+}

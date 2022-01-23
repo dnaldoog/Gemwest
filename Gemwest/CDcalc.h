@@ -15,23 +15,6 @@ ref class CDcalc
 
 	*/
 private:
-
-
-	//Double dia_round_formula(void);
-	//Double dia_oval_formula(void);
-	//Double dia_lwd_formula(void);
-	//String^ dia_tapered_baguette_formula(void);
-
-
-
-
-		//Dictionary<Double, Double>^ _marquise_formulae;
-		//Dictionary<Double, Double>^ _emerald_formulae;
-		//Dictionary<Double, Double>^ _pear_formulae;
-		//Dictionary<String^, String^>^ _em_map;
-		//Dictionary<String^, String^>^ _mq_map;
-		//Dictionary<String^, String^>^ _pe_map;
-		//void dictInitializer();
 		/*following are Form1 data passed to object*/
 protected:
 	String^ m_cutName; // name of cut
@@ -83,6 +66,7 @@ public:
 		return System::Convert::ToString(5 + "many CDcalc");
 	}
 	virtual Double term() override;
+	virtual String^ recut_weight() override;
 	//static String^ dia_tapered_baguette_formula(String^ length, String^ minw, String^ maxw, String^ depth, String^ factor, String^ adj,Boolean perc) {
 	//
 	//    Double l = System::Convert::ToDouble(length);
@@ -109,4 +93,5 @@ public:
 	//    Double myResult = l * ((minwidth + maxwidth) / 2) * d * f * a;// don't forget to round to 3 if set tp 0.0003 in preferences
 	//    return System::Convert::ToString(Math::Round(myResult,2));
 	//}
+
 };
