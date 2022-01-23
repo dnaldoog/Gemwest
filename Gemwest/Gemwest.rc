@@ -60,7 +60,6 @@ IDI_ICON1               ICON                    "app.ico"
 // PNG
 //
 
-IDB_PNG1                PNG                     "D:\\miscellaneous\\Qt_builds\\gemwest200\\resources\\icons\\gemwest_48x48.png"
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
