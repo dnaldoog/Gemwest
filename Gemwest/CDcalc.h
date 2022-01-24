@@ -1,12 +1,14 @@
 #pragma once
 #include "CCalculator.h"
+//#include "IDiamond.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
 using namespace System::Diagnostics;
 
 
-ref class CDcalc
+ref class CDcalc : CCalculator
+//ref class CDcalc : IDiamond
 {
 	/*
 
@@ -52,46 +54,19 @@ public:
 		Boolean isdiamond,
 		Boolean interp,
 		Boolean recut,
-		//Boolean roundish,
+
 		Boolean depthisperc
 	);
 
-	/*end constructor*/
- //virtual String^ calculate();
-	//virtual Double term();
-	//property  String^ Calculate;
 
 public:
 	String^ print() {
 		return System::Convert::ToString(5 + "many CDcalc");
 	}
-	virtual Double term() override;
-	virtual String^ recut_weight() override;
-	//static String^ dia_tapered_baguette_formula(String^ length, String^ minw, String^ maxw, String^ depth, String^ factor, String^ adj,Boolean perc) {
-	//
-	//    Double l = System::Convert::ToDouble(length);
-	//    Double minwidth = System::Convert::ToDouble(minw);
-	//    Double maxwidth = System::Convert::ToDouble(maxw);
-	//    Double d = System::Convert::ToDouble(depth);
-	//    Double f = System::Convert::ToDouble(factor);
-	//    Double a = System::Convert::ToDouble(adj);
-	//    a = (100 + a) / 100;
-	//    
-	//    if (perc) { d = (((minwidth + maxwidth) / 2)*l) * d / 100; } // we need to convert depth to mm
-	//   // if (perc) { d = ((l+((minwidth + maxwidth) / 2)) * d) / 100; } // we need to convert depth to mm
-	//
-	//    //NOT SURE ABOUT THE ABOVE
-	//    /*********************************************************************************
-	// *
-	// *   String ^List list = str.split(rx);
-	// *
-	// * Length x (MaxWidth+MinWidth)/2 * depth * adjustments * 0.00915
-	// *
-	// *
-	// *
-	// *********************************************************************************/
-	//    Double myResult = l * ((minwidth + maxwidth) / 2) * d * f * a;// don't forget to round to 3 if set tp 0.0003 in preferences
-	//    return System::Convert::ToString(Math::Round(myResult,2));
-	//}
-
-};
+	property Double getAdj {
+		Double get() { return System::Convert::ToDouble(m_adj); }
+	}
+	 Double term() override;
+	 Double recut_weight() override;
+	static  Double adjustments(Double,Double);
+	};

@@ -69,6 +69,26 @@ namespace CppCLRWinformsProjekt {
 			}
 			else {
 				if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
+				CDcalc^ defaultCutFormula = gcnew CDcalc;
+				p = defaultCutFormula;
+				p->Initializer(
+
+					this->comboCut->Text,
+					this->txtFactor->Text,
+					this->numDia1->Text,
+					this->numDia2->Text,
+					this->numDepth->Text,
+					this->numSG->Text,
+					this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+					this->txtGirdleThickness->Text,
+					this->txtPavilionBulge->Text,
+					this->txtShapeOutline->Text,
+					this->radioBtnDia->Checked,
+					this->cbInterpolate->Checked,
+					this->cbRecut->Checked,
+					this->radDepthAsPerc->Checked
+				);
+
 
 					if (this->comboCut->Text->Equals(TAPBAG))
 
@@ -105,33 +125,17 @@ namespace CppCLRWinformsProjekt {
 					else if (CCutDim::isRoundish(this->comboCut->Text)) {
 						CDround^ RC = gcnew CDround;						
 						p = RC;
-												}
-					else {
-						CDcalc^ defaultCutFormula = gcnew CDcalc;
-						p = defaultCutFormula;
-					}
-					p->Initializer(
-
-						this->comboCut->Text,
-						this->txtFactor->Text,
-						this->numDia1->Text,
-						this->numDia2->Text,
-						this->numDepth->Text,
-						this->numSG->Text,
-						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-						this->txtGirdleThickness->Text,
-						this->txtPavilionBulge->Text,
-						this->txtShapeOutline->Text,
-						this->radioBtnDia->Checked,
-						this->cbInterpolate->Checked,
-						this->cbRecut->Checked,
-						this->radDepthAsPerc->Checked
-					);
-
-					if (CCutDim::isRoundish(this->comboCut->Text)) {
-						//this->txtEstRecut->Text = p->return_recut() + " ct";
 						this->txtEstRecut->Text = p->recut_weight() + " ct";
-					}
+												}
+					//else {
+					//	
+					//}
+					//
+
+					//if (CCutDim::isRoundish(this->comboCut->Text)) {
+					//	//this->txtEstRecut->Text = p->return_recut() + " ct";
+
+					//}
 					this->txtResult->Text = System::Convert::ToString(Math::Round(p->term(), 3)) + "ct";
 				} // is tapered baguette or other
 				else { // Calculate the weight of a Gemstone

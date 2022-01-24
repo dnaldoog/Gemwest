@@ -319,3 +319,12 @@ Radiant Cut : Approximate Estimated Carat Weight = Length × Width × Depth × Adju
 
 	return Math::Round(r, 5);
 }
+Double CDfancy::term() {
+	Double l, w, d, f;
+	l = System::Convert::ToDouble(m_d1);
+	w = System::Convert::ToDouble(m_d2);
+	d = System::Convert::ToDouble(m_depth);
+	f = System::Convert::ToDouble(m_factor);
+	Double c = l * w * d * f;
+	return c;
+}

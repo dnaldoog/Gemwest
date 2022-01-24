@@ -165,6 +165,7 @@
     <ClInclude Include="HelpForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="IDiamond.h" />
     <ClInclude Include="LogForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -196,6 +197,7 @@
     <ClCompile Include="CGcalc.cpp" />
     <ClCompile Include="CGemCut.cpp" />
     <ClCompile Include="HelpForm.cpp" />
+    <ClCompile Include="IDiamond.cpp" />
     <ClCompile Include="LogForm.cpp" />
     <ClCompile Include="OptionsForm.cpp" />
     <ClCompile Include="pch.cpp">
