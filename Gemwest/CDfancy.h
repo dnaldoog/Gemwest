@@ -9,9 +9,9 @@ public:
     explicit CDfancy(
         String^ cutName, //
         String^ fac, //
-        String^ d1, //
-        String^ d2, //
-        String^ dep, //
+        Decimal d1,//
+        Decimal d2,//
+        Decimal dep,//
         String^ sg, //
         String^ adj, //
         String^ gt, //
@@ -82,6 +82,6 @@ public:
     Double lw();  // return length to width ratio
     String^ setFancyRecutFactor(); // calculate the correct factor for fancy cut stones
 
-    virtual Double term() override;
+    virtual Decimal term() override;
 };
 

@@ -7,9 +7,9 @@ public:
 	explicit Recut(
 		String^ cutName, //
 		String^ fac, //
-		String^ d1, //
-		String^ d2, //
-		String^ dep, //
+		Decimal d1,//
+		Decimal d2,//
+		Decimal dep,//
 		String^ sg, //
 		String^ adj, //
 		String^ gt, //

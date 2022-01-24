@@ -180,6 +180,7 @@
     </ClInclude>
     <ClInclude Include="resource1.h" />
     <ClInclude Include="CTaperedBaguette.h" />
+    <ClInclude Include="SpecificGravity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutForm1.cpp" />
@@ -208,6 +209,7 @@
     </ClCompile>
     <ClCompile Include="CTaperedBaguette.cpp" />
     <ClCompile Include="Recut.cpp" />
+    <ClCompile Include="SpecificGravity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />

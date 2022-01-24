@@ -7,9 +7,9 @@ public:
 	explicit CDround(
 		String^ cutName, //
 		String^ fac, //
-		String^ d1, //
-		String^ d2, //
-		String^ dep, //
+		Decimal d1,//
+		Decimal d2,//
+		Decimal dep,//
 		String^ sg, //
 		String^ adj, //
 		String^ gt, //
@@ -21,10 +21,10 @@ public:
 		Boolean recut, //
 
 		Boolean depthisperc) : CDcalc(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, interp, recut, depthisperc) {}
-    //virtual Double term() const = 0;
-    Double term() override;
-    Double recut_weight() override;
-    //virtual Double term() override;
+    //virtual Decimal term() const = 0;
+    Decimal term() override;
+    Decimal recut_weight() override;
+    //virtual Decimal term() override;
     //String^ recut_weight() override;
 
 };

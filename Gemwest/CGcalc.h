@@ -16,9 +16,9 @@ private:
     String^ m_cutName; // name of cut
     String^ m_gemName; // name of gem (material)
     String^ m_factor; // factor selected by cut choice
-    String^ m_d1; // diameter 1 (could be length)
-    String^ m_d2; // diamter 2 (could be width)
-    String^ m_depth; // depth of stone in millimeters
+    Decimal m_d1; // diameter 1 (could be length)
+    Decimal m_d2; // diamter 2 (could be width)
+    Decimal m_depth; // depth of stone in millimeters
     String^ m_sg; //Specific Gravity
 
     String^ m_adj; // total user adjustments  
@@ -46,9 +46,9 @@ public:
         String^ cutName,
         String^ gemName,
         String^ fac,
-        String^ d1,
-        String^ d2,
-        String^ dep,
+        Decimal d1,
+        Decimal d2,
+        Decimal dep,
         String^ sg,
         String^ adj,
         String^ gt,

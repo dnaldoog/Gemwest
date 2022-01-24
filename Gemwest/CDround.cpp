@@ -1,20 +1,23 @@
 #include "pch.h"
 #include "CDround.h"
-Double CDround::term() {
-	Double d1, d2, d, f,a, adj,avd,av,caratweight;
-	d1 = System::Convert::ToDouble(m_d1);
-	d2 = System::Convert::ToDouble(m_d2);
-	d = System::Convert::ToDouble(m_depth);
-	f = System::Convert::ToDouble(m_factor);
-	a = System::Convert::ToDouble(m_adj);
-	adj = CDcalc::adjustments(d1*d2*d*f,a);
-	av = (d1 + d2) / 2;
-	avd = Math::Pow(av, 2);
-	caratweight = av * av * d * adj * f;
-	return caratweight;
+Decimal CDround::term() {
+	//Double d1, d2, d, f,a, adj,avd,av,caratweight;
+	Decimal factor = System::Convert::ToDecimal(m_factor);
+	//d1 = System::Convert::ToDouble(m_d1);
+	//d2 = System::Convert::ToDouble(m_d2);
+	//d = System::Convert::ToDouble(m_depth);
+	//f = System::Convert::ToDouble(m_factor);
+	//a = System::Convert::ToDouble(m_adj);
+	//adj = CDcalc::adjustments(d1*d2*d*f,a);
+	//av = (d1 + d2) / 2;
+	//avd = Math::Pow(av, 2);
+	//caratweight = av * av * d * adj * f;
+	//return caratweight;
+	Decimal av_diameter = (m_d1 + m_d2) / 2;
+	return Decimal::Multiply(av_diameter,av_diameter) * m_depth * factor;
 }
 
-Double CDround::recut_weight() {
+Decimal CDround::recut_weight() {
 	Double l, w, d, f, a,adj;
 	l = System::Convert::ToDouble(m_d1);
 	w = System::Convert::ToDouble(m_d2);
@@ -50,5 +53,5 @@ Double CDround::recut_weight() {
 	}
 	recutWeight = (newDiameter * newDiameter) * newDepth * f;
 
-	return Math::Round(recutWeight, 3);
+	return Math::Round(System::Convert::ToDecimal(recutWeight), 3);
 }
