@@ -3,6 +3,24 @@
 ref class Recut :
     public CDround
 {
+public:
+	explicit Recut(
+		String^ cutName, //
+		String^ fac, //
+		String^ d1, //
+		String^ d2, //
+		String^ dep, //
+		String^ sg, //
+		String^ adj, //
+		String^ gt, //
+		String^ pv, //
+		String^ so, //
+
+		Boolean isdiamond, //
+		Boolean interp, //
+		Boolean recut, //
+
+		Boolean depthisperc) : CDround(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, interp, recut, depthisperc) {}
 };
 /**/
 ///*

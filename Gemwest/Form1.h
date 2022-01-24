@@ -69,46 +69,84 @@ namespace CppCLRWinformsProjekt {
 			}
 			else {
 				if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
-				CDcalc^ defaultCutFormula = gcnew CDcalc;
-				p = defaultCutFormula;
-				p->Initializer(
-
-					this->comboCut->Text,
-					this->txtFactor->Text,
-					this->numDia1->Text,
-					this->numDia2->Text,
-					this->numDepth->Text,
-					this->numSG->Text,
-					this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-					this->txtGirdleThickness->Text,
-					this->txtPavilionBulge->Text,
-					this->txtShapeOutline->Text,
-					this->radioBtnDia->Checked,
-					this->cbInterpolate->Checked,
-					this->cbRecut->Checked,
-					this->radDepthAsPerc->Checked
-				);
+				
 
 
 					if (this->comboCut->Text->Equals(TAPBAG))
 
 					{
-						CTaperedBaguette^ TB = gcnew CTaperedBaguette;
+						CTaperedBaguette^ TB = gcnew CTaperedBaguette(
+							this->comboCut->Text,
+							this->txtFactor->Text,
+							this->numDia1->Text,
+							this->numDia2->Text,
+							this->numDepth->Text,
+							this->numSG->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
+							this->txtPavilionBulge->Text,
+							this->txtShapeOutline->Text,
+							this->radioBtnDia->Checked,
+							this->cbInterpolate->Checked,
+							this->cbRecut->Checked,
+							this->radDepthAsPerc->Checked
+							);
 						TB->maxW = this->numTaperedBaguetteMaxWidth->Text;
 						p = TB;
 					}
 					else if (this->comboCut->Text->Equals(MARQ)) {
-						CDfancy^ MQ = gcnew CDfancy;
+						CDfancy^ MQ = gcnew CDfancy(
+							this->comboCut->Text,
+							this->txtFactor->Text,
+							this->numDia1->Text,
+							this->numDia2->Text,
+							this->numDepth->Text,
+							this->numSG->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
+							this->txtPavilionBulge->Text,
+							this->txtShapeOutline->Text,
+							this->radioBtnDia->Checked,
+							this->cbInterpolate->Checked,
+							this->cbRecut->Checked,
+							this->radDepthAsPerc->Checked
+						);
 						MQ->fancyType = MARQ;
 						p = MQ;
 					}
 					else if (this->comboCut->Text->Equals(PEAR)) {
-						CDfancy^ PR = gcnew CDfancy;
+						CDfancy^ PR = gcnew CDfancy(
+							this->comboCut->Text,
+							this->txtFactor->Text,
+							this->numDia1->Text,
+							this->numDia2->Text,
+							this->numDepth->Text,
+							this->numSG->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
+							this->txtPavilionBulge->Text,
+							this->txtShapeOutline->Text,
+							this->radioBtnDia->Checked,
+							this->cbInterpolate->Checked,
+							this->cbRecut->Checked,
+							this->radDepthAsPerc->Checked
+						);
 						PR->fancyType = PEAR;
 						p = PR;
 					}
 					else if (this->comboCut->Text->Equals(EMER)) {
-						CDfancy^ EM = gcnew CDfancy;
+						CDfancy^ EM = gcnew CDfancy(
+							this->comboCut->Text,
+							this->txtFactor->Text,
+							this->numDia1->Text,
+							this->numDia2->Text,
+							this->numDepth->Text,
+							this->numSG->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
+							this->txtPavilionBulge->Text,
+							this->txtShapeOutline->Text,
+							this->radioBtnDia->Checked,
+							this->cbInterpolate->Checked,
+							this->cbRecut->Checked,
+							this->radDepthAsPerc->Checked
+							);
 						EM->fancyType = EMER;
 						p = EM;
 					}
@@ -118,15 +156,97 @@ namespace CppCLRWinformsProjekt {
 								p = OV;
 							}*/
 					else if (this->comboCut->Text->Equals(RADI)) {
-						CDfancy^ RI = gcnew CDfancy;
+						CDfancy^ RI = gcnew CDfancy(
+							this->comboCut->Text,
+							this->txtFactor->Text,
+							this->numDia1->Text,
+							this->numDia2->Text,
+							this->numDepth->Text,
+							this->numSG->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
+							this->txtPavilionBulge->Text,
+							this->txtShapeOutline->Text,
+							this->radioBtnDia->Checked,
+							this->cbInterpolate->Checked,
+							this->cbRecut->Checked,
+							this->radDepthAsPerc->Checked
+							);
 						RI->fancyType = RADI;
 						p = RI;
 					}
 					else if (CCutDim::isRoundish(this->comboCut->Text)) {
-						CDround^ RC = gcnew CDround;						
+						CDround^ RC = gcnew CDround(
+							this->comboCut->Text,
+							this->txtFactor->Text,
+							this->numDia1->Text,
+							this->numDia2->Text,
+							this->numDepth->Text,
+							this->numSG->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
+							this->txtPavilionBulge->Text,
+							this->txtShapeOutline->Text,
+							this->radioBtnDia->Checked,
+							this->cbInterpolate->Checked,
+							this->cbRecut->Checked,
+							this->radDepthAsPerc->Checked);
 						p = RC;
-						this->txtEstRecut->Text = p->recut_weight() + " ct";
-												}
+					//	p->Initializer(
+
+							//this->comboCut->Text,
+							//this->txtFactor->Text,
+							//this->numDia1->Text,
+							//this->numDia2->Text,
+							//this->numDepth->Text,
+							//this->numSG->Text,
+							//this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+							//this->txtGirdleThickness->Text,
+							//this->txtPavilionBulge->Text,
+							//this->txtShapeOutline->Text,
+							//this->radioBtnDia->Checked,
+							//this->cbInterpolate->Checked,
+							//this->cbRecut->Checked,
+							//this->radDepthAsPerc->Checked
+						//);
+						this->txtEstRecut->Text = RC->recut_weight() + " ct";
+					}
+					else {
+
+						CDcalc^ defaultCutFormula = gcnew CDcalc(
+							this->comboCut->Text,
+							this->txtFactor->Text,
+							this->numDia1->Text,
+							this->numDia2->Text,
+							this->numDepth->Text,
+							this->numSG->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
+							this->txtPavilionBulge->Text,
+							this->txtShapeOutline->Text,
+							this->radioBtnDia->Checked,
+							this->cbInterpolate->Checked,
+							this->cbRecut->Checked,
+							this->radDepthAsPerc->Checked
+							);
+
+						p = defaultCutFormula;
+						/*defaultCutFormula->Initializer(*/
+
+	/*						this->comboCut->Text,
+							this->txtFactor->Text,
+							this->numDia1->Text,
+							this->numDia2->Text,
+							this->numDepth->Text,
+							this->numSG->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
+							this->txtGirdleThickness->Text,
+							this->txtPavilionBulge->Text,
+							this->txtShapeOutline->Text,
+							this->radioBtnDia->Checked,
+							this->cbInterpolate->Checked,
+							this->cbRecut->Checked,
+							this->radDepthAsPerc->Checked*/
+						//);
+
+					}
 					//else {
 					//	
 					//}
@@ -242,7 +362,22 @@ namespace CppCLRWinformsProjekt {
 					}
 					if (fancyCutSelected(this->comboCut->Text)) {
 						this->cbInterpolate->Enabled = true;
-						CDfancy^ fancyFactor = gcnew CDfancy;
+						CDfancy^ fancyFactor = gcnew CDfancy(
+							
+							this->comboCut->Text,
+							this->txtFactor->Text,
+							this->numDia1->Text,
+							this->numDia2->Text,
+							this->numDepth->Text,
+							this->numSG->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
+							this->txtPavilionBulge->Text,
+							this->txtShapeOutline->Text,
+							this->radioBtnDia->Checked,
+							this->cbInterpolate->Checked,
+							this->cbRecut->Checked,
+							this->radDepthAsPerc->Checked
+						);
 						fancyFactor->dictInitializer();
 						fancyFactor->interpolate=this->cbInterpolate->Checked;
 						fancyFactor->length = len;
@@ -2004,24 +2139,25 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 		this->numDepth->Increment = System::Decimal(0.1);
 		Boolean isRoundish = true;
 		//Double currentDepthInPercentage = System::Convert::ToDouble(this->numDepth->Text);
-		System::Decimal  lengthInMm = System::Convert::ToDecimal(this->numDia1->Text);
-		System::Decimal  widthInMm = System::Convert::ToDecimal(this->numDia2->Text);
+		Double  lengthInMm = System::Convert::ToDouble(this->numDia1->Text);
+		Double  widthInMm = System::Convert::ToDouble(this->numDia2->Text);
 		//System::Decimal lwRatio;
-		System::Decimal reverseMm2Perc;
-		System::Decimal reversePercentage2mm;
+		Double reverseMm2Perc;
+		Double reversePercentage2mm;
 
 		if (CCutDim::isRoundish(this->comboCut->Text)) {
 			//lwRatio = System::Decimal::Round(lengthInMm / widthInMm, 2);
-			widthInMm.Add(lengthInMm, widthInMm) / 2;
+			widthInMm=(lengthInMm+widthInMm) / 2;
 
 		}
 		if (this->radDepthAsPerc->Checked) {
-			reverseMm2Perc = Math::Round((this->numDepth->Value / widthInMm) * 100, 2);
+			reverseMm2Perc = Math::Round((System::Convert::ToDouble(this->numDepth->Text) / widthInMm) * 100, 2);
 			this->numDepth->Text = System::Convert::ToString(reverseMm2Perc);
 		}
 		else
 		{
-			reversePercentage2mm = (widthInMm * this->numDepth->Value) / 100;
+			//reversePercentage2mm = (widthInMm * this->numDepth->Value) / 100;
+			reversePercentage2mm = CDcalc::depthConvertFromPercent(widthInMm, System::Convert::ToDouble(this->numDepth->Text) / 100,true);
 			this->numDepth->Text = System::Convert::ToString(reversePercentage2mm);
 		}
 	}

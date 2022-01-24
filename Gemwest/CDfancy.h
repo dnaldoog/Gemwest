@@ -4,6 +4,25 @@
 ref class CDfancy :
     public CDcalc
 {
+public:
+
+    explicit CDfancy(
+        String^ cutName, //
+        String^ fac, //
+        String^ d1, //
+        String^ d2, //
+        String^ dep, //
+        String^ sg, //
+        String^ adj, //
+        String^ gt, //
+        String^ pv, //
+        String^ so, //
+
+        Boolean isdiamond, //
+        Boolean interp, //
+        Boolean recut, //
+
+        Boolean depthisperc) : CDcalc(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, interp, recut, depthisperc) {}
 private:
     String^ m_fancy;
     Double m_length;
