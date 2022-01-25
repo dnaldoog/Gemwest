@@ -59,7 +59,97 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 	private:
+		/***************************************************************************************/
+		void repaint_girdle_thickness() {
 
+			String^ gThk = "thingirdle";
+			if (this->tbGirdleThickness->Value < 4) {
+				gThk = "thingirdle";
+			}
+			else if (this->tbGirdleThickness->Value < 10) {
+				gThk = "mediumgirdle";
+			}
+			else if (this->tbGirdleThickness->Value < 14) {
+				gThk = "thickgirdle";
+			}
+			else if (this->tbGirdleThickness->Value < 21) {
+				gThk = "sthickgirdle";
+			}
+			else {
+				gThk = "thingirdle";
+			}
+			/*Thin girdle, subtract 1% to 2%.
+	Slightly thick, add 1% to 2%.
+	Thick, add 3% to 4%.
+	Very thick, add 5% to 6%.
+	Extra thick, add 7% to 10%.
+	Pavilion Bulge
+	Slight, add 3% to 5%.
+	Noticeable, add 6% to 8%.
+	Obvious, add 9% to 12%.
+	Extreme, add 13% to 18%.
+	A long culet due to steep pavilion angles can add up to 5%.*/
+			CEmbeddedImage^ girdleImage = gcnew CEmbeddedImage;
+			/**************************IMAGE MANAGEMENT**************************/
+			girdleImage->setName(gThk);
+			this->picGirdle->Image = girdleImage->getName();
+
+		}
+		/***************************************************************************************/
+		void repaint_pavilion_bulge() {
+			String^ pBulge = "bulge_non";
+			if (this->tbPavilionBulge->Value < 6) {
+				pBulge = "bulge_non";
+			}
+			else if (this->tbPavilionBulge->Value < 11) {
+				pBulge = "bulge_sml";
+			}
+			else if (this->tbPavilionBulge->Value < 21) {
+				pBulge = "bulge_med";
+			}
+			else if (this->tbPavilionBulge->Value < 31) {
+				pBulge = "bulge_big";
+			}
+			else {
+				pBulge = "bulge_non";
+			}
+			CEmbeddedImage^ bulgeImage = gcnew CEmbeddedImage;
+			/**************************IMAGE MANAGEMENT**************************/
+			bulgeImage->setName(pBulge);
+			this->picBulge->Image = bulgeImage->getName();
+		}
+		/***************************************************************************************/
+		void repaint_shape_outline() {
+			String^ so = "so3";
+
+			if (this->tbShapeOutline->Value < -3) {
+				so = "so1";
+			}
+			else if (this->tbShapeOutline->Value < 0) {
+				so = "so2";
+			}
+			else if (this->tbShapeOutline->Value < 1) {
+				so = "so3";
+			}
+			else if (this->tbShapeOutline->Value < 5) {
+				so = "so4";
+			}
+			else if (this->tbShapeOutline->Value < 10) {
+				so = "so5";
+			}
+			else if (this->tbShapeOutline->Value < 16) {
+				so = "so6";
+			}
+			else {
+				so = "so3";
+			}
+			CEmbeddedImage^ shapeOutlineImage = gcnew CEmbeddedImage;
+			/**************************IMAGE MANAGEMENT**************************/
+			shapeOutlineImage->setName(so);
+			this->picShapeOutline->Image = shapeOutlineImage->getName();
+
+		}
+		/***************************************************************************************/
 		void calculate_carat_weight() {
 
 			CDcalc^ p = nullptr;
@@ -151,11 +241,6 @@ namespace CppCLRWinformsProjekt {
 						EM->fancyType = EMER;
 						p = EM;
 					}
-					/*		else if (this->comboCut->Text->Equals(OVAL)) {
-								CDfancy^ OV = gcnew CDfancy;
-								OV->fancyType = OVAL;
-								p = OV;
-							}*/
 					else if (this->comboCut->Text->Equals(RADI)) {
 						CDfancy^ RI = gcnew CDfancy(
 							this->comboCut->Text,
@@ -191,23 +276,6 @@ namespace CppCLRWinformsProjekt {
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked);
 						p = RC;
-						//	p->Initializer(
-
-								//this->comboCut->Text,
-								//this->txtFactor->Text,
-								//this->numDia1->Value,
-								//this->numDia2->Value,
-								//this->numDepth->Value,
-								//this->numSG->Text,
-								//this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-								//this->txtGirdleThickness->Text,
-								//this->txtPavilionBulge->Text,
-								//this->txtShapeOutline->Text,
-								//this->radioBtnDia->Checked,
-								//this->cbInterpolate->Checked,
-								//this->cbRecut->Checked,
-								//this->radDepthAsPerc->Checked
-							//);
 						this->txtEstRecut->Text = RC->recut_weight() + " ct";
 					}
 					else {
@@ -227,36 +295,9 @@ namespace CppCLRWinformsProjekt {
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked
 						);
-
 						p = defaultCutFormula;
-						/*defaultCutFormula->Initializer(*/
-
-	/*						this->comboCut->Text,
-							this->txtFactor->Text,
-							this->numDia1->Value,
-							this->numDia2->Value,
-							this->numDepth->Value,
-							this->numSG->Text,
-							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-							this->txtGirdleThickness->Text,
-							this->txtPavilionBulge->Text,
-							this->txtShapeOutline->Text,
-							this->radioBtnDia->Checked,
-							this->cbInterpolate->Checked,
-							this->cbRecut->Checked,
-							this->radDepthAsPerc->Checked*/
-							//);
-
 					}
-					//else {
-					//	
-					//}
-					//
 
-					//if (CCutDim::isRoundish(this->comboCut->Text)) {
-					//	//this->txtEstRecut->Text = p->return_recut() + " ct";
-
-					//}
 					this->txtResult->Text = System::Convert::ToString(Math::Round(p->term(), 3)) + "ct";
 					Decimal tot = this->numDia1->Value * this->numDia2->Value * this->numDepth->Value * System::Convert::ToDecimal(this->txtFactor->Text);
 					this->toolStrip->Text = L"Total weight=" + this->numDia1->Value + " x " + this->numDia2->Value + " x " + this->numDepth->Value + " x " + this->txtFactor->Text + "=" + tot + "ct";
@@ -289,7 +330,7 @@ namespace CppCLRWinformsProjekt {
 
 		} // main calculation code
 
-
+		/***************************************************************************************/
 		Boolean fancyCutSelected(String^ sel) {
 			Boolean ret = false;
 			if (sel->Equals(MARQ) || sel->Equals(PEAR) || sel->Equals(EMER) || sel->Equals(RADI))
@@ -336,9 +377,9 @@ namespace CppCLRWinformsProjekt {
 					depthPercentage = (dep / wid) * 100;
 					depmm = (wid * dep) / 100;
 
-					String^ lwString = System::Convert::ToString(Math::Round(lwRatio,2));
+					String^ lwString = System::Convert::ToString(Math::Round(lwRatio, 2));
 					String^ lWtxt = "LW Ratio = " + lwString + ":1";
-					String^ percString = System::Convert::ToString(Math::Round(depthPercentage,2));
+					String^ percString = System::Convert::ToString(Math::Round(depthPercentage, 2));
 					String^ mmString = System::Convert::ToString(depmm);
 
 					if (this->radDepthAsPerc->Checked) {
@@ -366,7 +407,7 @@ namespace CppCLRWinformsProjekt {
 					if (fancyCutSelected(this->comboCut->Text)) {
 						this->cbInterpolate->Enabled = true;
 						CDfancy^ fancyFactor = gcnew CDfancy(
-							
+
 							this->comboCut->Text,
 							this->txtFactor->Text,
 							this->numDia1->Value,
@@ -382,7 +423,7 @@ namespace CppCLRWinformsProjekt {
 							this->radDepthAsPerc->Checked
 						);
 						fancyFactor->dictInitializer();
-						fancyFactor->interpolate=this->cbInterpolate->Checked;
+						fancyFactor->interpolate = this->cbInterpolate->Checked;
 						fancyFactor->length = len;
 						fancyFactor->width = wid;
 						fancyFactor->fancyType = this->comboCut->Text;
@@ -400,10 +441,11 @@ namespace CppCLRWinformsProjekt {
 			Form1::Update();
 			this->calculate_carat_weight();
 		}
+		/***************************************************************************************/
 		void combine_adjustments() {
 
 			Double sum;
-			sum=this->tbGirdleThickness->Value+this->tbPavilionBulge->Value+this->tbShapeOutline->Value;
+			sum = this->tbGirdleThickness->Value + this->tbPavilionBulge->Value + this->tbShapeOutline->Value;
 			this->txtGlobAdjust->Text = System::Convert::ToString(sum) + "%";
 		}
 
@@ -444,10 +486,10 @@ namespace CppCLRWinformsProjekt {
 			//this->Refresh();
 
 		}
-
+		/***************************************************************************************/
 		void draw_lw(String^ lwStr) {	}
-			
-			void draw_lw2(String^ lwStr) {
+
+		void draw_lw2(String^ lwStr) {
 			//delete this->picLW->Image;
 			if (!this->comboCut->Text->Equals(TAPBAG)) {
 				this->picLW->Image = nullptr;
@@ -588,8 +630,11 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::GroupBox^ groupBoxChooseDiaOrGem;
 
 	private: System::Windows::Forms::TextBox^ txtEstRecut;
-private: System::Windows::Forms::NumericUpDown^ numTaperedBaguetteMaxWidth;
-private: System::Windows::Forms::Label^ lblMaxWidth;
+	private: System::Windows::Forms::NumericUpDown^ numTaperedBaguetteMaxWidth;
+	private: System::Windows::Forms::Label^ lblMaxWidth;
+	private: System::Windows::Forms::Button^ btnClearSO;
+	private: System::Windows::Forms::Button^ btnClearPB;
+	private: System::Windows::Forms::Button^ btnClearGT;
 
 
 
@@ -614,6 +659,9 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
+			this->btnClearSO = (gcnew System::Windows::Forms::Button());
+			this->btnClearPB = (gcnew System::Windows::Forms::Button());
+			this->btnClearGT = (gcnew System::Windows::Forms::Button());
 			this->lblMaxWidth = (gcnew System::Windows::Forms::Label());
 			this->numTaperedBaguetteMaxWidth = (gcnew System::Windows::Forms::NumericUpDown());
 			this->picShapeOutline = (gcnew System::Windows::Forms::PictureBox());
@@ -804,6 +852,9 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->lwguide->Controls->Add(this->btnClearSO);
+			this->lwguide->Controls->Add(this->btnClearPB);
+			this->lwguide->Controls->Add(this->btnClearGT);
 			this->lwguide->Controls->Add(this->lblMaxWidth);
 			this->lwguide->Controls->Add(this->numTaperedBaguetteMaxWidth);
 			this->lwguide->Controls->Add(this->picShapeOutline);
@@ -837,9 +888,45 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->lwguide->Controls->Add(this->btnEq);
 			this->lwguide->Location = System::Drawing::Point(12, 27);
 			this->lwguide->Name = L"lwguide";
-			this->lwguide->Size = System::Drawing::Size(505, 334);
+			this->lwguide->Size = System::Drawing::Size(505, 352);
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
+			// 
+			// btnClearSO
+			// 
+			this->btnClearSO->BackColor = System::Drawing::SystemColors::Desktop;
+			this->btnClearSO->ForeColor = System::Drawing::SystemColors::Window;
+			this->btnClearSO->Location = System::Drawing::Point(389, 244);
+			this->btnClearSO->Name = L"btnClearSO";
+			this->btnClearSO->Size = System::Drawing::Size(47, 23);
+			this->btnClearSO->TabIndex = 58;
+			this->btnClearSO->Text = L"X";
+			this->btnClearSO->UseVisualStyleBackColor = false;
+			this->btnClearSO->Click += gcnew System::EventHandler(this, &Form1::btnClearSO_Click);
+			// 
+			// btnClearPB
+			// 
+			this->btnClearPB->BackColor = System::Drawing::SystemColors::Desktop;
+			this->btnClearPB->ForeColor = System::Drawing::SystemColors::Window;
+			this->btnClearPB->Location = System::Drawing::Point(288, 244);
+			this->btnClearPB->Name = L"btnClearPB";
+			this->btnClearPB->Size = System::Drawing::Size(47, 23);
+			this->btnClearPB->TabIndex = 57;
+			this->btnClearPB->Text = L"X";
+			this->btnClearPB->UseVisualStyleBackColor = false;
+			this->btnClearPB->Click += gcnew System::EventHandler(this, &Form1::btnClearPB_Click);
+			// 
+			// btnClearGT
+			// 
+			this->btnClearGT->BackColor = System::Drawing::SystemColors::Desktop;
+			this->btnClearGT->ForeColor = System::Drawing::SystemColors::Window;
+			this->btnClearGT->Location = System::Drawing::Point(187, 244);
+			this->btnClearGT->Name = L"btnClearGT";
+			this->btnClearGT->Size = System::Drawing::Size(47, 23);
+			this->btnClearGT->TabIndex = 54;
+			this->btnClearGT->Text = L"X";
+			this->btnClearGT->UseVisualStyleBackColor = false;
+			this->btnClearGT->Click += gcnew System::EventHandler(this, &Form1::btnClearGT_Click);
 			// 
 			// lblMaxWidth
 			// 
@@ -868,7 +955,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			// 
 			this->picShapeOutline->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picShapeOutline->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picShapeOutline->Location = System::Drawing::Point(373, 259);
+			this->picShapeOutline->Location = System::Drawing::Point(363, 273);
 			this->picShapeOutline->Name = L"picShapeOutline";
 			this->picShapeOutline->Size = System::Drawing::Size(85, 67);
 			this->picShapeOutline->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -890,7 +977,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			// 
 			this->picGirdle->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picGirdle->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picGirdle->Location = System::Drawing::Point(165, 259);
+			this->picGirdle->Location = System::Drawing::Point(165, 273);
 			this->picGirdle->Name = L"picGirdle";
 			this->picGirdle->Size = System::Drawing::Size(85, 67);
 			this->picGirdle->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -901,7 +988,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			// 
 			this->picBulge->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picBulge->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picBulge->Location = System::Drawing::Point(270, 259);
+			this->picBulge->Location = System::Drawing::Point(264, 273);
 			this->picBulge->Name = L"picBulge";
 			this->picBulge->Size = System::Drawing::Size(85, 67);
 			this->picBulge->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -1244,7 +1331,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->groupBox2->Controls->Add(this->cbInterpolate);
 			this->groupBox2->Controls->Add(this->cbRecut);
 			this->groupBox2->ForeColor = System::Drawing::Color::Black;
-			this->groupBox2->Location = System::Drawing::Point(12, 473);
+			this->groupBox2->Location = System::Drawing::Point(12, 499);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(505, 159);
 			this->groupBox2->TabIndex = 13;
@@ -1398,7 +1485,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			// statusbar
 			// 
 			this->statusbar->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStrip });
-			this->statusbar->Location = System::Drawing::Point(0, 635);
+			this->statusbar->Location = System::Drawing::Point(0, 661);
 			this->statusbar->Name = L"statusbar";
 			this->statusbar->Size = System::Drawing::Size(529, 22);
 			this->statusbar->SizingGrip = false;
@@ -1504,7 +1591,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			this->groupBoxCalculate->Controls->Add(this->txtResult);
 			this->groupBoxCalculate->Controls->Add(this->buttonCalc);
 			this->groupBoxCalculate->Controls->Add(this->buttonClear);
-			this->groupBoxCalculate->Location = System::Drawing::Point(12, 359);
+			this->groupBoxCalculate->Location = System::Drawing::Point(12, 385);
 			this->groupBoxCalculate->Name = L"groupBoxCalculate";
 			this->groupBoxCalculate->Size = System::Drawing::Size(505, 71);
 			this->groupBoxCalculate->TabIndex = 16;
@@ -1523,7 +1610,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			// 
 			this->groupBoxChooseDiaOrGem->Controls->Add(this->radioBtnGem);
 			this->groupBoxChooseDiaOrGem->Controls->Add(this->radioBtnDia);
-			this->groupBoxChooseDiaOrGem->Location = System::Drawing::Point(12, 436);
+			this->groupBoxChooseDiaOrGem->Location = System::Drawing::Point(12, 462);
 			this->groupBoxChooseDiaOrGem->Name = L"groupBoxChooseDiaOrGem";
 			this->groupBoxChooseDiaOrGem->Size = System::Drawing::Size(505, 31);
 			this->groupBoxChooseDiaOrGem->TabIndex = 17;
@@ -1533,7 +1620,7 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(529, 657);
+			this->ClientSize = System::Drawing::Size(529, 683);
 			this->Controls->Add(this->groupBoxChooseDiaOrGem);
 			this->Controls->Add(this->groupBoxCalculate);
 			this->Controls->Add(this->statusbar);
@@ -1630,223 +1717,14 @@ private: System::Windows::Forms::Label^ lblMaxWidth;
 	private: System::Void txtResult_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-		//SpecificGravity^ sg = gcnew SpecificGravity;
-		//sg->dictInitializer();
-		//sg->getSG();
 		SpecificGravity^ sg = gcnew SpecificGravity; // Declare object
 		sg->dictInitializer();
-
-		//Dictionary<String^, String^>^ sg;
-		//sg = gcnew Dictionary<String^, String^>();
-		//sg->Add("agate", "2.6");
-		//sg->Add("albite", "2.58");
-		//sg->Add("actinolite", "3.01");
-		//sg->Add("alexandrite", "3.71");
-		//sg->Add("almandine", "4");
-		//sg->Add("amazonite", "2.56");
-		//sg->Add("amber", "1.08");
-		//sg->Add("amethyst", "2.65");
-		//sg->Add("ammolite", "2.80");
-		//sg->Add("andalusite", "3.15");
-		//sg->Add("apatite", "3.2");
-		//sg->Add("aquamarine", "2.69");
-		//sg->Add("aragonite", "2.94");
-		//sg->Add("aventurine quartz", "2.66");
-		//sg->Add("aventurine", "2.6");
-		//sg->Add("axinite (ferro-axinite)", "3.31");
-		//sg->Add("azurite", "3.8");
-		//sg->Add("bakelite", "1.26");
-		//sg->Add("benitoite", "3.67");
-		//sg->Add("beryl aquamarine", "2.69");
-		//sg->Add("beryl colourless", "2.7");
-		//sg->Add("beryl heliodor", "2.7");
-		//sg->Add("beryl morganite", "2.7");
-		//sg->Add("beryl", "2.7");
-		//sg->Add("beryl maxixe", "2.7");
-		//sg->Add("blende", "4.09");
-		//sg->Add("bloodstone", "2.6");
-		//sg->Add("blue topaz", "3.53");
-		//sg->Add("bonamite", "4.35");
-		//sg->Add("bowenite", "2.59");
-		//sg->Add("brazilianite", "2.99");
-		//sg->Add("calcite", "2.71");
-		//sg->Add("californite", "3.3");
-		//sg->Add("carborundum", "3.17");
-		//sg->Add("carnelian", "2.64");
-		//sg->Add("cassiterite", "6.9");
-		//sg->Add("cat's eye chrysoberyl", "3.71");
-		//sg->Add("celluloid", "1.38");
-		//sg->Add("chalcedony agate", "2.6");
-		//sg->Add("chalcedony aventurine", "2.6");
-		//sg->Add("chalcedony carnelian", "2.64");
-		//sg->Add("chalcedony heliotrope", "2.6");
-		//sg->Add("chalcedony moss agate", "2.6");
-		//sg->Add("chalcedony onyx", "2.6");
-		//sg->Add("chalcedony", "2.61");
-		//sg->Add("chrome diopside", "3.3");
-		//sg->Add("chrysoberyl alexandrite", "3.71");
-		//sg->Add("chrysoberyl cat's eye", "3.71");
-		//sg->Add("chrysoberyl cymophane", "3.71");
-		//sg->Add("chrysoberyl", "3.71");
-		//sg->Add("chrysocolla", "2.1");
-		//sg->Add("chrysoprase", "2.6");
-		//sg->Add("citrine", "2.65");
-		//sg->Add("colourless beryl", "2.7");
-		//sg->Add("conch pearl", "2.84");
-		//sg->Add("copal resin", "1.06");
-		//sg->Add("coral", "2.68");
-		//sg->Add("cornelian", "2.64");
-		//sg->Add("corundum ruby", "3.99");
-		//sg->Add("corundum sapphire", "3.99");
-		//sg->Add("corundum synthetic", "4");
-		//sg->Add("corundum", "4");
-		//sg->Add("crocidolite", "2.66");
-		//sg->Add("cubic zirconia", "5.80");
-		//sg->Add("cymophane", "3.71");
-		//sg->Add("cz", "5.80");
-		//sg->Add("danburite", "3");
-		//sg->Add("datolite", "2.95");
-		//sg->Add("demantoid", "3.85");
-		//sg->Add("diamond", "3.52");
-		//sg->Add("diopside", "3.29");
-		//sg->Add("ekanite", "3.28");
-		//sg->Add("emerald (Gilson)", "2.70");
-		//sg->Add("emerald", "2.71");
-		//sg->Add("enstatite", "3.27");
-		//sg->Add("epidote", "3.4");
-		//sg->Add("euclase", "3.1");
-		//sg->Add("fibrolite", "3.25");
-		//sg->Add("fire opal", "2");
-		//sg->Add("fluorite", "3.18");
-		//sg->Add("garnet almandine", "4");
-		//sg->Add("garnet demantoid", "3.85");
-		//sg->Add("garnet grossular (pure)", "3.59");
-		//sg->Add("garnet hessonite", "3.63");
-		//sg->Add("garnet (mali)", "3.67");
-		//sg->Add("garnet pyrope", "3.8");
-		//sg->Add("garnet spessartine", "4.16");
-		//sg->Add("garnet uvarovite", "3.77");
-		//sg->Add("garnet", "4.00");
-		//sg->Add("ggg", "7.05");
-		//sg->Add("glass", "2.65");
-		//sg->Add("golden beryl", "2.7");
-		//sg->Add("goshenite", "2.7");
-		//sg->Add("grossular garnet", "3.59");
-		//sg->Add("grossular", "3.59");
-		//sg->Add("grossular (pure)", "3.59");
-		//sg->Add("haematite", "5.1");
-		//sg->Add("hambergite", "2.35");
-		//sg->Add("heliodor", "2.7");
-		//sg->Add("hematite", "5.1");
-		//sg->Add("hemimorphite", "3.52");
-		//sg->Add("hessonite", "3.63");
-		//sg->Add("hiddenite", "3.18");
-		//sg->Add("howlite", "2.56");
-		//sg->Add("idocrase", "3.4");
-		//sg->Add("imperial topaz", "3.53");
-		//sg->Add("iolite", "2.63");
-		//sg->Add("jadeite", "3.33");
-		//sg->Add("jasper", "2.55");
-		//sg->Add("jet", "1.33");
-		//sg->Add("kornerupine", "3.32");
-		//sg->Add("kunzite", "3.18");
-		//sg->Add("kyanite", "3.68");
-		//sg->Add("lapis lazuli", "2.8");
-		//sg->Add("larimar", "4.75");
-		//sg->Add("lazulite", "3.1");
-		//sg->Add("lepidolite", "2.8");
-		//sg->Add("lithium niobate", "4.64");
-		//sg->Add("malachite", "3.8");
-		//sg->Add("malaia garnet", "3.08");
-		//sg->Add("mali garnet", "3.67");
-		//sg->Add("marcasite", "4.9");
-		//sg->Add("maw-sit-sit", "3");
-		//sg->Add("maxixe", "2.71");
-		//sg->Add("moissanite", "3.15");
-		//sg->Add("moldavite", "2.36");
-		//sg->Add("morganite", "2.7");
-		//sg->Add("moss agate", "2.6");
-		//sg->Add("nephrite", "3.00");
-		//sg->Add("obsidian", "2.5");
-		//sg->Add("odontolite", "3.1");
-		//sg->Add("onyx", "2.6");
-		//sg->Add("opal", "2.15");
-		//sg->Add("painite", "4.01");
-		//sg->Add("padparadscha", "4.00");
-		//sg->Add("paraíba tourmaline", "3.05");
-		//sg->Add("pearl", "2.71");
-		//sg->Add("periclase", "3.59");
-		//sg->Add("peridot", "3.34");
-		//sg->Add("phenakite", "2.96");
-		//sg->Add("pink beryl", "2.7");
-		//sg->Add("pink topaz", "3.53");
-		//sg->Add("pleonaste", "3.8");
-		//sg->Add("porcelain", "2.3");
-		//sg->Add("prehnite", "2.87");
-		//sg->Add("pseudophite", "2.7");
-		//sg->Add("pyrites", "4.9");
-		//sg->Add("pyrope", "3.8");
-		//sg->Add("quartz amethyst", "2.65");
-		//sg->Add("quartz aventurine", "2.66");
-		//sg->Add("quartz chalcedony", "2.61");
-		//sg->Add("quartz citrine", "2.65");
-		//sg->Add("quartz rutillated", "4.23");
-		//sg->Add("quartz", "2.65");
-		//sg->Add("rhodochrosite", "3.6");
-		//sg->Add("rhodonite", "3.6");
-		//sg->Add("rubbelite", "3.06");
-		//sg->Add("ruby", "3.99");
-		//sg->Add("rutile", "4.25");
-		//sg->Add("rutillated quartz", "4.23");
-		//sg->Add("sapphire", "3.99");
-		//sg->Add("sard", "2.61");
-		//sg->Add("scapolite", "2.7");
-		//sg->Add("scheelite", "6.1");
-		//sg->Add("schorl", "3.06");
-		//sg->Add("serpentine", "2.6");
-		//sg->Add("seraphinite", "2.8");
-		//sg->Add("silica glass", "2.21");
-		//sg->Add("sinhalite", "3.48");
-		//sg->Add("smithsonite", "4.35");
-		//sg->Add("spessartine", "4.16");
-		//sg->Add("sphalerite", "4.09");
-		//sg->Add("sphene", "3.53");
-		//sg->Add("spinel synthetic", "3.65");
-		//sg->Add("spinel", "3.65");
-		//sg->Add("spodumene", "3.18");
-		//sg->Add("strontium titanate", "5.13");
-		//sg->Add("sugilite", "2.74");
-		//sg->Add("synthetic corundum", "4");
-		//sg->Add("taaffeite", "3.61");
-		//sg->Add("tanzanite", "3.35");
-		//sg->Add("tektite", "2.4");
-		//sg->Add("tiger eye", "2.8");
-		//sg->Add("titanite", "3.53");
-		//sg->Add("topaz", "3.53");
-		//sg->Add("tortoiseshell", "1.29");
-		//sg->Add("tourmaline schorl", "3.06");
-		//sg->Add("tourmaline", "3.06");
-		//sg->Add("turquoise", "2.8");
-		//sg->Add("uvarovite", "3.77");
-		//sg->Add("variscite", "2.55");
-		//sg->Add("vesuvianite", "3.40");
-		//sg->Add("vivianite", "2.6");
-		//sg->Add("water opal", "2");
-		//sg->Add("yttrium aluminate YAG", "4.57");
-		//sg->Add("zircon (metamict)", "4");
-		//sg->Add("zircon (normal)", "4.69");
-		//sg->Add("zirconia (cubic)", "5.7");
-		//sg->Add("zoisite", "3.35");
-
-String^ mySg = sg->getSG(this->comboGems->Text); // dc->_diaCut[this->comboCut->Text];
-//MessageBox::Show(myDiamondCut);
-//this->txt->Text = myDiamondCut;
-		/**************************IMAGE MANAGEMENT**************************/
+		/**************************IMAGE MANAGEMENT FOR GEMSTONES**************************/
 		CEmbeddedImage^ gemImage = gcnew CEmbeddedImage;
-		if (sg->mySG->ContainsKey(this->comboGems->Text)) {
+		if (sg->prop_sg->ContainsKey(this->comboGems->Text)) {
 			gemImage->setName(this->comboGems->Text);
 			this->picGem->Image = gemImage->getName();
-			this->numSG->Text = sg->mySG[this->comboGems->Text];
+			this->numSG->Text = sg->prop_sg[this->comboGems->Text];
 		} //stop crash if key doesn't exist
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1871,7 +1749,7 @@ String^ mySg = sg->getSG(this->comboGems->Text); // dc->_diaCut[this->comboCut->
 		this->lblDia2->Text = L"Diameter-2";
 		this->lblDia2->Location = Point(223, 14);
 		this->numDia2->Location = Point(205, 30);
-		if (fancyCutSelected(this->comboCut->Text)){
+		if (fancyCutSelected(this->comboCut->Text)) {
 			this->cbInterpolate->Enabled = true;
 		}
 		else {
@@ -1915,8 +1793,8 @@ String^ mySg = sg->getSG(this->comboGems->Text); // dc->_diaCut[this->comboCut->
 			this->numTaperedBaguetteMaxWidth->Show();
 			this->lblMaxWidth->Show();
 			this->numDia2->Width = this->numTaperedBaguetteMaxWidth->Width;
-			this->lblDia2->Location = Point(223,14);
-			this->numDia2->Location = Point(223,30);
+			this->lblDia2->Location = Point(223, 14);
+			this->numDia2->Location = Point(223, 30);
 
 			this->lblDia2->Text = L"Min Width";
 		}
@@ -2005,100 +1883,19 @@ String^ mySg = sg->getSG(this->comboGems->Text); // dc->_diaCut[this->comboCut->
 		*/
 		combine_adjustments();
 		this->txtShapeOutline->Text = this->tbShapeOutline->Value.ToString() + "%";
-
-		String^ so = "so3";
-
-		if (this->tbShapeOutline->Value < -3) {
-			so = "so1";
-		}
-		else if (this->tbShapeOutline->Value < 0) {
-			so = "so2";
-		}
-		else if (this->tbShapeOutline->Value < 1) {
-			so = "so3";
-		}
-		else if (this->tbShapeOutline->Value < 5) {
-			so = "so4";
-		}
-		else if (this->tbShapeOutline->Value < 10) {
-			so = "so5";
-		}
-		else if (this->tbShapeOutline->Value < 16) {
-			so = "so6";
-		}
-		else {
-			so = "so3";
-		}
-		//this->label1->Text = L": " + so;
-		CEmbeddedImage^ shapeOutlineImage = gcnew CEmbeddedImage;
-		/**************************IMAGE MANAGEMENT**************************/
-		shapeOutlineImage->setName(so);
-		this->picShapeOutline->Image = shapeOutlineImage->getName();
-		//this->calculate_carat_weight();
+		repaint_shape_outline();
 	}
+
 	private: System::Void tbGirdleThickness_Scroll(System::Object^ sender, System::EventArgs^ e) {
 		combine_adjustments();
-
 		this->txtGirdleThickness->Text = this->tbGirdleThickness->Value.ToString() + "%";
-
-
-		String^ gThk = "thingirdle";
-		if (this->tbGirdleThickness->Value < 4) {
-			gThk = "thingirdle";
-		}
-		else if (this->tbGirdleThickness->Value < 10) {
-			gThk = "mediumgirdle";
-		}
-		else if (this->tbGirdleThickness->Value < 14) {
-			gThk = "thickgirdle";
-		}
-		else if (this->tbGirdleThickness->Value < 21) {
-			gThk = "sthickgirdle";
-		}
-		else {
-			gThk = "thingirdle";
-		}
-		/*Thin girdle, subtract 1% to 2%.
-Slightly thick, add 1% to 2%.
-Thick, add 3% to 4%.
-Very thick, add 5% to 6%.
-Extra thick, add 7% to 10%.
-Pavilion Bulge
-Slight, add 3% to 5%.
-Noticeable, add 6% to 8%.
-Obvious, add 9% to 12%.
-Extreme, add 13% to 18%.
-A long culet due to steep pavilion angles can add up to 5%.*/
-		CEmbeddedImage^ girdleImage = gcnew CEmbeddedImage;
-		/**************************IMAGE MANAGEMENT**************************/
-		girdleImage->setName(gThk);
-		this->picGirdle->Image = girdleImage->getName();
-		//this->calculate_carat_weight();
+		repaint_girdle_thickness();
 	}
 	private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::EventArgs^ e) {
 		combine_adjustments();
 		this->txtPavilionBulge->Text = this->tbPavilionBulge->Value.ToString() + "%";
-		String^ pBulge = "bulge_non";
-		if (this->tbPavilionBulge->Value < 6) {
-			pBulge = "bulge_non";
-		}
-		else if (this->tbPavilionBulge->Value < 11) {
-			pBulge = "bulge_sml";
-		}
-		else if (this->tbPavilionBulge->Value < 21) {
-			pBulge = "bulge_med";
-		}
-		else if (this->tbPavilionBulge->Value < 31) {
-			pBulge = "bulge_big";
-		}
-		else {
-			pBulge = "bulge_non";
-		}
-		CEmbeddedImage^ bulgeImage = gcnew CEmbeddedImage;
-		/**************************IMAGE MANAGEMENT**************************/
-		bulgeImage->setName(pBulge);
-		this->picBulge->Image = bulgeImage->getName();
-		//this->calculate_carat_weight();
+		repaint_pavilion_bulge();
+
 	}
 	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -2159,7 +1956,7 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 
 		if (CCutDim::isRoundish(this->comboCut->Text)) {
 			//lwRatio = System::Decimal::Round(lengthInMm / widthInMm, 2);
-			widthInMm=(lengthInMm+widthInMm) / 2;
+			widthInMm = (lengthInMm + widthInMm) / 2;
 
 		}
 		if (this->radDepthAsPerc->Checked) {
@@ -2169,7 +1966,7 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 		else
 		{
 			//reversePercentage2mm = (widthInMm * this->numDepth->Value) / 100;
-			reversePercentage2mm = CDcalc::depthConvertFromPercent(widthInMm, System::Convert::ToDouble(this->numDepth->Text) / 100,true);
+			reversePercentage2mm = CDcalc::depthConvertFromPercent(widthInMm, System::Convert::ToDouble(this->numDepth->Text) / 100, true);
 			this->numDepth->Text = System::Convert::ToString(reversePercentage2mm);
 		}
 	}
@@ -2314,15 +2111,34 @@ A long culet due to steep pavilion angles can add up to 5%.*/
 
 	}
 
+	private: System::Void numTaperedBaguetteMaxWidth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void cbInterpolate_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		this->onScreenInfo();
+	}
+	private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
 
+	private: System::Void btnClearGT_Click(System::Object^ sender, System::EventArgs^ e) {
 
-private: System::Void numTaperedBaguetteMaxWidth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void cbInterpolate_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->onScreenInfo();
-}
-private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+		this->tbGirdleThickness->Value = 0;
+		this->txtGirdleThickness->Text = "0%";
+		combine_adjustments();
+		repaint_girdle_thickness();
+	}
+	private: System::Void btnClearPB_Click(System::Object^ sender, System::EventArgs^ e) {
 
-};
+		this->tbPavilionBulge->Value = 0;
+		this->txtPavilionBulge->Text = "0%";
+		combine_adjustments();
+		repaint_pavilion_bulge();
+	}
+	private: System::Void btnClearSO_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		this->tbShapeOutline->Value = 0;
+		this->txtShapeOutline->Text = "0%";
+		combine_adjustments();
+		repaint_shape_outline();
+	}
+	};
 }

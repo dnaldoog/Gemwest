@@ -208,21 +208,6 @@ void SpecificGravity::dictInitializer() {
 	this->m_sg = sg;
 }
 
-void SpecificGravity::setSG(Dictionary<String^, String^>^ arr) {
-	this->m_sg = arr;
 
-}
 
-String^ SpecificGravity::getSG(String^ key) {
-	//if (this->_tmpSG != nullptr) {
-	return this->m_sg[key];
-	//}else{
-	//	return "not found";
-	//}
-
-}
-
-//array<String^>^ CDiamondCut::getCutNames() {
-//	return m_tmpSGNames;
-//}
 
