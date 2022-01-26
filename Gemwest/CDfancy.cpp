@@ -426,10 +426,7 @@ Radiant Cut : Approximate Estimated Carat Weight = Length × Width × Depth × Adju
 //
 //	return Math::Round(r, 5);
 //}
-Double  CDfancy::term() {
-	Double factor = System::Convert::ToDouble(m_factor);
-	Double l = dec2Dub(m_d1);
-	Double w = dec2Dub(m_d2);
-	Double dp = dec2Dub(m_depth);
-	return  l * w * dp * factor;
+Decimal CDfancy::term() {
+	Decimal factor = this->fac2Dec(m_factor);
+	return  this->add_adjustments_to_carat_weight(m_d1 * m_d2 * m_depth * factor);
 }

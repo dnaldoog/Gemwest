@@ -35,32 +35,17 @@
 
 
 
-Double CDcalc::term() {
+Decimal CDcalc::term() {
 	
-	Double l = dec2Dub(m_d1);
-	Double w = dec2Dub(m_d2);
-	Double d = dec2Dub(m_depth);
-	Double f = System::Convert::ToDouble(m_factor);
+	Decimal l = this->m_d1;
+	Decimal w = this->m_d2;
+	Decimal d = this->m_depth;
+	Decimal f = System::Convert::ToDecimal(m_factor);
 
 	//Double factor = Convert::ToDouble(m_factor);
-	return l * w * d * f;
+	return this->add_adjustments_to_carat_weight(l * w * d * f);
 }
 Decimal CDcalc::recut_weight() { return Convert::ToDecimal(0); };
-
-Double CDcalc::adjustments(Double startValue,Double percentage) {
-	Double adjp=1;
-	if (percentage < 0) {
-
-		adjp = startValue * (1 - percentage / 100);
-	}
-	else if (percentage > 0) {
-		adjp =  startValue * (1 + percentage / 100);
-	}
-	else {
-		adjp = 1;
-	}
-return adjp;
-} // end adjust function
 
 Double CDcalc::depthConvertFromPercent(Double summedWidth, Double depth, Boolean isPercentage) {
 
@@ -70,5 +55,33 @@ Double CDcalc::depthConvertFromPercent(Double summedWidth, Double depth, Boolean
 /*************************************************************/
 	return depth;
 } // end adjust function
+
+Decimal CDcalc::add_adjustments_to_carat_weight(Decimal rw) {
+	//Double rw=Convert::ToDouble(raw_weight);
+	Double rwd = Convert::ToDouble(rw);
+	Double conv = Convert::ToDouble(m_adj);
+	signed short sign = Math::Sign(conv);
+	Double retValue = 0;
+
+	if (sign == -1) {
+		//MessageBox::Show("sign=" + ((conv / 100)));
+		retValue = rwd * (1 - (Math::Abs(conv / 100)));
+
+	}
+	else if (sign == 1)
+	{
+		//MessageBox::Show("sign=" + sign + " conv=" + conv);
+		retValue = rwd * (1 + (conv / 100));
+	}
+	else if (sign == 0)
+		//MessageBox::Show("sign=" + sign + " conv=" + conv);
+	{
+		retValue = rwd;
+	}
+	//MessageBox::Show(""+Math::Sign(conv));
+	//return "yes";
+	return Convert::ToDecimal(retValue);
+	//return Convert::ToDecimal(retValue);
+}
 
 	 

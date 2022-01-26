@@ -121,12 +121,12 @@ public:
 		Double get() { return System::Convert::ToDouble(m_adj); }
 	}
 
-	 Double term() override;
+	 Decimal term() override;
+	 Decimal add_adjustments_to_carat_weight(Decimal rw);
 	 Decimal recut_weight() override;
-	 Double dec2Dub(Decimal d) {
-		 return System::Convert::ToDouble(d);
+	 Decimal fac2Dec(String^ f) {
+		 return System::Convert::ToDecimal(f);
 		 	 }
-	static  Double adjustments(Double,Double);
 	static  Double depthConvertFromPercent(Double,Double,Boolean);
 
 	};

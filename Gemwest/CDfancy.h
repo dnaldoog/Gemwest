@@ -82,6 +82,6 @@ public:
     Double lw();  // return length to width ratio
     String^ setFancyRecutFactor(); // calculate the correct factor for fancy cut stones
 
-    virtual Double term() override;
+    virtual Decimal term() override;
 };
 

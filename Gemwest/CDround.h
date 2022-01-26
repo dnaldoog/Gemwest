@@ -22,7 +22,7 @@ public:
 
 		Boolean depthisperc) : CDcalc(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, interp, recut, depthisperc) {}
     //virtual Double term() const = 0;
-    Double term() override;
+    Decimal term() override;
     Decimal recut_weight() override;
     //virtual Double term() override;
     //String^ recut_weight() override;

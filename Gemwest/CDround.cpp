@@ -1,14 +1,9 @@
 #include "pch.h"
 #include "CDround.h"
-Double CDround::term() {
-	Double factor = System::Convert::ToDouble(m_factor);
-	Double d1 = dec2Dub(m_d1);
-	Double d2 = dec2Dub(m_d2);
-	Double dp = dec2Dub(m_depth);
-	Double ret = 0;
-	Double av_diameter =(d1+d2) / 2;
-	ret= (av_diameter*av_diameter) * dp * factor;
-	return ret;
+Decimal CDround::term() {
+	Decimal factor = this->fac2Dec(m_factor);
+	Decimal av_diameter =Decimal::Add(m_d1,m_d2) / 2;
+	return this->add_adjustments_to_carat_weight((av_diameter*av_diameter) * m_depth * factor);
 }
 
 Decimal CDround::recut_weight() {
