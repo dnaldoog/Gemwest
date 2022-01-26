@@ -9,6 +9,9 @@ Decimal CDround::term() {
 }
 
 Decimal CDround::recut_weight() {
+	array<String^>^ cutnames = { "recut_init","shallow", "deep_stone" };
+
+	this->cutimage = cutnames[0];
 	Double l, w, d, f;
 	l = System::Convert::ToDouble(m_d1);
 	w = System::Convert::ToDouble(m_d2);
@@ -32,13 +35,13 @@ Decimal CDround::recut_weight() {
 	if (depthpercentage < lowThreshold) {/*it's a shallow stone*/
 		//p = ShallowStone;
 		newDiameter = ShallowStone;
-
+		this->cutimage = cutnames[1];
 	}
 	if (depthpercentage > highThreshold) {/*it's a deep stone*/
 
 		//p = DeepStone;
 		newDepth = DeepStone;
-
+		this->cutimage = cutnames[2];
 	}
 	recutWeight = (newDiameter * newDiameter) * newDepth * f;
 

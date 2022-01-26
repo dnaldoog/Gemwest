@@ -279,7 +279,18 @@ namespace CppCLRWinformsProjekt {
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked);
 						p = RC;
-						this->txtEstRecut->Text = RC->recut_weight() + " ct";
+						if (this->cbRecut->Checked) {
+
+							this->picRecut->Image = nullptr;
+							this->picRecut->Refresh();
+							this->txtEstRecut->Text = RC->recut_weight() + " ct";
+											
+							CEmbeddedImage^ rcdyn = gcnew CEmbeddedImage;
+							rcdyn->setName(RC->cutimage);
+							this->picRecut->Image = rcdyn->getName();
+
+						}
+						
 					}
 					else {
 
@@ -396,13 +407,10 @@ namespace CppCLRWinformsProjekt {
 					if (this->radDepthAsPerc->Checked) {
 						this->lblDepthPerc->Text = "Depth = " + mmString + "mm";
 						this->lblHiddenDepth->Text = this->numDepth->Text;
-
 					}
 					else {
 						this->lblDepthPerc->Text = "Depth = " + percString + "%";
-
 						this->lblHiddenDepth->Text = percString;
-
 					}
 					this->lblLwRatio->Text = lWtxt;
 					if (len >= wid) {
@@ -439,10 +447,7 @@ namespace CppCLRWinformsProjekt {
 						fancyFactor->width = wid;
 						fancyFactor->fancyType = this->comboCut->Text;
 						this->txtFactor->Text = fancyFactor->setFancyRecutFactor();
-
 					}
-
-
 				} 	// end numDia1 or numDia2 == 0
 
 			}
@@ -469,8 +474,6 @@ namespace CppCLRWinformsProjekt {
 
 			if (divider >= 1.00) { gd->FillRectangle(Brushes::Orange, r); }
 			else { gd->FillRectangle(Brushes::CornflowerBlue, r); }
-
-
 		}
 		/***************************************************************************************/
 		void draw_lw(String^ lwStr) {	}
@@ -2065,6 +2068,7 @@ namespace CppCLRWinformsProjekt {
 		this->onScreenInfo();
 	}
 	private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		this->onScreenInfo();
 	}
 
 	private: System::Void btnClearGT_Click(System::Object^ sender, System::EventArgs^ e) {

@@ -3,6 +3,8 @@
 ref class CDround :
     public CDcalc
 {
+private:
+	String^ m_recut_image;
 public:
 	explicit CDround(
 		String^ cutName,
@@ -24,5 +26,13 @@ public:
 
     Decimal term() override;
     Decimal recut_weight() override;
+	property String^ cutimage
+	{
+		String^ get() { return m_recut_image; }
+		void set(String^ c)
+		{
+			m_recut_image = c;
+		}
+	}
 };
 
