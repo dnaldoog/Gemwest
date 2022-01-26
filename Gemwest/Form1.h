@@ -91,17 +91,7 @@ namespace CppCLRWinformsProjekt {
 			else {
 				gThk = "thingirdle";
 			}
-			/*Thin girdle, subtract 1% to 2%.
-	Slightly thick, add 1% to 2%.
-	Thick, add 3% to 4%.
-	Very thick, add 5% to 6%.
-	Extra thick, add 7% to 10%.
-	Pavilion Bulge
-	Slight, add 3% to 5%.
-	Noticeable, add 6% to 8%.
-	Obvious, add 9% to 12%.
-	Extreme, add 13% to 18%.
-	A long culet due to steep pavilion angles can add up to 5%.*/
+
 			CEmbeddedImage^ girdleImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
 			girdleImage->setName(gThk);
@@ -360,10 +350,10 @@ namespace CppCLRWinformsProjekt {
 		} // check whether a fancy cut was selected
 
 		void onScreenInfo() {
-			//Form1::Invalidate();
+
 			this->cbInterpolate->Enabled = false;
 			this->cbRecut->Enabled = false;
-			//Boolean isRoundish = this->isRoundish();
+
 			if (!this->numDia1->Text->Equals("0.00")) {
 
 				if (!this->numDia2->Text->Equals("0.00")) {
@@ -375,7 +365,7 @@ namespace CppCLRWinformsProjekt {
 					Double depmm;
 					if (dep == 0.00 || len == 0.00 || wid == 0.00) {
 						/*https://social.msdn.microsoft.com/Forums/vstudio/en-US/5ac4c768-2c33-4636-a700-d0b3fafeac68/warning-c4965-implicit-box-of-integer-0-use-nullptr-or-explicit-cast*/
-						//MessageBox::Show("Division by Zero detected!");
+
 						return;
 					}
 					lwRatio = len / wid;
@@ -406,13 +396,13 @@ namespace CppCLRWinformsProjekt {
 					if (this->radDepthAsPerc->Checked) {
 						this->lblDepthPerc->Text = "Depth = " + mmString + "mm";
 						this->lblHiddenDepth->Text = this->numDepth->Text;
-						//   this->draw_depth(this->numDepth->Text);
+
 					}
 					else {
 						this->lblDepthPerc->Text = "Depth = " + percString + "%";
-						//this->lblHiddenDepth->Text = percString;
+
 						this->lblHiddenDepth->Text = percString;
-						//  this->draw_depth(percString);
+
 					}
 					this->lblLwRatio->Text = lWtxt;
 					if (len >= wid) {
@@ -443,7 +433,7 @@ namespace CppCLRWinformsProjekt {
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked
 						);
-						fancyFactor->dictInitializer();
+
 						fancyFactor->interpolate = this->cbInterpolate->Checked;
 						fancyFactor->length = len;
 						fancyFactor->width = wid;
@@ -452,10 +442,7 @@ namespace CppCLRWinformsProjekt {
 
 					}
 
-					//this->Invalidate();   request a delayed Repaint by the normal MessageLoop system    
-					// forces Repaint of invalidated area 
-					//this->Refresh();    // Combines Invalidate() and Update(
-					//this->lblHiddenLW->Text = lwString;
+
 				} 	// end numDia1 or numDia2 == 0
 
 			}
@@ -471,55 +458,29 @@ namespace CppCLRWinformsProjekt {
 		}
 
 		void draw_depth(String^ perc) {
-			//delete this->picDepth->Image;
+
 			this->picDepth->Image = nullptr;
 			this->picDepth->Refresh();
-			//this->Refresh();
-			//this->Refresh();
-			//this->Invalidate();  // request a delayed Repaint by the normal MessageLoop system    
-			//this->Update();      // forces Repaint of invalidated area 
-			//this->Refresh();     // Combines Invalidate() and Update(
+
 			Double divider = System::Convert::ToDouble(this->lblHiddenDepth->Text) / 100;
-			//Double percentage = Math::Round(this->picRecut->Height * divider, 2);
 			Double percentage = System::Convert::ToDouble(this->picDepth->Height) * divider;
-			//this->label1->Text = System::Convert::ToString(percentage);
 			Graphics^ gd = picDepth->CreateGraphics();
-			//g->Clear(Color::LightGray);
-			//Pen^ pen = gcnew Pen(Color::Blue);
-			//Brush^ brush = gcnew Brush(Color::CornflowerBlue);
-			//Rectangle  r= Rectangle(0, System::Convert::ToInt32(percentage), System::Convert::ToInt32(this->picDepth->Width), System::Convert::ToInt32(this->picRecut->Height));
 			Rectangle  r = Rectangle(0, 0, this->picDepth->Width, System::Convert::ToInt32(percentage));
-			//this->label1->Text = System::Convert::ToString("Div " + divider + "\n%:" + percentage + "\nH " + this->picDepth->Height);
+
 			if (divider >= 1.00) { gd->FillRectangle(Brushes::Orange, r); }
 			else { gd->FillRectangle(Brushes::CornflowerBlue, r); }
 
-			//delete gd;
-
-			//	cli::array<Point>^ xy = gcnew { Point(5,5), Point(12, 13), Point(14,12),Point(80,50),Point(5,5) };
-				//cli::array<Point>^ poly = gcnew array<Point>{ Point(5,5), Point(12, 13), Point(14,12),Point(80,50),Point(5,5) };
-				/*
-	array<Double> ^ values = gcnew array<Double>(4);*/
-	//g->FillPolygon(Brushes::Blue,poly);
-
-	//g->FillRectangle(pen,rect);
-	//g->FillRectangle(pen, Rectangle(System::Convert::ToInt32(0), System::Convert::ToInt32(percentage), System::Convert::ToInt32(this->picDepth->Width), System::Convert::ToInt32(this->picRecut->Height));		
-	//this->picDepth->Image = pImage;
-			//this->Refresh();
 
 		}
 		/***************************************************************************************/
 		void draw_lw(String^ lwStr) {	}
 
 		void draw_lw2(String^ lwStr) {
-			//delete this->picLW->Image;
+
 			if (!this->comboCut->Text->Equals(TAPBAG)) {
 				this->picLW->Image = nullptr;
 				this->picLW->Refresh();
-				//Double divider = System::Convert::ToDouble(this->lblHiddenDepth->Text) / 100;
-				//Double percentage = System::Convert::ToDouble(this->picDepth->Height) * divider;
-				//this->Invalidate();
-				//this->Refresh
-				//this->Refresh();
+
 				Double push = 0;
 				Double shrink = 0.8;
 				Graphics^ gl = this->picLW->CreateGraphics();
@@ -532,34 +493,13 @@ namespace CppCLRWinformsProjekt {
 				Pen^ myPen = gcnew Pen(Color::RoyalBlue, 2);
 				Single halfPenWidth = myPen->Width * 0.5f;
 
-				Double placeCentre = (this->picLW->Width / 2) - (w / 2) - halfPenWidth;//; ((this->picLW->Width / 2) - w / 2);
-				/*Subtract the Text Size from the Circle Size and divide that by 2 so you get the position on which you can draw the Text Centered.*/
-				//Double placeCentre = ((this->picLW->Width / 2) - w / 2) / shrink;
-				//System::Convert::ToInt32(this->picLW->Height));
+				Double placeCentre = (this->picLW->Width / 2) - (w / 2) - halfPenWidth;
 
 				RectangleF  r = RectangleF(System::Convert::ToSingle(placeCentre), System::Convert::ToSingle(6), System::Convert::ToSingle(w), System::Convert::ToSingle(l));
-				//Rectangle  r = Rectangle(System::Convert::ToInt32(placeCentre), System::Convert::ToInt32(6), System::Convert::ToInt32(w), System::Convert::ToInt32(l));
 
-				//if (w > l) { // this is never reached
-
-				//}
-				//
 				gl->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::HighQuality;
 				gl->DrawEllipse(myPen, r);
-				//System::Convert::ToInt32(this->picLW->Width), System::Convert::ToInt32(this->picRecut->LW));
-				//delete gl;
 
-				/*private void DrawEllipseRectangle(PaintEventArgs e)
-	{
-		// Create pen.
-		Pen blackPen = new Pen(Color.Black, 3);
-
-		// Create rectangle for ellipse.
-		Rectangle rect = new Rectangle(0, 0, 200, 100);
-
-		// Draw ellipse to screen.
-		e.Graphics.DrawEllipse(blackPen, rect);
-	}*/
 
 			}// if not tapered baguette crashing at line 206
 
@@ -1695,17 +1635,8 @@ namespace CppCLRWinformsProjekt {
 		OptionsForm myPreferences; // declare Object pointing to Options Form
 
 		BridgeCS^ loadData = gcnew BridgeCS;
-		String^ getDecPlacesFromConfig = loadData->propBridge1000; //ConfigurationSettings::AppSettings["decPlaces"];
-		String^ getLogAllFromConfig = loadData->propBridgeLog;//ConfigurationSettings::AppSettings["logAll"];
-
-		/*Old system C++ but only saves to READ ONLY Application folder*/
-		/*Needed to implement in C# using CSConfig.dll*/
-		/*String^ getDecPlacesFromConfig = ::AppSettings["decPlaces"];
-		String^ getLogAllFromConfig = ConfigurationSettings::AppSettings["logAll"];
-		String^ tmp = myPreferences.proplimit; NOT USED RIGHT NOW
-		Boolean recordToLog = myPreferences.propLogAll;
-		Boolean setTo1000s = myPreferences.prop1000;*/
-
+		String^ getDecPlacesFromConfig = loadData->propBridge1000;
+		String^ getLogAllFromConfig = loadData->propBridgeLog;
 
 	private: System::Void btnEq_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1780,12 +1711,11 @@ namespace CppCLRWinformsProjekt {
 		}
 		if (CCutDim::isRoundish(this->comboCut->Text)) {
 			this->cbRecut->Enabled = true;
-			//MessageBox::Show("it's a round cut");
+
 			this->lblDia1->Text = "Diameter-1";
 			this->lblDia2->Text = "Diameter-2";
 		}
 		else {
-			//MessageBox::Show("it's a oval cut");
 			this->lblDia1->Text = "Length";
 			this->lblDia2->Text = "Width";
 		}
@@ -1793,7 +1723,6 @@ namespace CppCLRWinformsProjekt {
 			CGemCut^ gc = gcnew CGemCut; // Declare object
 			gc->dictInitializer();
 			String^ myGemCut = gc->getCut(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
-			//MessageBox::Show(myGemCut);
 			this->txtFactor->Text = myGemCut;
 
 			CEmbeddedImage^ gCutImage = gcnew CEmbeddedImage;
@@ -1805,7 +1734,7 @@ namespace CppCLRWinformsProjekt {
 			CDiamondCut^ dc = gcnew CDiamondCut; // Declare object
 			dc->dictInitializer();
 			String^ myDiamondCut = dc->getCut(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
-			//MessageBox::Show(myDiamondCut);
+
 			this->txtFactor->Text = myDiamondCut;
 		}
 
@@ -1896,13 +1825,7 @@ namespace CppCLRWinformsProjekt {
 	}
 
 	private: System::Void tbShapeOutline_Scroll(System::Object^ sender, System::EventArgs^ e) {
-		/*
-		* Shape Outline
-		* Wide corners on cut corner squares and rectangles can decrease weight as much as 5%.
-		* For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10%. Occasionally, straight shoulders will require a deduction of 1% to 5%.
-		*  and (sometimes) pears will have a very short keel or none at all. This will reduce the weight by 1% to 3%.
-		* Triangles with straight sides will require a reduction of up to 10%.
-		*/
+
 		combine_adjustments();
 		this->txtShapeOutline->Text = this->tbShapeOutline->Value.ToString() + "%";
 		repaint_shape_outline();
@@ -1938,8 +1861,6 @@ namespace CppCLRWinformsProjekt {
 	}
 	private: System::Void radDepthAsMm_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->lblDepth->Text = "Depth (mm)";
-		//->numDepth->DecimalPlaces = 2;
-		//this->numDepth->Increment = System::Decimal(0.01);
 
 		if (myPreferences.propLogAll) {
 			// = "true";
@@ -1974,15 +1895,15 @@ namespace CppCLRWinformsProjekt {
 		this->numDepth->DecimalPlaces = 1;
 		this->numDepth->Increment = System::Decimal(0.1);
 		Boolean isRoundish = true;
-		//Double currentDepthInPercentage = System::Convert::ToDouble(this->numDepth->Text);
+
 		Double  lengthInMm = System::Convert::ToDouble(this->numDia1->Text);
 		Double  widthInMm = System::Convert::ToDouble(this->numDia2->Text);
-		//System::Decimal lwRatio;
+
 		Double reverseMm2Perc;
 		Double reversePercentage2mm;
 
 		if (CCutDim::isRoundish(this->comboCut->Text)) {
-			//lwRatio = System::Decimal::Round(lengthInMm / widthInMm, 2);
+
 			widthInMm = (lengthInMm + widthInMm) / 2;
 
 		}
@@ -1992,7 +1913,7 @@ namespace CppCLRWinformsProjekt {
 		}
 		else
 		{
-			//reversePercentage2mm = (widthInMm * this->numDepth->Value) / 100;
+
 			reversePercentage2mm = CDcalc::depthConvertFromPercent(widthInMm, System::Convert::ToDouble(this->numDepth->Text) / 100, true);
 			this->numDepth->Text = System::Convert::ToString(reversePercentage2mm);
 		}

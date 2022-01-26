@@ -75,9 +75,6 @@
     <ClInclude Include="Recut.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="IDiamond.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="SpecificGravity.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -141,9 +138,6 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Recut.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="IDiamond.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SpecificGravity.cpp">

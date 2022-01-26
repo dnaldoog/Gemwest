@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "CDround.h"
+
+
 Decimal CDround::term() {
 	Decimal factor = this->fac2Dec(m_factor);
 	Decimal av_diameter =Decimal::Add(m_d1,m_d2) / 2;
@@ -11,10 +13,9 @@ Decimal CDround::recut_weight() {
 	l = System::Convert::ToDouble(m_d1);
 	w = System::Convert::ToDouble(m_d2);
 	d = System::Convert::ToDouble(m_depth);
-	//a = System::Convert::ToDouble(m_adj);
+
 	f = System::Convert::ToDouble(m_factor);
-	//adj = CDcalc::adjustments(l * w * d * f, a);
-//	Double^ p = nullptr;
+
 	const Double lowThreshold = 55;/*ie threshold is 54%*/
 	const Double highThreshold = 62;/*ie threshold is 62%*/
 	Double newDiameter = (l + w) / 2;
@@ -31,14 +32,13 @@ Decimal CDround::recut_weight() {
 	if (depthpercentage < lowThreshold) {/*it's a shallow stone*/
 		//p = ShallowStone;
 		newDiameter = ShallowStone;
-		//tooltipString = "shallow stone";
-		//print_RECUTIMAGE_PIX(shallow, tooltipString, tooltipString);
+
 	}
 	if (depthpercentage > highThreshold) {/*it's a deep stone*/
-		//tooltipString = "deep stone";
+
 		//p = DeepStone;
 		newDepth = DeepStone;
-		//print_RECUTIMAGE_PIX(deep, tooltipString, tooltipString);
+
 	}
 	recutWeight = (newDiameter * newDiameter) * newDepth * f;
 

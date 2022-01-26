@@ -6,5 +6,5 @@ Decimal CTaperedBaguette::term() {
 	Decimal min = m_d2;
 	Decimal max = this->maxW;
 	Decimal d = m_depth;
-	return this->add_adjustments_to_carat_weight(l * ((min+max) / 2)* d * factor);
+	return this->add_adjustments_to_carat_weight(l * (Decimal::Add(min,max) / 2)* d * factor);
 }

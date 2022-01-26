@@ -6,11 +6,9 @@ using namespace System::Diagnostics;
 ref class CCalculator abstract
 {
 public:
-	//virtual Double term() const = 0;
+
 	virtual Decimal term()  = 0;
 	virtual Decimal recut_weight() = 0;
-	//virtual String^ print() {
-	//	return System::Convert::ToString(5+"many ct");
-	//}
+
 };
 

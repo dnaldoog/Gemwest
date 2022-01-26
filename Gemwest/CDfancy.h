@@ -7,20 +7,20 @@ ref class CDfancy :
 public:
 
     explicit CDfancy(
-        String^ cutName, //
-        String^ fac, //
-        Decimal d1,//
-        Decimal d2,//
-        Decimal dep,//
-        String^ sg, //
-        String^ adj, //
-        String^ gt, //
-        String^ pv, //
-        String^ so, //
+        String^ cutName, 
+        String^ fac, 
+        Decimal d1,
+        Decimal d2,
+        Decimal dep,
+        String^ sg, 
+        String^ adj, 
+        String^ gt, 
+        String^ pv, 
+        String^ so, 
 
-        Boolean isdiamond, //
-        Boolean interp, //
-        Boolean recut, //
+        Boolean isdiamond, 
+        Boolean interp, 
+        Boolean recut, 
 
         Boolean depthisperc) : CDcalc(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, interp, recut, depthisperc) {}
 private:
@@ -28,19 +28,6 @@ private:
     Double m_length;
     Double m_width;
     Boolean m_interpolate;
-
-    //Dictionary<String^, String^>^ m_marquise_formulae;// = gcnew Dictionary<String^, String^>;
-    //Dictionary<String^, String^>^ m_pear_formulae;// = gcnew Dictionary<String^, String^>;
-    //Dictionary<String^, String^>^ m_emerald_formulae;// = gcnew Dictionary<String^, String^>;
-    ////Dictionary<String^, String^>^ m_oval_formulae;// = gcnew Dictionary<String^, String^>;
-    //Dictionary<String^, String^>^ m_radiant_formulae;// = gcnew Dictionary<String^, String^>;
-
-
-    //void setDictM(Dictionary<String^, String^>^);
-    //void setDictP(Dictionary<String^, String^>^);
-    //void setDictE(Dictionary<String^, String^>^);
-    ////void setDictO(Dictionary<String^, String^>^);
-    //void setDictR(Dictionary<String^, String^>^);
 
 public:
     property String^ fancyType
@@ -76,8 +63,6 @@ public:
         }
     }
 
-    void dictInitializer();
-    //Double interpolateFactor();
 
     Double lw();  // return length to width ratio
     String^ setFancyRecutFactor(); // calculate the correct factor for fancy cut stones
