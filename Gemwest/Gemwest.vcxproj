@@ -112,7 +112,8 @@
       <AdditionalDependencies />
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
-      <EmbedManagedResourceFile>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise.png;%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
+      <EmbedManagedResourceFile>
+      </EmbedManagedResourceFile>
     </Link>
     <PostBuildEvent>
       <Command>copy app.config "$(TargetPath).config"</Command>
@@ -313,6 +314,7 @@
     <Image Include="cushion_brilliant.png" />
     <Image Include="cymophane.jpg" />
     <Image Include="cz.jpg" />
+    <Image Include="D:\miscellaneous\Qt_buildsZ\gemwest200\resources\xpm\marquise.png" />
     <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw128.ico" />
     <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw16.ico" />
     <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw24.ico" />
@@ -551,7 +553,6 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\heart.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\heart_brilliant.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\long_rectangle.png" />
-    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise_brilliant.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\old_european_cut.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\old_mine_cut.png" />
@@ -650,7 +651,6 @@
     <Image Include="malachite.jpg" />
     <Image Include="mali garnet.jpg" />
     <Image Include="marcasite.jpg" />
-    <Image Include="marquise.png" />
     <Image Include="marquise_brilliant.png" />
     <Image Include="maw-sit-sit.jpg" />
     <Image Include="maxixe.jpg" />

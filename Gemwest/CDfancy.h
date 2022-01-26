@@ -29,18 +29,18 @@ private:
     Double m_width;
     Boolean m_interpolate;
 
-    Dictionary<String^, String^>^ m_marquise_formulae;// = gcnew Dictionary<String^, String^>;
-    Dictionary<String^, String^>^ m_pear_formulae;// = gcnew Dictionary<String^, String^>;
-    Dictionary<String^, String^>^ m_emerald_formulae;// = gcnew Dictionary<String^, String^>;
-    //Dictionary<String^, String^>^ m_oval_formulae;// = gcnew Dictionary<String^, String^>;
-    Dictionary<String^, String^>^ m_radiant_formulae;// = gcnew Dictionary<String^, String^>;
+    //Dictionary<String^, String^>^ m_marquise_formulae;// = gcnew Dictionary<String^, String^>;
+    //Dictionary<String^, String^>^ m_pear_formulae;// = gcnew Dictionary<String^, String^>;
+    //Dictionary<String^, String^>^ m_emerald_formulae;// = gcnew Dictionary<String^, String^>;
+    ////Dictionary<String^, String^>^ m_oval_formulae;// = gcnew Dictionary<String^, String^>;
+    //Dictionary<String^, String^>^ m_radiant_formulae;// = gcnew Dictionary<String^, String^>;
 
 
-    void setDictM(Dictionary<String^, String^>^);
-    void setDictP(Dictionary<String^, String^>^);
-    void setDictE(Dictionary<String^, String^>^);
-    //void setDictO(Dictionary<String^, String^>^);
-    void setDictR(Dictionary<String^, String^>^);
+    //void setDictM(Dictionary<String^, String^>^);
+    //void setDictP(Dictionary<String^, String^>^);
+    //void setDictE(Dictionary<String^, String^>^);
+    ////void setDictO(Dictionary<String^, String^>^);
+    //void setDictR(Dictionary<String^, String^>^);
 
 public:
     property String^ fancyType
@@ -77,11 +77,11 @@ public:
     }
 
     void dictInitializer();
-    Double interpolateFactor();
+    //Double interpolateFactor();
 
     Double lw();  // return length to width ratio
     String^ setFancyRecutFactor(); // calculate the correct factor for fancy cut stones
 
-    virtual Decimal term() override;
+    virtual Double term() override;
 };
 

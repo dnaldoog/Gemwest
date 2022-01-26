@@ -35,27 +35,15 @@
 
 
 
-Decimal CDcalc::term() {
-	//Double l, w, d, a, adj, f;
-	//l = System::Convert::ToDouble(m_d1);
-	//w = System::Convert::ToDouble(m_d2);
-	//d = System::Convert::ToDouble(m_depth);
-	//f = System::Convert::ToDouble(m_factor);
-	//a = System::Convert::ToDouble(m_adj);
+Double CDcalc::term() {
+	
+	Double l = dec2Dub(m_d1);
+	Double w = dec2Dub(m_d2);
+	Double d = dec2Dub(m_depth);
+	Double f = System::Convert::ToDouble(m_factor);
 
-	//adj = CDcalc::adjustments(l*w*d*f,a);
-	//adj = 1;
-	//Double c = l * w * d * adj * f;
-	//return c;
-	Decimal factor = System::Convert::ToDecimal(m_factor);
-	//Double l, w, d, f;
-	//l = System::Convert::ToDouble(m_d1);
-	//w = System::Convert::ToDouble(m_d2);
-	//d = System::Convert::ToDouble(m_depth);
-	//f = System::Convert::ToDouble(m_factor);
-	//Double c = l * w * d * f;
-	//return c;
-	return m_d1 * m_d2 * m_depth * factor;
+	//Double factor = Convert::ToDouble(m_factor);
+	return l * w * d * f;
 }
 Decimal CDcalc::recut_weight() { return Convert::ToDecimal(0); };
 

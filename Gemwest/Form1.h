@@ -60,6 +60,44 @@ namespace CppCLRWinformsProjekt {
 		}
 	private:
 		/***************************************************************************************/
+		String^ miSign() {
+			String^ retSig = L"+";
+			String^ extracted_adjustments = this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1);
+			Double conv = Convert::ToDouble(extracted_adjustments);
+			signed short sign = Math::Sign(conv);
+			if (sign == -1) {
+
+				retSig = L"";
+			}
+			return retSig;
+	
+		}
+		Double add_adjustments_to_carat_weight(Double rw) {
+			//Double rw=Convert::ToDouble(raw_weight);
+			String^ extracted_adjustments = this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1);
+			Double conv = Convert::ToDouble(extracted_adjustments);
+			signed short sign = Math::Sign(conv);
+			Double retValue = 0;
+		
+			if (sign==-1) {
+				//MessageBox::Show("sign=" + ((conv / 100)));
+				retValue = rw * (1 - (Math::Abs(conv/100)));
+
+			}else if (sign==1)
+			{
+				//MessageBox::Show("sign=" + sign + " conv=" + conv);
+				retValue = rw * (1 + (conv/100));
+			}
+			else if (sign==0)
+				//MessageBox::Show("sign=" + sign + " conv=" + conv);
+			{
+				retValue = rw;
+			}
+			//MessageBox::Show(""+Math::Sign(conv));
+			//return "yes";
+			return retValue;
+			//return Convert::ToDecimal(retValue);
+		}
 		void repaint_girdle_thickness() {
 
 			String^ gThk = "thingirdle";
@@ -297,10 +335,10 @@ namespace CppCLRWinformsProjekt {
 						);
 						p = defaultCutFormula;
 					}
-
-					this->txtResult->Text = System::Convert::ToString(Math::Round(p->term(), 3)) + "ct";
+					Double addAdjToCalculation = add_adjustments_to_carat_weight(p->term());
+					this->txtResult->Text = System::Convert::ToString(Math::Round(addAdjToCalculation, 3)) + "ct";
 					Decimal tot = this->numDia1->Value * this->numDia2->Value * this->numDepth->Value * System::Convert::ToDecimal(this->txtFactor->Text);
-					this->toolStrip->Text = L"Total weight=" + this->numDia1->Value + " x " + this->numDia2->Value + " x " + this->numDepth->Value + " x " + this->txtFactor->Text + "=" + tot + "ct";
+					this->toolStrip->Text = L"Total weight=" + this->numDia1->Value + " x " + this->numDia2->Value + " x " + this->numDepth->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text+" = "+tot+ "ct";
 				} // is tapered baguette or other
 				else { // Calculate the weight of a Gemstone
 					CGcalc^ GC = gcnew CGcalc;
@@ -354,7 +392,7 @@ namespace CppCLRWinformsProjekt {
 					Double depmm;
 					if (dep == 0.00 || len == 0.00 || wid == 0.00) {
 						/*https://social.msdn.microsoft.com/Forums/vstudio/en-US/5ac4c768-2c33-4636-a700-d0b3fafeac68/warning-c4965-implicit-box-of-integer-0-use-nullptr-or-explicit-cast*/
-						MessageBox::Show("Division by Zero detected!");
+						//MessageBox::Show("Division by Zero detected!");
 						return;
 					}
 					lwRatio = len / wid;
@@ -1310,6 +1348,7 @@ namespace CppCLRWinformsProjekt {
 			this->cbInterpolate->TabIndex = 11;
 			this->cbInterpolate->Text = L"Interpolate Fancy Cut Formula\?";
 			this->cbInterpolate->UseVisualStyleBackColor = true;
+			this->cbInterpolate->Visible = false;
 			this->cbInterpolate->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbInterpolate_CheckedChanged);
 			// 
 			// groupBox2
@@ -1803,7 +1842,7 @@ namespace CppCLRWinformsProjekt {
 		dCutImage->setName(this->comboCut->Text);
 		this->picCut->Image = dCutImage->getName();
 
-
+		onScreenInfo(); // should trigger correct cut formulae for fancy cuts.
 	}
 	private: System::Void aboutToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		AboutForm1^ aform = gcnew AboutForm1;
@@ -1822,7 +1861,7 @@ namespace CppCLRWinformsProjekt {
 			else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
 				e->Handled = true;
 		}
-
+		
 	}
 	private: System::Void radioBtnDia_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1898,6 +1937,7 @@ namespace CppCLRWinformsProjekt {
 
 	}
 	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	
 	}
 	private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->onScreenInfo(); // print depth percentage and L/W Ratio

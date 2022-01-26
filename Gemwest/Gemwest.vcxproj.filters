@@ -193,9 +193,6 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\long_rectangle.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
-    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise.png">
-      <Filter>Ressourcendateien</Filter>
-    </Image>
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise_brilliant.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
@@ -1423,9 +1420,6 @@
     <Image Include="marcasite.jpg">
       <Filter>Ressourcendateien</Filter>
     </Image>
-    <Image Include="marquise.png">
-      <Filter>Ressourcendateien</Filter>
-    </Image>
     <Image Include="marquise_brilliant.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
@@ -1781,6 +1775,9 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="..\..\..\..\Desktop\gwCLI_project\rutillatedquartz.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_buildsZ\gemwest200\resources\xpm\marquise.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>

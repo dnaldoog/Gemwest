@@ -34,7 +34,7 @@ public:
             m_maxW=d;
         }
     }
-    virtual Decimal term() override;
+    virtual Double term() override;
 };
 
 

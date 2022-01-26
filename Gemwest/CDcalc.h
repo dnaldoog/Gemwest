@@ -22,7 +22,7 @@ protected:
 	String^ m_cutName; // name of cut
 	String^ m_factor; // factor selected by cut choice
 	Decimal m_d1; // diameter 1 (could be length)
-	Decimal m_d2; // diamter 2 (could be width)
+	Decimal m_d2; // diameter 2 (could be width)
 	Decimal m_depth; // depth of stone in millimeters
 	String^ m_sg; //Specific Gravity
 
@@ -59,7 +59,7 @@ public:
 		m_cutName(cutName), //  name of cut
 		m_factor(fac), //  factor selected by cut choice
 		m_d1(d1), //  diameter 1 (could be length)
-		m_d2(d1), //  diamter 2 (could be width)
+		m_d2(d2), //  diamter 2 (could be width)
 		m_depth(dep), //  depth of stone in millimeters
 		m_sg(sg), // Specific Gravity
 
@@ -121,8 +121,12 @@ public:
 		Double get() { return System::Convert::ToDouble(m_adj); }
 	}
 
-	 Decimal term() override;
+	 Double term() override;
 	 Decimal recut_weight() override;
+	 Double dec2Dub(Decimal d) {
+		 return System::Convert::ToDouble(d);
+		 	 }
 	static  Double adjustments(Double,Double);
 	static  Double depthConvertFromPercent(Double,Double,Boolean);
+
 	};
