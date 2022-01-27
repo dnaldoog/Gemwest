@@ -180,7 +180,6 @@ namespace CppCLRWinformsProjekt {
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
 							this->radioBtnDia->Checked,
-							this->cbInterpolate->Checked,
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked
 						);
@@ -199,7 +198,6 @@ namespace CppCLRWinformsProjekt {
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
 							this->radioBtnDia->Checked,
-							this->cbInterpolate->Checked,
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked
 						);
@@ -218,7 +216,6 @@ namespace CppCLRWinformsProjekt {
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
 							this->radioBtnDia->Checked,
-							this->cbInterpolate->Checked,
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked
 						);
@@ -237,7 +234,6 @@ namespace CppCLRWinformsProjekt {
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
 							this->radioBtnDia->Checked,
-							this->cbInterpolate->Checked,
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked
 						);
@@ -256,7 +252,6 @@ namespace CppCLRWinformsProjekt {
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
 							this->radioBtnDia->Checked,
-							this->cbInterpolate->Checked,
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked
 						);
@@ -275,10 +270,12 @@ namespace CppCLRWinformsProjekt {
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
 							this->radioBtnDia->Checked,
-							this->cbInterpolate->Checked,
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked);
+						
+						RC->cutimage=L"recut";
 						p = RC;
+						
 						if (this->cbRecut->Checked) {
 
 							this->picRecut->Image = nullptr;
@@ -288,6 +285,7 @@ namespace CppCLRWinformsProjekt {
 							CEmbeddedImage^ rcdyn = gcnew CEmbeddedImage;
 							rcdyn->setName(RC->cutimage);
 							this->picRecut->Image = rcdyn->getName();
+							this->lblRecutDetails->Text = RC->recutinformation;
 
 						}
 						
@@ -305,7 +303,6 @@ namespace CppCLRWinformsProjekt {
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
 							this->radioBtnDia->Checked,
-							this->cbInterpolate->Checked,
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked
 						);
@@ -320,7 +317,7 @@ namespace CppCLRWinformsProjekt {
 					}
 					else {
 						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x" + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
-
+						/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
 					}
 					
 				} // is tapered baguette or other
@@ -340,7 +337,6 @@ namespace CppCLRWinformsProjekt {
 						this->txtPavilionBulge->Text,
 						this->txtShapeOutline->Text,
 						this->radioBtnDia->Checked,
-						this->cbInterpolate->Checked,
 						this->cbRecut->Checked,
 						CCutDim::isRoundish(this->comboCut->Text),
 						this->radDepthAsPerc->Checked
@@ -361,8 +357,6 @@ namespace CppCLRWinformsProjekt {
 		} // check whether a fancy cut was selected
 
 		void onScreenInfo() {
-
-			this->cbInterpolate->Enabled = false;
 			this->cbRecut->Enabled = false;
 
 			if (!this->numDia1->Text->Equals("0.00")) {
@@ -424,7 +418,7 @@ namespace CppCLRWinformsProjekt {
 						this->picLW->Image = cd->getName();
 					}
 					if (fancyCutSelected(this->comboCut->Text)) {
-						this->cbInterpolate->Enabled = true;
+
 						CDfancy^ fancyFactor = gcnew CDfancy(
 
 							this->comboCut->Text,
@@ -437,12 +431,10 @@ namespace CppCLRWinformsProjekt {
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
 							this->radioBtnDia->Checked,
-							this->cbInterpolate->Checked,
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked
 						);
 
-						fancyFactor->interpolate = this->cbInterpolate->Checked;
 						fancyFactor->length = len;
 						fancyFactor->width = wid;
 						fancyFactor->fancyType = this->comboCut->Text;
@@ -549,7 +541,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::RadioButton^ radioBtnGem;
 	private: System::Windows::Forms::RadioButton^ radioBtnDia;
 	private: System::Windows::Forms::CheckBox^ cbRecut;
-	private: System::Windows::Forms::CheckBox^ cbInterpolate;
+
 	private: System::Windows::Forms::StatusStrip^ statusbar;
 
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
@@ -599,6 +591,8 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Button^ btnClearSO;
 	private: System::Windows::Forms::Button^ btnClearPB;
 	private: System::Windows::Forms::Button^ btnClearGT;
+private: System::Windows::Forms::Label^ lblRecutDetails;
+
 
 
 
@@ -661,8 +655,8 @@ namespace CppCLRWinformsProjekt {
 			this->lblRecut = (gcnew System::Windows::Forms::Label());
 			this->picRecut = (gcnew System::Windows::Forms::PictureBox());
 			this->cbRecut = (gcnew System::Windows::Forms::CheckBox());
-			this->cbInterpolate = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->lblRecutDetails = (gcnew System::Windows::Forms::Label());
 			this->txtEstRecut = (gcnew System::Windows::Forms::TextBox());
 			this->numSG = (gcnew System::Windows::Forms::NumericUpDown());
 			this->picGem = (gcnew System::Windows::Forms::PictureBox());
@@ -1264,22 +1258,10 @@ namespace CppCLRWinformsProjekt {
 			this->cbRecut->UseVisualStyleBackColor = true;
 			this->cbRecut->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbRecut_CheckedChanged);
 			// 
-			// cbInterpolate
-			// 
-			this->cbInterpolate->AutoSize = true;
-			this->cbInterpolate->Enabled = false;
-			this->cbInterpolate->Location = System::Drawing::Point(300, 107);
-			this->cbInterpolate->Name = L"cbInterpolate";
-			this->cbInterpolate->Size = System::Drawing::Size(173, 17);
-			this->cbInterpolate->TabIndex = 11;
-			this->cbInterpolate->Text = L"Interpolate Fancy Cut Formula\?";
-			this->cbInterpolate->UseVisualStyleBackColor = true;
-			this->cbInterpolate->Visible = false;
-			this->cbInterpolate->CheckedChanged += gcnew System::EventHandler(this, &Form1::cbInterpolate_CheckedChanged);
-			// 
 			// groupBox2
 			// 
 			this->groupBox2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->groupBox2->Controls->Add(this->lblRecutDetails);
 			this->groupBox2->Controls->Add(this->txtEstRecut);
 			this->groupBox2->Controls->Add(this->numSG);
 			this->groupBox2->Controls->Add(this->lblRecut);
@@ -1293,14 +1275,25 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox2->Controls->Add(this->comboCut);
 			this->groupBox2->Controls->Add(this->comboGems);
 			this->groupBox2->Controls->Add(this->lbllSelectedSG);
-			this->groupBox2->Controls->Add(this->cbInterpolate);
 			this->groupBox2->Controls->Add(this->cbRecut);
 			this->groupBox2->ForeColor = System::Drawing::Color::Black;
 			this->groupBox2->Location = System::Drawing::Point(12, 499);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(505, 159);
+			this->groupBox2->Size = System::Drawing::Size(505, 169);
 			this->groupBox2->TabIndex = 13;
 			this->groupBox2->TabStop = false;
+			// 
+			// lblRecutDetails
+			// 
+			this->lblRecutDetails->AutoSize = true;
+			this->lblRecutDetails->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblRecutDetails->Location = System::Drawing::Point(300, 102);
+			this->lblRecutDetails->Name = L"lblRecutDetails";
+			this->lblRecutDetails->Size = System::Drawing::Size(68, 12);
+			this->lblRecutDetails->TabIndex = 57;
+			this->lblRecutDetails->Text = L"lblRecutDetails";
+			this->lblRecutDetails->Visible = false;
 			// 
 			// txtEstRecut
 			// 
@@ -1450,7 +1443,7 @@ namespace CppCLRWinformsProjekt {
 			// statusbar
 			// 
 			this->statusbar->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStrip });
-			this->statusbar->Location = System::Drawing::Point(0, 661);
+			this->statusbar->Location = System::Drawing::Point(0, 671);
 			this->statusbar->Name = L"statusbar";
 			this->statusbar->Size = System::Drawing::Size(529, 22);
 			this->statusbar->SizingGrip = false;
@@ -1585,7 +1578,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(529, 683);
+			this->ClientSize = System::Drawing::Size(529, 693);
 			this->Controls->Add(this->groupBoxChooseDiaOrGem);
 			this->Controls->Add(this->groupBoxCalculate);
 			this->Controls->Add(this->statusbar);
@@ -1705,13 +1698,7 @@ namespace CppCLRWinformsProjekt {
 		this->lblDia2->Text = L"Diameter-2";
 		this->lblDia2->Location = Point(223, 14);
 		this->numDia2->Location = Point(205, 30);
-		if (fancyCutSelected(this->comboCut->Text)) {
-			this->cbInterpolate->Enabled = true;
-		}
-		else {
-			this->cbInterpolate->Enabled = false;
 
-		}
 		if (CCutDim::isRoundish(this->comboCut->Text)) {
 			this->cbRecut->Enabled = true;
 
@@ -2068,6 +2055,17 @@ namespace CppCLRWinformsProjekt {
 		this->onScreenInfo();
 	}
 	private: System::Void cbRecut_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (this->cbRecut->Checked) {
+			this->lblRecutDetails->Visible = true;
+		}
+		else {
+			this->lblRecutDetails->Visible = false;
+		}
+			this->picRecut->Image = nullptr;
+			this->picRecut->Refresh();
+			CEmbeddedImage^ resetCutImage = gcnew CEmbeddedImage;
+			resetCutImage->setName("recut");
+			this->picRecut->Image = resetCutImage->getName();
 		this->onScreenInfo();
 	}
 

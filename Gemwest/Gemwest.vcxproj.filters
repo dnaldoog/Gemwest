@@ -1774,6 +1774,24 @@
     <Image Include="D:\miscellaneous\Qt_buildsZ\gemwest200\resources\xpm\marquise.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="deep_stone.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\stonedepthokay.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="stonedepthokay.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\recut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\deep_stone.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\shallow.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">

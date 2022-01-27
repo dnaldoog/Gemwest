@@ -19,10 +19,9 @@ public:
 		String^ so, 
 
 		Boolean isdiamond, 
-		Boolean interp, 
 		Boolean recut, 
 
-		Boolean depthisperc) : CDcalc(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, interp, recut, depthisperc) {}
+		Boolean depthisperc) : CDcalc(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, recut, depthisperc) {}
 
 
     property Decimal maxW

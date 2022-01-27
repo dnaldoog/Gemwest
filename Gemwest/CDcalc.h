@@ -30,7 +30,6 @@ protected:
 	String^ m_pv; // pavilion bulge
 	String^ m_so; // shape outline
 	Boolean m_isDiamond; // is it a diamond (not as found in the gem listing)
-	Boolean m_interp; // interpolate?
 	Boolean m_recut; // recut?
 	Boolean m_depthIsPerc; // is the incoming Depth a represenatation of percentage or mm?
 
@@ -49,7 +48,6 @@ public:
 		String^ so,
 
 		Boolean isdiamond, //
-		Boolean interp, //
 		Boolean recut, //
 
 		Boolean depthisperc ):
@@ -66,7 +64,6 @@ public:
 		m_so(so), //  shape outline
 
 		m_isDiamond(isdiamond), //  is it a diamond (not as found in the gem listing)
-		m_interp(interp), //  interpolate?
 		m_recut(recut), //  recut?
 		m_depthIsPerc(depthisperc) //  is the incoming Depth a represenatation of percentage or mm?)(), //
 	{}
@@ -77,8 +74,9 @@ public:
 	 Decimal term() override;
 	 Decimal add_adjustments_to_carat_weight(Decimal rw);
 	 Decimal recut_weight() override;
-	 Decimal fac2Dec(String^ f) {
-		 return System::Convert::ToDecimal(f);
+
+	 Decimal fac2Dec() {
+		 return System::Convert::ToDecimal(m_factor);
 		 	 }
 	static  Double depthConvertFromPercent(Double,Double,Boolean);
 

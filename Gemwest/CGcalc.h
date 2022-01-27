@@ -56,7 +56,6 @@ public:
         String^ so,
 
         bool isdiamond,
-        bool interp,
         bool recut,
         bool roundish,
         bool depthisperc

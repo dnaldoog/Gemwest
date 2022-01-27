@@ -215,6 +215,10 @@
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\deep_stone.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\recut.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\shallow.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\stonedepthokay.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\actinolite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\adjustmentarrow.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\ammolite.png" />
@@ -585,6 +589,7 @@
     <Image Include="D:\Pictures\various\junk\zaniah.png" />
     <Image Include="danburite.jpg" />
     <Image Include="datolite.jpg" />
+    <Image Include="deep_stone.png" />
     <Image Include="defrec.png" />
     <Image Include="demantoid.jpg" />
     <Image Include="diamond.jpg" />
@@ -727,6 +732,7 @@
     <Image Include="square_step_cut.png" />
     <Image Include="square_with_cut_corners.png" />
     <Image Include="sthickgirdle.png" />
+    <Image Include="stonedepthokay.png" />
     <Image Include="strontium titanate.jpg" />
     <Image Include="sugilite.jpg" />
     <Image Include="synthetic corundum.jpg" />

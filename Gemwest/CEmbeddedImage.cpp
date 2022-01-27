@@ -289,9 +289,10 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("zaniah", "zaniah"); // Author's logo!
 	myRez->Add("adjustmentarrow", "adjustmentarrow"); // Gui component
 	myRez->Add("defrec", "defrec"); // depth % component
-	myRez->Add("recut", "recut_init"); // Gui recut series
+	myRez->Add("recut", "recut"); // Gui recut series
 	myRez->Add("shallow", "shallow"); // Gui recut series
 	myRez->Add("deep_stone", "deep_stone"); // Gui recut series
+	myRez->Add("stonedepthokay", "stonedepthokay"); // Gui recut series
 	myRez->Add("so1", "so_low_very"); //Shape Outlines
 	myRez->Add("so2", "so_low_01"); //Shape Outlines
 	myRez->Add("so3", "so_ok"); //Shape Outlines

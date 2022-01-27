@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CTaperedBaguette.h"
 Decimal CTaperedBaguette::term() {
-	Decimal factor = this->fac2Dec(m_factor);
+	Decimal factor = this->fac2Dec();
 	Decimal l = m_d1;
 	Decimal min = m_d2;
 	Decimal max = this->maxW;

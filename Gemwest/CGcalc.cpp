@@ -117,7 +117,6 @@ void CGcalc::Initializer(
     String^ so,
 
     Boolean isdiamond,
-    Boolean interp,
     Boolean recut,
     Boolean roundish,
     Boolean depthisperc) {
@@ -132,7 +131,6 @@ void CGcalc::Initializer(
     m_sg = sg; //Specific Gravity
     m_isDiamond = isdiamond;
     m_adj = adj; // user adjustments  
-    m_interp = interp; // interpolate?
    m_recut = recut; // recut?
     m_roundish = roundish; // is the cut round necessitating in a different LW formula?
     m_depthIsPerc = depthisperc; // is the incoming Depth a represenatation of percentage or mm?

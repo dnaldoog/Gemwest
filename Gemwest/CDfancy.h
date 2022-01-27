@@ -19,10 +19,9 @@ public:
         String^ so, 
 
         Boolean isdiamond, 
-        Boolean interp, 
         Boolean recut, 
 
-        Boolean depthisperc) : CDcalc(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, interp, recut, depthisperc) {}
+        Boolean depthisperc) : CDcalc(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, recut, depthisperc) {}
 private:
     String^ m_fancy;
     Double m_length;
@@ -52,14 +51,6 @@ public:
         void set(Double w)
         {
             m_width = w;
-        }
-    }
-    property Boolean interpolate
-    {
-        Boolean get() { return m_interpolate; }
-        void set(Boolean b)
-        {
-            m_interpolate = b;
         }
     }
 
