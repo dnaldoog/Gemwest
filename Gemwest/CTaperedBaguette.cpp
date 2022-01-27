@@ -1,11 +1,10 @@
 #include "pch.h"
 #include "CTaperedBaguette.h"
-Double CTaperedBaguette::term() {
-	Double l, minw,maxw, d;
-	l = System::Convert::ToDouble(m_d1);
-	minw = System::Convert::ToDouble(m_d2);
-	maxw = System::Convert::ToDouble(this->maxW);
-	d = System::Convert::ToDouble(m_depth);
-	Double c = l * ((minw+maxw)/2) * d * 0.00915;
-	return c;
+Decimal CTaperedBaguette::term() {
+	Decimal factor = this->fac2Dec();
+	Decimal l = m_d1;
+	Decimal min = m_d2;
+	Decimal max = this->maxW;
+	Decimal d = m_depth;
+	return this->add_adjustments_to_carat_weight(l * (Decimal::Add(min,max) / 2)* d * factor);
 }

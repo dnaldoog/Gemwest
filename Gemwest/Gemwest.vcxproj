@@ -47,6 +47,7 @@
     <PlatformToolset>v142</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -112,7 +113,8 @@
       <AdditionalDependencies />
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
-      <EmbedManagedResourceFile>D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise.png;%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
+      <EmbedManagedResourceFile>
+      </EmbedManagedResourceFile>
     </Link>
     <PostBuildEvent>
       <Command>copy app.config "$(TargetPath).config"</Command>
@@ -179,6 +181,7 @@
     </ClInclude>
     <ClInclude Include="resource1.h" />
     <ClInclude Include="CTaperedBaguette.h" />
+    <ClInclude Include="SpecificGravity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutForm1.cpp" />
@@ -206,11 +209,16 @@
     </ClCompile>
     <ClCompile Include="CTaperedBaguette.cpp" />
     <ClCompile Include="Recut.cpp" />
+    <ClCompile Include="SpecificGravity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\deep_stone.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\recut.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\shallow.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\stonedepthokay.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\actinolite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\adjustmentarrow.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\ammolite.png" />
@@ -309,6 +317,7 @@
     <Image Include="cushion_brilliant.png" />
     <Image Include="cymophane.jpg" />
     <Image Include="cz.jpg" />
+    <Image Include="D:\miscellaneous\Qt_buildsZ\gemwest200\resources\xpm\marquise.png" />
     <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw128.ico" />
     <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw16.ico" />
     <Image Include="D:\miscellaneous\Qt_builds\build-gemwest-Desktop_Qt_5_4_2_MinGW_32bit2-Release\release\misc\gw24.ico" />
@@ -547,7 +556,6 @@
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\heart.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\heart_brilliant.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\long_rectangle.png" />
-    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise_brilliant.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\old_european_cut.png" />
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\old_mine_cut.png" />
@@ -581,6 +589,7 @@
     <Image Include="D:\Pictures\various\junk\zaniah.png" />
     <Image Include="danburite.jpg" />
     <Image Include="datolite.jpg" />
+    <Image Include="deep_stone.png" />
     <Image Include="defrec.png" />
     <Image Include="demantoid.jpg" />
     <Image Include="diamond.jpg" />
@@ -646,7 +655,6 @@
     <Image Include="malachite.jpg" />
     <Image Include="mali garnet.jpg" />
     <Image Include="marcasite.jpg" />
-    <Image Include="marquise.png" />
     <Image Include="marquise_brilliant.png" />
     <Image Include="maw-sit-sit.jpg" />
     <Image Include="maxixe.jpg" />
@@ -724,6 +732,7 @@
     <Image Include="square_step_cut.png" />
     <Image Include="square_with_cut_corners.png" />
     <Image Include="sthickgirdle.png" />
+    <Image Include="stonedepthokay.png" />
     <Image Include="strontium titanate.jpg" />
     <Image Include="sugilite.jpg" />
     <Image Include="synthetic corundum.jpg" />
@@ -769,6 +778,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm.resx">
+      <DependentUpon>HelpForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogForm.resx">
       <DependentUpon>LogForm.h</DependentUpon>

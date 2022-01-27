@@ -75,6 +75,9 @@
     <ClInclude Include="Recut.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="SpecificGravity.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -137,6 +140,9 @@
     <ClCompile Include="Recut.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="SpecificGravity.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\asscher.png">
@@ -179,9 +185,6 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\long_rectangle.png">
-      <Filter>Ressourcendateien</Filter>
-    </Image>
-    <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="D:\miscellaneous\Qt_builds\gemwest200\resources\xpm\marquise_brilliant.png">
@@ -1411,9 +1414,6 @@
     <Image Include="marcasite.jpg">
       <Filter>Ressourcendateien</Filter>
     </Image>
-    <Image Include="marquise.png">
-      <Filter>Ressourcendateien</Filter>
-    </Image>
     <Image Include="marquise_brilliant.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
@@ -1769,6 +1769,27 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="..\..\..\..\Desktop\gwCLI_project\rutillatedquartz.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_buildsZ\gemwest200\resources\xpm\marquise.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="deep_stone.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\stonedepthokay.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="stonedepthokay.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\recut.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\deep_stone.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\shallow.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>
