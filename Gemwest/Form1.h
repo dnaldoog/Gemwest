@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <map>
 #include "CDiamondCut.h"
 #include "SpecificGravity.h"
@@ -32,7 +32,7 @@ namespace CppCLRWinformsProjekt {
 
 
 	/// <summary>
-	/// Zusammenfassung für Form1
+	/// Zusammenfassung fÃ¼r Form1
 	/// </summary>
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
@@ -69,9 +69,9 @@ namespace CppCLRWinformsProjekt {
 				retSig = L"";
 			}
 			return retSig;
-	
+
 		}
-	
+
 		void repaint_girdle_thickness() {
 
 			String^ gThk = "thingirdle";
@@ -162,7 +162,7 @@ namespace CppCLRWinformsProjekt {
 			}
 			else {
 				if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
-					if (this->comboCut->Text->Equals(TAPBAG)){ // Tapered Baguette
+					if (this->comboCut->Text->Equals(TAPBAG)) { // Tapered Baguette
 						CTaperedBaguette^ TB = gcnew CTaperedBaguette(
 							this->comboCut->Text,
 							this->txtFactor->Text,
@@ -266,23 +266,23 @@ namespace CppCLRWinformsProjekt {
 							this->radioBtnDia->Checked,
 							this->cbRecut->Checked,
 							this->radDepthAsPerc->Checked);
-						
-						RC->cutimage=L"recut";
+
+						RC->cutimage = L"recut";
 						p = RC;
-						
+
 						if (this->cbRecut->Checked) {
 
 							this->picRecut->Image = nullptr;
 							this->picRecut->Refresh();
 							this->txtEstRecut->Text = RC->recut_weight() + " ct";
-											
+
 							CEmbeddedImage^ rcdyn = gcnew CEmbeddedImage;
 							rcdyn->setName(RC->cutimage);
 							this->picRecut->Image = rcdyn->getName();
 							this->lblRecutDetails->Text = RC->recutinformation;
 
 						}
-						
+
 					}
 					else {
 
@@ -307,14 +307,14 @@ namespace CppCLRWinformsProjekt {
 					this->txtResult->Text = tot;
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
 						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
-						avd = Decimal::Round((avd),2);
-						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=(" + avd + " x "+avd+") x "+ this->numDepth->Text + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						avd = Decimal::Round((avd), 2);
+						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=(" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 					}
 					else {
 						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x" + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 						/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
 					}
-					
+
 				} // is Diamond
 				else { // Calculate the weight of a Gemstone
 					CGcalc^ GC = gcnew CGcalc;
@@ -358,13 +358,13 @@ namespace CppCLRWinformsProjekt {
 
 				if (!this->numDia2->Text->Equals("0.00")) {
 					String^ percString;
-				/*	Decimal^ len = this->numDia1->Value;
-					Decimal^ wid = this->numDia2->Value;
-					Decimal^ dep = this->numDepth->Value;
+					/*	Decimal^ len = this->numDia1->Value;
+						Decimal^ wid = this->numDia2->Value;
+						Decimal^ dep = this->numDepth->Value;
 
-					Decimal^ depthPercentage;
-					Decimal^ depmm;*/
-					if (this->numDia1->Value==0 || this->numDia2->Value==0 || this->numDepth->Value==0) {
+						Decimal^ depthPercentage;
+						Decimal^ depmm;*/
+					if (this->numDia1->Value == 0 || this->numDia2->Value == 0 || this->numDepth->Value == 0) {
 						/*https://social.msdn.microsoft.com/Forums/vstudio/en-US/5ac4c768-2c33-4636-a700-d0b3fafeac68/warning-c4965-implicit-box-of-integer-0-use-nullptr-or-explicit-cast*/
 
 						return;
@@ -379,20 +379,20 @@ namespace CppCLRWinformsProjekt {
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
 						this->cbRecut->Enabled = true;
 						percString = System::Convert::ToString(Decimal::Round(CCalculator::depth_percentage_as_percent(CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value), this->numDepth->Value), 2));
-						this->lblCombinedRoundAverage->Text = "AV:" + System::Convert::ToString(Decimal::Round(CCalculator::average_diameter(this->numDia1->Value,this->numDia2->Value),2));
-						this->lblDepthPerc->Text = "Depth = " + percString+"%";
-				}
+						this->lblCombinedRoundAverage->Text = "AV:" + System::Convert::ToString(Decimal::Round(CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value), 2));
+						this->lblDepthPerc->Text = "Depth = " + percString + "%";
+					}
 					else {
 						percString = System::Convert::ToString(Decimal::Round(CCalculator::depth_percentage_as_percent(this->numDia2->Value, this->numDepth->Value), 2));
 						this->lblCombinedRoundAverage->Text = "";
-						this->lblDepthPerc->Text = "Depth = " + percString +"%";
+						this->lblDepthPerc->Text = "Depth = " + percString + "%";
 
 					}
 					Decimal tmp_lw = Decimal::Round(CCalculator::length_width_ratio(this->numDia1->Value, this->numDia2->Value), 1);
-					this->lblLwRatio->Text = "LW Ratio = "+ tmp_lw + ":1";
+					this->lblLwRatio->Text = "LW Ratio = " + tmp_lw + ":1";
 					draw_lw(tmp_lw);
-						this->lblHiddenDepth->Text = percString;
-						if (fancyCutSelected(this->comboCut->Text)) {
+					this->lblHiddenDepth->Text = percString;
+					if (fancyCutSelected(this->comboCut->Text)) {
 
 						CDfancy^ fancyFactor = gcnew CDfancy(
 
@@ -463,9 +463,9 @@ namespace CppCLRWinformsProjekt {
 
 		}
 		/***************************************************************************************/
-		void draw_lw2(Decimal lwStr) {	}
+		void draw_lw(Decimal lwStr) {	}
 
-		void draw_lw(Decimal lwStr) {
+		void draw_lw2(Decimal lwStr) {
 
 			if (!this->comboCut->Text->Equals(TAPBAG)) {
 				this->picLW->Image = nullptr;
@@ -586,9 +586,13 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Button^ btnClearSO;
 	private: System::Windows::Forms::Button^ btnClearPB;
 	private: System::Windows::Forms::Button^ btnClearGT;
-private: System::Windows::Forms::Label^ lblRecutDetails;
-private: System::Windows::Forms::Button^ btnSave;
-private: System::Windows::Forms::NumericUpDown^ numVisDepth;
+	private: System::Windows::Forms::Label^ lblRecutDetails;
+	private: System::Windows::Forms::Button^ btnSave;
+	private: System::Windows::Forms::NumericUpDown^ numVisDepth;
+private: System::Windows::Forms::Label^ lblHelp;
+private: System::Windows::Forms::Label^ lblDynSO;
+private: System::Windows::Forms::Label^ lblDynPB;
+private: System::Windows::Forms::Label^ lblDynGT;
 
 
 
@@ -602,8 +606,8 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Erforderliche Methode für die Designerunterstützung.
-		/// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+		/// Erforderliche Methode fÃ¼r die DesignerunterstÃ¼tzung.
+		/// Der Inhalt der Methode darf nicht mit dem Code-Editor geÃ¤ndert werden.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -683,6 +687,10 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			this->btnSave = (gcnew System::Windows::Forms::Button());
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
 			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
+			this->lblDynGT = (gcnew System::Windows::Forms::Label());
+			this->lblDynPB = (gcnew System::Windows::Forms::Label());
+			this->lblDynSO = (gcnew System::Windows::Forms::Label());
+			this->lblHelp = (gcnew System::Windows::Forms::Label());
 			this->lwguide->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numVisDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numTaperedBaguetteMaxWidth))->BeginInit();
@@ -733,7 +741,7 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 					L"hematite", L"hemimorphite", L"hessonite", L"hiddenite", L"howlite", L"idocrase", L"imperial topaz", L"iolite", L"jadeite",
 					L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite", L"lapis lazuli", L"larimar", L"lazulite", L"lepidolite", L"lithium niobate",
 					L"malachite", L"malaia garnet", L"mali garnet", L"marcasite", L"maw-sit-sit", L"maxixe", L"moissanite", L"moldavite", L"morganite",
-					L"moss agate", L"nephrite", L"obsidian", L"odontolite", L"onyx", L"opal", L"padparadscha", L"painite", L"paraíba tourmaline",
+					L"moss agate", L"nephrite", L"obsidian", L"odontolite", L"onyx", L"opal", L"padparadscha", L"painite", L"paraÃ­ba tourmaline",
 					L"pearl", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite",
 					L"pyrites", L"pyrope", L"quartz amethyst", L"quartz aventurine", L"quartz chalcedony", L"quartz citrine", L"quartz rutillated",
 					L"quartz", L"rhodochrosite", L"rhodonite", L"rubbelite", L"ruby", L"rutile", L"rutillated quartz", L"sapphire", L"sard", L"scapolite",
@@ -810,6 +818,10 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->lwguide->Controls->Add(this->lblHelp);
+			this->lwguide->Controls->Add(this->lblDynSO);
+			this->lwguide->Controls->Add(this->lblDynPB);
+			this->lwguide->Controls->Add(this->lblDynGT);
 			this->lwguide->Controls->Add(this->numVisDepth);
 			this->lwguide->Controls->Add(this->btnClearSO);
 			this->lwguide->Controls->Add(this->btnClearPB);
@@ -847,7 +859,7 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			this->lwguide->Controls->Add(this->btnEq);
 			this->lwguide->Location = System::Drawing::Point(12, 27);
 			this->lwguide->Name = L"lwguide";
-			this->lwguide->Size = System::Drawing::Size(505, 352);
+			this->lwguide->Size = System::Drawing::Size(505, 364);
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
 			// 
@@ -1291,7 +1303,7 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			this->groupBox2->Controls->Add(this->lbllSelectedSG);
 			this->groupBox2->Controls->Add(this->cbRecut);
 			this->groupBox2->ForeColor = System::Drawing::Color::Black;
-			this->groupBox2->Location = System::Drawing::Point(12, 499);
+			this->groupBox2->Location = System::Drawing::Point(12, 505);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(505, 169);
 			this->groupBox2->TabIndex = 13;
@@ -1457,7 +1469,7 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			// statusbar
 			// 
 			this->statusbar->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStrip });
-			this->statusbar->Location = System::Drawing::Point(0, 671);
+			this->statusbar->Location = System::Drawing::Point(0, 673);
 			this->statusbar->Name = L"statusbar";
 			this->statusbar->Size = System::Drawing::Size(529, 22);
 			this->statusbar->SizingGrip = false;
@@ -1564,7 +1576,7 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			this->groupBoxCalculate->Controls->Add(this->txtResult);
 			this->groupBoxCalculate->Controls->Add(this->buttonCalc);
 			this->groupBoxCalculate->Controls->Add(this->buttonClear);
-			this->groupBoxCalculate->Location = System::Drawing::Point(12, 385);
+			this->groupBoxCalculate->Location = System::Drawing::Point(12, 397);
 			this->groupBoxCalculate->Name = L"groupBoxCalculate";
 			this->groupBoxCalculate->Size = System::Drawing::Size(505, 71);
 			this->groupBoxCalculate->TabIndex = 16;
@@ -1572,7 +1584,7 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			// 
 			// btnSave
 			// 
-			this->btnSave->Location = System::Drawing::Point(47, 35);
+			this->btnSave->Location = System::Drawing::Point(37, 24);
 			this->btnSave->Name = L"btnSave";
 			this->btnSave->Size = System::Drawing::Size(75, 24);
 			this->btnSave->TabIndex = 59;
@@ -1583,7 +1595,7 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			// lblWeightInCarats
 			// 
 			this->lblWeightInCarats->AutoSize = true;
-			this->lblWeightInCarats->Location = System::Drawing::Point(38, 18);
+			this->lblWeightInCarats->Location = System::Drawing::Point(173, 53);
 			this->lblWeightInCarats->Name = L"lblWeightInCarats";
 			this->lblWeightInCarats->Size = System::Drawing::Size(87, 13);
 			this->lblWeightInCarats->TabIndex = 53;
@@ -1593,17 +1605,52 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			// 
 			this->groupBoxChooseDiaOrGem->Controls->Add(this->radioBtnGem);
 			this->groupBoxChooseDiaOrGem->Controls->Add(this->radioBtnDia);
-			this->groupBoxChooseDiaOrGem->Location = System::Drawing::Point(12, 462);
+			this->groupBoxChooseDiaOrGem->Location = System::Drawing::Point(12, 474);
 			this->groupBoxChooseDiaOrGem->Name = L"groupBoxChooseDiaOrGem";
 			this->groupBoxChooseDiaOrGem->Size = System::Drawing::Size(505, 31);
 			this->groupBoxChooseDiaOrGem->TabIndex = 17;
 			this->groupBoxChooseDiaOrGem->TabStop = false;
 			// 
+			// lblDynGT
+			// 
+			this->lblDynGT->AutoSize = true;
+			this->lblDynGT->Location = System::Drawing::Point(173, 343);
+			this->lblDynGT->Name = L"lblDynGT";
+			this->lblDynGT->Size = System::Drawing::Size(68, 13);
+			this->lblDynGT->TabIndex = 60;
+			this->lblDynGT->Text = L"Thin-Medium";
+			// 
+			// lblDynPB
+			// 
+			this->lblDynPB->AutoSize = true;
+			this->lblDynPB->Location = System::Drawing::Point(290, 343);
+			this->lblDynPB->Name = L"lblDynPB";
+			this->lblDynPB->Size = System::Drawing::Size(33, 13);
+			this->lblDynPB->TabIndex = 61;
+			this->lblDynPB->Text = L"None";
+			// 
+			// lblDynSO
+			// 
+			this->lblDynSO->AutoSize = true;
+			this->lblDynSO->Location = System::Drawing::Point(385, 343);
+			this->lblDynSO->Name = L"lblDynSO";
+			this->lblDynSO->Size = System::Drawing::Size(40, 13);
+			this->lblDynSO->TabIndex = 62;
+			this->lblDynSO->Text = L"Normal";
+			// 
+			// lblHelp
+			// 
+			this->lblHelp->AutoSize = true;
+			this->lblHelp->Location = System::Drawing::Point(14, 249);
+			this->lblHelp->Name = L"lblHelp";
+			this->lblHelp->Size = System::Drawing::Size(0, 13);
+			this->lblHelp->TabIndex = 63;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(529, 693);
+			this->ClientSize = System::Drawing::Size(529, 695);
 			this->Controls->Add(this->groupBoxChooseDiaOrGem);
 			this->Controls->Add(this->groupBoxCalculate);
 			this->Controls->Add(this->statusbar);
@@ -1789,7 +1836,7 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
 				e->Handled = true;
 		}
-		
+
 	}
 	private: System::Void radioBtnDia_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1863,7 +1910,7 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 	}
 	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
-	
+
 	}
 	private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
@@ -2059,11 +2106,11 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 		else {
 			this->lblRecutDetails->Visible = false;
 		}
-			this->picRecut->Image = nullptr;
-			this->picRecut->Refresh();
-			CEmbeddedImage^ resetCutImage = gcnew CEmbeddedImage;
-			resetCutImage->setName("recut");
-			this->picRecut->Image = resetCutImage->getName();
+		this->picRecut->Image = nullptr;
+		this->picRecut->Refresh();
+		CEmbeddedImage^ resetCutImage = gcnew CEmbeddedImage;
+		resetCutImage->setName("recut");
+		this->picRecut->Image = resetCutImage->getName();
 		this->onScreenInfo();
 	}
 
@@ -2099,22 +2146,22 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 		}
 	} // end function
 
-private: System::Void numVisDepth_ValueChanged_1(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void numVisDepth_ValueChanged_1(System::Object^ sender, System::EventArgs^ e) {
 
-	if (this->radDepthAsPerc->Checked) {
-	
-		Decimal averagewidth = this->numDia2->Value;
-		if (CCutDim::isRoundish(this->comboCut->Text)) {
-			averagewidth = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+		if (this->radDepthAsPerc->Checked) {
+
+			Decimal averagewidth = this->numDia2->Value;
+			if (CCutDim::isRoundish(this->comboCut->Text)) {
+				averagewidth = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+			}
+			this->numDepth->Value = CCalculator::depth_percentage_to_mm(averagewidth, this->numVisDepth->Value);
+
 		}
-		this->numDepth->Value = CCalculator::depth_percentage_to_mm(averagewidth, this->numVisDepth->Value);
-	
+		else {
+			this->numDepth->Value = this->numVisDepth->Value;
+		}
+
 	}
-	else {
-	this->numDepth->Value = this->numVisDepth->Value;
-}
 
-}
-
-};
+	};
 }

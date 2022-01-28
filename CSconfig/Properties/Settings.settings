@@ -9,7 +9,7 @@
       <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="jsonLog" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">myjsonstringinit</Value>
     </Setting>
   </Settings>
 </SettingsFile>

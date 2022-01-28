@@ -13,7 +13,7 @@ namespace CSconfig
         //myTextBox.Text = Properties.Settings.Default.;
         private String cs_1000_settings = Properties.Settings.Default.enter1000;
         private String cs_log_settings = Properties.Settings.Default.logtofile;
-        private String cs_json_log_settings = Properties.Settings.Default.jsonLog;
+        //private String cs_json_log_settings = Properties.Settings.Default.jsonLog;
  
         public String Pcs1000
         {
@@ -40,18 +40,18 @@ namespace CSconfig
         }
 
 
-    public String JsonLog
-    {
-        get => cs_json_log_settings;
-        set
-        {
-            cs_json_log_settings = value;
-            Properties.Settings.Default.jsonLog = cs_json_log_settings;
-            Properties.Settings.Default.Save();
+//    public String JsonLog
+//    {
+//        get => cs_json_log_settings;
+//        set
+//        {
+//            cs_json_log_settings = value;
+//            Properties.Settings.Default.jsonLog = cs_json_log_settings;
+//            Properties.Settings.Default.Save();
 
-        }
+//        }
     }
-}
+//}
 
         //Then, after the user edits the value in the options dialog I save it like this:
 
