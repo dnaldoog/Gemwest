@@ -15,6 +15,7 @@
 #include "AboutForm1.h"
 #include "HelpForm.h"
 #include "OptionsForm.h"
+#include "CHelp.h"
 #include "BridgeCS.h"
 
 namespace CppCLRWinformsProjekt {
@@ -618,6 +619,10 @@ private: System::Windows::Forms::Label^ lblDynGT;
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
+			this->lblHelp = (gcnew System::Windows::Forms::Label());
+			this->lblDynSO = (gcnew System::Windows::Forms::Label());
+			this->lblDynPB = (gcnew System::Windows::Forms::Label());
+			this->lblDynGT = (gcnew System::Windows::Forms::Label());
 			this->numVisDepth = (gcnew System::Windows::Forms::NumericUpDown());
 			this->btnClearSO = (gcnew System::Windows::Forms::Button());
 			this->btnClearPB = (gcnew System::Windows::Forms::Button());
@@ -687,10 +692,6 @@ private: System::Windows::Forms::Label^ lblDynGT;
 			this->btnSave = (gcnew System::Windows::Forms::Button());
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
 			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
-			this->lblDynGT = (gcnew System::Windows::Forms::Label());
-			this->lblDynPB = (gcnew System::Windows::Forms::Label());
-			this->lblDynSO = (gcnew System::Windows::Forms::Label());
-			this->lblHelp = (gcnew System::Windows::Forms::Label());
 			this->lwguide->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numVisDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numTaperedBaguetteMaxWidth))->BeginInit();
@@ -862,6 +863,43 @@ private: System::Windows::Forms::Label^ lblDynGT;
 			this->lwguide->Size = System::Drawing::Size(505, 364);
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
+			// 
+			// lblHelp
+			// 
+			this->lblHelp->AutoSize = true;
+			this->lblHelp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblHelp->Location = System::Drawing::Point(8, 247);
+			this->lblHelp->Name = L"lblHelp";
+			this->lblHelp->Size = System::Drawing::Size(0, 12);
+			this->lblHelp->TabIndex = 63;
+			// 
+			// lblDynSO
+			// 
+			this->lblDynSO->AutoSize = true;
+			this->lblDynSO->Location = System::Drawing::Point(385, 343);
+			this->lblDynSO->Name = L"lblDynSO";
+			this->lblDynSO->Size = System::Drawing::Size(40, 13);
+			this->lblDynSO->TabIndex = 62;
+			this->lblDynSO->Text = L"Normal";
+			// 
+			// lblDynPB
+			// 
+			this->lblDynPB->AutoSize = true;
+			this->lblDynPB->Location = System::Drawing::Point(290, 343);
+			this->lblDynPB->Name = L"lblDynPB";
+			this->lblDynPB->Size = System::Drawing::Size(33, 13);
+			this->lblDynPB->TabIndex = 61;
+			this->lblDynPB->Text = L"None";
+			// 
+			// lblDynGT
+			// 
+			this->lblDynGT->AutoSize = true;
+			this->lblDynGT->Location = System::Drawing::Point(173, 343);
+			this->lblDynGT->Name = L"lblDynGT";
+			this->lblDynGT->Size = System::Drawing::Size(68, 13);
+			this->lblDynGT->TabIndex = 60;
+			this->lblDynGT->Text = L"Thin-Medium";
 			// 
 			// numVisDepth
 			// 
@@ -1611,41 +1649,6 @@ private: System::Windows::Forms::Label^ lblDynGT;
 			this->groupBoxChooseDiaOrGem->TabIndex = 17;
 			this->groupBoxChooseDiaOrGem->TabStop = false;
 			// 
-			// lblDynGT
-			// 
-			this->lblDynGT->AutoSize = true;
-			this->lblDynGT->Location = System::Drawing::Point(173, 343);
-			this->lblDynGT->Name = L"lblDynGT";
-			this->lblDynGT->Size = System::Drawing::Size(68, 13);
-			this->lblDynGT->TabIndex = 60;
-			this->lblDynGT->Text = L"Thin-Medium";
-			// 
-			// lblDynPB
-			// 
-			this->lblDynPB->AutoSize = true;
-			this->lblDynPB->Location = System::Drawing::Point(290, 343);
-			this->lblDynPB->Name = L"lblDynPB";
-			this->lblDynPB->Size = System::Drawing::Size(33, 13);
-			this->lblDynPB->TabIndex = 61;
-			this->lblDynPB->Text = L"None";
-			// 
-			// lblDynSO
-			// 
-			this->lblDynSO->AutoSize = true;
-			this->lblDynSO->Location = System::Drawing::Point(385, 343);
-			this->lblDynSO->Name = L"lblDynSO";
-			this->lblDynSO->Size = System::Drawing::Size(40, 13);
-			this->lblDynSO->TabIndex = 62;
-			this->lblDynSO->Text = L"Normal";
-			// 
-			// lblHelp
-			// 
-			this->lblHelp->AutoSize = true;
-			this->lblHelp->Location = System::Drawing::Point(14, 249);
-			this->lblHelp->Name = L"lblHelp";
-			this->lblHelp->Size = System::Drawing::Size(0, 13);
-			this->lblHelp->TabIndex = 63;
-			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1893,6 +1896,8 @@ private: System::Windows::Forms::Label^ lblDynGT;
 		this->txtShapeOutline->Text = this->tbShapeOutline->Value.ToString() + "%";
 		repaint_shape_outline();
 		this->onScreenInfo();
+		CHelp^ h = gcnew CHelp;
+		this->lblHelp->Text = h->shape;
 	}
 
 	private: System::Void tbGirdleThickness_Scroll(System::Object^ sender, System::EventArgs^ e) {
@@ -1900,13 +1905,17 @@ private: System::Windows::Forms::Label^ lblDynGT;
 		this->txtGirdleThickness->Text = this->tbGirdleThickness->Value.ToString() + "%";
 		repaint_girdle_thickness();
 		this->onScreenInfo();
+		CHelp^ h = gcnew CHelp;
+		this->lblHelp->Text = h->girdle;
+
 	}
 	private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::EventArgs^ e) {
 		combine_adjustments();
 		this->txtPavilionBulge->Text = this->tbPavilionBulge->Value.ToString() + "%";
 		repaint_pavilion_bulge();
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
-
+		CHelp^ h = gcnew CHelp;
+		this->lblHelp->Text = h->bulge;
 	}
 	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 

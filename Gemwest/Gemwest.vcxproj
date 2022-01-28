@@ -159,6 +159,7 @@
     <ClInclude Include="CDiamondCut.h" />
     <ClInclude Include="CDround.h" />
     <ClInclude Include="CEmbeddedImage.h" />
+    <ClInclude Include="CHelp.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -190,6 +191,7 @@
     <ClCompile Include="CCalculator.cpp" />
     <ClCompile Include="CDfancy.cpp" />
     <ClCompile Include="CDround.cpp" />
+    <ClCompile Include="CHelp.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
     <ClCompile Include="CCutDim.cpp" />
     <ClCompile Include="CDcalc.cpp" />
