@@ -25,7 +25,6 @@ namespace CppCLRWinformsProjekt {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 	using namespace System::Diagnostics;
 	using namespace System::Resources;
@@ -163,12 +162,7 @@ namespace CppCLRWinformsProjekt {
 			}
 			else {
 				if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
-
-
-
-					if (this->comboCut->Text->Equals(TAPBAG))
-
-					{
+					if (this->comboCut->Text->Equals(TAPBAG)){ // Tapered Baguette
 						CTaperedBaguette^ TB = gcnew CTaperedBaguette(
 							this->comboCut->Text,
 							this->txtFactor->Text,
@@ -308,12 +302,12 @@ namespace CppCLRWinformsProjekt {
 						);
 						p = defaultCutFormula;
 					}
+					// print data to tool tip
 					String^ tot = System::Convert::ToString(Decimal::Round(p->term(), 3)) + "ct";
 					this->txtResult->Text = tot;
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
 						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
-						//Decimal::Add(this->numDia1->Value,this->numDia2->Value) / 2;
-							avd = Decimal::Round((avd),2);
+						avd = Decimal::Round((avd),2);
 						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=(" + avd + ")2 x" + this->numDepth->Text + " x" + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 					}
 					else {
@@ -321,7 +315,7 @@ namespace CppCLRWinformsProjekt {
 						/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
 					}
 					
-				} // is tapered baguette or other
+				} // is Diamond
 				else { // Calculate the weight of a Gemstone
 					CGcalc^ GC = gcnew CGcalc;
 					GC->Initializer(
@@ -363,7 +357,7 @@ namespace CppCLRWinformsProjekt {
 			if (!this->numDia1->Text->Equals("0.00")) {
 
 				if (!this->numDia2->Text->Equals("0.00")) {
-
+					String^ percString;
 				/*	Decimal^ len = this->numDia1->Value;
 					Decimal^ wid = this->numDia2->Value;
 					Decimal^ dep = this->numDepth->Value;
@@ -375,7 +369,7 @@ namespace CppCLRWinformsProjekt {
 
 						return;
 					}
-					Decimal lwRatio = CCalculator::length_width_ratio(this->numDia1->Value,this->numDia2->Value);
+
 					/*
 					cut hasn't been chosen so we need to determine how to calculate Width
 					Should it be just Width or Diameter-1 + Diameter-2/2 ?
@@ -384,44 +378,21 @@ namespace CppCLRWinformsProjekt {
 
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
 						this->cbRecut->Enabled = true;
-
-						//wid = (wid + len) / 2;
-						//Decimal tmpavd=CCalculator::average_Diameter()
-						//depthPercentage = (dep / wid) * 100;
-						//depmm = (wid * dep) / 100;
-						//this->lblCombinedRoundAverage->Text = "AV:" + System::Convert::ToString(Math::Round(wid, 2));
-					}
+						percString = System::Convert::ToString(Decimal::Round(CCalculator::depth_percentage_as_percent(CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value), this->numDepth->Value), 2));
+						this->lblCombinedRoundAverage->Text = "AV:" + System::Convert::ToString(Decimal::Round(CCalculator::average_diameter(this->numDia1->Value,this->numDia2->Value),2));
+						this->lblDepthPerc->Text = "Depth = " + percString+"%";
+				}
 					else {
+						percString = System::Convert::ToString(Decimal::Round(CCalculator::depth_percentage_as_percent(this->numDia2->Value, this->numDepth->Value), 2));
 						this->lblCombinedRoundAverage->Text = "";
+						this->lblDepthPerc->Text = "Depth = " + percString +"%";
+
 					}
-					//depthPercentage = (dep / wid) * 100;
-					//depmm = (wid * dep) / 100;
-
-					//String^ lwString = System::Convert::ToString(Math::Round(lwRatio, 2));
-					//String^ lWtxt = "LW Ratio = " + lwString + ":1";
-					//String^ percString = System::Convert::ToString(Math::Round(depthPercentage, 2));
-					//String^ mmString = System::Convert::ToString(depmm);
-
-					//if (this->radDepthAsPerc->Checked) {
-					//	this->lblDepthPerc->Text = "Depth = " + mmString + "mm";
-					//	this->lblHiddenDepth->Text = this->numDepth->Text;
-					//}
-					//else {
-					//	this->lblDepthPerc->Text = "Depth = " + percString + "%";
-					//	this->lblHiddenDepth->Text = percString;
-					//}
-					//this->lblLwRatio->Text = lWtxt;
-					//if (len >= wid) {
-					//	draw_lw(lwString);
-					//}
-					//else if (wid > len) {
-					//	this->picLW->Image = nullptr;
-					//	this->picLW->Refresh();
-					//	CEmbeddedImage^ cd = gcnew CEmbeddedImage;
-					//	cd->setName("checklength");
-					//	this->picLW->Image = cd->getName();
-					//}
-					if (fancyCutSelected(this->comboCut->Text)) {
+					Decimal tmp_lw = Decimal::Round(CCalculator::length_width_ratio(this->numDia1->Value, this->numDia2->Value), 1);
+					this->lblLwRatio->Text = "LW Ratio = "+ tmp_lw + ":1";
+					draw_lw(tmp_lw);
+						this->lblHiddenDepth->Text = percString;
+						if (fancyCutSelected(this->comboCut->Text)) {
 
 						CDfancy^ fancyFactor = gcnew CDfancy(
 
@@ -470,11 +441,31 @@ namespace CppCLRWinformsProjekt {
 
 			if (divider >= 1.00) { gd->FillRectangle(Brushes::Orange, r); }
 			else { gd->FillRectangle(Brushes::CornflowerBlue, r); }
+
+			/*DRAWLINE*/
+			Pen^ myPen = gcnew Pen(Color::Black);
+			myPen->Width = 1;
+			gd->DrawLine(myPen, 0, static_cast<Int32>(this->picDepth->Height * 0.6), static_cast<Int32>(this->picDepth->Width), static_cast<Int32>(this->picDepth->Height * 0.6));
+
+			/*https://docs.microsoft.com/ja-jp/dotnet/api/system.drawing.graphics.drawstring?view=dotnet-plat-ext-6.0*/
+			/*DRAW TEXT*/
+			String^ drawString = "60%";
+			// Create font and brush.
+			System::Drawing::Font^ drawFont = gcnew System::Drawing::Font("Arial", 8);
+			SolidBrush ^drawBrush = gcnew SolidBrush(Color::Black);
+
+			// Create point for upper-left corner of drawing.
+			float x = 2.0F;
+			float y = static_cast<Single>((this->picDepth->Height)*0.6);
+			//StringFormat ^drawFormat = gcnew StringFormat();
+			
+			gd->DrawString(drawString, drawFont, drawBrush, x, y/*,Stringformat*/);
+
 		}
 		/***************************************************************************************/
-		void draw_lw(String^ lwStr) {	}
+		void draw_lw1(Decimal lwStr) {	}
 
-		void draw_lw2(String^ lwStr) {
+		void draw_lw(Decimal lwStr) {
 
 			if (!this->comboCut->Text->Equals(TAPBAG)) {
 				this->picLW->Image = nullptr;
@@ -1895,10 +1886,6 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 				averagewidth = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
 			}
 			this->numVisDepth->Value = CCalculator::depth_percentage_to_mm(averagewidth, this->numVisDepth->Value);
-
-
-			//this->numVisDepth->Value = localDepth;
-			//this->numVisDepth->Value = this->numVisDepth->Value;
 		} //stop this triggering when radDepthAsPercent is selected
 	}
 	private: System::Void radDepthAsPerc_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -1916,7 +1903,6 @@ private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 			Decimal sendValue = CCalculator::depth_percentage_to_mm(averagewidth, this->numVisDepth->Value);
 			if (sendValue < this->numDepth->Minimum || sendValue < this->numDepth->Maximum) {
 				this->numDepth->Value = sendValue;
-
 			}
 		}// stop this triggering when MM is checked
 	}
@@ -2129,5 +2115,6 @@ private: System::Void numVisDepth_ValueChanged_1(System::Object^ sender, System:
 }
 
 }
+
 };
 }

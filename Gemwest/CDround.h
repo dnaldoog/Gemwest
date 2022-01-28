@@ -22,10 +22,8 @@ public:
 		String^ gt,
 		String^ pv,
 		String^ so,
-
 		Boolean isdiamond,
 		Boolean recut,
-
 		Boolean depthisperc) : CDcalc(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, recut, depthisperc) {
 
 		array<String^>^ tmp = gcnew array<String^> {"recut", "shallow", "deep_stone","stonedepthokay"}; // initialise cut pictures
