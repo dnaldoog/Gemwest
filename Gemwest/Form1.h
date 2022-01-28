@@ -308,7 +308,7 @@ namespace CppCLRWinformsProjekt {
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
 						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
 						avd = Decimal::Round((avd),2);
-						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=(" + avd + ")2 x" + this->numDepth->Text + " x" + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=(" + avd + " x "+avd+") x "+ this->numDepth->Text + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 					}
 					else {
 						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x" + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
@@ -445,7 +445,7 @@ namespace CppCLRWinformsProjekt {
 			/*DRAWLINE*/
 			Pen^ myPen = gcnew Pen(Color::Black);
 			myPen->Width = 1;
-			gd->DrawLine(myPen, 0, static_cast<Int32>(this->picDepth->Height * 0.6), static_cast<Int32>(this->picDepth->Width), static_cast<Int32>(this->picDepth->Height * 0.6));
+			gd->DrawLine(myPen, Int16(0), static_cast<Int32>(this->picDepth->Height * 0.6), static_cast<Int32>(this->picDepth->Width), static_cast<Int32>(this->picDepth->Height * 0.6));
 
 			/*https://docs.microsoft.com/ja-jp/dotnet/api/system.drawing.graphics.drawstring?view=dotnet-plat-ext-6.0*/
 			/*DRAW TEXT*/
@@ -463,7 +463,7 @@ namespace CppCLRWinformsProjekt {
 
 		}
 		/***************************************************************************************/
-		void draw_lw1(Decimal lwStr) {	}
+		void draw_lw2(Decimal lwStr) {	}
 
 		void draw_lw(Decimal lwStr) {
 
