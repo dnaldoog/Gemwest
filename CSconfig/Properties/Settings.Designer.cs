@@ -46,5 +46,17 @@ namespace CSconfig.Properties {
                 this["enter1000"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string jsonLog {
+            get {
+                return ((string)(this["jsonLog"]));
+            }
+            set {
+                this["jsonLog"] = value;
+            }
+        }
     }
 }

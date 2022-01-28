@@ -43,6 +43,26 @@ public:
 		}
 	}
 
+	property String^ jsonString
+	{
+		String^ get()
+		{
+			// return the value of the private field
+			CSconfig::SaveSettings^ j = gcnew CSconfig::SaveSettings;
+			if (j->JsonLog!=nullptr)
+			return j->JsonLog;
+
+		}
+		void set(String^ jsn)
+
+		{
+			CSconfig::SaveSettings^ j = gcnew CSconfig::SaveSettings;
+			// return the value of the private field
+			j->JsonLog=jsn;
+
+		}
+	}
+
 	//String^ load1000();
 	//String^ loadLog();
 	//void save1000(String^);

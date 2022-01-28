@@ -308,11 +308,12 @@ namespace CppCLRWinformsProjekt {
 						);
 						p = defaultCutFormula;
 					}
-					String^ tot = System::Convert::ToString(Math::Round(p->term(), 3)) + "ct";
+					String^ tot = System::Convert::ToString(Decimal::Round(p->term(), 3)) + "ct";
 					this->txtResult->Text = tot;
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
-						Decimal avd = Decimal::Add(this->numDia1->Value,this->numDia2->Value) / 2;
-							avd = Math::Round((avd),2);
+						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+						//Decimal::Add(this->numDia1->Value,this->numDia2->Value) / 2;
+							avd = Decimal::Round((avd),2);
 						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=(" + avd + ")2 x" + this->numDepth->Text + " x" + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 					}
 					else {
@@ -362,18 +363,19 @@ namespace CppCLRWinformsProjekt {
 			if (!this->numDia1->Text->Equals("0.00")) {
 
 				if (!this->numDia2->Text->Equals("0.00")) {
-					Double dep = System::Convert::ToDouble(this->numDepth->Text);
-					Double len = System::Convert::ToDouble(this->numDia1->Text);
-					Double wid = System::Convert::ToDouble(this->numDia2->Text);
-					Double lwRatio;
-					Double depthPercentage;
-					Double depmm;
-					if (dep == 0.00 || len == 0.00 || wid == 0.00) {
+
+				/*	Decimal^ len = this->numDia1->Value;
+					Decimal^ wid = this->numDia2->Value;
+					Decimal^ dep = this->numDepth->Value;
+
+					Decimal^ depthPercentage;
+					Decimal^ depmm;*/
+					if (this->numDia1->Value==0 || this->numDia2->Value==0 || this->numDepth->Value==0) {
 						/*https://social.msdn.microsoft.com/Forums/vstudio/en-US/5ac4c768-2c33-4636-a700-d0b3fafeac68/warning-c4965-implicit-box-of-integer-0-use-nullptr-or-explicit-cast*/
 
 						return;
 					}
-					lwRatio = len / wid;
+					Decimal lwRatio = CCalculator::length_width_ratio(this->numDia1->Value,this->numDia2->Value);
 					/*
 					cut hasn't been chosen so we need to determine how to calculate Width
 					Should it be just Width or Diameter-1 + Diameter-2/2 ?
@@ -382,41 +384,43 @@ namespace CppCLRWinformsProjekt {
 
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
 						this->cbRecut->Enabled = true;
-						wid = (wid + len) / 2;
-						depthPercentage = (dep / wid) * 100;
-						depmm = (wid * dep) / 100;
-						this->lblCombinedRoundAverage->Text = "AV:" + System::Convert::ToString(Math::Round(wid, 2));
+
+						//wid = (wid + len) / 2;
+						//Decimal tmpavd=CCalculator::average_Diameter()
+						//depthPercentage = (dep / wid) * 100;
+						//depmm = (wid * dep) / 100;
+						//this->lblCombinedRoundAverage->Text = "AV:" + System::Convert::ToString(Math::Round(wid, 2));
 					}
 					else {
 						this->lblCombinedRoundAverage->Text = "";
 					}
-					depthPercentage = (dep / wid) * 100;
-					depmm = (wid * dep) / 100;
+					//depthPercentage = (dep / wid) * 100;
+					//depmm = (wid * dep) / 100;
 
-					String^ lwString = System::Convert::ToString(Math::Round(lwRatio, 2));
-					String^ lWtxt = "LW Ratio = " + lwString + ":1";
-					String^ percString = System::Convert::ToString(Math::Round(depthPercentage, 2));
-					String^ mmString = System::Convert::ToString(depmm);
+					//String^ lwString = System::Convert::ToString(Math::Round(lwRatio, 2));
+					//String^ lWtxt = "LW Ratio = " + lwString + ":1";
+					//String^ percString = System::Convert::ToString(Math::Round(depthPercentage, 2));
+					//String^ mmString = System::Convert::ToString(depmm);
 
-					if (this->radDepthAsPerc->Checked) {
-						this->lblDepthPerc->Text = "Depth = " + mmString + "mm";
-						this->lblHiddenDepth->Text = this->numDepth->Text;
-					}
-					else {
-						this->lblDepthPerc->Text = "Depth = " + percString + "%";
-						this->lblHiddenDepth->Text = percString;
-					}
-					this->lblLwRatio->Text = lWtxt;
-					if (len >= wid) {
-						draw_lw(lwString);
-					}
-					else if (wid > len) {
-						this->picLW->Image = nullptr;
-						this->picLW->Refresh();
-						CEmbeddedImage^ cd = gcnew CEmbeddedImage;
-						cd->setName("checklength");
-						this->picLW->Image = cd->getName();
-					}
+					//if (this->radDepthAsPerc->Checked) {
+					//	this->lblDepthPerc->Text = "Depth = " + mmString + "mm";
+					//	this->lblHiddenDepth->Text = this->numDepth->Text;
+					//}
+					//else {
+					//	this->lblDepthPerc->Text = "Depth = " + percString + "%";
+					//	this->lblHiddenDepth->Text = percString;
+					//}
+					//this->lblLwRatio->Text = lWtxt;
+					//if (len >= wid) {
+					//	draw_lw(lwString);
+					//}
+					//else if (wid > len) {
+					//	this->picLW->Image = nullptr;
+					//	this->picLW->Refresh();
+					//	CEmbeddedImage^ cd = gcnew CEmbeddedImage;
+					//	cd->setName("checklength");
+					//	this->picLW->Image = cd->getName();
+					//}
 					if (fancyCutSelected(this->comboCut->Text)) {
 
 						CDfancy^ fancyFactor = gcnew CDfancy(
@@ -435,8 +439,8 @@ namespace CppCLRWinformsProjekt {
 							this->radDepthAsPerc->Checked
 						);
 
-						fancyFactor->length = len;
-						fancyFactor->width = wid;
+						fancyFactor->length = this->numDia1->Value;
+						fancyFactor->width = this->numDia2->Value;
 						fancyFactor->fancyType = this->comboCut->Text;
 						this->txtFactor->Text = fancyFactor->setFancyRecutFactor();
 					}
@@ -592,6 +596,8 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Button^ btnClearPB;
 	private: System::Windows::Forms::Button^ btnClearGT;
 private: System::Windows::Forms::Label^ lblRecutDetails;
+private: System::Windows::Forms::Button^ btnSave;
+private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 
 
 
@@ -617,6 +623,7 @@ private: System::Windows::Forms::Label^ lblRecutDetails;
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
+			this->numVisDepth = (gcnew System::Windows::Forms::NumericUpDown());
 			this->btnClearSO = (gcnew System::Windows::Forms::Button());
 			this->btnClearPB = (gcnew System::Windows::Forms::Button());
 			this->btnClearGT = (gcnew System::Windows::Forms::Button());
@@ -682,9 +689,11 @@ private: System::Windows::Forms::Label^ lblRecutDetails;
 			this->aboutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBoxCalculate = (gcnew System::Windows::Forms::GroupBox());
+			this->btnSave = (gcnew System::Windows::Forms::Button());
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
 			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
 			this->lwguide->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numVisDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numTaperedBaguetteMaxWidth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picShapeOutline))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->BeginInit();
@@ -810,6 +819,7 @@ private: System::Windows::Forms::Label^ lblRecutDetails;
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->lwguide->Controls->Add(this->numVisDepth);
 			this->lwguide->Controls->Add(this->btnClearSO);
 			this->lwguide->Controls->Add(this->btnClearPB);
 			this->lwguide->Controls->Add(this->btnClearGT);
@@ -849,6 +859,18 @@ private: System::Windows::Forms::Label^ lblRecutDetails;
 			this->lwguide->Size = System::Drawing::Size(505, 352);
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
+			// 
+			// numVisDepth
+			// 
+			this->numVisDepth->DecimalPlaces = 2;
+			this->numVisDepth->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
+			this->numVisDepth->Location = System::Drawing::Point(363, 31);
+			this->numVisDepth->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
+			this->numVisDepth->Name = L"numVisDepth";
+			this->numVisDepth->Size = System::Drawing::Size(98, 20);
+			this->numVisDepth->TabIndex = 59;
+			this->numVisDepth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 4, 0, 0, 0 });
+			this->numVisDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numVisDepth_ValueChanged_1);
 			// 
 			// btnClearSO
 			// 
@@ -999,12 +1021,13 @@ private: System::Windows::Forms::Label^ lblRecutDetails;
 			// 
 			this->numDepth->DecimalPlaces = 2;
 			this->numDepth->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numDepth->Location = System::Drawing::Point(363, 30);
+			this->numDepth->Location = System::Drawing::Point(363, 53);
 			this->numDepth->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
 			this->numDepth->Name = L"numDepth";
 			this->numDepth->Size = System::Drawing::Size(98, 20);
 			this->numDepth->TabIndex = 35;
 			this->numDepth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 4, 0, 0, 0 });
+			this->numDepth->Visible = false;
 			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged);
 			// 
 			// pictAdjArrow
@@ -1545,6 +1568,7 @@ private: System::Windows::Forms::Label^ lblRecutDetails;
 			// groupBoxCalculate
 			// 
 			this->groupBoxCalculate->BackColor = System::Drawing::SystemColors::Info;
+			this->groupBoxCalculate->Controls->Add(this->btnSave);
 			this->groupBoxCalculate->Controls->Add(this->lblWeightInCarats);
 			this->groupBoxCalculate->Controls->Add(this->txtResult);
 			this->groupBoxCalculate->Controls->Add(this->buttonCalc);
@@ -1555,10 +1579,20 @@ private: System::Windows::Forms::Label^ lblRecutDetails;
 			this->groupBoxCalculate->TabIndex = 16;
 			this->groupBoxCalculate->TabStop = false;
 			// 
+			// btnSave
+			// 
+			this->btnSave->Location = System::Drawing::Point(47, 35);
+			this->btnSave->Name = L"btnSave";
+			this->btnSave->Size = System::Drawing::Size(75, 24);
+			this->btnSave->TabIndex = 59;
+			this->btnSave->Text = L"Save to Log";
+			this->btnSave->UseVisualStyleBackColor = true;
+			this->btnSave->Click += gcnew System::EventHandler(this, &Form1::btnSave_Click);
+			// 
 			// lblWeightInCarats
 			// 
 			this->lblWeightInCarats->AutoSize = true;
-			this->lblWeightInCarats->Location = System::Drawing::Point(39, 30);
+			this->lblWeightInCarats->Location = System::Drawing::Point(38, 18);
 			this->lblWeightInCarats->Name = L"lblWeightInCarats";
 			this->lblWeightInCarats->Size = System::Drawing::Size(87, 13);
 			this->lblWeightInCarats->TabIndex = 53;
@@ -1593,6 +1627,7 @@ private: System::Windows::Forms::Label^ lblRecutDetails;
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load_1);
 			this->lwguide->ResumeLayout(false);
 			this->lwguide->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numVisDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numTaperedBaguetteMaxWidth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picShapeOutline))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGirdle))->EndInit();
@@ -1850,63 +1885,40 @@ private: System::Windows::Forms::Label^ lblRecutDetails;
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
 	}
 	private: System::Void radDepthAsMm_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		this->lblDepth->Text = "Depth (mm)";
+		if (this->radDepthAsMm->Checked) {
+			this->lblDepth->Text = "Depth (mm)";
+			this->numVisDepth->DecimalPlaces = 2;
+			this->numVisDepth->Increment = System::Decimal(0.01);
+			Decimal averagewidth = this->numDia2->Value;
+			//Decimal localDepth = this->numDepth->Value;
+			if (CCutDim::isRoundish(this->comboCut->Text)) {
+				averagewidth = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+			}
+			this->numVisDepth->Value = CCalculator::depth_percentage_to_mm(averagewidth, this->numVisDepth->Value);
 
-		if (myPreferences.propLogAll) {
-			// = "true";
-		}
-		if (myPreferences.prop1000 == true) {
 
-			this->numDia1->DecimalPlaces = 3;
-			this->numDia1->Increment = System::Decimal(0.001);
-
-			this->numDia2->DecimalPlaces = 3;
-			this->numDia2->Increment = System::Decimal(0.001);
-
-			this->numDepth->DecimalPlaces = 3;
-			this->numDepth->Increment = System::Decimal(0.001);
-			//decplaces = "3";
-		}
-		else {
-			this->numDia1->DecimalPlaces = 2;
-			this->numDia1->Increment = System::Decimal(0.01);
-
-			this->numDia2->DecimalPlaces = 2;
-			this->numDia2->Increment = System::Decimal(0.01);
-
-			this->numDepth->DecimalPlaces = 2;
-			this->numDepth->Increment = System::Decimal(0.01);
-			//decplaces = "2";
-		}
+			//this->numVisDepth->Value = localDepth;
+			//this->numVisDepth->Value = this->numVisDepth->Value;
+		} //stop this triggering when radDepthAsPercent is selected
 	}
 	private: System::Void radDepthAsPerc_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		/*Use Percentage (%) as Depth data entry*/
-		this->lblDepth->Text = "Depth (%)";
-		this->numDepth->DecimalPlaces = 1;
-		this->numDepth->Increment = System::Decimal(0.1);
-		Boolean isRoundish = true;
-
-		Double  lengthInMm = System::Convert::ToDouble(this->numDia1->Text);
-		Double  widthInMm = System::Convert::ToDouble(this->numDia2->Text);
-
-		Double reverseMm2Perc;
-		Double reversePercentage2mm;
-
-		if (CCutDim::isRoundish(this->comboCut->Text)) {
-
-			widthInMm = (lengthInMm + widthInMm) / 2;
-
-		}
 		if (this->radDepthAsPerc->Checked) {
-			reverseMm2Perc = Math::Round((System::Convert::ToDouble(this->numDepth->Text) / widthInMm) * 100, 2);
-			this->numDepth->Text = System::Convert::ToString(reverseMm2Perc);
-		}
-		else
-		{
+			this->lblDepth->Text = "Depth (%)";
+			this->numVisDepth->DecimalPlaces = 1;
 
-			reversePercentage2mm = CDcalc::depthConvertFromPercent(widthInMm, System::Convert::ToDouble(this->numDepth->Text) / 100, true);
-			this->numDepth->Text = System::Convert::ToString(reversePercentage2mm);
-		}
+			this->numVisDepth->Increment = System::Decimal(0.1);
+			Decimal averagewidth = this->numDia2->Value;
+			if (CCutDim::isRoundish(this->comboCut->Text)) {
+				averagewidth = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+			}
+			this->numVisDepth->Value = CCalculator::depth_percentage_as_percent(averagewidth, this->numVisDepth->Value);
+
+			Decimal sendValue = CCalculator::depth_percentage_to_mm(averagewidth, this->numVisDepth->Value);
+			if (sendValue < this->numDepth->Minimum || sendValue < this->numDepth->Maximum) {
+				this->numDepth->Value = sendValue;
+
+			}
+		}// stop this triggering when MM is checked
 	}
 	private: System::Void helpToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -2093,5 +2105,29 @@ private: System::Windows::Forms::Label^ lblRecutDetails;
 		repaint_shape_outline();
 		this->onScreenInfo();
 	}
-	};
+	private: System::Void btnSave_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ text_to_save = this->toolStrip->Text;
+		if (!text_to_save->Equals("Ready...")) {
+
+
+		}
+	} // end function
+
+private: System::Void numVisDepth_ValueChanged_1(System::Object^ sender, System::EventArgs^ e) {
+
+	if (this->radDepthAsPerc->Checked) {
+	
+		Decimal averagewidth = this->numDia2->Value;
+		if (CCutDim::isRoundish(this->comboCut->Text)) {
+			averagewidth = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+		}
+		this->numDepth->Value = CCalculator::depth_percentage_to_mm(averagewidth, this->numVisDepth->Value);
+	
+	}
+	else {
+	this->numDepth->Value = this->numVisDepth->Value;
+}
+
+}
+};
 }

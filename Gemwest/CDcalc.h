@@ -36,9 +36,9 @@ protected:
 
 public:
 	CDcalc(
-		String^ cutName, 
+		String^ cutName,
 		String^ fac,
-		Decimal d1, 
+		Decimal d1,
 		Decimal d2,
 		Decimal dep,
 		String^ sg,
@@ -50,7 +50,7 @@ public:
 		Boolean isdiamond, //
 		Boolean recut, //
 
-		Boolean depthisperc ):
+		Boolean depthisperc) :
 		m_cutName(cutName), //  name of cut
 		m_factor(fac), //  factor selected by cut choice
 		m_d1(d1), //  diameter 1 (could be length)
@@ -71,13 +71,12 @@ public:
 		return System::Convert::ToString(5 + "many CDcalc");
 	}
 
-	 Decimal term() override;
-	 Decimal add_adjustments_to_carat_weight(Decimal rw);
-	 Decimal recut_weight() override;
+	Decimal term() override;
+	Decimal add_adjustments_to_carat_weight(Decimal rw);
+	Decimal recut_weight() override;
 
-	 Decimal fac2Dec() {
-		 return System::Convert::ToDecimal(m_factor);
-		 	 }
-	static  Double depthConvertFromPercent(Double,Double,Boolean);
+	Decimal fac2Dec() {
+		return System::Convert::ToDecimal(m_factor);
+	}
 
-	};
+};

@@ -10,6 +10,10 @@
 #define MARQ "marquise brilliant"
 #define PEAR "pear brilliant"
 #define EMER "emerald cut diamond"
+#define DIAOVALCUT  "oval brilliant"
+#define DIAROUND  "round brilliant"
+#define DIAOLDMINE  "old mine cut"
+#define DIAOLDEURO  "old european cut"
 //#define OVAL "oval brilliant"
 #define RADI "radiant cut (dia.)"
 // Fügen Sie hier Header hinzu, die vorkompiliert werden sollen.

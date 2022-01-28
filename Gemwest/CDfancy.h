@@ -24,9 +24,9 @@ public:
         Boolean depthisperc) : CDcalc(cutName, fac, d1, d2, dep, sg, adj, gt, pv, so, isdiamond, recut, depthisperc) {}
 private:
     String^ m_fancy;
-    Double m_length;
-    Double m_width;
-    Boolean m_interpolate;
+    Decimal m_length;
+    Decimal m_width;
+;
 
 public:
     property String^ fancyType
@@ -37,18 +37,18 @@ public:
             m_fancy = s;
         }
     }
-    property Double length
+    property Decimal length
     {
-        Double get() { return m_length; }
-        void set(Double l)
+        Decimal get() { return m_length; }
+        void set(Decimal l)
         {
             m_length = l;
         }
     }
-    property Double width
+    property Decimal width
     {
-        Double get() { return m_width; }
-        void set(Double w)
+        Decimal get() { return m_width; }
+        void set(Decimal w)
         {
             m_width = w;
         }
