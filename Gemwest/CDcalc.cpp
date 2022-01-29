@@ -11,15 +11,6 @@ Decimal CDcalc::term() {
 }
 Decimal CDcalc::recut_weight() { return Convert::ToDecimal(0); };
 
-Double CDcalc::depthConvertFromPercent(Double summedWidth, Double depth, Boolean isPercentage) {
-
-	if (isPercentage) {
-		depth = (summedWidth*depth) / 100;
-	}
-/*************************************************************/
-	return depth;
-} // end adjust function
-
 Decimal CDcalc::add_adjustments_to_carat_weight(Decimal rw) {
 
 	Double rwd = Convert::ToDouble(rw);

@@ -3,19 +3,16 @@
 /*https://www.vcalc.com/wiki/KurtHeckman/Diamond+-+Pear-shape+Brilliant following checked against 01/26/2022*/
 
 Double CDfancy::lw() {
-	return m_length / m_width;
+	return static_cast<Double>(CCalculator::length_width_ratio(m_length,m_width));
 
 }
 
 String^ CDfancy::setFancyRecutFactor() {
-	if (this->m_interpolate) {
 
-		return "0.017";
-	}
-	else {
 		String^ factor = "0.001";
 		Double coefficient=0;
 		Double lw = this->lw();
+
 		if (this->fancyType->Equals(MARQ)) {
 
 			if (lw < 1.44)	{	  coefficient = 0.00565; }
@@ -63,7 +60,7 @@ String^ CDfancy::setFancyRecutFactor() {
 		}
 		factor = Convert::ToString(coefficient);
 		return factor;
-	}// end interpolate
+
 }
 
 

@@ -35,9 +35,6 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 	private: System::Windows::Forms::PictureBox^ pictureZaniahLogo;
-	protected:
-
-	protected:
 
 	private:
 		/// <summary>
