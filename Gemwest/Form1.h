@@ -100,21 +100,34 @@ namespace CppCLRWinformsProjekt {
 		}
 		/***************************************************************************************/
 		void repaint_pavilion_bulge() {
+			CHelp^ p = nullptr;
+			if (this->radioBtnDia->Checked) {
+				p = gcnew CHelp("diamond");
+			}
+			else {
+				p = gcnew CHelp("gem");
+			}
+			/*"Normal", "Thin-Medium", "Slightly Thick", "Thick", "Very Thick", "Extreme"*/
 			String^ pBulge = "bulge_non";
 			if (this->tbPavilionBulge->Value < 6) {
 				pBulge = "bulge_non";
+				this->lblDynPB->Text = p->girdleTypes[0];
 			}
 			else if (this->tbPavilionBulge->Value < 11) {
 				pBulge = "bulge_sml";
+				this->lblDynPB->Text = p->girdleTypes[1];
 			}
 			else if (this->tbPavilionBulge->Value < 21) {
 				pBulge = "bulge_med";
+				this->lblDynPB->Text = p->girdleTypes[2];
 			}
 			else if (this->tbPavilionBulge->Value < 31) {
 				pBulge = "bulge_big";
+				this->lblDynPB->Text = p->girdleTypes[3];
 			}
 			else {
 				pBulge = "bulge_non";
+				this->lblDynPB->Text = p->girdleTypes[0];
 			}
 			CEmbeddedImage^ bulgeImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
@@ -882,6 +895,7 @@ private: System::Windows::Forms::Label^ lblDynGT;
 			this->lblDynSO->Size = System::Drawing::Size(40, 13);
 			this->lblDynSO->TabIndex = 62;
 			this->lblDynSO->Text = L"Normal";
+			this->lblDynSO->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblDynPB
 			// 
@@ -891,6 +905,7 @@ private: System::Windows::Forms::Label^ lblDynGT;
 			this->lblDynPB->Size = System::Drawing::Size(33, 13);
 			this->lblDynPB->TabIndex = 61;
 			this->lblDynPB->Text = L"None";
+			this->lblDynPB->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblDynGT
 			// 
@@ -900,6 +915,7 @@ private: System::Windows::Forms::Label^ lblDynGT;
 			this->lblDynGT->Size = System::Drawing::Size(68, 13);
 			this->lblDynGT->TabIndex = 60;
 			this->lblDynGT->Text = L"Thin-Medium";
+			this->lblDynGT->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// numVisDepth
 			// 
@@ -1891,42 +1907,56 @@ private: System::Windows::Forms::Label^ lblDynGT;
 	}
 
 	private: System::Void tbShapeOutline_Scroll(System::Object^ sender, System::EventArgs^ e) {
-
+		CHelp^ p = nullptr;
 		combine_adjustments();
 		this->txtShapeOutline->Text = this->tbShapeOutline->Value.ToString() + "%";
 		repaint_shape_outline();
 		this->onScreenInfo();
-		CHelp^ h = gcnew CHelp;
-		this->lblHelp->Text = h->shape;
+		if (this->radioBtnDia->Checked) {
+			p = gcnew CHelp("diamond");
+		}
+		else {
+			p = gcnew CHelp("gem");
+		}
+		this->lblHelp->Text = p->shape;
 	}
 
 	private: System::Void tbGirdleThickness_Scroll(System::Object^ sender, System::EventArgs^ e) {
+		CHelp^ p = nullptr;
 		combine_adjustments();
 		this->txtGirdleThickness->Text = this->tbGirdleThickness->Value.ToString() + "%";
 		repaint_girdle_thickness();
 		this->onScreenInfo();
-		CHelp^ h = gcnew CHelp;
-		this->lblHelp->Text = h->girdle;
+		if (this->radioBtnDia->Checked) {
+			p = gcnew CHelp("diamond");
+		}
+		else {
+			p = gcnew CHelp("gem");
+		}
+		this->lblHelp->Text = p->girdle;
 
 	}
 	private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::EventArgs^ e) {
+		CHelp^ p = nullptr;
 		combine_adjustments();
 		this->txtPavilionBulge->Text = this->tbPavilionBulge->Value.ToString() + "%";
 		repaint_pavilion_bulge();
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
-		CHelp^ h = gcnew CHelp;
-		this->lblHelp->Text = h->bulge;
+		if (this->radioBtnDia->Checked) {
+			p = gcnew CHelp("diamond");
+		}
+		else {
+			p = gcnew CHelp("gem");
+		}
+		this->lblHelp->Text = p->bulge;
 	}
 	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-
-
-	}
+			}
 	private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
 	}
 	private: System::Void numDia1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
-
 	}
 	private: System::Void numDepth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
