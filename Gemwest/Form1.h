@@ -1953,9 +1953,13 @@ private: System::Windows::Forms::Label^ lblDynGT;
 	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 			}
 	private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (this->numDia2->Value > this->numDia1->Value)
+			this->numDia1->Value = this->numDia2->Value;
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
 	}
 	private: System::Void numDia1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (this->numDia2->Value > this->numDia1->Value)
+			this->numDia2->Value = this->numDia1->Value;
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
 	}
 	private: System::Void numDepth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
