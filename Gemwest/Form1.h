@@ -99,6 +99,9 @@ namespace CppCLRWinformsProjekt {
 
 		}
 		/***************************************************************************************/
+		void repaint_crown_height() {
+
+		}
 		void repaint_pavilion_bulge() {
 			CHelp^ p = nullptr;
 			if (this->radioBtnDia->Checked) {
@@ -136,28 +139,51 @@ namespace CppCLRWinformsProjekt {
 		}
 		/***************************************************************************************/
 		void repaint_shape_outline() {
+			CHelp^ p = nullptr;
+			if (this->radioBtnDia->Checked) {
+				p = gcnew CHelp("diamond");
+			}
+			else {
+				p = gcnew CHelp("gem");
+			}
 			String^ so = "so3";
-
+			/*Wide corners on cut corner squares and rectangles can decrease weight as much as 5%.
+For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10%. Occasionally, 
+straight shoulders will require a deduction of 1% to 5%.
+Marquise and (sometimes) pears will have a very short keel or none at all. 
+This will reduce the weight by 1% to 3%.
+Triangles with straight sides will require a reduction of up to 10%.*/
+			String^ currentCut = this->comboCut->Text;
+			if (currentCut ==EMER || currentCut ==SQUA){}else
+			if (currentCut ==PEAR || currentCut==MARQ || currentCut==OVAL){}else
+				if (currentCut == TRIC) {}else{}
 			if (this->tbShapeOutline->Value < -3) {
 				so = "so1";
+				this->lblDynSO->Text = p->shapeTypes[0];
 			}
 			else if (this->tbShapeOutline->Value < 0) {
 				so = "so2";
+				this->lblDynSO->Text = p->shapeTypes[0];
 			}
 			else if (this->tbShapeOutline->Value < 1) {
 				so = "so3";
+				this->lblDynSO->Text = p->shapeTypes[0];
 			}
 			else if (this->tbShapeOutline->Value < 5) {
 				so = "so4";
+				this->lblDynSO->Text = p->shapeTypes[0];
 			}
 			else if (this->tbShapeOutline->Value < 10) {
 				so = "so5";
+				this->lblDynSO->Text = p->shapeTypes[0];
 			}
 			else if (this->tbShapeOutline->Value < 16) {
 				so = "so6";
+				this->lblDynSO->Text = p->shapeTypes[0];
 			}
 			else {
 				so = "so3";
+				this->lblDynSO->Text = p->shapeTypes[0];
 			}
 			CEmbeddedImage^ shapeOutlineImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
@@ -439,7 +465,7 @@ namespace CppCLRWinformsProjekt {
 		void combine_adjustments() {
 
 			Double sum;
-			sum = this->tbGirdleThickness->Value + this->tbPavilionBulge->Value + this->tbShapeOutline->Value;
+			sum = this->tbCrownHeight->Value+this->tbGirdleThickness->Value + this->tbPavilionBulge->Value + this->tbShapeOutline->Value+this->tbKeel->Value+this->tbOther->Value;
 			this->txtGlobAdjust->Text = System::Convert::ToString(sum) + "%";
 		}
 
@@ -477,9 +503,9 @@ namespace CppCLRWinformsProjekt {
 
 		}
 		/***************************************************************************************/
-		void draw_lw(Decimal lwStr) {	}
+		void draw_lw2(Decimal lwStr) {	}
 
-		void draw_lw2(Decimal lwStr) {
+		void draw_lw(Decimal lwStr) {
 
 			if (!this->comboCut->Text->Equals(TAPBAG)) {
 				this->picLW->Image = nullptr;
@@ -607,6 +633,24 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ lblDynSO;
 	private: System::Windows::Forms::Label^ lblDynPB;
 	private: System::Windows::Forms::Label^ lblDynGT;
+private: System::Windows::Forms::TrackBar^ tbCrownHeight;
+private: System::Windows::Forms::TextBox^ txtCrownHeight;
+
+
+
+private: System::Windows::Forms::Button^ btnClrCR;
+private: System::Windows::Forms::Label^ lblDynCR;
+private: System::Windows::Forms::PictureBox^ picCrown;
+private: System::Windows::Forms::Label^ lblCrownHeight;
+private: System::Windows::Forms::Label^ lblOther;
+private: System::Windows::Forms::Label^ lblKeel;
+private: System::Windows::Forms::TrackBar^ tbOther;
+
+private: System::Windows::Forms::TrackBar^ tbKeel;
+private: System::Windows::Forms::TextBox^ txtOther;
+private: System::Windows::Forms::TextBox^ txtKeel;
+
+
 
 
 
@@ -632,6 +676,17 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
+			this->txtOther = (gcnew System::Windows::Forms::TextBox());
+			this->txtKeel = (gcnew System::Windows::Forms::TextBox());
+			this->txtCrownHeight = (gcnew System::Windows::Forms::TextBox());
+			this->lblOther = (gcnew System::Windows::Forms::Label());
+			this->lblKeel = (gcnew System::Windows::Forms::Label());
+			this->tbOther = (gcnew System::Windows::Forms::TrackBar());
+			this->tbKeel = (gcnew System::Windows::Forms::TrackBar());
+			this->lblCrownHeight = (gcnew System::Windows::Forms::Label());
+			this->btnClrCR = (gcnew System::Windows::Forms::Button());
+			this->lblDynCR = (gcnew System::Windows::Forms::Label());
+			this->picCrown = (gcnew System::Windows::Forms::PictureBox());
 			this->lblHelp = (gcnew System::Windows::Forms::Label());
 			this->lblDynSO = (gcnew System::Windows::Forms::Label());
 			this->lblDynPB = (gcnew System::Windows::Forms::Label());
@@ -672,6 +727,7 @@ namespace CppCLRWinformsProjekt {
 			this->lblGlobAdj = (gcnew System::Windows::Forms::Label());
 			this->lblDia2 = (gcnew System::Windows::Forms::Label());
 			this->lblDia1 = (gcnew System::Windows::Forms::Label());
+			this->tbCrownHeight = (gcnew System::Windows::Forms::TrackBar());
 			this->lblRecut = (gcnew System::Windows::Forms::Label());
 			this->picRecut = (gcnew System::Windows::Forms::PictureBox());
 			this->cbRecut = (gcnew System::Windows::Forms::CheckBox());
@@ -706,6 +762,9 @@ namespace CppCLRWinformsProjekt {
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
 			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
 			this->lwguide->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOther))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbKeel))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCrown))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numVisDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numTaperedBaguetteMaxWidth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picShapeOutline))->BeginInit();
@@ -721,6 +780,7 @@ namespace CppCLRWinformsProjekt {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbCrownHeight))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRecut))->BeginInit();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numSG))->BeginInit();
@@ -832,6 +892,17 @@ namespace CppCLRWinformsProjekt {
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->lwguide->Controls->Add(this->txtOther);
+			this->lwguide->Controls->Add(this->txtKeel);
+			this->lwguide->Controls->Add(this->txtCrownHeight);
+			this->lwguide->Controls->Add(this->lblOther);
+			this->lwguide->Controls->Add(this->lblKeel);
+			this->lwguide->Controls->Add(this->tbOther);
+			this->lwguide->Controls->Add(this->tbKeel);
+			this->lwguide->Controls->Add(this->lblCrownHeight);
+			this->lwguide->Controls->Add(this->btnClrCR);
+			this->lwguide->Controls->Add(this->lblDynCR);
+			this->lwguide->Controls->Add(this->picCrown);
 			this->lwguide->Controls->Add(this->lblHelp);
 			this->lwguide->Controls->Add(this->lblDynSO);
 			this->lwguide->Controls->Add(this->lblDynPB);
@@ -871,18 +942,134 @@ namespace CppCLRWinformsProjekt {
 			this->lwguide->Controls->Add(this->lblDia2);
 			this->lwguide->Controls->Add(this->lblDia1);
 			this->lwguide->Controls->Add(this->btnEq);
-			this->lwguide->Location = System::Drawing::Point(12, 27);
+			this->lwguide->Controls->Add(this->tbCrownHeight);
+			this->lwguide->Location = System::Drawing::Point(13, 27);
 			this->lwguide->Name = L"lwguide";
 			this->lwguide->Size = System::Drawing::Size(505, 364);
 			this->lwguide->TabIndex = 12;
 			this->lwguide->TabStop = false;
+			this->lwguide->Enter += gcnew System::EventHandler(this, &Form1::lwguide_Enter);
+			// 
+			// txtOther
+			// 
+			this->txtOther->Location = System::Drawing::Point(65, 310);
+			this->txtOther->Name = L"txtOther";
+			this->txtOther->Size = System::Drawing::Size(30, 20);
+			this->txtOther->TabIndex = 75;
+			this->txtOther->Text = L"0%";
+			this->txtOther->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// txtKeel
+			// 
+			this->txtKeel->Location = System::Drawing::Point(66, 272);
+			this->txtKeel->Name = L"txtKeel";
+			this->txtKeel->Size = System::Drawing::Size(30, 20);
+			this->txtKeel->TabIndex = 74;
+			this->txtKeel->Text = L"0%";
+			this->txtKeel->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// txtCrownHeight
+			// 
+			this->txtCrownHeight->Location = System::Drawing::Point(101, 218);
+			this->txtCrownHeight->Name = L"txtCrownHeight";
+			this->txtCrownHeight->Size = System::Drawing::Size(85, 20);
+			this->txtCrownHeight->TabIndex = 67;
+			this->txtCrownHeight->Text = L"0%";
+			this->txtCrownHeight->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// lblOther
+			// 
+			this->lblOther->AutoSize = true;
+			this->lblOther->Location = System::Drawing::Point(19, 294);
+			this->lblOther->Name = L"lblOther";
+			this->lblOther->Size = System::Drawing::Size(31, 13);
+			this->lblOther->TabIndex = 73;
+			this->lblOther->Text = L"other";
+			// 
+			// lblKeel
+			// 
+			this->lblKeel->AutoSize = true;
+			this->lblKeel->Location = System::Drawing::Point(6, 249);
+			this->lblKeel->Name = L"lblKeel";
+			this->lblKeel->Size = System::Drawing::Size(63, 13);
+			this->lblKeel->TabIndex = 72;
+			this->lblKeel->Text = L"Keel / Culet";
+			// 
+			// tbOther
+			// 
+			this->tbOther->LargeChange = 1;
+			this->tbOther->Location = System::Drawing::Point(0, 310);
+			this->tbOther->Maximum = 20;
+			this->tbOther->MaximumSize = System::Drawing::Size(60, 30);
+			this->tbOther->Minimum = -5;
+			this->tbOther->MinimumSize = System::Drawing::Size(60, 30);
+			this->tbOther->Name = L"tbOther";
+			this->tbOther->Size = System::Drawing::Size(60, 45);
+			this->tbOther->TabIndex = 71;
+			this->tbOther->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
+			this->tbOther->Scroll += gcnew System::EventHandler(this, &Form1::tbOther_Scroll);
+			// 
+			// tbKeel
+			// 
+			this->tbKeel->LargeChange = 1;
+			this->tbKeel->Location = System::Drawing::Point(-1, 262);
+			this->tbKeel->Maximum = 20;
+			this->tbKeel->MaximumSize = System::Drawing::Size(60, 30);
+			this->tbKeel->Minimum = -5;
+			this->tbKeel->MinimumSize = System::Drawing::Size(60, 30);
+			this->tbKeel->Name = L"tbKeel";
+			this->tbKeel->Size = System::Drawing::Size(60, 45);
+			this->tbKeel->TabIndex = 70;
+			this->tbKeel->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
+			this->tbKeel->Scroll += gcnew System::EventHandler(this, &Form1::tbKeel_Scroll);
+			// 
+			// lblCrownHeight
+			// 
+			this->lblCrownHeight->AutoSize = true;
+			this->lblCrownHeight->Location = System::Drawing::Point(115, 165);
+			this->lblCrownHeight->Name = L"lblCrownHeight";
+			this->lblCrownHeight->Size = System::Drawing::Size(71, 13);
+			this->lblCrownHeight->TabIndex = 69;
+			this->lblCrownHeight->Text = L"Crown Height";
+			// 
+			// btnClrCR
+			// 
+			this->btnClrCR->BackColor = System::Drawing::SystemColors::Desktop;
+			this->btnClrCR->ForeColor = System::Drawing::SystemColors::Window;
+			this->btnClrCR->Location = System::Drawing::Point(125, 244);
+			this->btnClrCR->Name = L"btnClrCR";
+			this->btnClrCR->Size = System::Drawing::Size(47, 23);
+			this->btnClrCR->TabIndex = 66;
+			this->btnClrCR->Text = L"X";
+			this->btnClrCR->UseVisualStyleBackColor = false;
+			// 
+			// lblDynCR
+			// 
+			this->lblDynCR->AutoSize = true;
+			this->lblDynCR->Location = System::Drawing::Point(122, 343);
+			this->lblDynCR->Name = L"lblDynCR";
+			this->lblDynCR->Size = System::Drawing::Size(40, 13);
+			this->lblDynCR->TabIndex = 65;
+			this->lblDynCR->Text = L"Normal";
+			this->lblDynCR->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// picCrown
+			// 
+			this->picCrown->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->picCrown->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->picCrown->Location = System::Drawing::Point(101, 273);
+			this->picCrown->Name = L"picCrown";
+			this->picCrown->Size = System::Drawing::Size(85, 67);
+			this->picCrown->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picCrown->TabIndex = 64;
+			this->picCrown->TabStop = false;
 			// 
 			// lblHelp
 			// 
 			this->lblHelp->AutoSize = true;
 			this->lblHelp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblHelp->Location = System::Drawing::Point(8, 247);
+			this->lblHelp->Location = System::Drawing::Point(6, 123);
 			this->lblHelp->Name = L"lblHelp";
 			this->lblHelp->Size = System::Drawing::Size(0, 12);
 			this->lblHelp->TabIndex = 63;
@@ -890,7 +1077,7 @@ namespace CppCLRWinformsProjekt {
 			// lblDynSO
 			// 
 			this->lblDynSO->AutoSize = true;
-			this->lblDynSO->Location = System::Drawing::Point(385, 343);
+			this->lblDynSO->Location = System::Drawing::Point(420, 343);
 			this->lblDynSO->Name = L"lblDynSO";
 			this->lblDynSO->Size = System::Drawing::Size(40, 13);
 			this->lblDynSO->TabIndex = 62;
@@ -900,7 +1087,7 @@ namespace CppCLRWinformsProjekt {
 			// lblDynPB
 			// 
 			this->lblDynPB->AutoSize = true;
-			this->lblDynPB->Location = System::Drawing::Point(284, 343);
+			this->lblDynPB->Location = System::Drawing::Point(321, 343);
 			this->lblDynPB->Name = L"lblDynPB";
 			this->lblDynPB->Size = System::Drawing::Size(33, 13);
 			this->lblDynPB->TabIndex = 61;
@@ -910,7 +1097,7 @@ namespace CppCLRWinformsProjekt {
 			// lblDynGT
 			// 
 			this->lblDynGT->AutoSize = true;
-			this->lblDynGT->Location = System::Drawing::Point(173, 343);
+			this->lblDynGT->Location = System::Drawing::Point(202, 343);
 			this->lblDynGT->Name = L"lblDynGT";
 			this->lblDynGT->Size = System::Drawing::Size(68, 13);
 			this->lblDynGT->TabIndex = 60;
@@ -933,7 +1120,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->btnClearSO->BackColor = System::Drawing::SystemColors::Desktop;
 			this->btnClearSO->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnClearSO->Location = System::Drawing::Point(389, 244);
+			this->btnClearSO->Location = System::Drawing::Point(422, 244);
 			this->btnClearSO->Name = L"btnClearSO";
 			this->btnClearSO->Size = System::Drawing::Size(47, 23);
 			this->btnClearSO->TabIndex = 58;
@@ -945,7 +1132,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->btnClearPB->BackColor = System::Drawing::SystemColors::Desktop;
 			this->btnClearPB->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnClearPB->Location = System::Drawing::Point(288, 244);
+			this->btnClearPB->Location = System::Drawing::Point(323, 244);
 			this->btnClearPB->Name = L"btnClearPB";
 			this->btnClearPB->Size = System::Drawing::Size(47, 23);
 			this->btnClearPB->TabIndex = 57;
@@ -957,7 +1144,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->btnClearGT->BackColor = System::Drawing::SystemColors::Desktop;
 			this->btnClearGT->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnClearGT->Location = System::Drawing::Point(187, 244);
+			this->btnClearGT->Location = System::Drawing::Point(224, 244);
 			this->btnClearGT->Name = L"btnClearGT";
 			this->btnClearGT->Size = System::Drawing::Size(47, 23);
 			this->btnClearGT->TabIndex = 54;
@@ -992,7 +1179,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->picShapeOutline->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picShapeOutline->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picShapeOutline->Location = System::Drawing::Point(363, 273);
+			this->picShapeOutline->Location = System::Drawing::Point(407, 273);
 			this->picShapeOutline->Name = L"picShapeOutline";
 			this->picShapeOutline->Size = System::Drawing::Size(85, 67);
 			this->picShapeOutline->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -1014,7 +1201,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->picGirdle->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picGirdle->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picGirdle->Location = System::Drawing::Point(165, 273);
+			this->picGirdle->Location = System::Drawing::Point(203, 273);
 			this->picGirdle->Name = L"picGirdle";
 			this->picGirdle->Size = System::Drawing::Size(85, 67);
 			this->picGirdle->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -1025,7 +1212,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->picBulge->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picBulge->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picBulge->Location = System::Drawing::Point(264, 273);
+			this->picBulge->Location = System::Drawing::Point(305, 273);
 			this->picBulge->Name = L"picBulge";
 			this->picBulge->Size = System::Drawing::Size(85, 67);
 			this->picBulge->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -1089,7 +1276,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// pictAdjArrow
 			// 
-			this->pictAdjArrow->Location = System::Drawing::Point(77, 212);
+			this->pictAdjArrow->Location = System::Drawing::Point(17, 207);
 			this->pictAdjArrow->Name = L"pictAdjArrow";
 			this->pictAdjArrow->Size = System::Drawing::Size(86, 20);
 			this->pictAdjArrow->TabIndex = 44;
@@ -1097,7 +1284,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txtShapeOutline
 			// 
-			this->txtShapeOutline->Location = System::Drawing::Point(373, 218);
+			this->txtShapeOutline->Location = System::Drawing::Point(407, 218);
 			this->txtShapeOutline->Name = L"txtShapeOutline";
 			this->txtShapeOutline->Size = System::Drawing::Size(85, 20);
 			this->txtShapeOutline->TabIndex = 43;
@@ -1107,7 +1294,7 @@ namespace CppCLRWinformsProjekt {
 			// lblShape
 			// 
 			this->lblShape->AutoSize = true;
-			this->lblShape->Location = System::Drawing::Point(385, 166);
+			this->lblShape->Location = System::Drawing::Point(418, 166);
 			this->lblShape->Name = L"lblShape";
 			this->lblShape->Size = System::Drawing::Size(74, 13);
 			this->lblShape->TabIndex = 42;
@@ -1116,13 +1303,13 @@ namespace CppCLRWinformsProjekt {
 			// tbShapeOutline
 			// 
 			this->tbShapeOutline->LargeChange = 1;
-			this->tbShapeOutline->Location = System::Drawing::Point(370, 182);
+			this->tbShapeOutline->Location = System::Drawing::Point(411, 182);
 			this->tbShapeOutline->Maximum = 15;
 			this->tbShapeOutline->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbShapeOutline->Minimum = -10;
 			this->tbShapeOutline->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbShapeOutline->Name = L"tbShapeOutline";
-			this->tbShapeOutline->Size = System::Drawing::Size(104, 45);
+			this->tbShapeOutline->Size = System::Drawing::Size(104, 30);
 			this->tbShapeOutline->TabIndex = 41;
 			this->tbShapeOutline->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbShapeOutline->Scroll += gcnew System::EventHandler(this, &Form1::tbShapeOutline_Scroll);
@@ -1210,7 +1397,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txtPavilionBulge
 			// 
-			this->txtPavilionBulge->Location = System::Drawing::Point(269, 218);
+			this->txtPavilionBulge->Location = System::Drawing::Point(305, 218);
 			this->txtPavilionBulge->Name = L"txtPavilionBulge";
 			this->txtPavilionBulge->Size = System::Drawing::Size(85, 20);
 			this->txtPavilionBulge->TabIndex = 33;
@@ -1219,7 +1406,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txtGirdleThickness
 			// 
-			this->txtGirdleThickness->Location = System::Drawing::Point(165, 218);
+			this->txtGirdleThickness->Location = System::Drawing::Point(203, 218);
 			this->txtGirdleThickness->Name = L"txtGirdleThickness";
 			this->txtGirdleThickness->Size = System::Drawing::Size(85, 20);
 			this->txtGirdleThickness->TabIndex = 32;
@@ -1228,7 +1415,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txtGlobAdjust
 			// 
-			this->txtGlobAdjust->Location = System::Drawing::Point(40, 191);
+			this->txtGlobAdjust->Location = System::Drawing::Point(10, 182);
 			this->txtGlobAdjust->Name = L"txtGlobAdjust";
 			this->txtGlobAdjust->ReadOnly = true;
 			this->txtGlobAdjust->Size = System::Drawing::Size(85, 20);
@@ -1239,12 +1426,12 @@ namespace CppCLRWinformsProjekt {
 			// tbPavilionBulge
 			// 
 			this->tbPavilionBulge->LargeChange = 1;
-			this->tbPavilionBulge->Location = System::Drawing::Point(263, 182);
+			this->tbPavilionBulge->Location = System::Drawing::Point(307, 182);
 			this->tbPavilionBulge->Maximum = 20;
 			this->tbPavilionBulge->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->Name = L"tbPavilionBulge";
-			this->tbPavilionBulge->Size = System::Drawing::Size(104, 45);
+			this->tbPavilionBulge->Size = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->TabIndex = 29;
 			this->tbPavilionBulge->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbPavilionBulge->Scroll += gcnew System::EventHandler(this, &Form1::tbPavilionBulge_Scroll);
@@ -1252,13 +1439,13 @@ namespace CppCLRWinformsProjekt {
 			// tbGirdleThickness
 			// 
 			this->tbGirdleThickness->LargeChange = 1;
-			this->tbGirdleThickness->Location = System::Drawing::Point(156, 182);
+			this->tbGirdleThickness->Location = System::Drawing::Point(203, 182);
 			this->tbGirdleThickness->Maximum = 20;
 			this->tbGirdleThickness->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->Minimum = -5;
 			this->tbGirdleThickness->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->Name = L"tbGirdleThickness";
-			this->tbGirdleThickness->Size = System::Drawing::Size(104, 45);
+			this->tbGirdleThickness->Size = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->TabIndex = 28;
 			this->tbGirdleThickness->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbGirdleThickness->Scroll += gcnew System::EventHandler(this, &Form1::tbGirdleThickness_Scroll);
@@ -1266,7 +1453,7 @@ namespace CppCLRWinformsProjekt {
 			// lblPavilionBulge
 			// 
 			this->lblPavilionBulge->AutoSize = true;
-			this->lblPavilionBulge->Location = System::Drawing::Point(281, 165);
+			this->lblPavilionBulge->Location = System::Drawing::Point(320, 165);
 			this->lblPavilionBulge->Name = L"lblPavilionBulge";
 			this->lblPavilionBulge->Size = System::Drawing::Size(74, 13);
 			this->lblPavilionBulge->TabIndex = 24;
@@ -1275,7 +1462,7 @@ namespace CppCLRWinformsProjekt {
 			// lblGirdleThickness
 			// 
 			this->lblGirdleThickness->AutoSize = true;
-			this->lblGirdleThickness->Location = System::Drawing::Point(165, 165);
+			this->lblGirdleThickness->Location = System::Drawing::Point(210, 165);
 			this->lblGirdleThickness->Name = L"lblGirdleThickness";
 			this->lblGirdleThickness->Size = System::Drawing::Size(86, 13);
 			this->lblGirdleThickness->TabIndex = 23;
@@ -1284,7 +1471,7 @@ namespace CppCLRWinformsProjekt {
 			// lblGlobAdj
 			// 
 			this->lblGlobAdj->AutoSize = true;
-			this->lblGlobAdj->Location = System::Drawing::Point(37, 165);
+			this->lblGlobAdj->Location = System::Drawing::Point(20, 165);
 			this->lblGlobAdj->Name = L"lblGlobAdj";
 			this->lblGlobAdj->Size = System::Drawing::Size(75, 13);
 			this->lblGlobAdj->TabIndex = 21;
@@ -1307,6 +1494,19 @@ namespace CppCLRWinformsProjekt {
 			this->lblDia1->Size = System::Drawing::Size(58, 13);
 			this->lblDia1->TabIndex = 17;
 			this->lblDia1->Text = L"Diameter-1";
+			// 
+			// tbCrownHeight
+			// 
+			this->tbCrownHeight->LargeChange = 1;
+			this->tbCrownHeight->Location = System::Drawing::Point(99, 182);
+			this->tbCrownHeight->MaximumSize = System::Drawing::Size(104, 30);
+			this->tbCrownHeight->Minimum = -10;
+			this->tbCrownHeight->MinimumSize = System::Drawing::Size(104, 30);
+			this->tbCrownHeight->Name = L"tbCrownHeight";
+			this->tbCrownHeight->Size = System::Drawing::Size(104, 45);
+			this->tbCrownHeight->TabIndex = 68;
+			this->tbCrownHeight->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
+			this->tbCrownHeight->Scroll += gcnew System::EventHandler(this, &Form1::tbCrownHeight_Scroll);
 			// 
 			// lblRecut
 			// 
@@ -1684,6 +1884,9 @@ namespace CppCLRWinformsProjekt {
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load_1);
 			this->lwguide->ResumeLayout(false);
 			this->lwguide->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOther))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbKeel))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCrown))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numVisDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numTaperedBaguetteMaxWidth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picShapeOutline))->EndInit();
@@ -1700,6 +1903,7 @@ namespace CppCLRWinformsProjekt {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbPavilionBulge))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbGirdleThickness))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbCrownHeight))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRecut))->EndInit();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
@@ -1744,16 +1948,22 @@ namespace CppCLRWinformsProjekt {
 		this->txtResult->Text = ""; // clear all textBox
 		this->numDia1->Text = "0.00";
 		this->numDia2->Text = "0.00";
-		this->numDepth->Text = "0.00";
+		this->numVisDepth->Text = "0.00";
 		this->toolStrip->Text = L"Ready..."; // clear all textBox
 		this->tbGirdleThickness->Value = 0;
 		this->tbPavilionBulge->Value = 0;
 		this->tbGirdleThickness->Value = 0;
 		this->tbShapeOutline->Value = 0;
+		this->tbKeel->Value = 0;
+		this->tbOther->Value = 0;
+		this->tbCrownHeight->Value = 0;
 		this->txtGlobAdjust->Text = L"0%";
 		this->txtPavilionBulge->Text = L"0%";
 		this->txtGirdleThickness->Text = L"0%";
 		this->txtShapeOutline->Text = L"0%";
+		this->txtKeel->Text = L"0%";
+		this->txtOther->Text = L"0%";
+		this->txtCrownHeight->Text = L"0%";
 	}
 	private: System::Void txtResult_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -1936,6 +2146,24 @@ namespace CppCLRWinformsProjekt {
 		//this->lblHelp->Text = p->girdle;
 
 	}
+
+	private: System::Void tbKeel_Scroll(System::Object^ sender, System::EventArgs^ e) {
+		combine_adjustments();
+		this->txtKeel->Text = this->tbKeel->Value.ToString() + "%";
+		this->onScreenInfo();
+	}
+
+	private: System::Void tbOther_Scroll(System::Object^ sender, System::EventArgs^ e) {
+		combine_adjustments();
+		this->txtOther->Text = this->tbOther->Value.ToString() + "%";
+		this->onScreenInfo();
+	}
+	 private: System::Void tbCrownHeight_Scroll(System::Object^ sender, System::EventArgs^ e) {
+			   combine_adjustments();
+			   this->txtCrownHeight->Text = this->tbCrownHeight->Value.ToString() + "%";
+			  repaint_crown_height();
+			   this->onScreenInfo();
+		   }
 	private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::EventArgs^ e) {
 		//CHelp^ p = nullptr;
 		combine_adjustments();
@@ -2206,5 +2434,12 @@ namespace CppCLRWinformsProjekt {
 
 	}
 
-	};
+	private: System::Void lwguide_Enter(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void textCrown_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+
+
+
+};
 }

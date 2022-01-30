@@ -31,8 +31,8 @@ private:
 		"Obvious, add 9% to 12%.\n"
 		"Extreme, add 13% to 18%.\n";
 	String^ m_gem_shape_general_help =
-		L"Wide corners SQ/RECT - 0~5%.\n"
-		"MQ/PE v.short keel/none - 1%~3%.\n"
+		L"Wide corners SQ/RECT - 0~-5%.\n"
+		"MQ/PE v.short keel/none - 1%~-3%.\n"
 		"Straight shoulders - 1~5% .\n"
 		"TRI straight sides - ~10%.\n"
 		"Normal 0 % .\n"
