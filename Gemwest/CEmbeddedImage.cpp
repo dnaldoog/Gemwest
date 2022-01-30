@@ -61,10 +61,11 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("bowenite", "bowenite");
 	myRez->Add("brazilianite", "brazilianite");
 	myRez->Add("briolette", "briolette");
-	myRez->Add("bulge_big", "bulge_big");	//bulge
-	myRez->Add("bulge_med", "bulge_med");	//bulge
-	myRez->Add("bulge_non", "bulge_non");	//bulge
-	myRez->Add("bulge_sml", "bulge_sml");	//bulge
+	myRez->Add("bulge_normal", "bulge_normal");	//bulge
+	myRez->Add("bulge_slight", "bulge_slight");	//bulge
+	myRez->Add("bulge_noticeable", "bulge_noticeable");	//bulge
+	myRez->Add("bulge_obvious", "bulge_obvious");	//bulge
+	myRez->Add("bulge_extreme", "bulge_extreme");	//bulge
 	myRez->Add("cabochon - high domed cabs", "cabochon_high_domed");	//gem cut
 	myRez->Add("cabochon - low domed cabs", "cabochon_low_domed");	//gem cut
 	myRez->Add("cabochon - regular", "cabochon_regular");	//gem cut

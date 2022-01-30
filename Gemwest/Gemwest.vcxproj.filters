@@ -1798,6 +1798,9 @@
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\shallow.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\bulge_obvious.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">

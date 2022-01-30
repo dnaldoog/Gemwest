@@ -217,6 +217,7 @@
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\bulge_obvious.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\deep_stone.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\recut.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\shallow.png" />

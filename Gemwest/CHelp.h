@@ -153,6 +153,42 @@ public:
 			}
 		}
 	}
+	property  array<String^>^ bulgeTypes {
+		array<String^>^ get() {
+			if (m_myGemType == "diamond") {
+				return  m_dia_bulge_dynamic;
+			}
+			else {
+				return  m_gem_bulge_dynamic;
+			}
+		}
+		void set(array<String^>^ a) {
+			if (m_myGemType == "diamond") {
+				m_dia_bulge_dynamic = a;
+			}
+			else {
+				m_gem_bulge_dynamic = a;
+			}
+		}
+	}
 
+	property  array<String^>^ shapeTypes {
+		array<String^>^ get() {
+			if (m_myGemType == "diamond") {
+				return  m_dia_shape_dynamic;
+			}
+			else {
+				return  m_gem_shape_dynamic;
+			}
+		}
+		void set(array<String^>^ a) {
+			if (m_myGemType == "diamond") {
+				m_dia_shape_dynamic = a;
+			}
+			else {
+				m_gem_shape_dynamic = a;
+			}
+		}
+	}
 };
 

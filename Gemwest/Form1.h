@@ -108,26 +108,26 @@ namespace CppCLRWinformsProjekt {
 				p = gcnew CHelp("gem");
 			}
 			/*"Normal", "Thin-Medium", "Slightly Thick", "Thick", "Very Thick", "Extreme"*/
-			String^ pBulge = "bulge_non";
-			if (this->tbPavilionBulge->Value < 6) {
-				pBulge = "bulge_non";
-				this->lblDynPB->Text = p->girdleTypes[0];
+			String^ pBulge = "bulge_normal";
+			if (this->tbPavilionBulge->Value < 3) {
+				pBulge = "bulge_normal";
+				this->lblDynPB->Text = p->bulgeTypes[0];
 			}
-			else if (this->tbPavilionBulge->Value < 11) {
-				pBulge = "bulge_sml";
-				this->lblDynPB->Text = p->girdleTypes[1];
+			else if (this->tbPavilionBulge->Value < 6) {
+				pBulge = "bulge_slight";
+				this->lblDynPB->Text = p->bulgeTypes[1];
 			}
-			else if (this->tbPavilionBulge->Value < 21) {
-				pBulge = "bulge_med";
-				this->lblDynPB->Text = p->girdleTypes[2];
+			else if (this->tbPavilionBulge->Value < 9) {
+				pBulge = "bulge_noticeable";
+				this->lblDynPB->Text = p->bulgeTypes[2];
 			}
-			else if (this->tbPavilionBulge->Value < 31) {
-				pBulge = "bulge_big";
-				this->lblDynPB->Text = p->girdleTypes[3];
+			else if (this->tbPavilionBulge->Value < 13) {
+				pBulge = "bulge_obvious";
+				this->lblDynPB->Text = p->bulgeTypes[3];
 			}
 			else {
-				pBulge = "bulge_non";
-				this->lblDynPB->Text = p->girdleTypes[0];
+				pBulge = "bulge_extreme";
+				this->lblDynPB->Text = p->bulgeTypes[4];
 			}
 			CEmbeddedImage^ bulgeImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
@@ -466,13 +466,13 @@ namespace CppCLRWinformsProjekt {
 			String^ drawString = "60%";
 			// Create font and brush.
 			System::Drawing::Font^ drawFont = gcnew System::Drawing::Font("Arial", 8);
-			SolidBrush ^drawBrush = gcnew SolidBrush(Color::Black);
+			SolidBrush^ drawBrush = gcnew SolidBrush(Color::Black);
 
 			// Create point for upper-left corner of drawing.
 			float x = 2.0F;
-			float y = static_cast<Single>((this->picDepth->Height)*0.6);
+			float y = static_cast<Single>((this->picDepth->Height) * 0.6);
 			//StringFormat ^drawFormat = gcnew StringFormat();
-			
+
 			gd->DrawString(drawString, drawFont, drawBrush, x, y/*,Stringformat*/);
 
 		}
@@ -603,10 +603,10 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ lblRecutDetails;
 	private: System::Windows::Forms::Button^ btnSave;
 	private: System::Windows::Forms::NumericUpDown^ numVisDepth;
-private: System::Windows::Forms::Label^ lblHelp;
-private: System::Windows::Forms::Label^ lblDynSO;
-private: System::Windows::Forms::Label^ lblDynPB;
-private: System::Windows::Forms::Label^ lblDynGT;
+	private: System::Windows::Forms::Label^ lblHelp;
+	private: System::Windows::Forms::Label^ lblDynSO;
+	private: System::Windows::Forms::Label^ lblDynPB;
+	private: System::Windows::Forms::Label^ lblDynGT;
 
 
 
@@ -900,7 +900,7 @@ private: System::Windows::Forms::Label^ lblDynGT;
 			// lblDynPB
 			// 
 			this->lblDynPB->AutoSize = true;
-			this->lblDynPB->Location = System::Drawing::Point(290, 343);
+			this->lblDynPB->Location = System::Drawing::Point(284, 343);
 			this->lblDynPB->Name = L"lblDynPB";
 			this->lblDynPB->Size = System::Drawing::Size(33, 13);
 			this->lblDynPB->TabIndex = 61;
@@ -1240,7 +1240,7 @@ private: System::Windows::Forms::Label^ lblDynGT;
 			// 
 			this->tbPavilionBulge->LargeChange = 1;
 			this->tbPavilionBulge->Location = System::Drawing::Point(263, 182);
-			this->tbPavilionBulge->Maximum = 30;
+			this->tbPavilionBulge->Maximum = 20;
 			this->tbPavilionBulge->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->Name = L"tbPavilionBulge";
@@ -1907,51 +1907,51 @@ private: System::Windows::Forms::Label^ lblDynGT;
 	}
 
 	private: System::Void tbShapeOutline_Scroll(System::Object^ sender, System::EventArgs^ e) {
-		CHelp^ p = nullptr;
+		//CHelp^ p = nullptr;
 		combine_adjustments();
 		this->txtShapeOutline->Text = this->tbShapeOutline->Value.ToString() + "%";
 		repaint_shape_outline();
 		this->onScreenInfo();
-		if (this->radioBtnDia->Checked) {
-			p = gcnew CHelp("diamond");
-		}
-		else {
-			p = gcnew CHelp("gem");
-		}
-		this->lblHelp->Text = p->shape;
+		//if (this->radioBtnDia->Checked) {
+		//	p = gcnew CHelp("diamond");
+		//}
+		//else {
+		//	p = gcnew CHelp("gem");
+		//}
+		//this->lblHelp->Text = p->shape;
 	}
 
 	private: System::Void tbGirdleThickness_Scroll(System::Object^ sender, System::EventArgs^ e) {
-		CHelp^ p = nullptr;
+		//CHelp^ p = nullptr;
 		combine_adjustments();
 		this->txtGirdleThickness->Text = this->tbGirdleThickness->Value.ToString() + "%";
 		repaint_girdle_thickness();
 		this->onScreenInfo();
-		if (this->radioBtnDia->Checked) {
-			p = gcnew CHelp("diamond");
-		}
-		else {
-			p = gcnew CHelp("gem");
-		}
-		this->lblHelp->Text = p->girdle;
+		//if (this->radioBtnDia->Checked) {
+		//	p = gcnew CHelp("diamond");
+		//}
+		//else {
+		//	p = gcnew CHelp("gem");
+		//}
+		//this->lblHelp->Text = p->girdle;
 
 	}
 	private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::EventArgs^ e) {
-		CHelp^ p = nullptr;
+		//CHelp^ p = nullptr;
 		combine_adjustments();
 		this->txtPavilionBulge->Text = this->tbPavilionBulge->Value.ToString() + "%";
 		repaint_pavilion_bulge();
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
-		if (this->radioBtnDia->Checked) {
-			p = gcnew CHelp("diamond");
-		}
-		else {
-			p = gcnew CHelp("gem");
-		}
-		this->lblHelp->Text = p->bulge;
+		//if (this->radioBtnDia->Checked) {
+		//	p = gcnew CHelp("diamond");
+		//}
+		//else {
+		//	p = gcnew CHelp("gem");
+		//}
+		//this->lblHelp->Text = p->bulge;
 	}
 	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-			}
+	}
 	private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (this->numDia2->Value > this->numDia1->Value)
 			this->numDia1->Value = this->numDia2->Value;
@@ -2094,7 +2094,7 @@ private: System::Windows::Forms::Label^ lblDynGT;
 		this->picCut->Image = defaultCut->getName();
 
 		CEmbeddedImage^ defaultBulge = gcnew CEmbeddedImage;
-		defaultBulge->setName("bulge_non");
+		defaultBulge->setName("bulge_normal");
 		this->picBulge->Image = defaultBulge->getName();
 
 		CEmbeddedImage^ defaultShapeOutline = gcnew CEmbeddedImage;
