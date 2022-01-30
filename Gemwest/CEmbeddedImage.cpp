@@ -66,6 +66,9 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("bulge_noticeable", "bulge_noticeable");	//bulge
 	myRez->Add("bulge_obvious", "bulge_obvious");	//bulge
 	myRez->Add("bulge_extreme", "bulge_extreme");	//bulge
+	myRez->Add("crown_normal", "crown_normal");	//crown
+	myRez->Add("crown_low", "crown_low");	//crown
+	myRez->Add("crown_high", "crown_high");	//crown
 	myRez->Add("cabochon - high domed cabs", "cabochon_high_domed");	//gem cut
 	myRez->Add("cabochon - low domed cabs", "cabochon_low_domed");	//gem cut
 	myRez->Add("cabochon - regular", "cabochon_regular");	//gem cut
@@ -252,7 +255,6 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("square cut (dia.)", "square_cut_diamond");
 	myRez->Add("square step cut", "square_step_cut");
 	myRez->Add("square with cut corners", "square_with_cut_corners");
-	myRez->Add("sthickgirdle", "sthickgirdle");
 	myRez->Add("strontium titanate", "strontium titanate");
 	myRez->Add("sugilite", "sugilite");
 	myRez->Add("synthetic corundum", "synthetic corundum");
@@ -262,8 +264,10 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("vesuvianite","vesuvianite");	// vesuvianite
 	myRez->Add("tapered baguette", "tapered_baguette");
 	myRez->Add("tektite", "tektite");
-	myRez->Add("thickgirdle","thickgirdle");	
-	myRez->Add("thingirdle","thingirdle");	
+	myRez->Add("sthickgirdle", "sthickgirdle"); // girdle thickness images
+	myRez->Add("vthickgirdle", "vthickgirdle");// girdle thickness images
+	myRez->Add("thickgirdle","thickgirdle");	// girdle thickness images
+	myRez->Add("thingirdle","thingirdle");	// girdle thickness images
 	myRez->Add("titanite","sphene");	
 	myRez->Add("tiger eye","tigerseye");	
 	myRez->Add("topaz", "topaz");

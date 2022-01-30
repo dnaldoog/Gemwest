@@ -218,6 +218,9 @@
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\bulge_obvious.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_high.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_low.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_normal.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\deep_stone.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\recut.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\shallow.png" />
@@ -735,6 +738,7 @@
     <Image Include="square_step_cut.png" />
     <Image Include="square_with_cut_corners.png" />
     <Image Include="sthickgirdle.png" />
+    <Image Include="sthickgirdle1.png" />
     <Image Include="stonedepthokay.png" />
     <Image Include="strontium titanate.jpg" />
     <Image Include="sugilite.jpg" />

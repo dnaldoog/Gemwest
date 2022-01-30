@@ -15,7 +15,6 @@
 #include "AboutForm1.h"
 #include "HelpForm.h"
 #include "OptionsForm.h"
-#include "CHelp.h"
 #include "BridgeCS.h"
 
 namespace CppCLRWinformsProjekt {
@@ -74,24 +73,35 @@ namespace CppCLRWinformsProjekt {
 		}
 
 		void repaint_girdle_thickness() {
-
+			/*		L"Thin girdle, 0%.\n"
+		"Slightly thick, add 2%.\n"
+		"Thick, add 4%.\n"
+		"Very thick, 6%.\n"
+		"Extra thick, add 9%.";*/
+			array<String^>^ girdleDescription = gcnew array<String^>{ "Thin girdle", "Slightly thick", "Thick", "Very thick", "Extra thick"};
+				String^ gdes = girdleDescription[0];
 			String^ gThk = "thingirdle";
-			if (this->tbGirdleThickness->Value < 4) {
+			if (this->tbGirdleThickness->Value < 1) {
 				gThk = "thingirdle";
+				gdes = girdleDescription[0];
 			}
-			else if (this->tbGirdleThickness->Value < 10) {
+			else if (this->tbGirdleThickness->Value < 3) {
 				gThk = "mediumgirdle";
+				gdes = girdleDescription[1];
 			}
-			else if (this->tbGirdleThickness->Value < 14) {
+			else if (this->tbGirdleThickness->Value < 5) {
 				gThk = "thickgirdle";
+				gdes = girdleDescription[2];
 			}
-			else if (this->tbGirdleThickness->Value < 21) {
+			else if (this->tbGirdleThickness->Value < 7) {
 				gThk = "sthickgirdle";
+				gdes = girdleDescription[3];
 			}
 			else {
-				gThk = "thingirdle";
+				gThk = "vthickgirdle";
+				gdes = girdleDescription[4];
 			}
-
+			this->lblDynGT->Text = gdes;
 			CEmbeddedImage^ girdleImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
 			girdleImage->setName(gThk);
@@ -100,37 +110,59 @@ namespace CppCLRWinformsProjekt {
 		}
 		/***************************************************************************************/
 		void repaint_crown_height() {
+			array<String^>^ crownDescription = gcnew array<String^>{ "Normal", "low" ,"high"};
+
+			String^ pcrownimage = "crown_normal";
+			String^ crowndes = crownDescription[0];
+			if (this->tbCrownHeight->Value < -6) {
+				pcrownimage = "crown_low";
+				crowndes = crownDescription[1];
+			}
+			else if (this->tbCrownHeight->Value > 4) {
+				pcrownimage = "crown_high";
+				crowndes = crownDescription[2];
+			}
+			else {
+				pcrownimage = "crown_normal";
+				crowndes = crownDescription[0];
+			}
+			this->lblDynCR->Text = crowndes;
+			CEmbeddedImage^ crownImage = gcnew CEmbeddedImage;
+			/**************************IMAGE MANAGEMENT**************************/
+			crownImage->setName(pcrownimage);
+			this->picCrown->Image = crownImage->getName();
 
 		}
 		void repaint_pavilion_bulge() {
-			CHelp^ p = nullptr;
-			if (this->radioBtnDia->Checked) {
-				p = gcnew CHelp("diamond");
-			}
-			else {
-				p = gcnew CHelp("gem");
-			}
-			/*"Normal", "Thin-Medium", "Slightly Thick", "Thick", "Very Thick", "Extreme"*/
+			//CHelp^ p = nullptr;
+			//if (this->radioBtnDia->Checked) {
+			//	p = gcnew CHelp("diamond");
+			//}
+			//else {
+			//	p = gcnew CHelp("gem");
+			//}
+			array<String^>^ bulgeDescription = gcnew array<String^>{ "Normal", "Slight", "Noticeable", "Obvious", "Extreme" };
+	
 			String^ pBulge = "bulge_normal";
 			if (this->tbPavilionBulge->Value < 3) {
 				pBulge = "bulge_normal";
-				this->lblDynPB->Text = p->bulgeTypes[0];
+				this->lblDynPB->Text = bulgeDescription[0];
 			}
 			else if (this->tbPavilionBulge->Value < 6) {
 				pBulge = "bulge_slight";
-				this->lblDynPB->Text = p->bulgeTypes[1];
+				this->lblDynPB->Text = bulgeDescription[1];
 			}
 			else if (this->tbPavilionBulge->Value < 9) {
 				pBulge = "bulge_noticeable";
-				this->lblDynPB->Text = p->bulgeTypes[2];
+				this->lblDynPB->Text = bulgeDescription[2];
 			}
 			else if (this->tbPavilionBulge->Value < 13) {
 				pBulge = "bulge_obvious";
-				this->lblDynPB->Text = p->bulgeTypes[3];
+				this->lblDynPB->Text = bulgeDescription[3];
 			}
 			else {
 				pBulge = "bulge_extreme";
-				this->lblDynPB->Text = p->bulgeTypes[4];
+				this->lblDynPB->Text = bulgeDescription[4];
 			}
 			CEmbeddedImage^ bulgeImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
@@ -139,13 +171,15 @@ namespace CppCLRWinformsProjekt {
 		}
 		/***************************************************************************************/
 		void repaint_shape_outline() {
-			CHelp^ p = nullptr;
-			if (this->radioBtnDia->Checked) {
-				p = gcnew CHelp("diamond");
-			}
-			else {
-				p = gcnew CHelp("gem");
-			}
+			array<String^>^ shapeDescription = gcnew array<String^>{ "Normal", "Wide Corners", "MQ/PE v short keel/none", "Straight sides", "Wide wings"};
+			String^ shapedes = shapeDescription[0];
+			//CHelp^ p = nullptr;
+			//if (this->radioBtnDia->Checked) {
+			//	p = gcnew CHelp("diamond");
+			//}
+			//else {
+			//	p = gcnew CHelp("gem");
+			//}
 			String^ so = "so3";
 			/*Wide corners on cut corner squares and rectangles can decrease weight as much as 5%.
 For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10%. Occasionally, 
@@ -159,32 +193,39 @@ Triangles with straight sides will require a reduction of up to 10%.*/
 				if (currentCut == TRIC) {}else{}
 			if (this->tbShapeOutline->Value < -3) {
 				so = "so1";
-				this->lblDynSO->Text = p->shapeTypes[0];
+				shapedes = shapeDescription[0];
+				
 			}
 			else if (this->tbShapeOutline->Value < 0) {
 				so = "so2";
-				this->lblDynSO->Text = p->shapeTypes[0];
+				shapedes = shapeDescription[1];
+				
 			}
 			else if (this->tbShapeOutline->Value < 1) {
 				so = "so3";
-				this->lblDynSO->Text = p->shapeTypes[0];
+				shapedes = shapeDescription[2];
+				
 			}
 			else if (this->tbShapeOutline->Value < 5) {
 				so = "so4";
-				this->lblDynSO->Text = p->shapeTypes[0];
+				shapedes = shapeDescription[3];
+				
 			}
 			else if (this->tbShapeOutline->Value < 10) {
 				so = "so5";
-				this->lblDynSO->Text = p->shapeTypes[0];
+				shapedes = shapeDescription[4];
+				
 			}
 			else if (this->tbShapeOutline->Value < 16) {
 				so = "so6";
-				this->lblDynSO->Text = p->shapeTypes[0];
+				shapedes = shapeDescription[4];
+				
 			}
 			else {
 				so = "so3";
-				this->lblDynSO->Text = p->shapeTypes[0];
+				
 			}
+			this->lblDynSO->Text = shapedes;
 			CEmbeddedImage^ shapeOutlineImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
 			shapeOutlineImage->setName(so);
@@ -478,9 +519,14 @@ Triangles with straight sides will require a reduction of up to 10%.*/
 			Double percentage = System::Convert::ToDouble(this->picDepth->Height) * divider;
 			Graphics^ gd = picDepth->CreateGraphics();
 			Rectangle  r = Rectangle(0, 0, this->picDepth->Width, System::Convert::ToInt32(percentage));
-
+			//Color^ myBlue = gcnew Color;
+				//myBlue->FromArgb(51,102,153);
+			//SolidBrush^  myBlueBrush=gcnew SolidBrush(Color::myBlue);
+			SolidBrush^ blueBrush = gcnew SolidBrush(Color::FromArgb(51,102,153));
+			
 			if (divider >= 1.00) { gd->FillRectangle(Brushes::Orange, r); }
-			else { gd->FillRectangle(Brushes::CornflowerBlue, r); }
+			//else { gd->FillRectangle(Brushes::CornflowerBlue, r); }
+			else { gd->FillRectangle(blueBrush, r); }
 
 			/*DRAWLINE*/
 			Pen^ myPen = gcnew Pen(Color::Black);
@@ -520,7 +566,8 @@ Triangles with straight sides will require a reduction of up to 10%.*/
 
 				w = (w / lw) - push * shrink;
 
-				Pen^ myPen = gcnew Pen(Color::RoyalBlue, 2);
+				//Pen^ myPen = gcnew Pen(Color::RoyalBlue, 2);
+				Pen^ myPen = gcnew Pen(Color::FromArgb(255,51,102,153), 2);
 				Single halfPenWidth = myPen->Width * 0.5f;
 
 				Double placeCentre = (this->picLW->Width / 2) - (w / 2) - halfPenWidth;
@@ -1046,7 +1093,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			// lblDynCR
 			// 
 			this->lblDynCR->AutoSize = true;
-			this->lblDynCR->Location = System::Drawing::Point(122, 343);
+			this->lblDynCR->Location = System::Drawing::Point(131, 342);
 			this->lblDynCR->Name = L"lblDynCR";
 			this->lblDynCR->Size = System::Drawing::Size(40, 13);
 			this->lblDynCR->TabIndex = 65;
@@ -1087,7 +1134,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			// lblDynPB
 			// 
 			this->lblDynPB->AutoSize = true;
-			this->lblDynPB->Location = System::Drawing::Point(321, 343);
+			this->lblDynPB->Location = System::Drawing::Point(323, 342);
 			this->lblDynPB->Name = L"lblDynPB";
 			this->lblDynPB->Size = System::Drawing::Size(33, 13);
 			this->lblDynPB->TabIndex = 61;
@@ -1097,7 +1144,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			// lblDynGT
 			// 
 			this->lblDynGT->AutoSize = true;
-			this->lblDynGT->Location = System::Drawing::Point(202, 343);
+			this->lblDynGT->Location = System::Drawing::Point(219, 343);
 			this->lblDynGT->Name = L"lblDynGT";
 			this->lblDynGT->Size = System::Drawing::Size(68, 13);
 			this->lblDynGT->TabIndex = 60;
@@ -1309,7 +1356,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			this->tbShapeOutline->Minimum = -10;
 			this->tbShapeOutline->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbShapeOutline->Name = L"tbShapeOutline";
-			this->tbShapeOutline->Size = System::Drawing::Size(104, 30);
+			this->tbShapeOutline->Size = System::Drawing::Size(104, 45);
 			this->tbShapeOutline->TabIndex = 41;
 			this->tbShapeOutline->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbShapeOutline->Scroll += gcnew System::EventHandler(this, &Form1::tbShapeOutline_Scroll);
@@ -1431,7 +1478,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			this->tbPavilionBulge->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->Name = L"tbPavilionBulge";
-			this->tbPavilionBulge->Size = System::Drawing::Size(104, 30);
+			this->tbPavilionBulge->Size = System::Drawing::Size(104, 45);
 			this->tbPavilionBulge->TabIndex = 29;
 			this->tbPavilionBulge->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbPavilionBulge->Scroll += gcnew System::EventHandler(this, &Form1::tbPavilionBulge_Scroll);
@@ -1440,12 +1487,12 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			// 
 			this->tbGirdleThickness->LargeChange = 1;
 			this->tbGirdleThickness->Location = System::Drawing::Point(203, 182);
-			this->tbGirdleThickness->Maximum = 20;
+			this->tbGirdleThickness->Maximum = 11;
 			this->tbGirdleThickness->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->Minimum = -5;
 			this->tbGirdleThickness->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->Name = L"tbGirdleThickness";
-			this->tbGirdleThickness->Size = System::Drawing::Size(104, 30);
+			this->tbGirdleThickness->Size = System::Drawing::Size(104, 45);
 			this->tbGirdleThickness->TabIndex = 28;
 			this->tbGirdleThickness->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbGirdleThickness->Scroll += gcnew System::EventHandler(this, &Form1::tbGirdleThickness_Scroll);
@@ -2308,6 +2355,10 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 		CEmbeddedImage^ rc = gcnew CEmbeddedImage;
 		rc->setName("recut");
 		this->picRecut->Image = rc->getName();
+
+		CEmbeddedImage^ cr = gcnew CEmbeddedImage;
+		cr->setName("crown_normal");
+		this->picCrown->Image = cr->getName();
 
 		//CEmbeddedImage^ dp = gcnew CEmbeddedImage;
 		//dp->setName("defrec");
