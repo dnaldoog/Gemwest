@@ -78,9 +78,6 @@
     <ClInclude Include="SpecificGravity.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="CBriolette.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -144,9 +141,6 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SpecificGravity.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="CBriolette.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

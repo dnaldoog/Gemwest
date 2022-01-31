@@ -9,7 +9,6 @@
 #include "CCutDim.h"
 #include "CDcalc.h"
 #include "CTaperedBaguette.h"
-#include "CBriolette.h"
 #include "CDround.h"
 #include "CDfancy.h"
 #include "CGcalc.h"
@@ -364,24 +363,6 @@ This will reduce the weight by 1% to 3%.*/
 						EM->fancyType = EMER;
 						p = EM;
 					}
-					//else if (this->comboCut->Text->Equals("briolette")) {
-					//	CBriolette^ BR = gcnew CBriolette(
-					//		this->comboCut->Text,
-					//		this->txtFactor->Text,
-					//		this->numDia1->Value,
-					//		this->numDia2->Value,
-					//		this->numDepth->Value,
-					//		this->numSG->Text,
-					//		this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
-					//		this->txtPavilionBulge->Text,
-					//		this->txtShapeOutline->Text,
-					//		this->radioBtnDia->Checked,
-					//		this->cbRecut->Checked,
-					//		this->radDepthAsPerc->Checked
-					//	);
-					//	
-					//	p = BR;
-					//}
 					else if (this->comboCut->Text->Equals(RADI)) {
 						CDfancy^ RI = gcnew CDfancy(
 							this->comboCut->Text,
@@ -2206,7 +2187,7 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 		aform->Show();
 	}
 	private: System::Void txtFactor_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-
+		this->calculate_carat_weight();
 		{
 			// Only allow 1 decimal point
 			if (e->KeyChar == '.')

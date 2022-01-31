@@ -5,7 +5,7 @@
 void CGemCut::dictInitializer() {
 	Dictionary<String^, String^>^ gemCut = gcnew Dictionary<String^, String^>;
 	cli::array<String^>^ gemCutNames = gcnew array<String^>{
-			"briolette",
+			//"briolette",
 			"cabochon - regular",
 			"cabochon - high domed cabs",
 			"cabochon - low domed cabs",
@@ -69,7 +69,7 @@ void CGemCut::dictInitializer() {
 ESTIMATING WEIGHTS OF MOUNTED
 COLORED GEMSTONES
 By Charles I. Carmona*/
-	gemCut->Add("briolette", "0.0000");
+	//gemCut->Add("briolette", "0.0000");
 	gemCut->Add("cabochon - regular", "0.00270 "); //†
 	gemCut->Add("cabochon - high domed cabs", "0.0026");
 	gemCut->Add("cabochon - low domed cabs", "0.0029");
@@ -106,11 +106,9 @@ By Charles I. Carmona*/
 	gemCut->Add("square with cut corners", "0.0024");
 	gemCut->Add("triangle", "0.0018");
 	this->setCut(gemCut);
-	for each (KeyValuePair<String^, String^> ^ z in gemCut){
-	//for each (System::DictionaryEntry ^ cut in gemCut)
-		//lbxStudents->Items->Add(entry->Key + L" " + entry->Value);
-	Debug::WriteLine(z->Key);
-}
+//	for each (KeyValuePair<String^, String^> ^ z in gemCut){
+//	Debug::WriteLine(z->Key);
+//}
 	this->m_gemCutNames = gemCutNames;
 }
 
