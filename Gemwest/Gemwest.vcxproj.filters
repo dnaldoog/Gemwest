@@ -78,7 +78,7 @@
     <ClInclude Include="SpecificGravity.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="CHelp.h">
+    <ClInclude Include="CBriolette.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -146,7 +146,7 @@
     <ClCompile Include="SpecificGravity.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="CHelp.cpp">
+    <ClCompile Include="CBriolette.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1811,6 +1811,12 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="sthickgirdle1.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\rect_shape_ouline.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\triangle_shape_ouline.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>

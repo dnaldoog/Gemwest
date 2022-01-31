@@ -304,6 +304,8 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("so4", "so_high_01"); //Shape Outlines
 	myRez->Add("so5", "so_high_02"); //Shape Outlines
 	myRez->Add("so6", "so_high_03"); //Shape Outlines
+	myRez->Add("triangleshape", "triangle_shape_ouline"); //Shape Outlines
+	myRez->Add("rectshape", "rect_shape_ouline"); //Shape Outlines
 	this->setRez(myRez);
 
 }

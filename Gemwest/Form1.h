@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <map>
+#include "BridgeCS.h"
 #include "CDiamondCut.h"
 #include "SpecificGravity.h"
 #include "CGemCut.h"
@@ -8,6 +9,7 @@
 #include "CCutDim.h"
 #include "CDcalc.h"
 #include "CTaperedBaguette.h"
+#include "CBriolette.h"
 #include "CDround.h"
 #include "CDfancy.h"
 #include "CGcalc.h"
@@ -15,7 +17,7 @@
 #include "AboutForm1.h"
 #include "HelpForm.h"
 #include "OptionsForm.h"
-#include "BridgeCS.h"
+
 
 namespace CppCLRWinformsProjekt {
 	//
@@ -79,7 +81,7 @@ namespace CppCLRWinformsProjekt {
 		"Very thick, 6%.\n"
 		"Extra thick, add 9%.";*/
 			array<String^>^ girdleDescription = gcnew array<String^>{ "Thin girdle", "Slightly thick", "Thick", "Very thick", "Extra thick"};
-				String^ gdes = girdleDescription[0];
+			String^ gdes = girdleDescription[0];
 			String^ gThk = "thingirdle";
 			if (this->tbGirdleThickness->Value < 1) {
 				gThk = "thingirdle";
@@ -110,7 +112,7 @@ namespace CppCLRWinformsProjekt {
 		}
 		/***************************************************************************************/
 		void repaint_crown_height() {
-			array<String^>^ crownDescription = gcnew array<String^>{ "Normal", "low" ,"high"};
+			array<String^>^ crownDescription = gcnew array<String^>{ "Normal", "low", "high"};
 
 			String^ pcrownimage = "crown_normal";
 			String^ crowndes = crownDescription[0];
@@ -134,15 +136,8 @@ namespace CppCLRWinformsProjekt {
 
 		}
 		void repaint_pavilion_bulge() {
-			//CHelp^ p = nullptr;
-			//if (this->radioBtnDia->Checked) {
-			//	p = gcnew CHelp("diamond");
-			//}
-			//else {
-			//	p = gcnew CHelp("gem");
-			//}
 			array<String^>^ bulgeDescription = gcnew array<String^>{ "Normal", "Slight", "Noticeable", "Obvious", "Extreme" };
-	
+
 			String^ pBulge = "bulge_normal";
 			if (this->tbPavilionBulge->Value < 3) {
 				pBulge = "bulge_normal";
@@ -171,60 +166,114 @@ namespace CppCLRWinformsProjekt {
 		}
 		/***************************************************************************************/
 		void repaint_shape_outline() {
-			array<String^>^ shapeDescription = gcnew array<String^>{ "Normal", "Wide Corners", "MQ/PE v short keel/none", "Straight sides", "Wide wings"};
+			//this->tbShapeOutline->Enabled = false;
+			array<String^>^ shapeDescription = gcnew array<String^>{
+				"Normal",
+					"Wide Corners",
+					"MQ/PE v short keel/none",
+					"Straight sides",
+					"Wide wings",
+					"High Shoulders",
+					"Straight Shoulders"
+			};
 			String^ shapedes = shapeDescription[0];
-			//CHelp^ p = nullptr;
-			//if (this->radioBtnDia->Checked) {
-			//	p = gcnew CHelp("diamond");
-			//}
-			//else {
-			//	p = gcnew CHelp("gem");
-			//}
 			String^ so = "so3";
 			/*Wide corners on cut corner squares and rectangles can decrease weight as much as 5%.
-For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10%. Occasionally, 
+For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10%. Occasionally,
 straight shoulders will require a deduction of 1% to 5%.
-Marquise and (sometimes) pears will have a very short keel or none at all. 
-This will reduce the weight by 1% to 3%.
-Triangles with straight sides will require a reduction of up to 10%.*/
+Marquise and (sometimes) pears will have a very short keel or none at all.
+This will reduce the weight by 1% to 3%.*/
+
+			this->tbShapeOutline->Minimum = -5;
+			this->tbShapeOutline->Maximum = 10;
 			String^ currentCut = this->comboCut->Text;
-			if (currentCut ==EMER || currentCut ==SQUA){}else
-			if (currentCut ==PEAR || currentCut==MARQ || currentCut==OVAL){}else
-				if (currentCut == TRIC) {}else{}
-			if (this->tbShapeOutline->Value < -3) {
-				so = "so1";
-				shapedes = shapeDescription[0];
-				
+
+			if (currentCut->Contains("tri")) {// it is a triangle type cut
+
+				//this->tbShapeOutline->Enabled = true;
+				/*Triangles with straight sides will require a reduction of up to 10 % .*/
+				this->tbShapeOutline->Minimum = -10;
+				this->tbShapeOutline->Maximum = 0;
+				so = "triangleshape";
+				if (this->tbShapeOutline->Value > -4) {
+					shapedes = shapeDescription[0];
+				}
+				else {
+					shapedes = shapeDescription[3];
+				}
+
+			} //  END TRIANGULAR CUT STONES
+			else if (currentCut->Contains("ect")
+				|| currentCut->Contains("uare")
+				|| currentCut->Contains("rald")
+				|| currentCut->Contains("ushio")
+				|| currentCut->Contains("rince")
+				|| currentCut->Contains("scher")
+				|| currentCut->Contains("ario")
+				|| currentCut->Contains("flan")
+				|| currentCut->Contains("adian")
+
+				) { // it's a non square stone
+				/*Wide corners on cut corner squares and rectangles can decrease weight as much as 5%.*/
+				//this->tbShapeOutline->Enabled = true;
+				this->tbShapeOutline->Minimum = -5;
+				this->tbShapeOutline->Maximum = 0;
+				so = "rectshape";
+				if (this->tbShapeOutline->Value < -1) {
+
+					shapedes = shapeDescription[1];
+				}
+				else {
+					shapedes = shapeDescription[0];
+				}
+
 			}
-			else if (this->tbShapeOutline->Value < 0) {
-				so = "so2";
-				shapedes = shapeDescription[1];
-				
+			else if (currentCut->Contains("arqui")
+				|| currentCut->Contains("ear")
+				|| currentCut->Contains("oval")
+				|| currentCut->Contains("ushio")
+				) {// all other fancies
+			/*For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10 % .Occasionally,
+				straight shoulders will require a deduction of 1 % to 5 % .*/
+				this->tbShapeOutline->Minimum = -5;
+				this->tbShapeOutline->Maximum = 10;
+				if (this->tbShapeOutline->Value < -2) {
+					so = "so1";
+					shapedes = shapeDescription[6];
+
+				}
+				else if (this->tbShapeOutline->Value < 0) {
+					so = "so2";
+					shapedes = shapeDescription[6];
+
+				}
+				else if (this->tbShapeOutline->Value < 1) {
+					so = "so3";
+					shapedes = shapeDescription[0];
+
+				}
+				else if (this->tbShapeOutline->Value < 4) {
+					so = "so4";
+					shapedes = shapeDescription[4];
+
+				}
+				else if (this->tbShapeOutline->Value < 7) {
+					so = "so5";
+					shapedes = shapeDescription[4];
+
+				}
+				else if (this->tbShapeOutline->Value < 10) {
+					so = "so6";
+					shapedes = shapeDescription[5];
+
+				}
+				else {
+					so = "so6";
+					shapedes = shapeDescription[5];
+				}
+
 			}
-			else if (this->tbShapeOutline->Value < 1) {
-				so = "so3";
-				shapedes = shapeDescription[2];
-				
-			}
-			else if (this->tbShapeOutline->Value < 5) {
-				so = "so4";
-				shapedes = shapeDescription[3];
-				
-			}
-			else if (this->tbShapeOutline->Value < 10) {
-				so = "so5";
-				shapedes = shapeDescription[4];
-				
-			}
-			else if (this->tbShapeOutline->Value < 16) {
-				so = "so6";
-				shapedes = shapeDescription[4];
-				
-			}
-			else {
-				so = "so3";
-				
-			}
+
 			this->lblDynSO->Text = shapedes;
 			CEmbeddedImage^ shapeOutlineImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
@@ -315,6 +364,24 @@ Triangles with straight sides will require a reduction of up to 10%.*/
 						EM->fancyType = EMER;
 						p = EM;
 					}
+					//else if (this->comboCut->Text->Equals("briolette")) {
+					//	CBriolette^ BR = gcnew CBriolette(
+					//		this->comboCut->Text,
+					//		this->txtFactor->Text,
+					//		this->numDia1->Value,
+					//		this->numDia2->Value,
+					//		this->numDepth->Value,
+					//		this->numSG->Text,
+					//		this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
+					//		this->txtPavilionBulge->Text,
+					//		this->txtShapeOutline->Text,
+					//		this->radioBtnDia->Checked,
+					//		this->cbRecut->Checked,
+					//		this->radDepthAsPerc->Checked
+					//	);
+					//	
+					//	p = BR;
+					//}
 					else if (this->comboCut->Text->Equals(RADI)) {
 						CDfancy^ RI = gcnew CDfancy(
 							this->comboCut->Text,
@@ -439,12 +506,6 @@ Triangles with straight sides will require a reduction of up to 10%.*/
 
 				if (!this->numDia2->Text->Equals("0.00")) {
 					String^ percString;
-					/*	Decimal^ len = this->numDia1->Value;
-						Decimal^ wid = this->numDia2->Value;
-						Decimal^ dep = this->numDepth->Value;
-
-						Decimal^ depthPercentage;
-						Decimal^ depmm;*/
 					if (this->numDia1->Value == 0 || this->numDia2->Value == 0 || this->numDepth->Value == 0) {
 						/*https://social.msdn.microsoft.com/Forums/vstudio/en-US/5ac4c768-2c33-4636-a700-d0b3fafeac68/warning-c4965-implicit-box-of-integer-0-use-nullptr-or-explicit-cast*/
 
@@ -506,7 +567,7 @@ Triangles with straight sides will require a reduction of up to 10%.*/
 		void combine_adjustments() {
 
 			Double sum;
-			sum = this->tbCrownHeight->Value+this->tbGirdleThickness->Value + this->tbPavilionBulge->Value + this->tbShapeOutline->Value+this->tbKeel->Value+this->tbOther->Value;
+			sum = this->tbCrownHeight->Value + this->tbGirdleThickness->Value + this->tbPavilionBulge->Value + this->tbShapeOutline->Value + this->tbKeel->Value + this->tbOther->Value;
 			this->txtGlobAdjust->Text = System::Convert::ToString(sum) + "%";
 		}
 
@@ -522,8 +583,8 @@ Triangles with straight sides will require a reduction of up to 10%.*/
 			//Color^ myBlue = gcnew Color;
 				//myBlue->FromArgb(51,102,153);
 			//SolidBrush^  myBlueBrush=gcnew SolidBrush(Color::myBlue);
-			SolidBrush^ blueBrush = gcnew SolidBrush(Color::FromArgb(51,102,153));
-			
+			SolidBrush^ blueBrush = gcnew SolidBrush(Color::FromArgb(51, 102, 153));
+
 			if (divider >= 1.00) { gd->FillRectangle(Brushes::Orange, r); }
 			//else { gd->FillRectangle(Brushes::CornflowerBlue, r); }
 			else { gd->FillRectangle(blueBrush, r); }
@@ -550,7 +611,6 @@ Triangles with straight sides will require a reduction of up to 10%.*/
 		}
 		/***************************************************************************************/
 		void draw_lw2(Decimal lwStr) {	}
-
 		void draw_lw(Decimal lwStr) {
 
 			if (!this->comboCut->Text->Equals(TAPBAG)) {
@@ -567,7 +627,42 @@ Triangles with straight sides will require a reduction of up to 10%.*/
 				w = (w / lw) - push * shrink;
 
 				//Pen^ myPen = gcnew Pen(Color::RoyalBlue, 2);
-				Pen^ myPen = gcnew Pen(Color::FromArgb(255,51,102,153), 2);
+				//Pen^ myPen = gcnew Pen(Color::FromArgb(255, 51, 102, 153), 2);
+				//Single halfPenWidth = myPen->Width * 0.5f;
+				SolidBrush^ blueBrush = gcnew SolidBrush(Color::FromArgb(51, 102, 153));
+				Double placeCentre = (this->picLW->Width / 2) - (w / 2);// -halfPenWidth;
+
+				RectangleF  r = RectangleF(System::Convert::ToSingle(placeCentre), System::Convert::ToSingle(6), System::Convert::ToSingle(w), System::Convert::ToSingle(l));
+
+				gl->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::AntiAlias;
+				if (CCutDim::lwSymbolIsRound(this->comboCut->Text)) {
+					gl->FillEllipse(blueBrush, r);
+				}
+				else {
+					gl->FillRectangle(blueBrush, r);
+				}
+
+
+			}// if not tapered baguette crashing at line 206
+
+		} // end function draw LW Rectangle
+		void draw_lw_ellipse(Decimal lwStr) {
+
+			if (!this->comboCut->Text->Equals(TAPBAG)) {
+				this->picLW->Image = nullptr;
+				this->picLW->Refresh();
+
+				Double push = 0;
+				Double shrink = 0.8;
+				Graphics^ gl = this->picLW->CreateGraphics();
+				Double lw = System::Convert::ToDouble(lwStr) - push * shrink;
+				Double w = System::Convert::ToDouble(this->picLW->Width - push) * shrink;
+				Double l = System::Convert::ToDouble(this->picLW->Height - push) * shrink;
+
+				w = (w / lw) - push * shrink;
+
+				//Pen^ myPen = gcnew Pen(Color::RoyalBlue, 2);
+				Pen^ myPen = gcnew Pen(Color::FromArgb(255, 51, 102, 153), 2);
 				Single halfPenWidth = myPen->Width * 0.5f;
 
 				Double placeCentre = (this->picLW->Width / 2) - (w / 2) - halfPenWidth;
@@ -680,22 +775,23 @@ Triangles with straight sides will require a reduction of up to 10%.*/
 	private: System::Windows::Forms::Label^ lblDynSO;
 	private: System::Windows::Forms::Label^ lblDynPB;
 	private: System::Windows::Forms::Label^ lblDynGT;
-private: System::Windows::Forms::TrackBar^ tbCrownHeight;
-private: System::Windows::Forms::TextBox^ txtCrownHeight;
+	private: System::Windows::Forms::TrackBar^ tbCrownHeight;
+	private: System::Windows::Forms::TextBox^ txtCrownHeight;
 
 
 
-private: System::Windows::Forms::Button^ btnClrCR;
-private: System::Windows::Forms::Label^ lblDynCR;
-private: System::Windows::Forms::PictureBox^ picCrown;
-private: System::Windows::Forms::Label^ lblCrownHeight;
-private: System::Windows::Forms::Label^ lblOther;
-private: System::Windows::Forms::Label^ lblKeel;
-private: System::Windows::Forms::TrackBar^ tbOther;
+	private: System::Windows::Forms::Button^ btnClrCR;
+	private: System::Windows::Forms::Label^ lblDynCR;
+	private: System::Windows::Forms::PictureBox^ picCrown;
+	private: System::Windows::Forms::Label^ lblCrownHeight;
+	private: System::Windows::Forms::Label^ lblOther;
+	private: System::Windows::Forms::Label^ lblKeel;
+	private: System::Windows::Forms::TrackBar^ tbOther;
 
-private: System::Windows::Forms::TrackBar^ tbKeel;
-private: System::Windows::Forms::TextBox^ txtOther;
-private: System::Windows::Forms::TextBox^ txtKeel;
+	private: System::Windows::Forms::TrackBar^ tbKeel;
+	private: System::Windows::Forms::TextBox^ txtOther;
+	private: System::Windows::Forms::TextBox^ txtKeel;
+private: System::Windows::Forms::Label^ lblDynKeel;
 
 
 
@@ -723,6 +819,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			this->txtResult = (gcnew System::Windows::Forms::TextBox());
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
+			this->lblDynKeel = (gcnew System::Windows::Forms::Label());
 			this->txtOther = (gcnew System::Windows::Forms::TextBox());
 			this->txtKeel = (gcnew System::Windows::Forms::TextBox());
 			this->txtCrownHeight = (gcnew System::Windows::Forms::TextBox());
@@ -939,6 +1036,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			// lwguide
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->lwguide->Controls->Add(this->lblDynKeel);
 			this->lwguide->Controls->Add(this->txtOther);
 			this->lwguide->Controls->Add(this->txtKeel);
 			this->lwguide->Controls->Add(this->txtCrownHeight);
@@ -997,6 +1095,15 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			this->lwguide->TabStop = false;
 			this->lwguide->Enter += gcnew System::EventHandler(this, &Form1::lwguide_Enter);
 			// 
+			// lblDynKeel
+			// 
+			this->lblDynKeel->AutoSize = true;
+			this->lblDynKeel->Location = System::Drawing::Point(7, 348);
+			this->lblDynKeel->Name = L"lblDynKeel";
+			this->lblDynKeel->Size = System::Drawing::Size(38, 13);
+			this->lblDynKeel->TabIndex = 76;
+			this->lblDynKeel->Text = L"normal";
+			// 
 			// txtOther
 			// 
 			this->txtOther->Location = System::Drawing::Point(65, 310);
@@ -1036,11 +1143,11 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			// lblKeel
 			// 
 			this->lblKeel->AutoSize = true;
-			this->lblKeel->Location = System::Drawing::Point(6, 249);
+			this->lblKeel->Location = System::Drawing::Point(19, 249);
 			this->lblKeel->Name = L"lblKeel";
-			this->lblKeel->Size = System::Drawing::Size(63, 13);
+			this->lblKeel->Size = System::Drawing::Size(57, 13);
 			this->lblKeel->TabIndex = 72;
-			this->lblKeel->Text = L"Keel / Culet";
+			this->lblKeel->Text = L"Keel/Culet";
 			// 
 			// tbOther
 			// 
@@ -1059,10 +1166,9 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			// tbKeel
 			// 
 			this->tbKeel->LargeChange = 1;
-			this->tbKeel->Location = System::Drawing::Point(-1, 262);
-			this->tbKeel->Maximum = 20;
+			this->tbKeel->Location = System::Drawing::Point(0, 265);
 			this->tbKeel->MaximumSize = System::Drawing::Size(60, 30);
-			this->tbKeel->Minimum = -5;
+			this->tbKeel->Minimum = -10;
 			this->tbKeel->MinimumSize = System::Drawing::Size(60, 30);
 			this->tbKeel->Name = L"tbKeel";
 			this->tbKeel->Size = System::Drawing::Size(60, 45);
@@ -1124,7 +1230,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			// lblDynSO
 			// 
 			this->lblDynSO->AutoSize = true;
-			this->lblDynSO->Location = System::Drawing::Point(420, 343);
+			this->lblDynSO->Location = System::Drawing::Point(407, 343);
 			this->lblDynSO->Name = L"lblDynSO";
 			this->lblDynSO->Size = System::Drawing::Size(40, 13);
 			this->lblDynSO->TabIndex = 62;
@@ -1351,12 +1457,11 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			// 
 			this->tbShapeOutline->LargeChange = 1;
 			this->tbShapeOutline->Location = System::Drawing::Point(411, 182);
-			this->tbShapeOutline->Maximum = 15;
-			this->tbShapeOutline->MaximumSize = System::Drawing::Size(104, 30);
-			this->tbShapeOutline->Minimum = -10;
-			this->tbShapeOutline->MinimumSize = System::Drawing::Size(104, 30);
+			this->tbShapeOutline->MaximumSize = System::Drawing::Size(80, 30);
+			this->tbShapeOutline->Minimum = -5;
+			this->tbShapeOutline->MinimumSize = System::Drawing::Size(80, 30);
 			this->tbShapeOutline->Name = L"tbShapeOutline";
-			this->tbShapeOutline->Size = System::Drawing::Size(104, 45);
+			this->tbShapeOutline->Size = System::Drawing::Size(80, 45);
 			this->tbShapeOutline->TabIndex = 41;
 			this->tbShapeOutline->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbShapeOutline->Scroll += gcnew System::EventHandler(this, &Form1::tbShapeOutline_Scroll);
@@ -2087,6 +2192,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 			this->numDia2->Location = Point(223, 30);
 
 			this->lblDia2->Text = L"Min Width";
+			//repaint_shape_outline(); //bring alive if necessary
 		}
 		CEmbeddedImage^ dCutImage = gcnew CEmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
@@ -2164,39 +2270,27 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 	}
 
 	private: System::Void tbShapeOutline_Scroll(System::Object^ sender, System::EventArgs^ e) {
-		//CHelp^ p = nullptr;
+
 		combine_adjustments();
 		this->txtShapeOutline->Text = this->tbShapeOutline->Value.ToString() + "%";
 		repaint_shape_outline();
 		this->onScreenInfo();
-		//if (this->radioBtnDia->Checked) {
-		//	p = gcnew CHelp("diamond");
-		//}
-		//else {
-		//	p = gcnew CHelp("gem");
-		//}
-		//this->lblHelp->Text = p->shape;
 	}
 
 	private: System::Void tbGirdleThickness_Scroll(System::Object^ sender, System::EventArgs^ e) {
-		//CHelp^ p = nullptr;
 		combine_adjustments();
 		this->txtGirdleThickness->Text = this->tbGirdleThickness->Value.ToString() + "%";
 		repaint_girdle_thickness();
 		this->onScreenInfo();
-		//if (this->radioBtnDia->Checked) {
-		//	p = gcnew CHelp("diamond");
-		//}
-		//else {
-		//	p = gcnew CHelp("gem");
-		//}
-		//this->lblHelp->Text = p->girdle;
-
 	}
 
 	private: System::Void tbKeel_Scroll(System::Object^ sender, System::EventArgs^ e) {
 		combine_adjustments();
 		this->txtKeel->Text = this->tbKeel->Value.ToString() + "%";
+		if (this->tbKeel->Value < -1) { this->lblDynKeel->Text = "short keel"; }
+		else if (this->tbKeel->Value >1) { this->lblDynKeel->Text = "long keel"; }
+		else { this->lblDynKeel->Text = "long keel"; }
+		
 		this->onScreenInfo();
 	}
 
@@ -2205,25 +2299,19 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 		this->txtOther->Text = this->tbOther->Value.ToString() + "%";
 		this->onScreenInfo();
 	}
-	 private: System::Void tbCrownHeight_Scroll(System::Object^ sender, System::EventArgs^ e) {
-			   combine_adjustments();
-			   this->txtCrownHeight->Text = this->tbCrownHeight->Value.ToString() + "%";
-			  repaint_crown_height();
-			   this->onScreenInfo();
-		   }
+	private: System::Void tbCrownHeight_Scroll(System::Object^ sender, System::EventArgs^ e) {
+		combine_adjustments();
+		this->txtCrownHeight->Text = this->tbCrownHeight->Value.ToString() + "%";
+		repaint_crown_height();
+		this->onScreenInfo();
+	}
 	private: System::Void tbPavilionBulge_Scroll(System::Object^ sender, System::EventArgs^ e) {
-		//CHelp^ p = nullptr;
+
 		combine_adjustments();
 		this->txtPavilionBulge->Text = this->tbPavilionBulge->Value.ToString() + "%";
 		repaint_pavilion_bulge();
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
-		//if (this->radioBtnDia->Checked) {
-		//	p = gcnew CHelp("diamond");
-		//}
-		//else {
-		//	p = gcnew CHelp("gem");
-		//}
-		//this->lblHelp->Text = p->bulge;
+
 	}
 	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -2354,6 +2442,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 
 		CEmbeddedImage^ rc = gcnew CEmbeddedImage;
 		rc->setName("recut");
+		
 		this->picRecut->Image = rc->getName();
 
 		CEmbeddedImage^ cr = gcnew CEmbeddedImage;
@@ -2390,7 +2479,7 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 
 		/*CEmbeddedImage^ checkDepth = gcnew CEmbeddedImage;
 		checkDepth->setName("checkDepth")*/
-
+		//this->tbShapeOutline->Enabled = false;
 		Boolean set1000s = false; //   these variables are sent to GUI
 		Boolean setLogging = false; //   these variables are sent to GUI
 		if (!System::String::IsNullOrEmpty(getDecPlacesFromConfig)) {
@@ -2487,10 +2576,10 @@ private: System::Windows::Forms::TextBox^ txtKeel;
 
 	private: System::Void lwguide_Enter(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void textCrown_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void textCrown_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
 
 
 
-};
+	};
 }

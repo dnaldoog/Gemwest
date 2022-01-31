@@ -6,6 +6,7 @@ using namespace System::Diagnostics;
 ref class CCutDim
 {
 public:
-	static bool CCutDim::isRoundish(String^);
+	static Boolean CCutDim::isRoundish(String^);
+	static Boolean CCutDim::lwSymbolIsRound(String^ cutname);
 };
 
