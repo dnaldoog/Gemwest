@@ -61,10 +61,14 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("bowenite", "bowenite");
 	myRez->Add("brazilianite", "brazilianite");
 	myRez->Add("briolette", "briolette");
-	myRez->Add("bulge_big", "bulge_big");	//bulge
-	myRez->Add("bulge_med", "bulge_med");	//bulge
-	myRez->Add("bulge_non", "bulge_non");	//bulge
-	myRez->Add("bulge_sml", "bulge_sml");	//bulge
+	myRez->Add("bulge_normal", "bulge_normal");	//bulge
+	myRez->Add("bulge_slight", "bulge_slight");	//bulge
+	myRez->Add("bulge_noticeable", "bulge_noticeable");	//bulge
+	myRez->Add("bulge_obvious", "bulge_obvious");	//bulge
+	myRez->Add("bulge_extreme", "bulge_extreme");	//bulge
+	myRez->Add("crown_normal", "crown_normal");	//crown
+	myRez->Add("crown_low", "crown_low");	//crown
+	myRez->Add("crown_high", "crown_high");	//crown
 	myRez->Add("cabochon - high domed cabs", "cabochon_high_domed");	//gem cut
 	myRez->Add("cabochon - low domed cabs", "cabochon_low_domed");	//gem cut
 	myRez->Add("cabochon - regular", "cabochon_regular");	//gem cut
@@ -251,7 +255,6 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("square cut (dia.)", "square_cut_diamond");
 	myRez->Add("square step cut", "square_step_cut");
 	myRez->Add("square with cut corners", "square_with_cut_corners");
-	myRez->Add("sthickgirdle", "sthickgirdle");
 	myRez->Add("strontium titanate", "strontium titanate");
 	myRez->Add("sugilite", "sugilite");
 	myRez->Add("synthetic corundum", "synthetic corundum");
@@ -261,8 +264,10 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("vesuvianite","vesuvianite");	// vesuvianite
 	myRez->Add("tapered baguette", "tapered_baguette");
 	myRez->Add("tektite", "tektite");
-	myRez->Add("thickgirdle","thickgirdle");	
-	myRez->Add("thingirdle","thingirdle");	
+	myRez->Add("sthickgirdle", "sthickgirdle"); // girdle thickness images
+	myRez->Add("vthickgirdle", "vthickgirdle");// girdle thickness images
+	myRez->Add("thickgirdle","thickgirdle");	// girdle thickness images
+	myRez->Add("thingirdle","thingirdle");	// girdle thickness images
 	myRez->Add("titanite","sphene");	
 	myRez->Add("tiger eye","tigerseye");	
 	myRez->Add("topaz", "topaz");
@@ -299,6 +304,8 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("so4", "so_high_01"); //Shape Outlines
 	myRez->Add("so5", "so_high_02"); //Shape Outlines
 	myRez->Add("so6", "so_high_03"); //Shape Outlines
+	myRez->Add("triangleshape", "triangle_shape_ouline"); //Shape Outlines
+	myRez->Add("rectshape", "rect_shape_ouline"); //Shape Outlines
 	this->setRez(myRez);
 
 }

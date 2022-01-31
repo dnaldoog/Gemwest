@@ -117,7 +117,8 @@
       </EmbedManagedResourceFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy app.config "$(TargetPath).config"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -159,7 +160,6 @@
     <ClInclude Include="CDiamondCut.h" />
     <ClInclude Include="CDround.h" />
     <ClInclude Include="CEmbeddedImage.h" />
-    <ClInclude Include="CHelp.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -191,7 +191,6 @@
     <ClCompile Include="CCalculator.cpp" />
     <ClCompile Include="CDfancy.cpp" />
     <ClCompile Include="CDround.cpp" />
-    <ClCompile Include="CHelp.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
     <ClCompile Include="CCutDim.cpp" />
     <ClCompile Include="CDcalc.cpp" />
@@ -217,10 +216,16 @@
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\bulge_obvious.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_high.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_low.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_normal.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\deep_stone.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\rect_shape_ouline.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\recut.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\shallow.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\stonedepthokay.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\triangle_shape_ouline.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\actinolite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\adjustmentarrow.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\ammolite.png" />
@@ -734,6 +739,7 @@
     <Image Include="square_step_cut.png" />
     <Image Include="square_with_cut_corners.png" />
     <Image Include="sthickgirdle.png" />
+    <Image Include="sthickgirdle1.png" />
     <Image Include="stonedepthokay.png" />
     <Image Include="strontium titanate.jpg" />
     <Image Include="sugilite.jpg" />

@@ -32,6 +32,7 @@ array<String^>^ diaCutNames = gcnew array<String^>{
 };
 diaCut->Add("asscher", "0.00800");
 diaCut->Add("barion", "0.00800");
+//diaCut->Add("briolette", "0.00175");
 diaCut->Add("cushion brilliant", "0.00815");
 diaCut->Add("eight cut", "0.0061");
 diaCut->Add("emerald cut diamond", "0.008");

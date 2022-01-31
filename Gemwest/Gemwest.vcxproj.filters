@@ -78,9 +78,6 @@
     <ClInclude Include="SpecificGravity.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="CHelp.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -144,9 +141,6 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SpecificGravity.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="CHelp.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1796,6 +1790,27 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\shallow.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\bulge_obvious.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_high.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_low.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_normal.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="sthickgirdle1.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\rect_shape_ouline.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\triangle_shape_ouline.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>
