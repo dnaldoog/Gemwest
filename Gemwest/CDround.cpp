@@ -4,9 +4,9 @@
 
 
 Decimal CDround::term() {
-	Decimal factor = this->fac2Dec();
+	Decimal factor = CCalculator::fac2Dec(m_factor);
 	Decimal av_diameter =CCalculator::average_diameter(m_d1,m_d2);
-	return this->add_adjustments_to_carat_weight((av_diameter*av_diameter) * m_depth * factor);
+	return CCalculator::add_adjustments_to_carat_weight((av_diameter*av_diameter) * m_depth * factor,m_adj);
 }
 
 Decimal CDround::recut_weight() {

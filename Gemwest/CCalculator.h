@@ -44,6 +44,35 @@ public:
 		}
 	}
 
+	static Decimal add_adjustments_to_carat_weight(Decimal rw,String^ adj) {
+
+		Double rwd = Convert::ToDouble(rw);
+		Double conv = Convert::ToDouble(adj);
+		signed short sign = Math::Sign(conv);
+		Double retValue = 0;
+
+		if (sign == -1) {
+
+			retValue = rwd * (1 - (Math::Abs(conv / 100)));
+
+		}
+		else if (sign == 1)
+		{
+
+			retValue = rwd * (1 + (conv / 100));
+		}
+		else if (sign == 0)
+
+		{
+			retValue = rwd;
+		}
+
+		return Convert::ToDecimal(retValue);
+
+	}
+	static Decimal fac2Dec(String^ f) {
+		return System::Convert::ToDecimal(f);
+	}
 };
 
 

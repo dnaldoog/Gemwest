@@ -2,7 +2,8 @@
 #include "CCutDim.h"
 Boolean CCutDim::isRoundish(String^ cutname) {
 	Dictionary<String^, Boolean>^ CCutDim = gcnew Dictionary<String^, Boolean>;
-	CCutDim->Add("briolette", false);
+	CCutDim->Add(CHOOSE, true);
+	CCutDim->Add(BRIO, false);
 	CCutDim->Add("cabochon - regular", false);
 	CCutDim->Add("cabochon - high domed cabs", false);
 	CCutDim->Add("cabochon - low domed cabs", false);
@@ -51,13 +52,13 @@ Boolean CCutDim::isRoundish(String^ cutname) {
 
 Boolean CCutDim::lwSymbolIsRound(String^ cutname) {
 	Dictionary<String^, Boolean>^ tmp = gcnew Dictionary<String^, Boolean>;
+	tmp->Add(CHOOSE, true);
 	tmp->Add("asscher", false);
 	tmp->Add("barion", false);
-	tmp->Add("briolette", true);
+	tmp->Add(BRIO, true);
 	tmp->Add("cabochon - high domed cabs", true);
 	tmp->Add("cabochon - low domed cabs", true);
 	tmp->Add("cabochon - regular", true);
-	tmp->Add("choose from below", false);
 	tmp->Add("cushion brilliant", true);
 	tmp->Add("eight cut", false);
 	tmp->Add("emerald cut", false);

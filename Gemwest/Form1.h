@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <map>
+//#include "pch.h"
 #include "BridgeCS.h"
 #include "CDiamondCut.h"
 #include "SpecificGravity.h"
@@ -12,10 +13,15 @@
 #include "CDround.h"
 #include "CDfancy.h"
 #include "CGcalc.h"
+#include "CGoval.h"
+#include "CBead.h"
 #include "LogForm.h"
 #include "AboutForm1.h"
 #include "HelpForm.h"
 #include "OptionsForm.h"
+//#ifndef "choose from below"
+//#define "choose from below" "choose from below"
+//#endif // !"choose from below"
 
 
 namespace CppCLRWinformsProjekt {
@@ -167,7 +173,7 @@ namespace CppCLRWinformsProjekt {
 		void repaint_shape_outline() {
 			//this->tbShapeOutline->Enabled = false;
 			array<String^>^ shapeDescription = gcnew array<String^>{
-				"Normal",
+					"Normal",
 					"Wide Corners",
 					"MQ/PE v short keel/none",
 					"Straight sides",
@@ -290,6 +296,16 @@ This will reduce the weight by 1% to 3%.*/
 				MessageBox::Show(errorMessage);
 			}
 			else {
+/**************************************************************************
+
+
+
+						DIAMOND CALCULATION
+
+
+
+
+***************************************************************************/
 				if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
 					if (this->comboCut->Text->Equals(TAPBAG)) { // Tapered Baguette
 						CTaperedBaguette^ TB = gcnew CTaperedBaguette(
@@ -298,7 +314,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
-							this->numSG->Text,
+							this->numSG->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
@@ -316,7 +332,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
-							this->numSG->Text,
+							this->numSG->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
@@ -334,7 +350,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
-							this->numSG->Text,
+							this->numSG->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
@@ -352,7 +368,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
-							this->numSG->Text,
+							this->numSG->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
@@ -370,7 +386,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
-							this->numSG->Text,
+							this->numSG->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
@@ -388,7 +404,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
-							this->numSG->Text,
+							this->numSG->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
@@ -421,7 +437,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
-							this->numSG->Text,
+							this->numSG->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
@@ -437,34 +453,82 @@ This will reduce the weight by 1% to 3%.*/
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
 						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
 						avd = Decimal::Round((avd), 2);
-						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=(" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Est.=(" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 					}
 					else {
-						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Total weight=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x" + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x" + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 						/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
 					}
 
 				} // is Diamond
+				/**************************************************************************
+				
+				
+				
+										GEMSTONE CALCULATION
+				
+				
+				
+				
+				***************************************************************************/
 				else { // Calculate the weight of a Gemstone
-					CGcalc^ GC = gcnew CGcalc;
-					GC->Initializer(
 
-						this->comboCut->Text,
-						this->comboGems->Text,
-						this->txtFactor->Text,
+				CGcalc^ p = nullptr;
+				String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
+
+				if (this->comboCut->Text->Contains("choose")) {
+					MessageBox::Show(errorMessage);
+				}
+				if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
+					CBead^ BE = gcnew CBead(
 						this->numDia1->Value,
 						this->numDia2->Value,
 						this->numDepth->Value,
-						this->numSG->Text,
-						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1),
-						this->txtGirdleThickness->Text,
-						this->txtPavilionBulge->Text,
-						this->txtShapeOutline->Text,
-						this->radioBtnDia->Checked,
-						this->cbRecut->Checked,
-						CCutDim::isRoundish(this->comboCut->Text),
-						this->radDepthAsPerc->Checked
+						this->numSG->Value,
+						this->txtFactor->Text,
+						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
 					);
+					p = BE;
+				}
+				else if(this->comboCut->Text == OVALG){
+					CGoval^ OV = gcnew CGoval(
+						this->numDia1->Value,
+						this->numDia2->Value,
+						this->numDepth->Value,
+						this->numSG->Value,
+						this->txtFactor->Text,
+						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
+					);
+					p =OV;
+				}
+				else {
+					CGcalc^ GC = gcnew CGcalc(
+						this->numDia1->Value,
+						this->numDia2->Value,
+						this->numDepth->Value,
+						this->numSG->Value,
+						this->txtFactor->Text,
+						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
+					);
+					p = GC;
+				} // end is not round cut
+					String^ tot = System::Convert::ToString(Decimal::Round(p->term(), 3)) + "ct";
+					this->txtResult->Text = tot;
+
+					if (this->comboCut->Text==OVALG) {
+						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+						avd = Decimal::Round((avd), 2);
+						this->toolStrip->Text = L"["+this->comboGems->Text+ "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x "+ this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+					}
+					else if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
+						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+						avd = Decimal::Round((avd), 2);
+						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+					}
+					else {
+						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
+					}
 				}
 
 			} // text is valid
@@ -524,7 +588,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
-							this->numSG->Text,
+							this->numSG->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1), this->txtGirdleThickness->Text,
 							this->txtPavilionBulge->Text,
 							this->txtShapeOutline->Text,
@@ -591,7 +655,6 @@ This will reduce the weight by 1% to 3%.*/
 
 		}
 		/***************************************************************************************/
-		void draw_lw2(Decimal lwStr) {	}
 		void draw_lw(Decimal lwStr) {
 
 			if (!this->comboCut->Text->Equals(TAPBAG)) {
@@ -773,6 +836,8 @@ This will reduce the weight by 1% to 3%.*/
 	private: System::Windows::Forms::TextBox^ txtOther;
 	private: System::Windows::Forms::TextBox^ txtKeel;
 private: System::Windows::Forms::Label^ lblDynKeel;
+private: System::Windows::Forms::Button^ btnCopy;
+private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
 
 
 
@@ -857,6 +922,7 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 			this->picRecut = (gcnew System::Windows::Forms::PictureBox());
 			this->cbRecut = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->btnCopy = (gcnew System::Windows::Forms::Button());
 			this->lblRecutDetails = (gcnew System::Windows::Forms::Label());
 			this->txtEstRecut = (gcnew System::Windows::Forms::TextBox());
 			this->numSG = (gcnew System::Windows::Forms::NumericUpDown());
@@ -875,6 +941,7 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->quitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->copyToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->preferencesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->viewToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->logToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -1674,6 +1741,7 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 			// groupBox2
 			// 
 			this->groupBox2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->groupBox2->Controls->Add(this->btnCopy);
 			this->groupBox2->Controls->Add(this->lblRecutDetails);
 			this->groupBox2->Controls->Add(this->txtEstRecut);
 			this->groupBox2->Controls->Add(this->numSG);
@@ -1695,6 +1763,18 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 			this->groupBox2->Size = System::Drawing::Size(505, 169);
 			this->groupBox2->TabIndex = 13;
 			this->groupBox2->TabStop = false;
+			// 
+			// btnCopy
+			// 
+			this->btnCopy->BackColor = System::Drawing::SystemColors::Desktop;
+			this->btnCopy->ForeColor = System::Drawing::SystemColors::Window;
+			this->btnCopy->Location = System::Drawing::Point(450, 128);
+			this->btnCopy->Name = L"btnCopy";
+			this->btnCopy->Size = System::Drawing::Size(47, 35);
+			this->btnCopy->TabIndex = 60;
+			this->btnCopy->Text = L"&copy";
+			this->btnCopy->UseVisualStyleBackColor = false;
+			this->btnCopy->Click += gcnew System::EventHandler(this, &Form1::btnCopy_Click);
 			// 
 			// lblRecutDetails
 			// 
@@ -1897,10 +1977,20 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 			// 
 			// editToolStripMenuItem
 			// 
-			this->editToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->preferencesToolStripMenuItem });
+			this->editToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->copyToolStripMenuItem,
+					this->preferencesToolStripMenuItem
+			});
 			this->editToolStripMenuItem->Name = L"editToolStripMenuItem";
 			this->editToolStripMenuItem->Size = System::Drawing::Size(39, 20);
 			this->editToolStripMenuItem->Text = L"&Edit";
+			// 
+			// copyToolStripMenuItem
+			// 
+			this->copyToolStripMenuItem->Name = L"copyToolStripMenuItem";
+			this->copyToolStripMenuItem->Size = System::Drawing::Size(135, 22);
+			this->copyToolStripMenuItem->Text = L"&Copy";
+			this->copyToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::copyToolStripMenuItem_Click);
 			// 
 			// preferencesToolStripMenuItem
 			// 
@@ -2109,6 +2199,7 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 			gemImage->setName(this->comboGems->Text);
 			this->picGem->Image = gemImage->getName();
 			this->numSG->Text = sg->prop_sg[this->comboGems->Text];
+			onScreenInfo(); // repaint screen
 		} //stop crash if key doesn't exist
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -2208,7 +2299,7 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 		this->comboCut->SelectedText = "choose from below";
 		this->comboGems->ResetText();
 		this->comboGems->SelectedText = "choose from below";
-		this->numSG->Text = "3.52";
+		this->numSG->Value = Convert::ToDecimal(3.52);
 		this->comboGems->Enabled = false;
 		this->numSG->Enabled = false;
 		array<String^>^ dias = gcnew array<String^>{};
@@ -2232,7 +2323,7 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 
 		this->comboGems->ResetText();
 		this->comboGems->SelectedText = "choose from below";
-		this->numSG->Text = "0.00";
+		this->numSG->Value = Convert::ToDecimal(0.00);
 		this->comboGems->Enabled = true;
 		this->numSG->Enabled = true;
 		array<String^>^ gems = gcnew array<String^>{};
@@ -2420,7 +2511,7 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 
 	private: System::Void Form1_Load_1(System::Object^ sender, System::EventArgs^ e) {
 		/****************LOAD CONFIG FILES***************************/
-
+		this->Icon = gcnew System::Drawing::Icon(L"app.ico");
 		CEmbeddedImage^ rc = gcnew CEmbeddedImage;
 		rc->setName("recut");
 		
@@ -2552,7 +2643,7 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 		else {
 			this->numDepth->Value = this->numVisDepth->Value;
 		}
-
+		this->onScreenInfo();
 	}
 
 	private: System::Void lwguide_Enter(System::Object^ sender, System::EventArgs^ e) {
@@ -2562,5 +2653,13 @@ private: System::Windows::Forms::Label^ lblDynKeel;
 
 
 
-	};
+	private: System::Void btnCopy_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (!this->toolStrip->Text->Equals(TOOLTIP))
+		Clipboard::SetDataObject(this->toolStrip->Text, true);
+	}
+private: System::Void copyToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (!this->toolStrip->Text->Equals(TOOLTIP))
+	Clipboard::SetDataObject(this->toolStrip->Text, true);
+}
+};
 }

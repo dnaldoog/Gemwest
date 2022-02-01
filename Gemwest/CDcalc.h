@@ -7,7 +7,7 @@ using namespace System::Collections::Generic;
 using namespace System::Diagnostics;
 
 
-ref class CDcalc : CCalculator
+ref class CDcalc : public CCalculator
 
 {
 	/*
@@ -24,7 +24,7 @@ protected:
 	Decimal m_d1; // diameter 1 (could be length)
 	Decimal m_d2; // diameter 2 (could be width)
 	Decimal m_depth; // depth of stone in millimeters
-	String^ m_sg; //Specific Gravity
+	Decimal m_sg; //Specific Gravity
 	String^ m_adj; // total user adjustments  
 	String^ m_gt; // girdle thickness
 	String^ m_pv; // pavilion bulge
@@ -41,7 +41,7 @@ public:
 		Decimal d1,
 		Decimal d2,
 		Decimal dep,
-		String^ sg,
+		Decimal sg,
 		String^ adj,
 		String^ gt,
 		String^ pv,
@@ -67,16 +67,10 @@ public:
 		m_recut(recut), //  recut?
 		m_depthIsPerc(depthisperc) //  is the incoming Depth a represenatation of percentage or mm?)(), //
 	{}
-	String^ print() {
-		return System::Convert::ToString(5 + "many CDcalc");
-	}
 
 	Decimal term() override;
-	Decimal add_adjustments_to_carat_weight(Decimal rw);
 	Decimal recut_weight() override;
 
-	Decimal fac2Dec() {
-		return System::Convert::ToDecimal(m_factor);
-	}
+
 
 };
