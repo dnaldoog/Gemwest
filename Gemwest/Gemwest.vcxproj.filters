@@ -78,6 +78,12 @@
     <ClInclude Include="SpecificGravity.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="CBead.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="CGoval.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -141,6 +147,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SpecificGravity.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CBead.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CGoval.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1811,6 +1823,9 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\triangle_shape_ouline.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="D:\miscellaneous\Qt_buildsZ\gemwest200\resources\icons\gemwest_48x48.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>

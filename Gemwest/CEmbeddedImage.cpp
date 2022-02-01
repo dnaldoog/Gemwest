@@ -25,7 +25,7 @@ Drawing::Bitmap^ CEmbeddedImage::getName() {
 void CEmbeddedImage::loadResources()
 {
 	Dictionary<String^, String^>^ myRez = gcnew Dictionary<String^, String^>;
-	myRez->Add("choose from below", "");
+	myRez->Add(CHOOSE, "");
 	myRez->Add("agate", "agate");
 	myRez->Add("actinolite", "actinolite");
 	myRez->Add("albite", "albite");
@@ -292,6 +292,7 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("checkDepth", "checkDepth"); // when depth percentage is strange!
 	myRez->Add("checklength", "checkLW"); // when LW percentage is strange!
 	myRez->Add("zaniah", "zaniah"); // Author's logo!
+	myRez->Add("logo48", "gemwest_48x48"); // About logo!
 	myRez->Add("adjustmentarrow", "adjustmentarrow"); // Gui component
 	myRez->Add("defrec", "defrec"); // depth % component
 	myRez->Add("recut", "recut"); // Gui recut series

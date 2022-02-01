@@ -65,6 +65,6 @@ String^ CDfancy::setFancyRecutFactor() {
 
 
 Decimal CDfancy::term() {
-	Decimal factor = this->fac2Dec();
-	return  this->add_adjustments_to_carat_weight(m_d1 * m_d2 * m_depth * factor);
+	Decimal factor = CCalculator::fac2Dec(m_factor);
+	return  CCalculator::add_adjustments_to_carat_weight(m_d1 * m_d2 * m_depth * factor,m_adj);
 }

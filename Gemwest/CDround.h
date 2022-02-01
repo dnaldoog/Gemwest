@@ -17,7 +17,7 @@ public:
 		Decimal d1,
 		Decimal d2,
 		Decimal dep,
-		String^ sg,
+		Decimal sg,
 		String^ adj,
 		String^ gt,
 		String^ pv,
