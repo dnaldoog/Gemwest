@@ -22,7 +22,9 @@
 #define DIAOLDEURO  "old european cut"
 #define CHOOSE "choose from below"
 #define TOOLTIP "Ready..."
-#define WEBSITE "http://gemwest.sourceforge.net/"
+#define WEBSITE "https://gemwest.sourceforge.io/"
+#define WEBSF "https://sourceforge.net/projects/gemwest/"
+#define WEBPAYPAL "https://www.paypal.com/paypalme/jd990supereditor"
 
 //#define OVAL "oval brilliant"
 #define RADI "radiant cut (dia.)"

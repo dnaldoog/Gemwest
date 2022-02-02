@@ -41,6 +41,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ labelProgramTitle;
 	private: System::Windows::Forms::Label^ labelVersion;
 	private: System::Windows::Forms::PictureBox^ picAboutLogo;
+	private: System::Windows::Forms::PictureBox^ picPayPal;
 
 	private:
 		/// <summary>
@@ -61,13 +62,15 @@ namespace CppCLRWinformsProjekt {
 			this->labelProgramTitle = (gcnew System::Windows::Forms::Label());
 			this->labelVersion = (gcnew System::Windows::Forms::Label());
 			this->picAboutLogo = (gcnew System::Windows::Forms::PictureBox());
+			this->picPayPal = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureZaniahLogo))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picAboutLogo))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picPayPal))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// pictureZaniahLogo
 			// 
-			this->pictureZaniahLogo->Location = System::Drawing::Point(113, 227);
+			this->pictureZaniahLogo->Location = System::Drawing::Point(109, 228);
 			this->pictureZaniahLogo->Name = L"pictureZaniahLogo";
 			this->pictureZaniahLogo->Size = System::Drawing::Size(67, 22);
 			this->pictureZaniahLogo->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -80,10 +83,10 @@ namespace CppCLRWinformsProjekt {
 			this->linkLabel1->AutoSize = true;
 			this->linkLabel1->Location = System::Drawing::Point(78, 154);
 			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(162, 13);
+			this->linkLabel1->Size = System::Drawing::Size(160, 13);
 			this->linkLabel1->TabIndex = 1;
 			this->linkLabel1->TabStop = true;
-			this->linkLabel1->Text = L"http://gemwest.sourceforge.net/";
+			this->linkLabel1->Text = L"https://gemwest.sourceforge.io/";
 			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &AboutForm1::linkLabel1_LinkClicked);
 			// 
 			// labelAbout
@@ -126,11 +129,23 @@ namespace CppCLRWinformsProjekt {
 			this->picAboutLogo->TabIndex = 5;
 			this->picAboutLogo->TabStop = false;
 			// 
+			// picPayPal
+			// 
+			this->picPayPal->Location = System::Drawing::Point(200, 228);
+			this->picPayPal->Name = L"picPayPal";
+			this->picPayPal->Size = System::Drawing::Size(50, 36);
+			this->picPayPal->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picPayPal->TabIndex = 6;
+			this->picPayPal->TabStop = false;
+			this->picPayPal->Tag = L"";
+			this->picPayPal->Click += gcnew System::EventHandler(this, &AboutForm1::picPayPal_Click);
+			// 
 			// AboutForm1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(284, 277);
+			this->Controls->Add(this->picPayPal);
 			this->Controls->Add(this->picAboutLogo);
 			this->Controls->Add(this->labelVersion);
 			this->Controls->Add(this->labelProgramTitle);
@@ -145,6 +160,7 @@ namespace CppCLRWinformsProjekt {
 			this->Load += gcnew System::EventHandler(this, &AboutForm1::AboutForm1_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureZaniahLogo))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picAboutLogo))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picPayPal))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -164,6 +180,10 @@ namespace CppCLRWinformsProjekt {
 		CEmbeddedImage^ zimage = gcnew CEmbeddedImage;
 		zimage->setName("zaniah");
 		this->pictureZaniahLogo->Image = zimage->getName();
+
+		CEmbeddedImage^ ppim = gcnew CEmbeddedImage;
+		ppim->setName("paypallogo");
+		this->picPayPal->Image = ppim->getName();
 		//this->ResumeLayout(false);
 	}
 	private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
@@ -173,5 +193,11 @@ namespace CppCLRWinformsProjekt {
 		// Navigate to a URL.
 		System::Diagnostics::Process::Start(WEBSITE);
 	}
+private: System::Void picPayPal_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	// Navigate to a URL.
+	System::Diagnostics::Process::Start(WEBPAYPAL);
+
+}
 };
 }

@@ -40,14 +40,14 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 	public:
-		 property String^ proplimit
-		{
-			String^ get()
-			{
-				// return the value of the private field
-				return num1000Limit->Text;
-			}
-		}
+		// property String^ proplimit
+		//{
+		//	String^ get()
+		//	{
+		//		// return the value of the private field
+		//		return num1000Limit->Text;
+		//	}
+		//}
 
 		 property bool prop1000
 		 {
@@ -64,23 +64,23 @@ namespace CppCLRWinformsProjekt {
 			 }
 		 }		 
 		 
-		 property bool prop1000under
-		 {
-			 bool get()
-			 {
-				 // return the value of the private field
-				 return cb1000forStonesUnder->Checked;
-			 }
-		 }
+		 //property bool prop1000under
+		 //{
+			// bool get()
+			// {
+			//	 // return the value of the private field
+			//	 return cb1000forStonesUnder->Checked;
+			// }
+		 //}
 
-		 property bool propRecut
-		 {
-			 bool get()
-			 {
-				 // return the value of the private field
-				 return cbRecutEstimation->Checked;
-			 }
-		 }
+		 //property bool propRecut
+		 //{
+			// bool get()
+			// {
+			//	 // return the value of the private field
+			//	 return cbRecutEstimation->Checked;
+			// }
+		 //}
 
 		 property bool propLogAll
 		 {
@@ -101,12 +101,12 @@ namespace CppCLRWinformsProjekt {
 
 	private: System::Windows::Forms::Button^ btnCloseOptions;
 	private: System::Windows::Forms::CheckBox^ cbOptionsShow1000;
-	private: System::Windows::Forms::CheckBox^ cb1000forStonesUnder;
 
-	private: System::Windows::Forms::CheckBox^ cbRecutEstimation;
 
-	private: System::Windows::Forms::NumericUpDown^ num1000Limit;
-	private: System::Windows::Forms::Label^ lbl100mm;
+
+
+
+
 	private: System::Windows::Forms::CheckBox^ cbRecordToLog;
 	private: System::Windows::Forms::Label^ lblHeaderPreferences;
 
@@ -127,13 +127,8 @@ namespace CppCLRWinformsProjekt {
 		{
 			this->btnCloseOptions = (gcnew System::Windows::Forms::Button());
 			this->cbOptionsShow1000 = (gcnew System::Windows::Forms::CheckBox());
-			this->cb1000forStonesUnder = (gcnew System::Windows::Forms::CheckBox());
-			this->cbRecutEstimation = (gcnew System::Windows::Forms::CheckBox());
-			this->num1000Limit = (gcnew System::Windows::Forms::NumericUpDown());
-			this->lbl100mm = (gcnew System::Windows::Forms::Label());
 			this->cbRecordToLog = (gcnew System::Windows::Forms::CheckBox());
 			this->lblHeaderPreferences = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->num1000Limit))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btnCloseOptions
@@ -156,49 +151,10 @@ namespace CppCLRWinformsProjekt {
 			this->cbOptionsShow1000->Text = L"Show 1/1000ct for all stones\?";
 			this->cbOptionsShow1000->UseVisualStyleBackColor = true;
 			// 
-			// cb1000forStonesUnder
-			// 
-			this->cb1000forStonesUnder->AutoSize = true;
-			this->cb1000forStonesUnder->Location = System::Drawing::Point(13, 5);
-			this->cb1000forStonesUnder->Name = L"cb1000forStonesUnder";
-			this->cb1000forStonesUnder->Size = System::Drawing::Size(191, 17);
-			this->cb1000forStonesUnder->TabIndex = 5;
-			this->cb1000forStonesUnder->Text = L"Show 1/1000ct for stones under ->";
-			this->cb1000forStonesUnder->UseVisualStyleBackColor = true;
-			this->cb1000forStonesUnder->Visible = false;
-			// 
-			// cbRecutEstimation
-			// 
-			this->cbRecutEstimation->AutoSize = true;
-			this->cbRecutEstimation->Location = System::Drawing::Point(13, 76);
-			this->cbRecutEstimation->Name = L"cbRecutEstimation";
-			this->cbRecutEstimation->Size = System::Drawing::Size(120, 17);
-			this->cbRecutEstimation->TabIndex = 6;
-			this->cbRecutEstimation->Text = L"RECUT Estimation\?";
-			this->cbRecutEstimation->UseVisualStyleBackColor = true;
-			// 
-			// num1000Limit
-			// 
-			this->num1000Limit->Location = System::Drawing::Point(198, 4);
-			this->num1000Limit->Name = L"num1000Limit";
-			this->num1000Limit->Size = System::Drawing::Size(47, 20);
-			this->num1000Limit->TabIndex = 7;
-			this->num1000Limit->Visible = false;
-			// 
-			// lbl100mm
-			// 
-			this->lbl100mm->AutoSize = true;
-			this->lbl100mm->Location = System::Drawing::Point(251, 7);
-			this->lbl100mm->Name = L"lbl100mm";
-			this->lbl100mm->Size = System::Drawing::Size(23, 13);
-			this->lbl100mm->TabIndex = 8;
-			this->lbl100mm->Text = L"mm";
-			this->lbl100mm->Visible = false;
-			// 
 			// cbRecordToLog
 			// 
 			this->cbRecordToLog->AutoSize = true;
-			this->cbRecordToLog->Location = System::Drawing::Point(13, 101);
+			this->cbRecordToLog->Location = System::Drawing::Point(12, 74);
 			this->cbRecordToLog->Name = L"cbRecordToLog";
 			this->cbRecordToLog->Size = System::Drawing::Size(122, 17);
 			this->cbRecordToLog->TabIndex = 9;
@@ -224,17 +180,15 @@ namespace CppCLRWinformsProjekt {
 			this->ClientSize = System::Drawing::Size(284, 184);
 			this->Controls->Add(this->lblHeaderPreferences);
 			this->Controls->Add(this->cbRecordToLog);
-			this->Controls->Add(this->lbl100mm);
-			this->Controls->Add(this->num1000Limit);
-			this->Controls->Add(this->cbRecutEstimation);
-			this->Controls->Add(this->cb1000forStonesUnder);
 			this->Controls->Add(this->cbOptionsShow1000);
 			this->Controls->Add(this->btnCloseOptions);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(300, 223);
+			this->MinimizeBox = false;
 			this->Name = L"OptionsForm";
 			this->Text = L"Preferences";
 			this->Load += gcnew System::EventHandler(this, &OptionsForm::OptionsForm_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->num1000Limit))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -247,6 +201,7 @@ namespace CppCLRWinformsProjekt {
 		//f1->Refresh();
 	}
 private: System::Void OptionsForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	this->Icon = gcnew System::Drawing::Icon(L"app.ico");
 }
 };
 }

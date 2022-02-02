@@ -307,6 +307,8 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("so6", "so_high_03"); //Shape Outlines
 	myRez->Add("triangleshape", "triangle_shape_ouline"); //Shape Outlines
 	myRez->Add("rectshape", "rect_shape_ouline"); //Shape Outlines
+	myRez->Add("helpbackdrop", "dia_prop_gauge"); //Shape Outlines
+	myRez->Add("paypallogo", "pp"); //PayPal
 	this->setRez(myRez);
 
 }

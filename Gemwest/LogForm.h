@@ -97,7 +97,8 @@ namespace CppCLRWinformsProjekt {
 			this->Controls->Add(this->btnCloseLogForm);
 			this->Controls->Add(this->richTextLog);
 			this->Name = L"LogForm";
-			this->Text = L"LogForm";
+			this->Text = L"Log";
+			this->Load += gcnew System::EventHandler(this, &LogForm::LogForm_Load);
 			this->ResumeLayout(false);
 
 		}
@@ -108,5 +109,8 @@ namespace CppCLRWinformsProjekt {
 	private: System::Void clearLogForm_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 		
+	private: System::Void LogForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->Icon = gcnew System::Drawing::Icon(L"app.ico");
+	}
 	};
 }
