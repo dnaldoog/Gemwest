@@ -34,7 +34,7 @@ namespace CppCLRWinformsProjekt {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::RichTextBox^ richTextLog;
+	public: System::Windows::Forms::RichTextBox^ richTextLog;
 	protected:
 
 
@@ -43,6 +43,7 @@ namespace CppCLRWinformsProjekt {
 	protected:
 
 	private:
+	public:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -64,7 +65,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->richTextLog->Location = System::Drawing::Point(12, 12);
 			this->richTextLog->Name = L"richTextLog";
-			this->richTextLog->Size = System::Drawing::Size(260, 200);
+			this->richTextLog->Size = System::Drawing::Size(538, 200);
 			this->richTextLog->TabIndex = 0;
 			this->richTextLog->Text = L"";
 			// 
@@ -92,21 +93,27 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(569, 261);
 			this->Controls->Add(this->clearLogForm);
 			this->Controls->Add(this->btnCloseLogForm);
 			this->Controls->Add(this->richTextLog);
 			this->Name = L"LogForm";
-			this->Text = L"Log";
+			this->Text = L"LogForm";
 			this->Load += gcnew System::EventHandler(this, &LogForm::LogForm_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void btnCloseLogForm_Click(System::Object^ sender, System::EventArgs^ e) {
-		Close();
+//		Close();
+		Hide();
 	}
 	private: System::Void clearLogForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (MessageBox::Show(
+			"Clear All Data?",
+			"This cannot be undone!", MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question) == ::System::Windows::Forms::DialogResult::Yes)
+			this->richTextLog->Clear();
 	}
 		
 	private: System::Void LogForm_Load(System::Object^ sender, System::EventArgs^ e) {

@@ -50,10 +50,10 @@ namespace CppCLRWinformsProjekt {
 
 
 			InitializeComponent();
-
+			
 		}
 	protected:
-
+		LogForm^ persistantLogRecord = gcnew LogForm();
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
 		/// </summary>
@@ -838,6 +838,7 @@ This will reduce the weight by 1% to 3%.*/
 private: System::Windows::Forms::Label^ lblDynKeel;
 private: System::Windows::Forms::Button^ btnCopy;
 private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
+private: System::Windows::Forms::Button^ btnSaveToLog;
 
 
 
@@ -953,6 +954,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
 			this->btnSave = (gcnew System::Windows::Forms::Button());
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
 			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
+			this->btnSaveToLog = (gcnew System::Windows::Forms::Button());
 			this->lwguide->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOther))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbKeel))->BeginInit();
@@ -1741,6 +1743,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
 			// groupBox2
 			// 
 			this->groupBox2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->groupBox2->Controls->Add(this->btnSaveToLog);
 			this->groupBox2->Controls->Add(this->btnCopy);
 			this->groupBox2->Controls->Add(this->lblRecutDetails);
 			this->groupBox2->Controls->Add(this->txtEstRecut);
@@ -2009,7 +2012,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
 			// logToolStripMenuItem
 			// 
 			this->logToolStripMenuItem->Name = L"logToolStripMenuItem";
-			this->logToolStripMenuItem->Size = System::Drawing::Size(91, 22);
+			this->logToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->logToolStripMenuItem->Text = L"&log";
 			this->logToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::logToolStripMenuItem_Click);
 			// 
@@ -2087,6 +2090,18 @@ private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
 			this->groupBoxChooseDiaOrGem->Size = System::Drawing::Size(505, 31);
 			this->groupBoxChooseDiaOrGem->TabIndex = 17;
 			this->groupBoxChooseDiaOrGem->TabStop = false;
+			// 
+			// btnSaveToLog
+			// 
+			this->btnSaveToLog->BackColor = System::Drawing::SystemColors::Desktop;
+			this->btnSaveToLog->ForeColor = System::Drawing::SystemColors::Window;
+			this->btnSaveToLog->Location = System::Drawing::Point(397, 128);
+			this->btnSaveToLog->Name = L"btnSaveToLog";
+			this->btnSaveToLog->Size = System::Drawing::Size(47, 35);
+			this->btnSaveToLog->TabIndex = 61;
+			this->btnSaveToLog->Text = L"&save";
+			this->btnSaveToLog->UseVisualStyleBackColor = false;
+			this->btnSaveToLog->Click += gcnew System::EventHandler(this, &Form1::btnSaveToLog_Click);
 			// 
 			// Form1
 			// 
@@ -2497,8 +2512,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
 
 	}
 	private: System::Void logToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		LogForm^ lform = gcnew LogForm;
-		lform->Visible = true;
+		//LogForm^ lform = gcnew LogForm;
+		//lform->Visible = true;
+		 persistantLogRecord->Visible = true;
 	}
 	private: System::Void lblHiddenDepth_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
@@ -2660,6 +2676,36 @@ private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
 private: System::Void copyToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (!this->toolStrip->Text->Equals(TOOLTIP))
 	Clipboard::SetDataObject(this->toolStrip->Text, true);
+}
+private: System::Void btnSaveToLog_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (!this->toolStrip->Text->Equals(TOOLTIP)) {
+		//if (persistantLogRecord->richTextLog->) {
+		array<String^>^ lines = persistantLogRecord->richTextLog->Lines;
+		int count = lines->Length;
+		if (count == 0) {
+			persistantLogRecord->richTextLog->Text = L"\n";
+			persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+		}
+		else {
+			//for (int idx = 0; idx < count; ++idx)
+			//{
+			//	Debug::WriteLine(lines[idx]);
+			//	// use lines[idx] as needed...
+			//}
+			persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+		}
+		//if (persistantLogRecord->richTextLog->Lines[count - 1]// != this->toolStrip->Text + "\n") {
+		
+
+		//}
+			//persistantLogRecord->richTextLog->AppendText(L"");
+			//persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+		//}
+		//else
+		//{
+		//	persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+		//}
+	} // text is not initialized
 }
 };
 }
