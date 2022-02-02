@@ -117,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextHelp.Text" xml:space="preserve">
+    <value>A Gem Stone weight estimator/calculator for mounted gemstones - 
+over 180 gemstones and 40 different cuts.
+
+This program can help calculate the weight of a gemstone while still in its setting. 
+The user will need some skill in being able to measure the Length, Width and Depth of the 
+subject, and factoring in bulging pavilions, large crowns and thick girdles etc,etc. 
+This program can also be used to estimate loose stones in the absence of a set of scales.
+
+NOTE: The weight factor for briolette cut is unknown to the author of this program. 
+            The formula for a round bead was substituted. If you know the exact formula
+             please notify me by email zan642@gmail.com.
+
+Please visit the website below for more information:</value>
+  </data>
 </root>

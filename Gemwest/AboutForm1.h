@@ -70,7 +70,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// pictureZaniahLogo
 			// 
-			this->pictureZaniahLogo->Location = System::Drawing::Point(109, 228);
+			this->pictureZaniahLogo->Location = System::Drawing::Point(109, 222);
 			this->pictureZaniahLogo->Name = L"pictureZaniahLogo";
 			this->pictureZaniahLogo->Size = System::Drawing::Size(67, 22);
 			this->pictureZaniahLogo->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -81,7 +81,7 @@ namespace CppCLRWinformsProjekt {
 			// linkLabel1
 			// 
 			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->Location = System::Drawing::Point(78, 154);
+			this->linkLabel1->Location = System::Drawing::Point(78, 148);
 			this->linkLabel1->Name = L"linkLabel1";
 			this->linkLabel1->Size = System::Drawing::Size(160, 13);
 			this->linkLabel1->TabIndex = 1;
@@ -92,7 +92,7 @@ namespace CppCLRWinformsProjekt {
 			// labelAbout
 			// 
 			this->labelAbout->AutoSize = true;
-			this->labelAbout->Location = System::Drawing::Point(22, 188);
+			this->labelAbout->Location = System::Drawing::Point(22, 182);
 			this->labelAbout->Name = L"labelAbout";
 			this->labelAbout->Size = System::Drawing::Size(241, 26);
 			this->labelAbout->TabIndex = 2;
@@ -114,7 +114,7 @@ namespace CppCLRWinformsProjekt {
 			// labelVersion
 			// 
 			this->labelVersion->AutoSize = true;
-			this->labelVersion->Location = System::Drawing::Point(128, 125);
+			this->labelVersion->Location = System::Drawing::Point(128, 120);
 			this->labelVersion->Name = L"labelVersion";
 			this->labelVersion->Size = System::Drawing::Size(28, 13);
 			this->labelVersion->TabIndex = 4;
@@ -131,7 +131,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// picPayPal
 			// 
-			this->picPayPal->Location = System::Drawing::Point(200, 228);
+			this->picPayPal->Location = System::Drawing::Point(200, 222);
 			this->picPayPal->Name = L"picPayPal";
 			this->picPayPal->Size = System::Drawing::Size(50, 36);
 			this->picPayPal->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;

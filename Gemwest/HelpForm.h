@@ -43,8 +43,10 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ lblHelpHeading;
 	protected:
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::PictureBox^ picHelpBackdrop;
+
 	private: System::Windows::Forms::LinkLabel^ linkSourceforge;
+	private: System::Windows::Forms::RichTextBox^ richTextHelp;
+
 
 
 	protected:
@@ -66,11 +68,11 @@ namespace CppCLRWinformsProjekt {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(HelpForm::typeid));
 			this->lblHelpHeading = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->picHelpBackdrop = (gcnew System::Windows::Forms::PictureBox());
 			this->linkSourceforge = (gcnew System::Windows::Forms::LinkLabel());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picHelpBackdrop))->BeginInit();
+			this->richTextHelp = (gcnew System::Windows::Forms::RichTextBox());
 			this->SuspendLayout();
 			// 
 			// lblHelpHeading
@@ -78,7 +80,7 @@ namespace CppCLRWinformsProjekt {
 			this->lblHelpHeading->AutoSize = true;
 			this->lblHelpHeading->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblHelpHeading->Location = System::Drawing::Point(105, 9);
+			this->lblHelpHeading->Location = System::Drawing::Point(203, 9);
 			this->lblHelpHeading->Name = L"lblHelpHeading";
 			this->lblHelpHeading->Size = System::Drawing::Size(94, 33);
 			this->lblHelpHeading->TabIndex = 0;
@@ -92,21 +94,10 @@ namespace CppCLRWinformsProjekt {
 			this->label2->Size = System::Drawing::Size(0, 13);
 			this->label2->TabIndex = 1;
 			// 
-			// picHelpBackdrop
-			// 
-			this->picHelpBackdrop->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->picHelpBackdrop->Dock = System::Windows::Forms::DockStyle::Left;
-			this->picHelpBackdrop->Location = System::Drawing::Point(0, 0);
-			this->picHelpBackdrop->MaximumSize = System::Drawing::Size(320, 168);
-			this->picHelpBackdrop->Name = L"picHelpBackdrop";
-			this->picHelpBackdrop->Size = System::Drawing::Size(320, 165);
-			this->picHelpBackdrop->TabIndex = 2;
-			this->picHelpBackdrop->TabStop = false;
-			// 
 			// linkSourceforge
 			// 
 			this->linkSourceforge->AutoSize = true;
-			this->linkSourceforge->Location = System::Drawing::Point(58, 62);
+			this->linkSourceforge->Location = System::Drawing::Point(147, 230);
 			this->linkSourceforge->Name = L"linkSourceforge";
 			this->linkSourceforge->Size = System::Drawing::Size(211, 13);
 			this->linkSourceforge->TabIndex = 3;
@@ -114,19 +105,33 @@ namespace CppCLRWinformsProjekt {
 			this->linkSourceforge->Text = L"https://sourceforge.net/projects/gemwest/";
 			this->linkSourceforge->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &HelpForm::linkSourceforge_LinkClicked);
 			// 
+			// richTextHelp
+			// 
+			this->richTextHelp->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->richTextHelp->Cursor = System::Windows::Forms::Cursors::No;
+			this->richTextHelp->Location = System::Drawing::Point(28, 55);
+			this->richTextHelp->Name = L"richTextHelp";
+			this->richTextHelp->ReadOnly = true;
+			this->richTextHelp->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::None;
+			this->richTextHelp->Size = System::Drawing::Size(460, 172);
+			this->richTextHelp->TabIndex = 4;
+		
+			// 
 			// HelpForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(318, 165);
+			this->ClientSize = System::Drawing::Size(500, 267);
+			this->Controls->Add(this->richTextHelp);
 			this->Controls->Add(this->linkSourceforge);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->lblHelpHeading);
-			this->Controls->Add(this->picHelpBackdrop);
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(516, 306);
+			this->MinimizeBox = false;
 			this->Name = L"HelpForm";
 			this->Text = L"Help";
 			this->Load += gcnew System::EventHandler(this, &HelpForm::HelpForm_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picHelpBackdrop))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -136,10 +141,12 @@ namespace CppCLRWinformsProjekt {
 	private: System::Void HelpForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->Icon = gcnew System::Drawing::Icon(L"app.ico");
 
-		CEmbeddedImage^ bd = gcnew CEmbeddedImage;
-		bd->setName("helpbackdrop");
-		
-		this->picHelpBackdrop->Image = bd->getName();
+		auto resourceAssembly = Reflection::Assembly::GetExecutingAssembly();
+		// .Resources is the name generated by resxgen, e.g., from the input file name Resources.resx
+		auto resourceName = resourceAssembly->GetName()->Name + ".Resource";
+		auto resourceManager = gcnew Resources::ResourceManager(resourceName, resourceAssembly);
+		auto String1 = cli::safe_cast<String^>(resourceManager->GetObject("HelpText"));
+		this->richTextHelp->Text = String1;
 	}
 	private: System::Void linkSourceforge_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 
