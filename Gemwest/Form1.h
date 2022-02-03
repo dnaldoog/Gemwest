@@ -50,7 +50,7 @@ namespace ZaniahSystems {
 
 
 			InitializeComponent();
-			
+
 		}
 	protected:
 		static String^ recordTime(String^ myFormat) {
@@ -180,7 +180,7 @@ namespace ZaniahSystems {
 		void repaint_shape_outline() {
 			//this->tbShapeOutline->Enabled = false;
 			array<String^>^ shapeDescription = gcnew array<String^>{
-					"Normal",
+				"Normal",
 					"Wide Corners",
 					"MQ/PE v short keel/none",
 					"Straight sides",
@@ -304,16 +304,16 @@ This will reduce the weight by 1% to 3%.*/
 				return; // MessageBox::Show(errorMessage);
 			}
 			else {
-/**************************************************************************
+				/**************************************************************************
 
 
 
-						DIAMOND CALCULATION
+										DIAMOND CALCULATION
 
 
 
 
-***************************************************************************/
+				***************************************************************************/
 				if (this->radioBtnDia->Checked) { // Calculate the weight of a diamond
 					if (this->comboCut->Text->Equals(TAPBAG)) { // Tapered Baguette
 						CTaperedBaguette^ TB = gcnew CTaperedBaguette(
@@ -438,7 +438,7 @@ This will reduce the weight by 1% to 3%.*/
 
 					}
 					else {
-					
+
 						CDcalc^ defaultCutFormula = gcnew CDcalc(
 							this->comboCut->Text,
 							this->txtFactor->Text,
@@ -470,14 +470,14 @@ This will reduce the weight by 1% to 3%.*/
 
 				} // is Diamond
 				/**************************************************************************
-				
-				
-				
+
+
+
 										GEMSTONE CALCULATION
-				
-				
-				
-				
+
+
+
+
 				***************************************************************************/
 				else { // Calculate the weight of a Gemstone
 
@@ -521,30 +521,30 @@ This will reduce the weight by 1% to 3%.*/
 						p = GC;
 					} // end is not round cut
 					String^ ct = "ct";
-					Decimal momme=Decimal(1);
-					
+					Decimal momme = Decimal(1);
+
 					if (this->comboGems->Text == PEARL) {
 						ct = "mo";
 						momme = Decimal(MOMME);
 					}
-						String^ tot = System::Convert::ToString(Decimal::Round(Decimal::Multiply(p->term(),momme), 3)) + ct;
-						this->txtResult->Text = tot;
+					String^ tot = System::Convert::ToString(Decimal::Round(Decimal::Multiply(p->term(), momme), 3)) + ct;
+					this->txtResult->Text = tot;
 
-						if (this->comboCut->Text == OVALG) {
-							Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
-							avd = Decimal::Round((avd), 2);
-							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
-						}
-						else if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
-							Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
-							avd = Decimal::Round((avd), 2);
-							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + " x " + avd + ") x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
-						}
-						else {
-							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
-							/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
-						}
-					
+					if (this->comboCut->Text == OVALG) {
+						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+						avd = Decimal::Round((avd), 2);
+						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+					}
+					else if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
+						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+						avd = Decimal::Round((avd), 2);
+						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + " x " + avd + ") x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+					}
+					else {
+						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
+					}
+
 				}
 			} // text is valid
 
@@ -628,17 +628,13 @@ This will reduce the weight by 1% to 3%.*/
 		void save_calculation_to_log() {
 			String^ myDate = "";
 			if (myOptions.propSaveDate == true && myOptions.propSaveTime == true) {
-
 				myDate = " Date: " + Form1::recordTime("MM/dd/yyyy H:mm:ss");
-				MessageBox::Show(myDate);
 			}
 			else if (myOptions.propSaveDate == true && myOptions.propSaveTime == false) {
 				myDate = " Date: " + Form1::recordTime("MM/dd/yyyy");
-				MessageBox::Show(myDate);
 			}
 			else if (myOptions.propSaveDate == false && myOptions.propSaveTime == true) {
 				myDate = " Time: " + Form1::recordTime("H:mm:ss");
-				MessageBox::Show(myDate);
 			}
 			else {
 				myDate = "";
@@ -906,10 +902,10 @@ This will reduce the weight by 1% to 3%.*/
 	private: System::Windows::Forms::TrackBar^ tbKeel;
 	private: System::Windows::Forms::TextBox^ txtOther;
 	private: System::Windows::Forms::TextBox^ txtKeel;
-private: System::Windows::Forms::Label^ lblDynKeel;
-private: System::Windows::Forms::Button^ btnCopy;
-private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
-private: System::Windows::Forms::Button^ btnSaveToLog;
+	private: System::Windows::Forms::Label^ lblDynKeel;
+	private: System::Windows::Forms::Button^ btnCopy;
+	private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
+	private: System::Windows::Forms::Button^ btnSaveToLog;
 
 
 
@@ -2272,7 +2268,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 	private: System::Void txtResult_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-		
+
 		SpecificGravity^ sg = gcnew SpecificGravity; // Declare object
 		sg->dictInitializer();
 		/**************************IMAGE MANAGEMENT FOR GEMSTONES**************************/
@@ -2339,7 +2335,8 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 
 		if (this->comboCut->Text->Equals(RDBEAD) || this->comboCut->Text->Equals(BRIO)) {
 			this->numVisDepth->Enabled = false;
-		}else{
+		}
+		else {
 			this->numVisDepth->Enabled = true;
 		}
 		if (this->comboCut->Text->Equals(TAPBAG)) {
@@ -2447,9 +2444,9 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 		combine_adjustments();
 		this->txtKeel->Text = this->tbKeel->Value.ToString() + "%";
 		if (this->tbKeel->Value < -1) { this->lblDynKeel->Text = "short keel"; }
-		else if (this->tbKeel->Value >1) { this->lblDynKeel->Text = "long keel"; }
+		else if (this->tbKeel->Value > 1) { this->lblDynKeel->Text = "long keel"; }
 		else { this->lblDynKeel->Text = "long keel"; }
-		
+
 		this->onScreenInfo();
 	}
 
@@ -2554,14 +2551,14 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 
 		BridgeCS^ settingsSave = gcnew BridgeCS;
 		settingsSave->propBridge1000 = decplaces;
-		settingsSave->propBridgeCarat=myOptions.propCtPlace;
-		settingsSave->propBridgeSaveDate=myOptions.propSaveDate;
-		settingsSave->propBridgeSaveTime=myOptions.propSaveTime;
+		settingsSave->propBridgeCarat = myOptions.propCtPlace;
+		settingsSave->propBridgeSaveDate = myOptions.propSaveDate;
+		settingsSave->propBridgeSaveTime = myOptions.propSaveTime;
 
 
 	}
 	private: System::Void helpToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+
 		HelpForm^ hform = gcnew HelpForm;
 		hform->Visible = true;
 	}
@@ -2575,7 +2572,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 	private: System::Void logToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		//LogForm^ lform = gcnew LogForm;
 		//lform->Visible = true;
-		 persistantLogRecord->Visible = true;
+		persistantLogRecord->Visible = true;
 	}
 	private: System::Void lblHiddenDepth_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
@@ -2591,7 +2588,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 		this->Icon = gcnew System::Drawing::Icon(L"app.ico");
 		CEmbeddedImage^ rc = gcnew CEmbeddedImage;
 		rc->setName("recut");
-		
+
 		this->picRecut->Image = rc->getName();
 
 		CEmbeddedImage^ cr = gcnew CEmbeddedImage;
@@ -2630,12 +2627,12 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			else {
 				set1000s = false;
 			}
-			myOptions.prop1000=set1000s;
+			myOptions.prop1000 = set1000s;
 		} // not null or empty
 		/****************************************************/
 		if (!System::String::IsNullOrEmpty(getDecPlacesForEndWeight)) {
 			myOptions.propCtPlace = getDecPlacesForEndWeight;
-		/****************************************************/
+			/****************************************************/
 		} // not null or empty
 		if (!System::String::IsNullOrEmpty(getSavedCalculations)) {
 			persistantLogRecord->richTextLog->Text = getSavedCalculations;
@@ -2653,10 +2650,10 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 		else {
 			myOptions.propSaveTime = false;
 		}
-			/*		
-					myOptions.propSaveDate=getSaveDateToLog;
-					myOptions.propSaveTime=getSaveTimeToLog;
-			*/
+		/*
+				myOptions.propSaveDate=getSaveDateToLog;
+				myOptions.propSaveTime=getSaveTimeToLog;
+		*/
 
 
 		/****************************************************/
@@ -2735,32 +2732,32 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 
 	private: System::Void btnCopy_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (!this->toolStrip->Text->Equals(TOOLTIP))
-		Clipboard::SetDataObject(this->toolStrip->Text, true);
+			Clipboard::SetDataObject(this->toolStrip->Text, true);
 	}
-private: System::Void copyToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (!this->toolStrip->Text->Equals(TOOLTIP))
-	Clipboard::SetDataObject(this->toolStrip->Text, true);
-}
-	   /******************************************************************
-	   
-								SAVE TO LOG 
-	   
-	   ******************************************************************/
-private: System::Void btnSaveToLog_Click(System::Object^ sender, System::EventArgs^ e) {
-	save_calculation_to_log();
-}
-
-
-
-private: System::Void numSG_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-	if (this->numSG == this->ActiveControl)
-	{
-		this->onScreenInfo();
-		//MessageBox::Show("value changed");
+	private: System::Void copyToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (!this->toolStrip->Text->Equals(TOOLTIP))
+			Clipboard::SetDataObject(this->toolStrip->Text, true);
 	}
-}
-private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	save_calculation_to_log();
-}
-};
+		   /******************************************************************
+
+									SAVE TO LOG
+
+		   ******************************************************************/
+	private: System::Void btnSaveToLog_Click(System::Object^ sender, System::EventArgs^ e) {
+		save_calculation_to_log();
+	}
+
+
+
+	private: System::Void numSG_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (this->numSG == this->ActiveControl)
+		{
+			this->onScreenInfo();
+			//MessageBox::Show("value changed");
+		}
+	}
+	private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		save_calculation_to_log();
+	}
+	};
 }
