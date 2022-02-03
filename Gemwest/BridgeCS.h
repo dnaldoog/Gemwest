@@ -1,10 +1,43 @@
 #pragma once
 using namespace System;
 using namespace CSconfig;
-
 ref class BridgeCS
 {
 public:
+	property String^ propBridgeCalc
+	{
+		String^ get()
+		{
+			// return the value of the private field
+			CSconfig::SaveSettings^ l = gcnew CSconfig::SaveSettings;
+			return l->PcsCalc; // a json string
+
+		}
+		void set(String^ pb)
+
+		{
+			CSconfig::SaveSettings^ l = gcnew CSconfig::SaveSettings;
+			// return the value of the private field
+			l->PcsCalc = pb;
+		}
+	}
+	property String^ propBridgeCarat
+	{
+		String^ get()
+		{
+			// return the value of the private field
+			CSconfig::SaveSettings^ l = gcnew CSconfig::SaveSettings;
+			return l->PcsCarat;
+
+		}
+		void set(String^ pb)
+
+		{
+			CSconfig::SaveSettings^ l = gcnew CSconfig::SaveSettings;
+			// return the value of the private field
+			l->PcsCarat = pb;
+		}
+	}
 	property String^ propBridge1000
 	{
 		String^ get()
@@ -23,49 +56,40 @@ public:
 		}
 	}
 
-	property String^ propBridgeLog
+	property Boolean propBridgeSaveDate
 	{
-		String^ get()
+		Boolean get()
 		{
 			// return the value of the private field
 			CSconfig::SaveSettings^ l = gcnew CSconfig::SaveSettings;
-			if (l->PcsLog=="true") { return "true"; }
-			else { return "false"; }
+			return l->PcsSaveDate;
 
 		}
-		void set(String^ pb)
+		void set(Boolean b)
 
 		{
 			CSconfig::SaveSettings^ l = gcnew CSconfig::SaveSettings;
 			// return the value of the private field
-			l->PcsLog = pb;
-
+			l->PcsSaveDate = b;
 		}
 	}
 
-	//property String^ jsonString
-	//{
-	//	String^ get()
-	//	{
-	//		// return the value of the private field
-	//		CSconfig::SaveSettings^ j = gcnew CSconfig::SaveSettings;
-	//		if (j->JsonLog!=nullptr)
-	//		return j->JsonLog;
+	property Boolean propBridgeSaveTime
+	{
+		Boolean get()
+		{
+			// return the value of the private field
+			CSconfig::SaveSettings^ l = gcnew CSconfig::SaveSettings;
+			return l->PcsSaveTime;
 
-	//	}
-	//	void set(String^ jsn)
+		}
+		void set(Boolean b)
 
-	//	{
-	//		CSconfig::SaveSettings^ j = gcnew CSconfig::SaveSettings;
-	//		// return the value of the private field
-	//		j->JsonLog=jsn;
-
-	//	}
-	//}
-
-	//String^ load1000();
-	//String^ loadLog();
-	//void save1000(String^);
-	//void saveLog(Boolean);
+		{
+			CSconfig::SaveSettings^ l = gcnew CSconfig::SaveSettings;
+			// return the value of the private field
+			l->PcsSaveTime = b;
+		}
+	}
 };
 

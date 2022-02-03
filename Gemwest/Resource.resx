@@ -42271,6 +42271,9 @@ Please visit the website below for more information:</value>
         RRQAUUUUAf/Z
 </value>
   </data>
+  <data name="Version" xml:space="preserve">
+    <value>2.00</value>
+  </data>
   <data name="vesuvianite" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEASABIAAD/4Qz4RXhpZgAATU0AKgAAAAgAAgExAAIAAAAHAAAAJodpAAQAAAAB

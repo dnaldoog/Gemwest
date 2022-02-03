@@ -6,11 +6,11 @@ using namespace System::Runtime::CompilerServices;
 using namespace System::Runtime::InteropServices;
 using namespace System::Security::Permissions;
 
-[assembly:AssemblyTitleAttribute(L"CppCLRWinformsProjekt")];
+[assembly:AssemblyTitleAttribute(L"GemwestProjekt")];
 [assembly:AssemblyDescriptionAttribute(L"")];
 [assembly:AssemblyConfigurationAttribute(L"")];
 [assembly:AssemblyCompanyAttribute(L"")];
-[assembly:AssemblyProductAttribute(L"CppCLRWinformsProjekt")];
+[assembly:AssemblyProductAttribute(L"GemwestProjekt")];
 [assembly:AssemblyCopyrightAttribute(L"Copyright (c)  2019")];
 [assembly:AssemblyTrademarkAttribute(L"")];
 [assembly:AssemblyCultureAttribute(L"")];

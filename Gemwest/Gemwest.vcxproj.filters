@@ -86,7 +86,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CppCLR_WinformsProjekt.cpp">
+    <ClCompile Include="GemwestProjekt.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">

@@ -195,7 +195,7 @@
     <ClCompile Include="CDfancy.cpp" />
     <ClCompile Include="CDround.cpp" />
     <ClCompile Include="CGoval.cpp" />
-    <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
+    <ClCompile Include="GemwestProjekt.cpp" />
     <ClCompile Include="CCutDim.cpp" />
     <ClCompile Include="CDcalc.cpp" />
     <ClCompile Include="CDiamondCut.cpp" />

@@ -24,7 +24,7 @@
 //#endif // !"choose from below"
 
 
-namespace CppCLRWinformsProjekt {
+namespace GemwestProjekt {
 	//
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -53,6 +53,11 @@ namespace CppCLRWinformsProjekt {
 			
 		}
 	protected:
+		static String^ recordTime(String^ myFormat) {
+			DateTime now = DateTime::Now;
+			String^ myTime = now.ToString(myFormat);
+			return myTime;
+		}
 		LogForm^ persistantLogRecord = gcnew LogForm();
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
@@ -430,7 +435,7 @@ This will reduce the weight by 1% to 3%.*/
 
 					}
 					else {
-
+					
 						CDcalc^ defaultCutFormula = gcnew CDcalc(
 							this->comboCut->Text,
 							this->txtFactor->Text,
@@ -448,7 +453,7 @@ This will reduce the weight by 1% to 3%.*/
 						p = defaultCutFormula;
 					}
 					// print data to tool tip
-					String^ tot = System::Convert::ToString(Decimal::Round(p->term(), 3)) + "ct";
+					String^ tot = System::Convert::ToString(Decimal::Round(p->term(), Convert::ToInt16(myOptions.propCtPlace))) + "ct";
 					this->txtResult->Text = tot;
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
 						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
@@ -2162,11 +2167,14 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 		}
 #pragma endregion
 
-		OptionsForm myPreferences; // declare Object pointing to Options Form
+		OptionsForm myOptions; // declare Object pointing to Options Form
 
 		BridgeCS^ loadData = gcnew BridgeCS;
 		String^ getDecPlacesFromConfig = loadData->propBridge1000;
-		String^ getLogAllFromConfig = loadData->propBridgeLog;
+		String^ getDecPlacesForEndWeight = loadData->propBridgeCarat;
+		String^ getSavedCalculations = loadData->propBridgeCalc;
+		Boolean getSaveDateToLog = loadData->propBridgeSaveDate;
+		Boolean getSaveTimeToLog = loadData->propBridgeSaveTime;
 
 	private: System::Void btnEq_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -2450,13 +2458,9 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 	}
 
 	private: System::Void preferencesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		myPreferences.ShowDialog();
+		myOptions.ShowDialog();
 		String^ decplaces = "2";
-		String^ logAllcalculations = "false";
-		if (myPreferences.propLogAll) {
-			logAllcalculations = "true";
-		}
-		if (myPreferences.prop1000 == true) {
+		if (myOptions.prop1000 == true) {
 
 			this->numDia1->DecimalPlaces = 3;
 			this->numDia1->Increment = System::Decimal(0.001);
@@ -2466,6 +2470,9 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 
 			this->numDepth->DecimalPlaces = 3;
 			this->numDepth->Increment = System::Decimal(0.001);
+
+			this->numVisDepth->DecimalPlaces = 3;
+			this->numVisDepth->Increment = System::Decimal(0.001);
 			decplaces = "3";
 		}
 		else {
@@ -2477,30 +2484,22 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 
 			this->numDepth->DecimalPlaces = 2;
 			this->numDepth->Increment = System::Decimal(0.01);
+
+			this->numVisDepth->DecimalPlaces = 2;
+			this->numVisDepth->Increment = System::Decimal(0.01);
 			decplaces = "2";
 		}
 
 		BridgeCS^ settingsSave = gcnew BridgeCS;
 		settingsSave->propBridge1000 = decplaces;
-		settingsSave->propBridgeLog = logAllcalculations;
+		settingsSave->propBridgeCarat=myOptions.propCtPlace;
+		settingsSave->propBridgeSaveDate=myOptions.propSaveDate;
+		settingsSave->propBridgeSaveTime=myOptions.propSaveTime;
 
-		/*This is old code for C++ but it only saves to Application Folder
-		String^ decPlaces = ConfigurationSettings::AppSettings["decPlaces"];
-		String^ log = ConfigurationSettings::AppSettings["log"];
-		Console::WriteLine("{0} - {1}", firstName, name);
-
-		System::Configuration::Configuration^ config = ConfigurationManager::OpenExeConfiguration(ConfigurationUserLevel::None);
-		config->AppSettings->Settings->Remove("decPlaces");
-		config->AppSettings->Settings->Remove("logAll");
-
-		config->AppSettings->Settings->Add("decPlaces",decplaces);
-		config->AppSettings->Settings->Add("logAll", logAllcalculations);
-		config->Save(ConfigurationSaveMode::Modified);
-		ConfigurationManager::RefreshSection("appSettings");*/
 
 	}
 	private: System::Void helpToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		
 		HelpForm^ hform = gcnew HelpForm;
 		hform->Visible = true;
 	}
@@ -2537,10 +2536,6 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 		cr->setName("crown_normal");
 		this->picCrown->Image = cr->getName();
 
-		//CEmbeddedImage^ dp = gcnew CEmbeddedImage;
-		//dp->setName("defrec");
-		//this->picDepth->Image = dp->getName();
-
 		CEmbeddedImage^ adjarrow = gcnew CEmbeddedImage;
 		adjarrow->setName("adjustmentarrow");
 		this->pictAdjArrow->Image = adjarrow->getName();
@@ -2564,12 +2559,8 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 		CEmbeddedImage^ defaultGirdle = gcnew CEmbeddedImage;
 		defaultGirdle->setName("thingirdle");
 		this->picGirdle->Image = defaultGirdle->getName();
-
-		/*CEmbeddedImage^ checkDepth = gcnew CEmbeddedImage;
-		checkDepth->setName("checkDepth")*/
-		//this->tbShapeOutline->Enabled = false;
+		/* SET ELEMENTS ON OPTIONS FORM TO VALUES FOUND IN application.settings (user)*/
 		Boolean set1000s = false; //   these variables are sent to GUI
-		Boolean setLogging = false; //   these variables are sent to GUI
 		if (!System::String::IsNullOrEmpty(getDecPlacesFromConfig)) {
 			if (getDecPlacesFromConfig->Equals("3")) {
 				set1000s = true;
@@ -2577,20 +2568,36 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			else {
 				set1000s = false;
 			}
-			myPreferences.prop1000 = set1000s;
+			myOptions.prop1000=set1000s;
 		} // not null or empty
 		/****************************************************/
-		if (!System::String::IsNullOrEmpty(getLogAllFromConfig)) {
-			if (getLogAllFromConfig->Equals("true")) {
-				setLogging = true;
-			}
-			else {
-				setLogging = false;
-			}
-			myPreferences.propLogAll = setLogging;
-		}//not null or empty
+		if (!System::String::IsNullOrEmpty(getDecPlacesForEndWeight)) {
+			myOptions.propCtPlace = getDecPlacesForEndWeight;
 		/****************************************************/
+		} // not null or empty
+		if (!System::String::IsNullOrEmpty(getSavedCalculations)) {
+			persistantLogRecord->richTextLog->Text = getSavedCalculations;
+		} // not null or empty
+		/****************************************************/
+		if (getSaveDateToLog) {
+			myOptions.propSaveDate = true;
+		}
+		else {
+			myOptions.propSaveDate = false;
+		}
+		if (getSaveTimeToLog) {
+			myOptions.propSaveTime = true;
+		}
+		else {
+			myOptions.propSaveTime = false;
+		}
+			/*		
+					myOptions.propSaveDate=getSaveDateToLog;
+					myOptions.propSaveTime=getSaveTimeToLog;
+			*/
 
+
+		/****************************************************/
 	}
 
 	private: System::Void numTaperedBaguetteMaxWidth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -2677,14 +2684,38 @@ private: System::Void copyToolStripMenuItem_Click(System::Object^ sender, System
 	if (!this->toolStrip->Text->Equals(TOOLTIP))
 	Clipboard::SetDataObject(this->toolStrip->Text, true);
 }
+	   /******************************************************************
+	   
+								SAVE TO LOG 
+	   
+	   ******************************************************************/
 private: System::Void btnSaveToLog_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ myDate = "";
+	if (myOptions.propSaveDate==true && myOptions.propSaveTime==true){
+
+		myDate = " Date: "+Form1::recordTime("MM/dd/yyyy H:mm:ss");
+		MessageBox::Show(myDate);
+	}else if(myOptions.propSaveDate == true && myOptions.propSaveTime == false){
+		myDate = " Date: " + Form1::recordTime("MM/dd/yyyy");
+		MessageBox::Show(myDate);
+	}
+	else if (myOptions.propSaveDate == false && myOptions.propSaveTime == true) {
+		myDate = " Time: " + Form1::recordTime("H:mm:ss");
+		MessageBox::Show(myDate);
+	}
+	else {
+		myDate = "";
+
+	}
+	
 	if (!this->toolStrip->Text->Equals(TOOLTIP)) {
 		//if (persistantLogRecord->richTextLog->) {
 		array<String^>^ lines = persistantLogRecord->richTextLog->Lines;
 		int count = lines->Length;
 		if (count == 0) {
-			persistantLogRecord->richTextLog->Text = L"\n";
-			persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+			persistantLogRecord->richTextLog->Text = "";
+			//persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+			persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + myDate + "\n");
 		}
 		else {
 			//for (int idx = 0; idx < count; ++idx)
@@ -2692,8 +2723,13 @@ private: System::Void btnSaveToLog_Click(System::Object^ sender, System::EventAr
 			//	Debug::WriteLine(lines[idx]);
 			//	// use lines[idx] as needed...
 			//}
-			persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+			//persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+			persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + myDate + "\n");
 		}
+		BridgeCS^ saveString = gcnew BridgeCS;
+
+
+		saveString->propBridgeCalc = this->persistantLogRecord->richTextLog->Text;
 		//if (persistantLogRecord->richTextLog->Lines[count - 1]// != this->toolStrip->Text + "\n") {
 		
 
