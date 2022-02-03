@@ -17,6 +17,8 @@
 #define  RDBEAD "round bead"
 #define  BRIO "briolette"
 #define  TRIC "triangular cut(dia.)"
+#define	PEARL "pearl" 
+#define	MOMME 18.75 /*one momme = 3.75 gm * 5 = 18.75ct (1 ct is 1/5 gram)*/ 
 #define  DIAOVALCUT  "oval brilliant"
 #define  DIAROUND  "round brilliant"
 #define  DIAOLDMINE  "old mine cut"

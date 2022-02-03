@@ -55,8 +55,13 @@ String^ CDfancy::setFancyRecutFactor() {
 		}
 
 		else if (this->fancyType->Equals(RADI)) {
-
-			coefficient = 0.1;
+			/*
+			* https://www.omnicalculator.com/other/diamond-weight#diamond-weight-formulas
+			1 : 1	0.0081
+			1.5 : 1	0.0084
+			*/
+			if (lw < 1.5) { coefficient = 0.0081; }
+			else { coefficient = 0.0084; }
 		}
 		factor = Convert::ToString(coefficient);
 		return factor;

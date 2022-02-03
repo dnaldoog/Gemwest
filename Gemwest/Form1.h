@@ -478,64 +478,85 @@ This will reduce the weight by 1% to 3%.*/
 				***************************************************************************/
 				else { // Calculate the weight of a Gemstone
 
-				CGcalc^ p = nullptr;
-				String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
+					CGcalc^ p = nullptr;
+					String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
 
-				if (this->comboCut->Text->Contains("choose")) {
-					MessageBox::Show(errorMessage);
-				}
-				if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
-					CBead^ BE = gcnew CBead(
-						this->numDia1->Value,
-						this->numDia2->Value,
-						this->numDepth->Value,
-						this->numSG->Value,
-						this->txtFactor->Text,
-						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
-					);
-					p = BE;
-				}
-				else if(this->comboCut->Text == OVALG){
-					CGoval^ OV = gcnew CGoval(
-						this->numDia1->Value,
-						this->numDia2->Value,
-						this->numDepth->Value,
-						this->numSG->Value,
-						this->txtFactor->Text,
-						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
-					);
-					p =OV;
-				}
-				else {
-					CGcalc^ GC = gcnew CGcalc(
-						this->numDia1->Value,
-						this->numDia2->Value,
-						this->numDepth->Value,
-						this->numSG->Value,
-						this->txtFactor->Text,
-						this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
-					);
-					p = GC;
-				} // end is not round cut
-					String^ tot = System::Convert::ToString(Decimal::Round(p->term(), 3)) + "ct";
-					this->txtResult->Text = tot;
-
-					if (this->comboCut->Text==OVALG) {
-						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
-						avd = Decimal::Round((avd), 2);
-						this->toolStrip->Text = L"["+this->comboGems->Text+ "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x "+ this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+					if (this->comboCut->Text->Contains("choose")) {
+						MessageBox::Show(errorMessage);
 					}
-					else if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
-						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
-						avd = Decimal::Round((avd), 2);
-						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+					if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
+						CBead^ BE = gcnew CBead(
+							this->numDia1->Value,
+							this->numDia2->Value,
+							this->numDepth->Value, //  not used in weight calculation
+							this->numSG->Value,
+							this->txtFactor->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
+						);
+						p = BE;
+					}
+					else if (this->comboCut->Text == OVALG) {
+						CGoval^ OV = gcnew CGoval(
+							this->numDia1->Value,
+							this->numDia2->Value,
+							this->numDepth->Value,
+							this->numSG->Value,
+							this->txtFactor->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
+						);
+						p = OV;
 					}
 					else {
-						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
-						/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
-					}
-				}
+						CGcalc^ GC = gcnew CGcalc(
+							this->numDia1->Value,
+							this->numDia2->Value,
+							this->numDepth->Value,
+							this->numSG->Value,
+							this->txtFactor->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
+						);
+						p = GC;
+					} // end is not round cut
+					if (this->comboGems->Text == PEARL) {
+						String^ tot = System::Convert::ToString(Decimal::Round(Decimal::Multiply(p->term(),Decimal(MOMME)), 3)) + "mo";
+						this->txtResult->Text = tot;
 
+						if (this->comboCut->Text == OVALG) {
+							Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+							avd = Decimal::Round((avd), 2);
+							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						}
+						else if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
+							Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+							avd = Decimal::Round((avd), 2);
+							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + " x " + avd + ") x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						}
+						else {
+							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+							/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
+						}
+					}else { // is not pearl
+
+
+						String^ tot = System::Convert::ToString(Decimal::Round(p->term(), 3)) + "ct";
+						this->txtResult->Text = tot;
+
+						if (this->comboCut->Text == OVALG) {
+							Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+							avd = Decimal::Round((avd), 2);
+							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						}
+						else if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
+							Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
+							avd = Decimal::Round((avd), 2);
+							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + " x " + avd + ") x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						}
+						else {
+							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+							/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
+						}
+					} // is PEARL?
+				}
 			} // text is valid
 
 
@@ -928,6 +949,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->picRecut = (gcnew System::Windows::Forms::PictureBox());
 			this->cbRecut = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->btnSaveToLog = (gcnew System::Windows::Forms::Button());
 			this->btnCopy = (gcnew System::Windows::Forms::Button());
 			this->lblRecutDetails = (gcnew System::Windows::Forms::Label());
 			this->txtEstRecut = (gcnew System::Windows::Forms::TextBox());
@@ -959,7 +981,6 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->btnSave = (gcnew System::Windows::Forms::Button());
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
 			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
-			this->btnSaveToLog = (gcnew System::Windows::Forms::Button());
 			this->lwguide->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOther))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbKeel))->BeginInit();
@@ -1772,6 +1793,18 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->groupBox2->TabIndex = 13;
 			this->groupBox2->TabStop = false;
 			// 
+			// btnSaveToLog
+			// 
+			this->btnSaveToLog->BackColor = System::Drawing::SystemColors::Desktop;
+			this->btnSaveToLog->ForeColor = System::Drawing::SystemColors::Window;
+			this->btnSaveToLog->Location = System::Drawing::Point(397, 128);
+			this->btnSaveToLog->Name = L"btnSaveToLog";
+			this->btnSaveToLog->Size = System::Drawing::Size(47, 35);
+			this->btnSaveToLog->TabIndex = 61;
+			this->btnSaveToLog->Text = L"&save";
+			this->btnSaveToLog->UseVisualStyleBackColor = false;
+			this->btnSaveToLog->Click += gcnew System::EventHandler(this, &Form1::btnSaveToLog_Click);
+			// 
 			// btnCopy
 			// 
 			this->btnCopy->BackColor = System::Drawing::SystemColors::Desktop;
@@ -1815,6 +1848,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->numSG->Name = L"numSG";
 			this->numSG->Size = System::Drawing::Size(100, 20);
 			this->numSG->TabIndex = 24;
+			this->numSG->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::numSG_KeyPress);
 			// 
 			// picGem
 			// 
@@ -2017,7 +2051,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			// logToolStripMenuItem
 			// 
 			this->logToolStripMenuItem->Name = L"logToolStripMenuItem";
-			this->logToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->logToolStripMenuItem->Size = System::Drawing::Size(91, 22);
 			this->logToolStripMenuItem->Text = L"&log";
 			this->logToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::logToolStripMenuItem_Click);
 			// 
@@ -2095,18 +2129,6 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->groupBoxChooseDiaOrGem->Size = System::Drawing::Size(505, 31);
 			this->groupBoxChooseDiaOrGem->TabIndex = 17;
 			this->groupBoxChooseDiaOrGem->TabStop = false;
-			// 
-			// btnSaveToLog
-			// 
-			this->btnSaveToLog->BackColor = System::Drawing::SystemColors::Desktop;
-			this->btnSaveToLog->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnSaveToLog->Location = System::Drawing::Point(397, 128);
-			this->btnSaveToLog->Name = L"btnSaveToLog";
-			this->btnSaveToLog->Size = System::Drawing::Size(47, 35);
-			this->btnSaveToLog->TabIndex = 61;
-			this->btnSaveToLog->Text = L"&save";
-			this->btnSaveToLog->UseVisualStyleBackColor = false;
-			this->btnSaveToLog->Click += gcnew System::EventHandler(this, &Form1::btnSaveToLog_Click);
 			// 
 			// Form1
 			// 
@@ -2214,6 +2236,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 	private: System::Void txtResult_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		
 		SpecificGravity^ sg = gcnew SpecificGravity; // Declare object
 		sg->dictInitializer();
 		/**************************IMAGE MANAGEMENT FOR GEMSTONES**************************/
@@ -2278,6 +2301,11 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 		}
 
 
+		if (this->comboCut->Text->Equals(RDBEAD) || this->comboCut->Text->Equals(BRIO)) {
+			this->numVisDepth->Enabled = false;
+		}else{
+			this->numVisDepth->Enabled = true;
+		}
 		if (this->comboCut->Text->Equals(TAPBAG)) {
 			/*change labels and make min width/max width appear*/
 			this->numTaperedBaguetteMaxWidth->Show();
@@ -2705,7 +2733,6 @@ private: System::Void btnSaveToLog_Click(System::Object^ sender, System::EventAr
 	}
 	else {
 		myDate = "";
-
 	}
 	
 	if (!this->toolStrip->Text->Equals(TOOLTIP)) {
@@ -2742,6 +2769,9 @@ private: System::Void btnSaveToLog_Click(System::Object^ sender, System::EventAr
 		//	persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
 		//}
 	} // text is not initialized
+}
+private: System::Void numSG_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	this->calculate_carat_weight();
 }
 };
 }
