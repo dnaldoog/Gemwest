@@ -10,7 +10,7 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 
-namespace GemwestProjekt {
+namespace ZaniahSystems {
 
 	using namespace System;
 	using namespace System::Windows::Forms;

@@ -1,7 +1,7 @@
 #pragma once
 #include "CEmbeddedImage.h"
 
-namespace GemwestProjekt {
+namespace ZaniahSystems {
 	using namespace System;
 	using namespace System::Diagnostics;
 	using namespace System::ComponentModel;

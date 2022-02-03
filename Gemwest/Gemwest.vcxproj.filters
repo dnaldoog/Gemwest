@@ -86,7 +86,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GemwestProjekt.cpp">
+    <ClCompile Include="ZaniahSystems.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">

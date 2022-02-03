@@ -17,7 +17,7 @@ using namespace System::Windows::Forms;
 int main() {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew GemwestProjekt::Form1()); 
+	Application::Run(gcnew ZaniahSystems::Form1()); 
 
 
 	return 0;

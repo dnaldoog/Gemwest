@@ -24,7 +24,7 @@
 //#endif // !"choose from below"
 
 
-namespace GemwestProjekt {
+namespace ZaniahSystems {
 	//
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -58,6 +58,8 @@ namespace GemwestProjekt {
 			String^ myTime = now.ToString(myFormat);
 			return myTime;
 		}
+	private: System::Windows::Forms::ToolStripMenuItem^ saveToolStripMenuItem;
+	protected:
 		LogForm^ persistantLogRecord = gcnew LogForm();
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
@@ -623,6 +625,61 @@ This will reduce the weight by 1% to 3%.*/
 			this->calculate_carat_weight();
 		}
 		/***************************************************************************************/
+		void save_calculation_to_log() {
+			String^ myDate = "";
+			if (myOptions.propSaveDate == true && myOptions.propSaveTime == true) {
+
+				myDate = " Date: " + Form1::recordTime("MM/dd/yyyy H:mm:ss");
+				MessageBox::Show(myDate);
+			}
+			else if (myOptions.propSaveDate == true && myOptions.propSaveTime == false) {
+				myDate = " Date: " + Form1::recordTime("MM/dd/yyyy");
+				MessageBox::Show(myDate);
+			}
+			else if (myOptions.propSaveDate == false && myOptions.propSaveTime == true) {
+				myDate = " Time: " + Form1::recordTime("H:mm:ss");
+				MessageBox::Show(myDate);
+			}
+			else {
+				myDate = "";
+			}
+
+			if (!this->toolStrip->Text->Equals(TOOLTIP)) {
+				//if (persistantLogRecord->richTextLog->) {
+				array<String^>^ lines = persistantLogRecord->richTextLog->Lines;
+				int count = lines->Length;
+				if (count == 0) {
+					persistantLogRecord->richTextLog->Text = "";
+					//persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+					persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + myDate + "\n");
+				}
+				else {
+					//for (int idx = 0; idx < count; ++idx)
+					//{
+					//	Debug::WriteLine(lines[idx]);
+					//	// use lines[idx] as needed...
+					//}
+					//persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+					persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + myDate + "\n");
+				}
+				BridgeCS^ saveString = gcnew BridgeCS;
+
+
+				saveString->propBridgeCalc = this->persistantLogRecord->richTextLog->Text;
+				//if (persistantLogRecord->richTextLog->Lines[count - 1]// != this->toolStrip->Text + "\n") {
+
+
+				//}
+					//persistantLogRecord->richTextLog->AppendText(L"");
+					//persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+				//}
+				//else
+				//{
+				//	persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
+				//}
+			} // text is not initialized
+		}
+		/***************************************************************************************/
 		void combine_adjustments() {
 
 			Double sum;
@@ -827,7 +884,7 @@ This will reduce the weight by 1% to 3%.*/
 	private: System::Windows::Forms::Button^ btnClearPB;
 	private: System::Windows::Forms::Button^ btnClearGT;
 	private: System::Windows::Forms::Label^ lblRecutDetails;
-	private: System::Windows::Forms::Button^ btnSave;
+
 	private: System::Windows::Forms::NumericUpDown^ numVisDepth;
 	private: System::Windows::Forms::Label^ lblHelp;
 	private: System::Windows::Forms::Label^ lblDynSO;
@@ -966,9 +1023,9 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->aboutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBoxCalculate = (gcnew System::Windows::Forms::GroupBox());
-			this->btnSave = (gcnew System::Windows::Forms::Button());
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
 			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
+			this->saveToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->lwguide->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOther))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbKeel))->BeginInit();
@@ -1052,9 +1109,9 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			// 
 			// buttonCalc
 			// 
-			this->buttonCalc->Location = System::Drawing::Point(307, 25);
+			this->buttonCalc->Location = System::Drawing::Point(325, 19);
 			this->buttonCalc->Name = L"buttonCalc";
-			this->buttonCalc->Size = System::Drawing::Size(100, 23);
+			this->buttonCalc->Size = System::Drawing::Size(100, 40);
 			this->buttonCalc->TabIndex = 5;
 			this->buttonCalc->Text = L"Calculate";
 			this->buttonCalc->UseVisualStyleBackColor = true;
@@ -1064,7 +1121,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			// 
 			this->buttonClear->BackColor = System::Drawing::SystemColors::Desktop;
 			this->buttonClear->ForeColor = System::Drawing::SystemColors::Window;
-			this->buttonClear->Location = System::Drawing::Point(419, 25);
+			this->buttonClear->Location = System::Drawing::Point(437, 25);
 			this->buttonClear->Name = L"buttonClear";
 			this->buttonClear->Size = System::Drawing::Size(47, 23);
 			this->buttonClear->TabIndex = 6;
@@ -1078,12 +1135,12 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->txtResult->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->txtResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtResult->Location = System::Drawing::Point(139, 19);
+			this->txtResult->Location = System::Drawing::Point(154, 19);
 			this->txtResult->MaxLength = 20;
 			this->txtResult->MinimumSize = System::Drawing::Size(100, 40);
 			this->txtResult->Name = L"txtResult";
 			this->txtResult->ReadOnly = true;
-			this->txtResult->Size = System::Drawing::Size(149, 31);
+			this->txtResult->Size = System::Drawing::Size(149, 40);
 			this->txtResult->TabIndex = 7;
 			this->txtResult->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->txtResult->TextChanged += gcnew System::EventHandler(this, &Form1::txtResult_TextChanged);
@@ -1752,8 +1809,6 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			// groupBox2
 			// 
 			this->groupBox2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
-			this->groupBox2->Controls->Add(this->btnSaveToLog);
-			this->groupBox2->Controls->Add(this->btnCopy);
 			this->groupBox2->Controls->Add(this->lblRecutDetails);
 			this->groupBox2->Controls->Add(this->txtEstRecut);
 			this->groupBox2->Controls->Add(this->numSG);
@@ -1770,9 +1825,9 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->groupBox2->Controls->Add(this->lbllSelectedSG);
 			this->groupBox2->Controls->Add(this->cbRecut);
 			this->groupBox2->ForeColor = System::Drawing::Color::Black;
-			this->groupBox2->Location = System::Drawing::Point(12, 505);
+			this->groupBox2->Location = System::Drawing::Point(12, 516);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(505, 169);
+			this->groupBox2->Size = System::Drawing::Size(505, 163);
 			this->groupBox2->TabIndex = 13;
 			this->groupBox2->TabStop = false;
 			// 
@@ -1780,7 +1835,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			// 
 			this->btnSaveToLog->BackColor = System::Drawing::SystemColors::Desktop;
 			this->btnSaveToLog->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnSaveToLog->Location = System::Drawing::Point(397, 128);
+			this->btnSaveToLog->Location = System::Drawing::Point(90, 19);
 			this->btnSaveToLog->Name = L"btnSaveToLog";
 			this->btnSaveToLog->Size = System::Drawing::Size(47, 35);
 			this->btnSaveToLog->TabIndex = 61;
@@ -1792,7 +1847,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			// 
 			this->btnCopy->BackColor = System::Drawing::SystemColors::Desktop;
 			this->btnCopy->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnCopy->Location = System::Drawing::Point(450, 128);
+			this->btnCopy->Location = System::Drawing::Point(29, 19);
 			this->btnCopy->Name = L"btnCopy";
 			this->btnCopy->Size = System::Drawing::Size(47, 35);
 			this->btnCopy->TabIndex = 60;
@@ -1961,7 +2016,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			// statusbar
 			// 
 			this->statusbar->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStrip });
-			this->statusbar->Location = System::Drawing::Point(0, 673);
+			this->statusbar->Location = System::Drawing::Point(0, 682);
 			this->statusbar->Name = L"statusbar";
 			this->statusbar->Size = System::Drawing::Size(529, 22);
 			this->statusbar->SizingGrip = false;
@@ -2002,9 +2057,9 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			// 
 			// editToolStripMenuItem
 			// 
-			this->editToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->editToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->copyToolStripMenuItem,
-					this->preferencesToolStripMenuItem
+					this->saveToolStripMenuItem, this->preferencesToolStripMenuItem
 			});
 			this->editToolStripMenuItem->Name = L"editToolStripMenuItem";
 			this->editToolStripMenuItem->Size = System::Drawing::Size(39, 20);
@@ -2073,31 +2128,22 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			// groupBoxCalculate
 			// 
 			this->groupBoxCalculate->BackColor = System::Drawing::SystemColors::Info;
-			this->groupBoxCalculate->Controls->Add(this->btnSave);
+			this->groupBoxCalculate->Controls->Add(this->btnSaveToLog);
 			this->groupBoxCalculate->Controls->Add(this->lblWeightInCarats);
+			this->groupBoxCalculate->Controls->Add(this->btnCopy);
 			this->groupBoxCalculate->Controls->Add(this->txtResult);
 			this->groupBoxCalculate->Controls->Add(this->buttonCalc);
 			this->groupBoxCalculate->Controls->Add(this->buttonClear);
 			this->groupBoxCalculate->Location = System::Drawing::Point(12, 397);
 			this->groupBoxCalculate->Name = L"groupBoxCalculate";
-			this->groupBoxCalculate->Size = System::Drawing::Size(505, 71);
+			this->groupBoxCalculate->Size = System::Drawing::Size(505, 84);
 			this->groupBoxCalculate->TabIndex = 16;
 			this->groupBoxCalculate->TabStop = false;
-			// 
-			// btnSave
-			// 
-			this->btnSave->Location = System::Drawing::Point(37, 24);
-			this->btnSave->Name = L"btnSave";
-			this->btnSave->Size = System::Drawing::Size(75, 24);
-			this->btnSave->TabIndex = 59;
-			this->btnSave->Text = L"Save to Log";
-			this->btnSave->UseVisualStyleBackColor = true;
-			this->btnSave->Click += gcnew System::EventHandler(this, &Form1::btnSave_Click);
 			// 
 			// lblWeightInCarats
 			// 
 			this->lblWeightInCarats->AutoSize = true;
-			this->lblWeightInCarats->Location = System::Drawing::Point(173, 53);
+			this->lblWeightInCarats->Location = System::Drawing::Point(185, 66);
 			this->lblWeightInCarats->Name = L"lblWeightInCarats";
 			this->lblWeightInCarats->Size = System::Drawing::Size(87, 13);
 			this->lblWeightInCarats->TabIndex = 53;
@@ -2107,17 +2153,24 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			// 
 			this->groupBoxChooseDiaOrGem->Controls->Add(this->radioBtnGem);
 			this->groupBoxChooseDiaOrGem->Controls->Add(this->radioBtnDia);
-			this->groupBoxChooseDiaOrGem->Location = System::Drawing::Point(12, 474);
+			this->groupBoxChooseDiaOrGem->Location = System::Drawing::Point(12, 479);
 			this->groupBoxChooseDiaOrGem->Name = L"groupBoxChooseDiaOrGem";
 			this->groupBoxChooseDiaOrGem->Size = System::Drawing::Size(505, 31);
 			this->groupBoxChooseDiaOrGem->TabIndex = 17;
 			this->groupBoxChooseDiaOrGem->TabStop = false;
 			// 
+			// saveToolStripMenuItem
+			// 
+			this->saveToolStripMenuItem->Name = L"saveToolStripMenuItem";
+			this->saveToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->saveToolStripMenuItem->Text = L"S&ave";
+			this->saveToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::saveToolStripMenuItem_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(529, 695);
+			this->ClientSize = System::Drawing::Size(529, 704);
 			this->Controls->Add(this->groupBoxChooseDiaOrGem);
 			this->Controls->Add(this->groupBoxCalculate);
 			this->Controls->Add(this->statusbar);
@@ -2653,13 +2706,6 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 		repaint_shape_outline();
 		this->onScreenInfo();
 	}
-	private: System::Void btnSave_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ text_to_save = this->toolStrip->Text;
-		if (!text_to_save->Equals("Ready...")) {
-
-
-		}
-	} // end function
 	private: System::Void numDepth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
 	}
@@ -2701,57 +2747,7 @@ private: System::Void copyToolStripMenuItem_Click(System::Object^ sender, System
 	   
 	   ******************************************************************/
 private: System::Void btnSaveToLog_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ myDate = "";
-	if (myOptions.propSaveDate==true && myOptions.propSaveTime==true){
-
-		myDate = " Date: "+Form1::recordTime("MM/dd/yyyy H:mm:ss");
-		MessageBox::Show(myDate);
-	}else if(myOptions.propSaveDate == true && myOptions.propSaveTime == false){
-		myDate = " Date: " + Form1::recordTime("MM/dd/yyyy");
-		MessageBox::Show(myDate);
-	}
-	else if (myOptions.propSaveDate == false && myOptions.propSaveTime == true) {
-		myDate = " Time: " + Form1::recordTime("H:mm:ss");
-		MessageBox::Show(myDate);
-	}
-	else {
-		myDate = "";
-	}
-	
-	if (!this->toolStrip->Text->Equals(TOOLTIP)) {
-		//if (persistantLogRecord->richTextLog->) {
-		array<String^>^ lines = persistantLogRecord->richTextLog->Lines;
-		int count = lines->Length;
-		if (count == 0) {
-			persistantLogRecord->richTextLog->Text = "";
-			//persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
-			persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + myDate + "\n");
-		}
-		else {
-			//for (int idx = 0; idx < count; ++idx)
-			//{
-			//	Debug::WriteLine(lines[idx]);
-			//	// use lines[idx] as needed...
-			//}
-			//persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
-			persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + myDate + "\n");
-		}
-		BridgeCS^ saveString = gcnew BridgeCS;
-
-
-		saveString->propBridgeCalc = this->persistantLogRecord->richTextLog->Text;
-		//if (persistantLogRecord->richTextLog->Lines[count - 1]// != this->toolStrip->Text + "\n") {
-		
-
-		//}
-			//persistantLogRecord->richTextLog->AppendText(L"");
-			//persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
-		//}
-		//else
-		//{
-		//	persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
-		//}
-	} // text is not initialized
+	save_calculation_to_log();
 }
 
 
@@ -2762,6 +2758,9 @@ private: System::Void numSG_ValueChanged(System::Object^ sender, System::EventAr
 		this->onScreenInfo();
 		//MessageBox::Show("value changed");
 	}
+}
+private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	save_calculation_to_log();
 }
 };
 }

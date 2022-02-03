@@ -1,7 +1,7 @@
 #include "pch.h"
 //#include "Form1.h"
 //#include <Windows.h>
-//using namespace GemwestProjekt;
+//using namespace ZaniahSystems;
 //
 //int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 //{

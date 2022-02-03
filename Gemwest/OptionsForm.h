@@ -1,6 +1,6 @@
 #pragma once
 
-namespace GemwestProjekt {
+namespace ZaniahSystems {
 
 	using namespace System;
 	using namespace System::ComponentModel;
