@@ -298,7 +298,8 @@ This will reduce the weight by 1% to 3%.*/
 			String^ errorMessage = L"Invalid Input!!\nPlease select a cut!";
 
 			if (this->comboCut->Text->Contains("choose")) {
-				MessageBox::Show(errorMessage);
+				this->txtEstRecut->Text = "0.00ct";
+				return; // MessageBox::Show(errorMessage);
 			}
 			else {
 /**************************************************************************
@@ -517,8 +518,14 @@ This will reduce the weight by 1% to 3%.*/
 						);
 						p = GC;
 					} // end is not round cut
+					String^ ct = "ct";
+					Decimal momme=Decimal(1);
+					
 					if (this->comboGems->Text == PEARL) {
-						String^ tot = System::Convert::ToString(Decimal::Round(Decimal::Multiply(p->term(),Decimal(MOMME)), 3)) + "mo";
+						ct = "mo";
+						momme = Decimal(MOMME);
+					}
+						String^ tot = System::Convert::ToString(Decimal::Round(Decimal::Multiply(p->term(),momme), 3)) + ct;
 						this->txtResult->Text = tot;
 
 						if (this->comboCut->Text == OVALG) {
@@ -535,27 +542,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 							/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
 						}
-					}else { // is not pearl
-
-
-						String^ tot = System::Convert::ToString(Decimal::Round(p->term(), 3)) + "ct";
-						this->txtResult->Text = tot;
-
-						if (this->comboCut->Text == OVALG) {
-							Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
-							avd = Decimal::Round((avd), 2);
-							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
-						}
-						else if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
-							Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
-							avd = Decimal::Round((avd), 2);
-							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + " x " + avd + ") x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
-						}
-						else {
-							this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
-							/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
-						}
-					} // is PEARL?
+					
 				}
 			} // text is valid
 
@@ -571,6 +558,7 @@ This will reduce the weight by 1% to 3%.*/
 		} // check whether a fancy cut was selected
 
 		void onScreenInfo() {
+			/*Debug::WriteLine("fired by" + this->ActiveControl);*/
 			this->cbRecut->Enabled = false;
 
 			if (!this->numDia1->Text->Equals("0.00")) {
@@ -1048,7 +1036,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->comboGems->Location = System::Drawing::Point(90, 28);
 			this->comboGems->Name = L"comboGems";
 			this->comboGems->Size = System::Drawing::Size(121, 21);
-			this->comboGems->TabIndex = 8;
+			this->comboGems->TabIndex = 5;
 			this->comboGems->Text = L"choose from below";
 			this->comboGems->SelectedIndexChanged += gcnew System::EventHandler(this, &Form1::comboGems_SelectedIndexChanged);
 			// 
@@ -1341,8 +1329,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->numVisDepth->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
 			this->numVisDepth->Name = L"numVisDepth";
 			this->numVisDepth->Size = System::Drawing::Size(98, 20);
-			this->numVisDepth->TabIndex = 59;
-			this->numVisDepth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 4, 0, 0, 0 });
+			this->numVisDepth->TabIndex = 4;
 			this->numVisDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numVisDepth_ValueChanged_1);
 			// 
 			// btnClearSO
@@ -1400,7 +1387,6 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->numTaperedBaguetteMaxWidth->Name = L"numTaperedBaguetteMaxWidth";
 			this->numTaperedBaguetteMaxWidth->Size = System::Drawing::Size(55, 20);
 			this->numTaperedBaguetteMaxWidth->TabIndex = 55;
-			this->numTaperedBaguetteMaxWidth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 9, 0, 0, 0 });
 			this->numTaperedBaguetteMaxWidth->Visible = false;
 			this->numTaperedBaguetteMaxWidth->ValueChanged += gcnew System::EventHandler(this, &Form1::numTaperedBaguetteMaxWidth_ValueChanged);
 			// 
@@ -1499,7 +1485,6 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->numDepth->Name = L"numDepth";
 			this->numDepth->Size = System::Drawing::Size(98, 20);
 			this->numDepth->TabIndex = 35;
-			this->numDepth->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 4, 0, 0, 0 });
 			this->numDepth->Visible = false;
 			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged);
 			// 
@@ -1607,8 +1592,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->numDia2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
 			this->numDia2->Name = L"numDia2";
 			this->numDia2->Size = System::Drawing::Size(98, 20);
-			this->numDia2->TabIndex = 34;
-			this->numDia2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
+			this->numDia2->TabIndex = 3;
 			this->numDia2->ValueChanged += gcnew System::EventHandler(this, &Form1::numDia2_ValueChanged);
 			// 
 			// numDia1
@@ -1619,8 +1603,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->numDia1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5000, 0, 0, 0 });
 			this->numDia1->Name = L"numDia1";
 			this->numDia1->Size = System::Drawing::Size(98, 20);
-			this->numDia1->TabIndex = 25;
-			this->numDia1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
+			this->numDia1->TabIndex = 2;
 			this->numDia1->ValueChanged += gcnew System::EventHandler(this, &Form1::numDia1_ValueChanged);
 			// 
 			// txtPavilionBulge
@@ -1848,7 +1831,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->numSG->Name = L"numSG";
 			this->numSG->Size = System::Drawing::Size(100, 20);
 			this->numSG->TabIndex = 24;
-			this->numSG->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::numSG_KeyPress);
+			this->numSG->ValueChanged += gcnew System::EventHandler(this, &Form1::numSG_ValueChanged);
 			// 
 			// picGem
 			// 
@@ -1947,7 +1930,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->comboCut->Location = System::Drawing::Point(90, 90);
 			this->comboCut->Name = L"comboCut";
 			this->comboCut->Size = System::Drawing::Size(121, 21);
-			this->comboCut->TabIndex = 15;
+			this->comboCut->TabIndex = 6;
 			this->comboCut->Text = L"round brilliant";
 			this->comboCut->SelectedIndexChanged += gcnew System::EventHandler(this, &Form1::comboCut_SelectedIndexChanged);
 			// 
@@ -2448,9 +2431,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 			this->numDia2->Value = this->numDia1->Value;
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
 	}
-	private: System::Void numDepth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-		this->onScreenInfo(); // print depth percentage and L/W Ratio
-	}
+
 	private: System::Void radDepthAsMm_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (this->radDepthAsMm->Checked) {
 			this->lblDepth->Text = "Depth (mm)";
@@ -2679,7 +2660,9 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 
 		}
 	} // end function
-
+	private: System::Void numDepth_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+		this->onScreenInfo(); // print depth percentage and L/W Ratio
+	}
 	private: System::Void numVisDepth_ValueChanged_1(System::Object^ sender, System::EventArgs^ e) {
 
 		if (this->radDepthAsPerc->Checked) {
@@ -2694,7 +2677,7 @@ private: System::Windows::Forms::Button^ btnSaveToLog;
 		else {
 			this->numDepth->Value = this->numVisDepth->Value;
 		}
-		this->onScreenInfo();
+		//this->onScreenInfo();
 	}
 
 	private: System::Void lwguide_Enter(System::Object^ sender, System::EventArgs^ e) {
@@ -2770,8 +2753,15 @@ private: System::Void btnSaveToLog_Click(System::Object^ sender, System::EventAr
 		//}
 	} // text is not initialized
 }
-private: System::Void numSG_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	this->calculate_carat_weight();
+
+
+
+private: System::Void numSG_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (this->numSG == this->ActiveControl)
+	{
+		this->onScreenInfo();
+		//MessageBox::Show("value changed");
+	}
 }
 };
 }
