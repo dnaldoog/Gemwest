@@ -119,6 +119,7 @@ namespace ZaniahSystems {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(684, 261);
+			this->ControlBox = false;
 			this->Controls->Add(this->btnCopyCalcToClipboard);
 			this->Controls->Add(this->btnSaveEdit);
 			this->Controls->Add(this->clearLogForm);
