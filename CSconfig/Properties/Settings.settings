@@ -2,14 +2,20 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CSconfig.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="logtofile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="enter1000" Type="System.String" Scope="User">
+    <Setting Name="entrydecplaces" Type="System.String" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
-    <Setting Name="jsonLog" Type="System.String" Scope="User">
-      <Value Profile="(Default)">myjsonstringinit</Value>
+    <Setting Name="resultdecplaces" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="calcserialized" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="savedate" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="savetime" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

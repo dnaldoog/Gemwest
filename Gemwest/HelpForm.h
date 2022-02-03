@@ -1,4 +1,5 @@
 #pragma once
+#include"pch.h"
 #include "CEmbeddedImage.h"
 
 using namespace System;
@@ -9,7 +10,7 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 
-namespace CppCLRWinformsProjekt {
+namespace ZaniahSystems {
 
 	using namespace System;
 	using namespace System::Windows::Forms;
@@ -51,7 +52,7 @@ namespace CppCLRWinformsProjekt {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -162,5 +163,5 @@ namespace CppCLRWinformsProjekt {
 		// Navigate to a URL.
 		System::Diagnostics::Process::Start(WEBSF);
 	}
-};
+	};
 }

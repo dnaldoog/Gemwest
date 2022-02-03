@@ -25,37 +25,61 @@ namespace CSconfig.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public string logtofile {
-            get {
-                return ((string)(this["logtofile"]));
-            }
-            set {
-                this["logtofile"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2")]
-        public string enter1000 {
+        public string entrydecplaces {
             get {
-                return ((string)(this["enter1000"]));
+                return ((string)(this["entrydecplaces"]));
             }
             set {
-                this["enter1000"] = value;
+                this["entrydecplaces"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("myjsonstringinit")]
-        public string jsonLog {
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public string resultdecplaces {
             get {
-                return ((string)(this["jsonLog"]));
+                return ((string)(this["resultdecplaces"]));
             }
             set {
-                this["jsonLog"] = value;
+                this["resultdecplaces"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string calcserialized {
+            get {
+                return ((string)(this["calcserialized"]));
+            }
+            set {
+                this["calcserialized"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool savedate {
+            get {
+                return ((bool)(this["savedate"]));
+            }
+            set {
+                this["savedate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool savetime {
+            get {
+                return ((bool)(this["savetime"]));
+            }
+            set {
+                this["savetime"] = value;
             }
         }
     }

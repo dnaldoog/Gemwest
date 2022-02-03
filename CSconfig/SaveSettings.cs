@@ -10,52 +10,73 @@ namespace CSconfig
     public class SaveSettings
     {
         //https://stackoverflow.com/questions/982354/where-are-the-properties-settings-default-stored
-        //myTextBox.Text = Properties.Settings.Default.;
-        private String cs_1000_settings = Properties.Settings.Default.enter1000;
-        private String cs_log_settings = Properties.Settings.Default.logtofile;
-        //private String cs_json_log_settings = Properties.Settings.Default.jsonLog;
- 
-        public String Pcs1000
+
+        private string cs_1000_settings = Properties.Settings.Default.entrydecplaces;
+        private string cs_carat_result_settings = Properties.Settings.Default.resultdecplaces;
+        private string cs_calc = Properties.Settings.Default.calcserialized;
+        private Boolean cs_date = Properties.Settings.Default.savedate;
+        private Boolean cs_time = Properties.Settings.Default.savetime;
+
+
+        public string PcsCalc
+        {
+            get => cs_calc;
+            set
+            {
+
+                cs_calc = value;
+                Properties.Settings.Default.calcserialized = cs_calc;
+                Properties.Settings.Default.Save();
+
+            }
+        }
+        public string Pcs1000
         {
             get => cs_1000_settings;
             set
             {
                 cs_1000_settings = value;
-                Properties.Settings.Default.enter1000 = cs_1000_settings;
+                Properties.Settings.Default.entrydecplaces = cs_1000_settings;
                 Properties.Settings.Default.Save();
 
             }
         }
-
-        public String PcsLog
+        public string PcsCarat
         {
-            get => cs_log_settings;
+            get => cs_carat_result_settings;
             set
             {
-                cs_log_settings = value;
-                Properties.Settings.Default.logtofile = cs_log_settings;
+                cs_carat_result_settings = value;
+                Properties.Settings.Default.resultdecplaces = cs_carat_result_settings;
                 Properties.Settings.Default.Save();
-              
+
             }
         }
 
+   
+    public Boolean PcsSaveDate
+    {
+        get => cs_date;
+        set
+        {
+            cs_date = value;
+            Properties.Settings.Default.savedate = cs_date;
+            Properties.Settings.Default.Save();
 
-//    public String JsonLog
-//    {
-//        get => cs_json_log_settings;
-//        set
-//        {
-//            cs_json_log_settings = value;
-//            Properties.Settings.Default.jsonLog = cs_json_log_settings;
-//            Properties.Settings.Default.Save();
-
-//        }
+        }
     }
-//}
 
-        //Then, after the user edits the value in the options dialog I save it like this:
+        public Boolean PcsSaveTime
+        {
+            get => cs_time;
+            set
+            {
+                cs_time = value;
+                Properties.Settings.Default.savetime = cs_time;
+                Properties.Settings.Default.Save();
 
-        //Properties.Settings.Default.MyStringProperty = myTextBox.Text;
-        //Properties.Settings.Default.Save();
-  
+            }
+        }
+
+    }
 }
