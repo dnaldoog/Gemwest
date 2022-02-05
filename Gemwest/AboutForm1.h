@@ -123,12 +123,10 @@ namespace ZaniahSystems {
 			// 
 			// labelVersion
 			// 
-			this->labelVersion->AutoSize = true;
-			this->labelVersion->Location = System::Drawing::Point(128, 120);
+			this->labelVersion->Location = System::Drawing::Point(117, 120);
 			this->labelVersion->Name = L"labelVersion";
-			this->labelVersion->Size = System::Drawing::Size(28, 13);
+			this->labelVersion->Size = System::Drawing::Size(50, 13);
 			this->labelVersion->TabIndex = 4;
-			this->labelVersion->Text = L"";
 			this->labelVersion->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// picAboutLogo
