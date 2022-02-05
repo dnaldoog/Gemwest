@@ -1834,6 +1834,9 @@
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\pp.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\adjustmentarrow.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">

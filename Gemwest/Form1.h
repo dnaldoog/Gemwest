@@ -182,11 +182,11 @@ namespace ZaniahSystems {
 			array<String^>^ shapeDescription = gcnew array<String^>{
 				"Normal",
 					"Wide Corners",
-					"MQ/PE v short keel/none",
-					"Straight sides",
-					"Wide wings",
+					"MQ/PE v short keel/none",//not used
+					"Straight Sides",
+					"Wide Wings",
 					"High Shoulders",
-					"Straight Shoulders"
+					"Str. Shoulders"
 			};
 			String^ shapedes = shapeDescription[0];
 			String^ so = "so3";
@@ -990,8 +990,6 @@ This will reduce the weight by 1% to 3%.*/
 			this->picRecut = (gcnew System::Windows::Forms::PictureBox());
 			this->cbRecut = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
-			this->btnSaveToLog = (gcnew System::Windows::Forms::Button());
-			this->btnCopy = (gcnew System::Windows::Forms::Button());
 			this->lblRecutDetails = (gcnew System::Windows::Forms::Label());
 			this->txtEstRecut = (gcnew System::Windows::Forms::TextBox());
 			this->numSG = (gcnew System::Windows::Forms::NumericUpDown());
@@ -1002,6 +1000,8 @@ This will reduce the weight by 1% to 3%.*/
 			this->txtFactor = (gcnew System::Windows::Forms::TextBox());
 			this->lblSelectedCut = (gcnew System::Windows::Forms::Label());
 			this->comboCut = (gcnew System::Windows::Forms::ComboBox());
+			this->btnSaveToLog = (gcnew System::Windows::Forms::Button());
+			this->btnCopy = (gcnew System::Windows::Forms::Button());
 			this->radioBtnGem = (gcnew System::Windows::Forms::RadioButton());
 			this->radioBtnDia = (gcnew System::Windows::Forms::RadioButton());
 			this->statusbar = (gcnew System::Windows::Forms::StatusStrip());
@@ -1011,6 +1011,7 @@ This will reduce the weight by 1% to 3%.*/
 			this->quitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->copyToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->saveToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->preferencesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->viewToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->logToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -1021,7 +1022,6 @@ This will reduce the weight by 1% to 3%.*/
 			this->groupBoxCalculate = (gcnew System::Windows::Forms::GroupBox());
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
 			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
-			this->saveToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->lwguide->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOther))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbKeel))->BeginInit();
@@ -1136,7 +1136,7 @@ This will reduce the weight by 1% to 3%.*/
 			this->txtResult->MinimumSize = System::Drawing::Size(100, 40);
 			this->txtResult->Name = L"txtResult";
 			this->txtResult->ReadOnly = true;
-			this->txtResult->Size = System::Drawing::Size(149, 40);
+			this->txtResult->Size = System::Drawing::Size(149, 31);
 			this->txtResult->TabIndex = 7;
 			this->txtResult->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->txtResult->TextChanged += gcnew System::EventHandler(this, &Form1::txtResult_TextChanged);
@@ -1223,7 +1223,7 @@ This will reduce the weight by 1% to 3%.*/
 			// 
 			// txtOther
 			// 
-			this->txtOther->Location = System::Drawing::Point(65, 310);
+			this->txtOther->Location = System::Drawing::Point(65, 320);
 			this->txtOther->Name = L"txtOther";
 			this->txtOther->Size = System::Drawing::Size(30, 20);
 			this->txtOther->TabIndex = 75;
@@ -1232,7 +1232,7 @@ This will reduce the weight by 1% to 3%.*/
 			// 
 			// txtKeel
 			// 
-			this->txtKeel->Location = System::Drawing::Point(66, 272);
+			this->txtKeel->Location = System::Drawing::Point(65, 274);
 			this->txtKeel->Name = L"txtKeel";
 			this->txtKeel->Size = System::Drawing::Size(30, 20);
 			this->txtKeel->TabIndex = 74;
@@ -1315,10 +1315,9 @@ This will reduce the weight by 1% to 3%.*/
 			// 
 			// lblDynCR
 			// 
-			this->lblDynCR->AutoSize = true;
-			this->lblDynCR->Location = System::Drawing::Point(131, 342);
+			this->lblDynCR->Location = System::Drawing::Point(99, 343);
 			this->lblDynCR->Name = L"lblDynCR";
-			this->lblDynCR->Size = System::Drawing::Size(40, 13);
+			this->lblDynCR->Size = System::Drawing::Size(87, 19);
 			this->lblDynCR->TabIndex = 65;
 			this->lblDynCR->Text = L"Normal";
 			this->lblDynCR->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1346,30 +1345,27 @@ This will reduce the weight by 1% to 3%.*/
 			// 
 			// lblDynSO
 			// 
-			this->lblDynSO->AutoSize = true;
 			this->lblDynSO->Location = System::Drawing::Point(407, 343);
 			this->lblDynSO->Name = L"lblDynSO";
-			this->lblDynSO->Size = System::Drawing::Size(40, 13);
+			this->lblDynSO->Size = System::Drawing::Size(87, 19);
 			this->lblDynSO->TabIndex = 62;
-			this->lblDynSO->Text = L"Normal";
+			this->lblDynSO->Text = L"-";
 			this->lblDynSO->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblDynPB
 			// 
-			this->lblDynPB->AutoSize = true;
-			this->lblDynPB->Location = System::Drawing::Point(323, 342);
+			this->lblDynPB->Location = System::Drawing::Point(304, 343);
 			this->lblDynPB->Name = L"lblDynPB";
-			this->lblDynPB->Size = System::Drawing::Size(33, 13);
+			this->lblDynPB->Size = System::Drawing::Size(87, 19);
 			this->lblDynPB->TabIndex = 61;
 			this->lblDynPB->Text = L"None";
 			this->lblDynPB->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblDynGT
 			// 
-			this->lblDynGT->AutoSize = true;
-			this->lblDynGT->Location = System::Drawing::Point(219, 343);
+			this->lblDynGT->Location = System::Drawing::Point(203, 343);
 			this->lblDynGT->Name = L"lblDynGT";
-			this->lblDynGT->Size = System::Drawing::Size(68, 13);
+			this->lblDynGT->Size = System::Drawing::Size(87, 19);
 			this->lblDynGT->TabIndex = 60;
 			this->lblDynGT->Text = L"Thin-Medium";
 			this->lblDynGT->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1543,9 +1539,9 @@ This will reduce the weight by 1% to 3%.*/
 			// 
 			// pictAdjArrow
 			// 
-			this->pictAdjArrow->Location = System::Drawing::Point(17, 207);
+			this->pictAdjArrow->Location = System::Drawing::Point(44, 208);
 			this->pictAdjArrow->Name = L"pictAdjArrow";
-			this->pictAdjArrow->Size = System::Drawing::Size(86, 20);
+			this->pictAdjArrow->Size = System::Drawing::Size(57, 23);
 			this->pictAdjArrow->TabIndex = 44;
 			this->pictAdjArrow->TabStop = false;
 			// 
@@ -1827,30 +1823,6 @@ This will reduce the weight by 1% to 3%.*/
 			this->groupBox2->TabIndex = 13;
 			this->groupBox2->TabStop = false;
 			// 
-			// btnSaveToLog
-			// 
-			this->btnSaveToLog->BackColor = System::Drawing::SystemColors::Desktop;
-			this->btnSaveToLog->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnSaveToLog->Location = System::Drawing::Point(90, 19);
-			this->btnSaveToLog->Name = L"btnSaveToLog";
-			this->btnSaveToLog->Size = System::Drawing::Size(47, 35);
-			this->btnSaveToLog->TabIndex = 61;
-			this->btnSaveToLog->Text = L"&save";
-			this->btnSaveToLog->UseVisualStyleBackColor = false;
-			this->btnSaveToLog->Click += gcnew System::EventHandler(this, &Form1::btnSaveToLog_Click);
-			// 
-			// btnCopy
-			// 
-			this->btnCopy->BackColor = System::Drawing::SystemColors::Desktop;
-			this->btnCopy->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnCopy->Location = System::Drawing::Point(29, 19);
-			this->btnCopy->Name = L"btnCopy";
-			this->btnCopy->Size = System::Drawing::Size(47, 35);
-			this->btnCopy->TabIndex = 60;
-			this->btnCopy->Text = L"&copy";
-			this->btnCopy->UseVisualStyleBackColor = false;
-			this->btnCopy->Click += gcnew System::EventHandler(this, &Form1::btnCopy_Click);
-			// 
 			// lblRecutDetails
 			// 
 			this->lblRecutDetails->AutoSize = true;
@@ -1985,6 +1957,30 @@ This will reduce the weight by 1% to 3%.*/
 			this->comboCut->Text = L"round brilliant";
 			this->comboCut->SelectedIndexChanged += gcnew System::EventHandler(this, &Form1::comboCut_SelectedIndexChanged);
 			// 
+			// btnSaveToLog
+			// 
+			this->btnSaveToLog->BackColor = System::Drawing::SystemColors::Desktop;
+			this->btnSaveToLog->ForeColor = System::Drawing::SystemColors::Window;
+			this->btnSaveToLog->Location = System::Drawing::Point(90, 19);
+			this->btnSaveToLog->Name = L"btnSaveToLog";
+			this->btnSaveToLog->Size = System::Drawing::Size(47, 35);
+			this->btnSaveToLog->TabIndex = 61;
+			this->btnSaveToLog->Text = L"&save";
+			this->btnSaveToLog->UseVisualStyleBackColor = false;
+			this->btnSaveToLog->Click += gcnew System::EventHandler(this, &Form1::btnSaveToLog_Click);
+			// 
+			// btnCopy
+			// 
+			this->btnCopy->BackColor = System::Drawing::SystemColors::Desktop;
+			this->btnCopy->ForeColor = System::Drawing::SystemColors::Window;
+			this->btnCopy->Location = System::Drawing::Point(29, 19);
+			this->btnCopy->Name = L"btnCopy";
+			this->btnCopy->Size = System::Drawing::Size(47, 35);
+			this->btnCopy->TabIndex = 60;
+			this->btnCopy->Text = L"&copy";
+			this->btnCopy->UseVisualStyleBackColor = false;
+			this->btnCopy->Click += gcnew System::EventHandler(this, &Form1::btnCopy_Click);
+			// 
 			// radioBtnGem
 			// 
 			this->radioBtnGem->AutoSize = true;
@@ -2067,6 +2063,13 @@ This will reduce the weight by 1% to 3%.*/
 			this->copyToolStripMenuItem->Size = System::Drawing::Size(135, 22);
 			this->copyToolStripMenuItem->Text = L"&Copy";
 			this->copyToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::copyToolStripMenuItem_Click);
+			// 
+			// saveToolStripMenuItem
+			// 
+			this->saveToolStripMenuItem->Name = L"saveToolStripMenuItem";
+			this->saveToolStripMenuItem->Size = System::Drawing::Size(135, 22);
+			this->saveToolStripMenuItem->Text = L"S&ave";
+			this->saveToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::saveToolStripMenuItem_Click);
 			// 
 			// preferencesToolStripMenuItem
 			// 
@@ -2154,13 +2157,6 @@ This will reduce the weight by 1% to 3%.*/
 			this->groupBoxChooseDiaOrGem->Size = System::Drawing::Size(505, 31);
 			this->groupBoxChooseDiaOrGem->TabIndex = 17;
 			this->groupBoxChooseDiaOrGem->TabStop = false;
-			// 
-			// saveToolStripMenuItem
-			// 
-			this->saveToolStripMenuItem->Name = L"saveToolStripMenuItem";
-			this->saveToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->saveToolStripMenuItem->Text = L"S&ave";
-			this->saveToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::saveToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
