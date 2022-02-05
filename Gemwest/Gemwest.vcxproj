@@ -220,6 +220,7 @@
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
     <Image Include="..\..\..\..\Desktop\checkDepth.png" />
     <Image Include="..\..\..\..\Desktop\gw.ico" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\adjustmentarrow.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\bulge_obvious.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_high.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_low.png" />
