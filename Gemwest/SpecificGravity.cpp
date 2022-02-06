@@ -76,6 +76,7 @@ void SpecificGravity::dictInitializer() {
 	sg->Add("demantoid", "3.85");
 	sg->Add("diamond", "3.52");
 	sg->Add("diopside", "3.29");
+	sg->Add("dioptase", "3.31");
 	sg->Add("ekanite", "3.28");
 	sg->Add("emerald (Gilson)", "2.70");
 	sg->Add("emerald", "2.71");
