@@ -1059,7 +1059,7 @@ This will reduce the weight by 1% to 3%.*/
 			this->comboGems->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboGems->Enabled = false;
 			this->comboGems->FormattingEnabled = true;
-			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(200) {
+			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(201) {
 				L"actinolite", L"agate", L"albite", L"alexandrite",
 					L"almandine", L"almandine", L"amazonite", L"amber", L"amethyst", L"ammolite", L"andalusite", L"apatite", L"aquamarine", L"aragonite",
 					L"aventurine quartz", L"aventurine", L"axinite (ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl aquamarine",
@@ -1069,8 +1069,8 @@ This will reduce the weight by 1% to 3%.*/
 					L"chalcedony onyx", L"chalcedony", L"chrome diopside", L"chrysoberyl alexandrite", L"chrysoberyl cat\'s eye", L"chrysoberyl cymophane",
 					L"chrysoberyl", L"chrysocolla", L"chrysoprase", L"citrine", L"colourless beryl", L"conch pearl", L"copal resin", L"coral", L"cornelian",
 					L"corundum ruby", L"corundum sapphire", L"corundum synthetic", L"corundum", L"crocidolite", L"cubic zirconia", L"cymophane",
-					L"cz", L"danburite", L"datolite", L"demantoid", L"diamond", L"diopside", L"ekanite", L"emerald (Gilson)", L"emerald", L"enstatite",
-					L"epidote", L"euclase", L"fibrolite", L"fire opal", L"fluorite", L"garnet almandine", L"garnet demantoid", L"garnet grossular (pure)",
+					L"cz", L"danburite", L"datolite", L"demantoid", L"diamond", L"diopside", L"dioptase", L"ekanite", L"emerald (Gilson)", L"emerald",
+					L"enstatite", L"epidote", L"euclase", L"fibrolite", L"fire opal", L"fluorite", L"garnet almandine", L"garnet demantoid", L"garnet grossular (pure)",
 					L"garnet hessonite", L"garnet (mali)", L"garnet pyrope", L"garnet spessartine", L"garnet uvarovite", L"garnet", L"ggg", L"glass",
 					L"golden beryl", L"goshenite", L"grossular garnet", L"grossular", L"grossular (pure)", L"haematite", L"hambergite", L"heliodor",
 					L"hematite", L"hemimorphite", L"hessonite", L"hiddenite", L"howlite", L"idocrase", L"imperial topaz", L"iolite", L"jadeite",

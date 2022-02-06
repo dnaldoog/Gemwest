@@ -113,6 +113,7 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("demantoid", "demantoid");
 	myRez->Add("diamond", "diamond");
 	myRez->Add("diopside", "diopside");
+	myRez->Add("dioptase", "dioptase");
 	myRez->Add("eight cut", "eight_cut");
 	myRez->Add("ekanite", "ekanite");
 	myRez->Add("emerald", "emerald");

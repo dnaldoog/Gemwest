@@ -227,10 +227,12 @@
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\crown_normal.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\deep_stone.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\dia_prop_gauge.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\dioptase.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\pp.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\rect_shape_ouline.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\recut.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\shallow.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\sthickgirdle.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\stonedepthokay.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\triangle_shape_ouline.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_project\actinolite.png" />
