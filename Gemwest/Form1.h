@@ -2153,7 +2153,7 @@ This will reduce the weight by 1% to 3%.*/
 			// lblWeightInCarats
 			// 
 			this->lblWeightInCarats->AutoSize = true;
-			this->lblWeightInCarats->Location = System::Drawing::Point(185, 66);
+			this->lblWeightInCarats->Location = System::Drawing::Point(185, 57);
 			this->lblWeightInCarats->Name = L"lblWeightInCarats";
 			this->lblWeightInCarats->Size = System::Drawing::Size(87, 13);
 			this->lblWeightInCarats->TabIndex = 53;
