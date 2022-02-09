@@ -29,7 +29,7 @@ void CGemCut::dictInitializer() {
 	};
 
 	gemCut->Add(CHOOSE, "0.0");
-	gemCut->Add(BRIO, "0.00259"); // I have no idea what this should be
+	gemCut->Add(BRIO, "0.00220"); // (0.00200 - 0.00240)
 	gemCut->Add("cabochon - regular", "0.0028");
 	gemCut->Add("cabochon - high domed cabs", "0.0026");
 	gemCut->Add("cabochon - low domed cabs", "0.0029");
