@@ -84,6 +84,9 @@
     <ClInclude Include="CGoval.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="CBriolette.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ZaniahSystems.cpp">
@@ -153,6 +156,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="CGoval.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CBriolette.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

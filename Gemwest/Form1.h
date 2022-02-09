@@ -15,6 +15,7 @@
 #include "CGcalc.h"
 #include "CGoval.h"
 #include "CBead.h"
+#include "CBriolette.h"
 #include "LogForm.h"
 #include "AboutForm1.h"
 #include "HelpForm.h"
@@ -487,7 +488,7 @@ This will reduce the weight by 1% to 3%.*/
 					if (this->comboCut->Text->Contains("choose")) {
 						MessageBox::Show(errorMessage);
 					}
-					if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
+					if (this->comboCut->Text == RDBEAD) {
 						CBead^ BE = gcnew CBead(
 							this->numDia1->Value,
 							this->numDia2->Value,
@@ -497,6 +498,17 @@ This will reduce the weight by 1% to 3%.*/
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
 						);
 						p = BE;
+					}
+					else if (this->comboCut->Text == BRIO) {
+						CBriolette^ BR = gcnew CBriolette(
+							this->numDia1->Value, // Height of Briolette
+							this->numDia2->Value,
+							this->numDepth->Value, 
+							this->numSG->Value,
+							this->txtFactor->Text,
+							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
+						);
+						p = BR;
 					}
 					else if (this->comboCut->Text == OVALG) {
 						CGoval^ OV = gcnew CGoval(
@@ -535,7 +547,7 @@ This will reduce the weight by 1% to 3%.*/
 						avd = Decimal::Round((avd), 2);
 						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 					}
-					else if (this->comboCut->Text == RDBEAD || this->comboCut->Text == BRIO) {
+					else if (this->comboCut->Text == RDBEAD) {
 						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
 						avd = Decimal::Round((avd), 2);
 						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + " x " + avd + ") x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
@@ -1059,32 +1071,31 @@ This will reduce the weight by 1% to 3%.*/
 			this->comboGems->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboGems->Enabled = false;
 			this->comboGems->FormattingEnabled = true;
-			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(201) {
+			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(200) {
 				L"actinolite", L"agate", L"albite", L"alexandrite",
-					L"almandine", L"almandine", L"amazonite", L"amber", L"amethyst", L"ammolite", L"andalusite", L"apatite", L"aquamarine", L"aragonite",
-					L"aventurine quartz", L"aventurine", L"axinite (ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl aquamarine",
-					L"beryl colourless", L"beryl heliodor", L"beryl morganite", L"beryl", L"beryl maxixe", L"blende", L"bloodstone", L"blue topaz",
-					L"bonamite", L"bowenite", L"brazilianite", L"calcite", L"californite", L"carborundum", L"carnelian", L"cassiterite", L"cat\'s eye chrysoberyl",
-					L"celluloid", L"chalcedony agate", L"chalcedony aventurine", L"chalcedony carnelian", L"chalcedony heliotrope", L"chalcedony moss agate",
-					L"chalcedony onyx", L"chalcedony", L"chrome diopside", L"chrysoberyl alexandrite", L"chrysoberyl cat\'s eye", L"chrysoberyl cymophane",
-					L"chrysoberyl", L"chrysocolla", L"chrysoprase", L"citrine", L"colourless beryl", L"conch pearl", L"copal resin", L"coral", L"cornelian",
-					L"corundum ruby", L"corundum sapphire", L"corundum synthetic", L"corundum", L"crocidolite", L"cubic zirconia", L"cymophane",
-					L"cz", L"danburite", L"datolite", L"demantoid", L"diamond", L"diopside", L"dioptase", L"ekanite", L"emerald (Gilson)", L"emerald",
-					L"enstatite", L"epidote", L"euclase", L"fibrolite", L"fire opal", L"fluorite", L"garnet almandine", L"garnet demantoid", L"garnet grossular (pure)",
-					L"garnet hessonite", L"garnet (mali)", L"garnet pyrope", L"garnet spessartine", L"garnet uvarovite", L"garnet", L"ggg", L"glass",
-					L"golden beryl", L"goshenite", L"grossular garnet", L"grossular", L"grossular (pure)", L"haematite", L"hambergite", L"heliodor",
-					L"hematite", L"hemimorphite", L"hessonite", L"hiddenite", L"howlite", L"idocrase", L"imperial topaz", L"iolite", L"jadeite",
-					L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite", L"lapis lazuli", L"larimar", L"lazulite", L"lepidolite", L"lithium niobate",
-					L"malachite", L"malaia garnet", L"mali garnet", L"marcasite", L"maw-sit-sit", L"maxixe", L"moissanite", L"moldavite", L"morganite",
-					L"moss agate", L"nephrite", L"obsidian", L"odontolite", L"onyx", L"opal", L"padparadscha", L"painite", L"paraíba tourmaline",
-					L"pearl", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite",
-					L"pyrites", L"pyrope", L"quartz amethyst", L"quartz aventurine", L"quartz chalcedony", L"quartz citrine", L"quartz rutillated",
-					L"quartz", L"rhodochrosite", L"rhodonite", L"rubbelite", L"ruby", L"rutile", L"rutillated quartz", L"sapphire", L"sard", L"scapolite",
-					L"scheelite", L"schorl", L"serpentine", L"seraphinite", L"silica glass", L"sinhalite", L"smithsonite", L"spessartine", L"sphalerite",
-					L"sphene", L"spinel synthetic", L"spinel", L"spodumene", L"strontium titanate", L"sugilite", L"synthetic corundum", L"taaffeite",
-					L"tanzanite", L"tektite", L"tiger eye", L"titanite", L"topaz", L"tortoiseshell", L"tourmaline schorl", L"tourmaline", L"turquoise",
-					L"uvarovite", L"variscite", L"vesuvianite", L"vivianite", L"water opal", L"yttrium aluminate YAG", L"zircon (metamict)", L"zircon (normal)",
-					L"zirconia (cubic)", L"zoisite"
+					L"almandine", L"amazonite", L"amber", L"amethyst", L"ammolite", L"andalusite", L"apatite", L"aquamarine", L"aragonite", L"aventurine quartz",
+					L"aventurine", L"axinite (ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl aquamarine", L"beryl colourless", L"beryl heliodor",
+					L"beryl morganite", L"beryl", L"beryl maxixe", L"blende", L"bloodstone", L"blue topaz", L"bonamite", L"bowenite", L"brazilianite",
+					L"calcite", L"californite", L"carborundum", L"carnelian", L"cassiterite", L"cat\'s eye chrysoberyl", L"celluloid", L"chalcedony agate",
+					L"chalcedony aventurine", L"chalcedony carnelian", L"chalcedony heliotrope", L"chalcedony moss agate", L"chalcedony onyx", L"chalcedony",
+					L"chrome diopside", L"chrysoberyl alexandrite", L"chrysoberyl cat\'s eye", L"chrysoberyl cymophane", L"chrysoberyl", L"chrysocolla",
+					L"chrysoprase", L"citrine", L"colourless beryl", L"conch pearl", L"copal resin", L"coral", L"cornelian", L"corundum ruby", L"corundum sapphire",
+					L"corundum synthetic", L"corundum", L"crocidolite", L"cubic zirconia", L"cymophane", L"cz", L"danburite", L"datolite", L"demantoid",
+					L"diamond", L"diopside", L"dioptase", L"ekanite", L"emerald (Gilson)", L"emerald", L"enstatite", L"epidote", L"euclase", L"fibrolite",
+					L"fire opal", L"fluorite", L"garnet almandine", L"garnet demantoid", L"garnet grossular (pure)", L"garnet hessonite", L"garnet (mali)",
+					L"garnet pyrope", L"garnet spessartine", L"garnet uvarovite", L"garnet", L"ggg", L"glass", L"golden beryl", L"goshenite", L"grossular garnet",
+					L"grossular", L"grossular (pure)", L"haematite", L"hambergite", L"heliodor", L"hematite", L"hemimorphite", L"hessonite", L"hiddenite",
+					L"howlite", L"idocrase", L"imperial topaz", L"iolite", L"jadeite", L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite",
+					L"lapis lazuli", L"larimar", L"lazulite", L"lepidolite", L"lithium niobate", L"malachite", L"malaia garnet", L"mali garnet",
+					L"marcasite", L"maw-sit-sit", L"maxixe", L"moissanite", L"moldavite", L"morganite", L"moss agate", L"nephrite", L"obsidian",
+					L"odontolite", L"onyx", L"opal", L"padparadscha", L"painite", L"paraíba tourmaline", L"pearl", L"periclase", L"peridot", L"phenakite",
+					L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite", L"pyrites", L"pyrope", L"quartz amethyst",
+					L"quartz aventurine", L"quartz chalcedony", L"quartz citrine", L"quartz rutillated", L"quartz", L"rhodochrosite", L"rhodonite",
+					L"rubbelite", L"ruby", L"rutile", L"rutillated quartz", L"sapphire", L"sard", L"scapolite", L"scheelite", L"schorl", L"serpentine",
+					L"seraphinite", L"silica glass", L"sinhalite", L"smithsonite", L"spessartine", L"sphalerite", L"sphene", L"spinel synthetic",
+					L"spinel", L"spodumene", L"strontium titanate", L"sugilite", L"synthetic corundum", L"taaffeite", L"tanzanite", L"tektite", L"tiger eye",
+					L"titanite", L"topaz", L"tortoiseshell", L"tourmaline schorl", L"tourmaline", L"turquoise", L"uvarovite", L"variscite", L"vesuvianite",
+					L"vivianite", L"water opal", L"yttrium aluminate YAG", L"zircon (metamict)", L"zircon (normal)", L"zirconia (cubic)", L"zoisite"
 			});
 			this->comboGems->Location = System::Drawing::Point(90, 28);
 			this->comboGems->Name = L"comboGems";
@@ -1419,12 +1430,12 @@ This will reduce the weight by 1% to 3%.*/
 			// 
 			// lblMaxWidth
 			// 
-			this->lblMaxWidth->AutoSize = true;
 			this->lblMaxWidth->Location = System::Drawing::Point(281, 14);
 			this->lblMaxWidth->Name = L"lblMaxWidth";
 			this->lblMaxWidth->Size = System::Drawing::Size(58, 13);
 			this->lblMaxWidth->TabIndex = 56;
 			this->lblMaxWidth->Text = L"Max Width";
+			this->lblMaxWidth->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->lblMaxWidth->Visible = false;
 			// 
 			// numTaperedBaguetteMaxWidth
@@ -1508,12 +1519,12 @@ This will reduce the weight by 1% to 3%.*/
 			// 
 			// lblDepth
 			// 
-			this->lblDepth->AutoSize = true;
-			this->lblDepth->Location = System::Drawing::Point(375, 14);
+			this->lblDepth->Location = System::Drawing::Point(362, 14);
 			this->lblDepth->Name = L"lblDepth";
-			this->lblDepth->Size = System::Drawing::Size(61, 13);
+			this->lblDepth->Size = System::Drawing::Size(100, 13);
 			this->lblDepth->TabIndex = 19;
 			this->lblDepth->Text = L"Depth (mm)";
+			this->lblDepth->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// picDepth
 			// 
@@ -1739,21 +1750,21 @@ This will reduce the weight by 1% to 3%.*/
 			// 
 			// lblDia2
 			// 
-			this->lblDia2->AutoSize = true;
-			this->lblDia2->Location = System::Drawing::Point(223, 14);
+			this->lblDia2->Location = System::Drawing::Point(204, 14);
 			this->lblDia2->Name = L"lblDia2";
-			this->lblDia2->Size = System::Drawing::Size(58, 13);
+			this->lblDia2->Size = System::Drawing::Size(100, 13);
 			this->lblDia2->TabIndex = 18;
 			this->lblDia2->Text = L"Diameter-2";
+			this->lblDia2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblDia1
 			// 
-			this->lblDia1->AutoSize = true;
-			this->lblDia1->Location = System::Drawing::Point(63, 12);
+			this->lblDia1->Location = System::Drawing::Point(42, 12);
 			this->lblDia1->Name = L"lblDia1";
-			this->lblDia1->Size = System::Drawing::Size(58, 13);
+			this->lblDia1->Size = System::Drawing::Size(100, 13);
 			this->lblDia1->TabIndex = 17;
 			this->lblDia1->Text = L"Diameter-1";
+			this->lblDia1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// tbCrownHeight
 			// 
@@ -2296,19 +2307,35 @@ This will reduce the weight by 1% to 3%.*/
 		this->lblMaxWidth->Hide();
 		this->numDia2->Width = this->numDia1->Width;
 		this->lblDia2->Text = L"Diameter-2";
-		this->lblDia2->Location = Point(223, 14);
+		this->lblDia2->Location = Point(210, 14);
 		this->numDia2->Location = Point(205, 30);
+		if (this->radDepthAsMm->Checked) {
+			this->lblDepth->Text = "Depth (mm)";
+
+		}
+		else {
+			this->lblDepth->Text = "Depth (%)";
+
+		}
 
 		if (CCutDim::isRoundish(this->comboCut->Text)) {
 			this->cbRecut->Enabled = true;
 
 			this->lblDia1->Text = "Diameter-1";
 			this->lblDia2->Text = "Diameter-2";
+		}else if (this->comboCut->Text->Equals(BRIO)){
+			this->lblDia1->Text = "H top/bottom ";
+			this->lblDia2->Text = "W side/side";
+			this->lblDepth->Text = "D front/back";
+/*W = side to side (width)
+H = top to bottom (height)
+D = front to back (depth)*/
 		}
 		else {
 			this->lblDia1->Text = "Length";
 			this->lblDia2->Text = "Width";
 		}
+
 		if (this->radioBtnGem->Checked) {
 			CGemCut^ gc = gcnew CGemCut; // Declare object
 			gc->dictInitializer();
@@ -2329,7 +2356,7 @@ This will reduce the weight by 1% to 3%.*/
 		}
 
 
-		if (this->comboCut->Text->Equals(RDBEAD) || this->comboCut->Text->Equals(BRIO)) {
+		if (this->comboCut->Text->Equals(RDBEAD)) {
 			this->numVisDepth->Enabled = false;
 		}
 		else {
@@ -2340,12 +2367,13 @@ This will reduce the weight by 1% to 3%.*/
 			this->numTaperedBaguetteMaxWidth->Show();
 			this->lblMaxWidth->Show();
 			this->numDia2->Width = this->numTaperedBaguetteMaxWidth->Width;
-			this->lblDia2->Location = Point(223, 14);
+			this->lblDia2->Location = Point(210, 14);
 			this->numDia2->Location = Point(223, 30);
 
 			this->lblDia2->Text = L"Min Width";
 			//repaint_shape_outline(); //bring alive if necessary
 		}
+		
 		CEmbeddedImage^ dCutImage = gcnew CEmbeddedImage;
 		/**************************IMAGE MANAGEMENT**************************/
 		dCutImage->setName(this->comboCut->Text);
@@ -2395,6 +2423,11 @@ This will reduce the weight by 1% to 3%.*/
 		/**************************IMAGE MANAGEMENT**************************/
 		defaultRBC->setName("round brilliant");
 		this->picCut->Image = defaultRBC->getName();
+
+		CEmbeddedImage^ diamondImageRd = gcnew CEmbeddedImage;
+		/**************************IMAGE MANAGEMENT**************************/
+		diamondImageRd->setName("diamond");
+		this->picGem->Image = diamondImageRd->getName();
 	}
 	private: System::Void radioBtnGem_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->txtFactor->Clear();
@@ -2716,7 +2749,7 @@ This will reduce the weight by 1% to 3%.*/
 		else {
 			this->numDepth->Value = this->numVisDepth->Value;
 		}
-		//this->onScreenInfo();
+		this->onScreenInfo();
 	}
 
 	private: System::Void lwguide_Enter(System::Object^ sender, System::EventArgs^ e) {

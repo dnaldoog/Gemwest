@@ -154,6 +154,7 @@
     </ClInclude>
     <ClInclude Include="BridgeCS.h" />
     <ClInclude Include="CBead.h" />
+    <ClInclude Include="CBriolette.h" />
     <ClInclude Include="CCalculator.h" />
     <ClInclude Include="CCutDim.h" />
     <ClInclude Include="CDcalc.h" />
@@ -191,6 +192,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CBead.cpp" />
     <ClCompile Include="CBridgeCS.cpp" />
+    <ClCompile Include="CBriolette.cpp" />
     <ClCompile Include="CCalculator.cpp" />
     <ClCompile Include="CDfancy.cpp" />
     <ClCompile Include="CDround.cpp" />
