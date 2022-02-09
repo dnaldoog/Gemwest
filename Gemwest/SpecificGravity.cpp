@@ -158,14 +158,14 @@ void SpecificGravity::dictInitializer() {
 	sg->Add("quartz aventurine", "2.66");
 	sg->Add("quartz chalcedony", "2.61");
 	sg->Add("quartz citrine", "2.65");
-	sg->Add("quartz rutillated", "4.23");
+	sg->Add("quartz rutillated", "2.66"); // Thanks to Stephen Challener
 	sg->Add("quartz", "2.65");
 	sg->Add("rhodochrosite", "3.6");
 	sg->Add("rhodonite", "3.6");
 	sg->Add("rubbelite", "3.06");
 	sg->Add("ruby", "3.99");
 	sg->Add("rutile", "4.25");
-	sg->Add("rutillated quartz", "4.23");
+	sg->Add("rutillated quartz", "2.66"); // Thanks to Stephen Challener
 	sg->Add("sapphire", "3.99");
 	sg->Add("sard", "2.61");
 	sg->Add("scapolite", "2.7");
