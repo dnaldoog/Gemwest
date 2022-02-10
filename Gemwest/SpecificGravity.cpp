@@ -4,7 +4,7 @@
 void SpecificGravity::dictInitializer() {
 	Dictionary<String^, String^>^ sg = gcnew Dictionary<String^, String^>;
 
-	
+
 	sg->Add("agate", "2.6");
 	sg->Add("albite", "2.58");
 	sg->Add("actinolite", "3.01");
@@ -37,7 +37,7 @@ void SpecificGravity::dictInitializer() {
 	sg->Add("bowenite", "2.59");
 	sg->Add("brazilianite", "2.99");
 	sg->Add("calcite", "2.71");
-	sg->Add("californite", "3.3");
+	sg->Add("californite", "3.32"); // v2.1.2
 	sg->Add("carborundum", "3.17");
 	sg->Add("carnelian", "2.64");
 	sg->Add("cassiterite", "6.9");
@@ -120,23 +120,23 @@ void SpecificGravity::dictInitializer() {
 	sg->Add("kunzite", "3.18");
 	sg->Add("kyanite", "3.68");
 	sg->Add("lapis lazuli", "2.8");
-	sg->Add("larimar", "4.75");
+	sg->Add("larimar", "2.74"); //v2.1.2
 	sg->Add("lazulite", "3.1");
 	sg->Add("lepidolite", "2.8");
 	sg->Add("lithium niobate", "4.64");
 	sg->Add("malachite", "3.8");
-	sg->Add("malaia garnet", "3.08");
+	sg->Add("malaia garnet", "4.00"); // v 2.1.2
 	sg->Add("mali garnet", "3.67");
 	sg->Add("marcasite", "4.9");
 	sg->Add("maw-sit-sit", "3");
 	sg->Add("maxixe", "2.71");
-	sg->Add("moissanite", "3.15");
+	sg->Add("moissanite", "3.22"); //v 2.1.2
 	sg->Add("moldavite", "2.36");
-	sg->Add("morganite", "2.7");
+	sg->Add("morganite", "2.71");
 	sg->Add("moss agate", "2.6");
 	sg->Add("nephrite", "3.00");
 	sg->Add("obsidian", "2.5");
-	sg->Add("odontolite", "3.1");
+	sg->Add("odontolite", "3.0"); //v 2.1.2
 	sg->Add("onyx", "2.6");
 	sg->Add("opal", "2.15");
 	sg->Add("painite", "4.01");
@@ -152,7 +152,7 @@ void SpecificGravity::dictInitializer() {
 	sg->Add("porcelain", "2.3");
 	sg->Add("prehnite", "2.87");
 	sg->Add("pseudophite", "2.7");
-	sg->Add("pyrites", "4.9");
+	sg->Add("pyrites", "5.03"); //v 2.1.2
 	sg->Add("pyrope", "3.8");
 	sg->Add("quartz amethyst", "2.65");
 	sg->Add("quartz aventurine", "2.66");
@@ -200,12 +200,14 @@ void SpecificGravity::dictInitializer() {
 	sg->Add("vesuvianite", "3.40");
 	sg->Add("vivianite", "2.6");
 	sg->Add("water opal", "2");
-	sg->Add("yttrium aluminate YAG", "4.57");
+	sg->Add("yttrium aluminate YAG", "4.55"); // v 2.1.2
 	sg->Add("zircon (metamict)", "4");
 	sg->Add("zircon (normal)", "4.69");
 	sg->Add("zirconia (cubic)", "5.7");
 	sg->Add("zoisite", "3.35");
-
+	//for each (KeyValuePair<String^, String^> ^ z in sg){
+	//Debug::WriteLine(z->Key+","+z->Value);
+	//}
 	this->m_sg = sg;
 }
 
