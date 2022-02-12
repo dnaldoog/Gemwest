@@ -1805,6 +1805,10 @@
         P0LTobG1U58uMdTjGSTyTWvU8qvc56k+Z3QUUUUyAooooA//2Q==
 </value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ametrine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\ametrine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ammolite" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACOCAYAAAD5NAC7AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
@@ -2552,6 +2556,9 @@
         e9UzIxGMmmUUEF/SNY1LSpfMsLuWHkEqG+Vsc8joah1O+utSvpb29maWeU5Zj/L2FVqKVle47hRRRTEF
         FFFAH//Z
 </value>
+  </data>
+  <data name="andesine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\andesine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="apatite" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5557,6 +5564,9 @@
         QSXbD2zwX8K30GIPmJk/AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="bronzite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\bronzite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bulge_extreme" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABACAYAAADlNHIOAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
@@ -6545,6 +6555,21 @@
         /9k=
 </value>
   </data>
+  <data name="cat's-eye-apatite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\cat's-eye-apatite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cat's-eye-aquamarine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\cat's-eye-aquamarine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cat's-eye-diaspore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\cat's-eye-diaspore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cat's-eye-sillimanite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\cat's-eye-sillimanite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cat's-eye-tourmaline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\cat's-eye-tourmaline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="celluloid" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEASABIAAD/4Q1MRXhpZgAATU0AKgAAAAgAAQExAAIAAAAHAAAAGgAAACJQaGF0
@@ -7419,6 +7444,9 @@
         AxRiiigAooooA//Z
 </value>
   </data>
+  <data name="charoite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\charoite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="checkDepth" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAA1CAIAAACMWC9eAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -7614,6 +7642,9 @@
         fDOl2QHl26ce1Klh40lZNiw+GjQVotv1Z4D4B+Ds8ssU+ognbjaCMBR6ADgD6V714Y8M2Oi2yxwxKCB2
         FbkUUcYwihR7U+tzoAAAYFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH/2Q==
 </value>
+  </data>
+  <data name="chrome-tourmaline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\chrome-tourmaline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chrysoberyl" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8483,6 +8514,9 @@
         AVbVQOgpQO9FanO3c//Z
 </value>
   </data>
+  <data name="clinohumite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\clinohumite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="colorless beryl" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEASABIAAD/4RLCRXhpZgAATU0AKgAAAAgAAgExAAIAAAAHAAAAJodpAAQAAAAB
@@ -8666,6 +8700,9 @@
         ZCWgtpXaeUH/AJ6THk59FCj2rIsvCtnAQWG72IrctbSC3UCNVGO2KTqpaIwnOU92c94c8Mw2eJJlVmrp
         0VUGFAApe2O1FYNt7iirCCloopDP/9k=
 </value>
+  </data>
+  <data name="colour-change-diaspore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\colour-change-diaspore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="conch pearl" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -10732,6 +10769,9 @@
         cMwXbnaM4q1b/s1+BvPSe9a5upk6M55H/wBf3r2+ilGjCOyRUaNOO0UecaV8F/AWnsHTSvNcdWdiSa7X
         R9C0nSI9mnWEFuPVFGT+NaVFWlbYtJLYKKKKYz//2Q==
 </value>
+  </data>
+  <data name="dendritic-agate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\dendritic-agate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="diamond" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -13440,6 +13480,9 @@
         BRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/9k=
 </value>
   </data>
+  <data name="fire-agate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\fire-agate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="flanders_cut" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
@@ -15184,6 +15227,18 @@
         UCpaKAM+40+OTOUFZF94ehl6Rj8q6eggHqKAOIj8LRiTPlDrW7p+kRQgfuwMVs7F/uilxQBDHCFHAAxU
         m006igBuDRg06igBuDRg06igBuDRg06igD//2Q==
 </value>
+  </data>
+  <data name="garnet-rhodolite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\garnet-rhodolite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garnet-star" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\garnet-star.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="garnet-tsavorite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\garnet-tsavorite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gaspéite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\gaspéite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gemwest_48x48" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -17964,6 +18019,9 @@ Please visit the website below for more information:</value>
         cZq/DDFCmyKNI1H8KqAKfRSsgCiiimAUUUUAFFFFAH//2Q==
 </value>
   </data>
+  <data name="hypersthene" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\hypersthene.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="idocrase" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEASABIAAD/4Qw+RXhpZgAATU0AKgAAAAgAAgExAAIAAAAHAAAAJodpAAQAAAAB
@@ -19364,6 +19422,9 @@ Please visit the website below for more information:</value>
         W+9tk9BUL2p9KAMB7b2qFrbn7tdA1qPSoXtR6UAc+9t/s1C9oDkFRXQNaj0qNrX2oA5uTTom6xg/hVd9
         FtnPMK5+ldSbXPap7bTtzcj9KAMHSNAhMg2wgc+ld1pNiltCABgijT7JIRkjmtCgAooooAKKKKAP/9k=
 </value>
+  </data>
+  <data name="labradorite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\labradorite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lapis lazuli" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -21334,6 +21395,9 @@ Please visit the website below for more information:</value>
         TkSuQmCC
 </value>
   </data>
+  <data name="melanite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\melanite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="moissanite" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/4QAuRXhpZgAATU0AKgAAAAgAAkAAAAMAAAABAAAAAEABAAEAAAAB
@@ -22232,6 +22296,9 @@ Please visit the website below for more information:</value>
         AABJRU5ErkJggg==
 </value>
   </data>
+  <data name="moonstone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\moonstone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="morganite" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEBLAEsAAD/4Q3oRXhpZgAATU0AKgAAAAgAAgExAAIAAAAHAAAAJodpAAQAAAAB
@@ -22507,6 +22574,9 @@ Please visit the website below for more information:</value>
         oooAKKKKACiiigAooooAKKKKACiiigD/2Q==
 </value>
   </data>
+  <data name="mystic-topaz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\mystic-topaz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="nephrite" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEASABIAAD/4QmWRXhpZgAATU0AKgAAAAgAAgExAAIAAAAHAAAAJodpAAQAAAAB
@@ -22683,6 +22753,9 @@ Please visit the website below for more information:</value>
         CIwAAAIjAIDACAAgMAIACIwAAAIjAIDACAAgMAIACIwAAAIjAIDACAAgrM0n/B+nheELfeAq9wAAAABJ
         RU5ErkJggg==
 </value>
+  </data>
+  <data name="nuummite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\nuummite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="obsidian" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -23287,6 +23360,9 @@ Please visit the website below for more information:</value>
         cOBiiiisDpCiiigAooooAKKKKAAgHqAapXWmWVyCJbeNs+1XaKAOavPBWh3JJa0j5/2RVP8A4V34f3Z+
         yx/98iuxooA5yx8G6JakbLSPj0Wtu2sra2GIolX8KsUUAFFFFABRRRQB/9k=
 </value>
+  </data>
+  <data name="orthoclase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\orthoclase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="oval" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -29335,6 +29411,18 @@ Please visit the website below for more information:</value>
         AVbVQOgpQO9FanO3c//Z
 </value>
   </data>
+  <data name="quartz-cat's-eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\quartz-cat's-eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quartz-dumortierite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\quartz-dumortierite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quartz-rose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\quartz-rose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quartz-smoky" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\quartz-smoky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="radiant_cut" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
@@ -31887,6 +31975,9 @@ Please visit the website below for more information:</value>
         xYZ2sMe+M05cdz+uKSMkuqE8MfypZgYnC53Aj+dAH//Z
 </value>
   </data>
+  <data name="rutile-topaz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\rutile-topaz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="rutillatedquartz" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
@@ -34009,6 +34100,9 @@ Please visit the website below for more information:</value>
         0oCc45p2R600soPWgNRhipViGKcGUnAp1A2xnlgU4KB2paKCbn//2Q==
 </value>
   </data>
+  <data name="sodalite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\sodalite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="so_high_01" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFUAAABDCAYAAADtekncAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAH
@@ -35069,6 +35163,15 @@ Please visit the website below for more information:</value>
         vQQVegdJ+g9KhfQrddgQvgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="star-diopside" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\star-diopside.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star-ruby" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\star-ruby.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star-sapphire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\star-sapphire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sthickgirdle" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABACAYAAADlNHIOAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
@@ -35425,6 +35528,9 @@ Please visit the website below for more information:</value>
         7grosD0owPSgDEj0S3X+BatwWEUfCrWhgelLgUAV1hHpTxEM81LRQAijAxS0UUAFFFFABRRRQAUUUUAF
         FFFABRRRQAUUUUAFFFFABRRRQB//2Q==
 </value>
+  </data>
+  <data name="sunstone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\sunstone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="synthetic corundum" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -42517,8 +42623,11 @@ Please visit the website below for more information:</value>
         RRQAUUUUAf/Z
 </value>
   </data>
+  <data name="verdite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\verdite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Version" xml:space="preserve">
-    <value>v2.1.2</value>
+    <value>v2.2.0</value>
   </data>
   <data name="vesuvianite" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

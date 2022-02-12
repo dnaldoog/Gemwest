@@ -168,6 +168,7 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("kyanite", "kyanite");
 	myRez->Add("lapis lazuli", "lapis lazuli");
 	myRez->Add("larimar", "larimar");
+	myRez->Add("pectolite (larimar)", "larimar");
 	myRez->Add("lazulite", "lazurite");
 	myRez->Add("lepidolite", "lepidolite");
 	myRez->Add("lithium niobate", "lithium niobate");
@@ -310,6 +311,42 @@ void CEmbeddedImage::loadResources()
 	myRez->Add("rectshape", "rect_shape_ouline"); //Shape Outlines
 	myRez->Add("helpbackdrop", "dia_prop_gauge"); //Shape Outlines
 	myRez->Add("paypallogo", "pp"); //PayPal
+	myRez->Add("ametrine","ametrine"); // added v2.2.0
+	myRez->Add("andesine", "andesine"); // added v2.2.0
+	myRez->Add("bronzite", "bronzite"); // added v2.2.0
+	myRez->Add("cat's eye apatite", "cat's-eye-apatite"); // added v2.2.0
+	myRez->Add("cat's eye aquamarine", "cat's-eye-aquamarine"); // added v2.2.0
+	myRez->Add("cat's eye diaspore", "cat's-eye-diaspore"); // added v2.2.0
+	myRez->Add("cat's eye sillimanite", "cat's-eye-sillimanite"); // added v2.2.0
+	myRez->Add("cat's eye tourmaline", "cat's-eye-tourmaline"); // added v2.2.0
+	myRez->Add("charoite", "charoite"); // added v2.2.0
+	myRez->Add("chrome tourmaline", "chrome-tourmaline"); // added v2.2.0
+	myRez->Add("clinohumite", "clinohumite"); // added v2.2.0
+	myRez->Add("colour change diaspore", "colour-change-diaspore"); // added v2.2.0
+	myRez->Add("dendritic agate", "dendritic-agate"); // added v2.2.0
+	myRez->Add("fire agate", "fire-agate"); // added v2.2.0
+	myRez->Add("garnet rhodolite", "garnet-rhodolite"); // added v2.2.0
+	myRez->Add("garnet star", "garnet-star"); // added v2.2.0
+	myRez->Add("garnet tsavorite", "garnet-tsavorite"); // added v2.2.0
+	myRez->Add("gaspéite", "gaspéite"); // added v2.2.0
+	myRez->Add("hypersthene", "hypersthene"); // added v2.2.0
+	myRez->Add("labradorite", "labradorite"); // added v2.2.0
+	myRez->Add("melanite", "melanite"); // added v2.2.0
+	myRez->Add("moonstone", "moonstone"); // added v2.2.0
+	myRez->Add("mystic topaz", "mystic-topaz"); // added v2.2.0
+	myRez->Add("nuummite", "nuummite"); // added v2.2.0
+	myRez->Add("orthoclase", "orthoclase"); // added v2.2.0
+	myRez->Add("quartz cat's eye", "quartz-cat's-eye"); // added v2.2.0
+	myRez->Add("quartz dumortierite", "quartz-dumortierite"); // added v2.2.0
+	myRez->Add("quartz rose", "quartz-rose"); // added v2.2.0
+	myRez->Add("quartz smoky", "quartz-smoky"); // added v2.2.0
+	myRez->Add("rutile topaz", "rutile-topaz"); // added v2.2.0
+	myRez->Add("sodalite", "sodalite"); // added v2.2.0
+	myRez->Add("star diopside", "star-diopside"); // added v2.2.0
+	myRez->Add("star ruby", "star-ruby"); // added v2.2.0
+	myRez->Add("star sapphire", "star-sapphire"); // added v2.2.0
+	myRez->Add("sunstone", "sunstone"); // added v2.2.0
+	myRez->Add("verdite", "verdite"); // added v2.2.0
 	this->setRez(myRez);
 
 }
