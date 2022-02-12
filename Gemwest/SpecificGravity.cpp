@@ -205,6 +205,43 @@ void SpecificGravity::dictInitializer() {
 	sg->Add("zircon (normal)", "4.69");
 	sg->Add("zirconia (cubic)", "5.7");
 	sg->Add("zoisite", "3.35");
+	sg->Add("andesine", "2.67"); // added v2.2.0
+	sg->Add("bronzite", "3.35"); // added v2.2.0
+	sg->Add("cat's eye apatite", "3.20"); // added v2.2.0
+	sg->Add("cat's eye aquamarine", "2.69"); // added v2.2.0
+	sg->Add("cat's eye diaspore", "3.35"); // added v2.2.0
+	sg->Add("cat's eye sillimanite", "3.23"); // added v2.2.0
+	sg->Add("cat's eye tourmaline", "3.05"); // added v2.2.0
+	sg->Add("charoite", "2.66"); // added v2.2.0
+	sg->Add("chrome tourmaline", "3.06"); // added v2.2.0
+	sg->Add("clinohumite", "3.44"); // added v2.2.0
+	sg->Add("colour change diaspore", "3.35"); // added v2.2.0
+	sg->Add("fire agate", "2.61"); // added v2.2.0
+	sg->Add("garnet rhodolite", "3.85"); // added v2.2.0
+	sg->Add("garnet tsavorite", "3.65"); // added v2.2.0
+	sg->Add("hypersthene", "3.67"); // added v2.2.0
+	sg->Add("labradorite", "2.71"); // added v2.2.0
+	sg->Add("melanite", "3.90"); // added v2.2.0
+	sg->Add("moonstone", "2.59"); // added v2.2.0
+	sg->Add("mystic topaz", "3.53"); // added v2.2.0
+	sg->Add("nuummite", "3.00"); // added v2.2.0
+	sg->Add("orthoclase", "2.59"); // added v2.2.0
+	sg->Add("pectolite (larimar)", "2.74"); // added v2.2.0
+	sg->Add("quartz cat's eye", "2.65"); // added v2.2.0
+	sg->Add("quartz dumortierite", "3.34"); // added v2.2.0
+	sg->Add("quartz rose", "2.65"); // added v2.2.0
+	sg->Add("quartz smoky", "2.65"); // added v2.2.0
+	sg->Add("rutile topaz", "3.53"); // added v2.2.0
+	sg->Add("sodalite", "2.30"); // added v2.2.0
+	sg->Add("star diopside", "3.29"); // added v2.2.0
+	sg->Add("star ruby", "4.00"); // added v2.2.0
+	sg->Add("star sapphire", "3.99"); // added v2.2.0
+	sg->Add("sunstone", "2.65"); // added v2.2.0
+	sg->Add("verdite", "2.88"); // added v2.2.0
+	sg->Add("ametrine", "2.65"); // added v2.2.0
+	sg->Add("dendritic agate", "1.74"); // added v2.2.0
+	sg->Add("garnet star", "3.80"); // added v2.2.0
+	sg->Add("gaspéite", "3.21"); // added v2.2.0
 	//for each (KeyValuePair<String^, String^> ^ z in sg){
 	//Debug::WriteLine(z->Key+","+z->Value);
 	//}
