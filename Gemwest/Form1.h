@@ -3,7 +3,7 @@
 //#include "pch.h"
 #include "BridgeCS.h"
 #include "CDiamondCut.h"
-#include "SpecificGravity.h"
+#include "CJson.h" // replaced SpecificGravity.h v 3.0.0
 #include "CGemCut.h"
 #include "CEmbeddedImage.h"
 #include "resource1.h"
@@ -60,6 +60,8 @@ namespace ZaniahSystems {
 			return myTime;
 		}
 	private: System::Windows::Forms::ToolStripMenuItem^ saveToolStripMenuItem;
+	private: System::Windows::Forms::Label^ lblSGrangeStatic;
+	private: System::Windows::Forms::Label^ lblSgRange;
 	protected:
 		LogForm^ persistantLogRecord = gcnew LogForm();
 		/// <summary>
@@ -1002,6 +1004,8 @@ This will reduce the weight by 1% to 3%.*/
 			this->picRecut = (gcnew System::Windows::Forms::PictureBox());
 			this->cbRecut = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->lblSGrangeStatic = (gcnew System::Windows::Forms::Label());
+			this->lblSgRange = (gcnew System::Windows::Forms::Label());
 			this->lblRecutDetails = (gcnew System::Windows::Forms::Label());
 			this->txtEstRecut = (gcnew System::Windows::Forms::TextBox());
 			this->numSG = (gcnew System::Windows::Forms::NumericUpDown());
@@ -1071,7 +1075,7 @@ This will reduce the weight by 1% to 3%.*/
 			this->comboGems->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboGems->Enabled = false;
 			this->comboGems->FormattingEnabled = true;
-			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(237) {
+			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(240) {
 				L"actinolite", L"agate", L"albite", L"alexandrite",
 					L"almandine", L"amazonite", L"amber", L"amethyst", L"ametrine", L"ammolite", L"andalusite", L"andesine", L"apatite", L"aquamarine",
 					L"aragonite", L"aventurine", L"aventurine quartz", L"axinite (ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl",
@@ -1084,24 +1088,24 @@ This will reduce the weight by 1% to 3%.*/
 					L"citrine", L"clinohumite", L"colour change diaspore", L"colourless beryl", L"conch pearl", L"copal resin", L"coral", L"cornelian",
 					L"corundum", L"corundum ruby", L"corundum sapphire", L"corundum synthetic", L"crocidolite", L"cubic zirconia", L"cymophane",
 					L"cz", L"danburite", L"datolite", L"demantoid", L"dendritic agate", L"diamond", L"diopside", L"dioptase", L"ekanite", L"emerald",
-					L"emerald (Gilson)", L"enstatite", L"epidote", L"euclase", L"fibrolite", L"fire agate", L"fire opal", L"fluorite", L"garnet",
-					L"garnet (mali)", L"garnet almandine", L"garnet demantoid", L"garnet grossular (pure)", L"garnet hessonite", L"garnet pyrope",
-					L"garnet rhodolite", L"garnet spessartine", L"garnet star", L"garnet tsavorite", L"garnet uvarovite", L"gaspéite", L"ggg", L"glass",
-					L"golden beryl", L"goshenite", L"grossular", L"grossular (pure)", L"grossular garnet", L"haematite", L"hambergite", L"heliodor",
-					L"hematite", L"hemimorphite", L"hessonite", L"hiddenite", L"howlite", L"hypersthene", L"idocrase", L"imperial topaz", L"iolite",
-					L"jadeite", L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite", L"labradorite", L"lapis lazuli", L"larimar", L"lazulite",
-					L"lepidolite", L"lithium niobate", L"malachite", L"malaia garnet", L"mali garnet", L"marcasite", L"maw-sit-sit", L"maxixe", L"melanite",
-					L"moissanite", L"moldavite", L"moonstone", L"morganite", L"moss agate", L"mystic topaz", L"nephrite", L"nuummite", L"obsidian",
-					L"odontolite", L"onyx", L"opal", L"orthoclase", L"padparadscha", L"painite", L"paraíba tourmaline", L"pearl", L"pectolite (larimar)",
-					L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain", L"prehnite", L"pseudophite",
-					L"pyrites", L"pyrope", L"quartz", L"quartz amethyst", L"quartz aventurine", L"quartz cat\'s eye", L"quartz chalcedony", L"quartz citrine",
-					L"quartz dumortierite", L"quartz rose", L"quartz rutillated", L"quartz smoky", L"rhodochrosite", L"rhodonite", L"rubbelite",
-					L"ruby", L"rutile", L"rutile topaz", L"rutillated quartz", L"sapphire", L"sard", L"scapolite", L"scheelite", L"schorl", L"seraphinite",
-					L"serpentine", L"silica glass", L"sinhalite", L"smithsonite", L"sodalite", L"spessartine", L"sphalerite", L"sphene", L"spinel",
-					L"spinel synthetic", L"spodumene", L"star diopside", L"star ruby", L"star sapphire", L"strontium titanate", L"sugilite", L"sunstone",
-					L"synthetic corundum", L"taaffeite", L"tanzanite", L"tektite", L"tiger eye", L"titanite", L"topaz", L"tortoiseshell", L"tourmaline",
-					L"tourmaline schorl", L"turquoise", L"uvarovite", L"variscite", L"verdite", L"vesuvianite", L"vivianite", L"water opal", L"yttrium aluminate YAG",
-					L"zircon (metamict)", L"zircon (normal)", L"zirconia (cubic)", L"zoisite"
+					L"emerald (Biron)", L"emerald (Chatham)", L"emerald (Gilson)", L"emerald (Linde)", L"enstatite", L"epidote", L"euclase", L"fibrolite",
+					L"fire agate", L"fire opal", L"fluorite", L"garnet", L"garnet (mali)", L"garnet almandine", L"garnet demantoid", L"garnet grossular (pure)",
+					L"garnet hessonite", L"garnet pyrope", L"garnet rhodolite", L"garnet spessartine", L"garnet star", L"garnet tsavorite", L"garnet uvarovite",
+					L"gaspéite", L"ggg", L"glass", L"golden beryl", L"goshenite", L"grossular", L"grossular (pure)", L"grossular garnet", L"haematite",
+					L"hambergite", L"heliodor", L"hematite", L"hemimorphite", L"hessonite", L"hiddenite", L"howlite", L"hypersthene", L"idocrase",
+					L"imperial topaz", L"iolite", L"jadeite", L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite", L"labradorite", L"lapis lazuli",
+					L"larimar", L"lazulite", L"lepidolite", L"lithium niobate", L"malachite", L"malaia garnet", L"mali garnet", L"marcasite", L"maw-sit-sit",
+					L"maxixe", L"melanite", L"moissanite", L"moldavite", L"moonstone", L"morganite", L"moss agate", L"mystic topaz", L"nephrite",
+					L"nuummite", L"obsidian", L"odontolite", L"onyx", L"opal", L"orthoclase", L"padparadscha", L"painite", L"paraíba tourmaline",
+					L"pearl", L"pectolite (larimar)", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain",
+					L"prehnite", L"pseudophite", L"pyrites", L"pyrope", L"quartz", L"quartz amethyst", L"quartz aventurine", L"quartz cat\'s eye",
+					L"quartz chalcedony", L"quartz citrine", L"quartz dumortierite", L"quartz rose", L"quartz rutillated", L"quartz smoky", L"rhodochrosite",
+					L"rhodonite", L"rubbelite", L"ruby", L"rutile", L"rutile topaz", L"rutillated quartz", L"sapphire", L"sard", L"scapolite", L"scheelite",
+					L"schorl", L"seraphinite", L"serpentine", L"silica glass", L"sinhalite", L"smithsonite", L"sodalite", L"spessartine", L"sphalerite",
+					L"sphene", L"spinel", L"spinel synthetic", L"spodumene", L"star diopside", L"star ruby", L"star sapphire", L"strontium titanate",
+					L"sugilite", L"sunstone", L"synthetic corundum", L"taaffeite", L"tanzanite", L"tektite", L"tiger eye", L"titanite", L"topaz",
+					L"tortoiseshell", L"tourmaline", L"tourmaline schorl", L"turquoise", L"uvarovite", L"variscite", L"verdite", L"vesuvianite",
+					L"vivianite", L"water opal", L"yttrium aluminate YAG", L"zircon (metamict)", L"zircon (normal)", L"zirconia (cubic)", L"zoisite"
 			});
 			this->comboGems->Location = System::Drawing::Point(90, 28);
 			this->comboGems->Name = L"comboGems";
@@ -1818,6 +1822,8 @@ This will reduce the weight by 1% to 3%.*/
 			// groupBox2
 			// 
 			this->groupBox2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->groupBox2->Controls->Add(this->lblSGrangeStatic);
+			this->groupBox2->Controls->Add(this->lblSgRange);
 			this->groupBox2->Controls->Add(this->lblRecutDetails);
 			this->groupBox2->Controls->Add(this->txtEstRecut);
 			this->groupBox2->Controls->Add(this->numSG);
@@ -1839,6 +1845,27 @@ This will reduce the weight by 1% to 3%.*/
 			this->groupBox2->Size = System::Drawing::Size(505, 163);
 			this->groupBox2->TabIndex = 13;
 			this->groupBox2->TabStop = false;
+			// 
+			// lblSGrangeStatic
+			// 
+			this->lblSGrangeStatic->AutoSize = true;
+			this->lblSGrangeStatic->Location = System::Drawing::Point(12, 83);
+			this->lblSGrangeStatic->Name = L"lblSGrangeStatic";
+			this->lblSGrangeStatic->Size = System::Drawing::Size(57, 13);
+			this->lblSGrangeStatic->TabIndex = 78;
+			this->lblSGrangeStatic->Text = L"SG Range";
+			// 
+			// lblSgRange
+			// 
+			this->lblSgRange->BackColor = System::Drawing::SystemColors::Window;
+			this->lblSgRange->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->lblSgRange->Location = System::Drawing::Point(90, 81);
+			this->lblSgRange->MaximumSize = System::Drawing::Size(100, 20);
+			this->lblSgRange->Name = L"lblSgRange";
+			this->lblSgRange->Size = System::Drawing::Size(100, 20);
+			this->lblSgRange->TabIndex = 77;
+			this->lblSgRange->Text = L"0.00";
+			this->lblSgRange->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			// 
 			// lblRecutDetails
 			// 
@@ -1867,7 +1894,7 @@ This will reduce the weight by 1% to 3%.*/
 			this->numSG->DecimalPlaces = 2;
 			this->numSG->Enabled = false;
 			this->numSG->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 131072 });
-			this->numSG->Location = System::Drawing::Point(90, 58);
+			this->numSG->Location = System::Drawing::Point(90, 55);
 			this->numSG->Name = L"numSG";
 			this->numSG->Size = System::Drawing::Size(100, 20);
 			this->numSG->TabIndex = 24;
@@ -1906,7 +1933,7 @@ This will reduce the weight by 1% to 3%.*/
 			// lblCutFactor
 			// 
 			this->lblCutFactor->AutoSize = true;
-			this->lblCutFactor->Location = System::Drawing::Point(20, 120);
+			this->lblCutFactor->Location = System::Drawing::Point(20, 139);
 			this->lblCutFactor->Name = L"lblCutFactor";
 			this->lblCutFactor->Size = System::Drawing::Size(56, 13);
 			this->lblCutFactor->TabIndex = 18;
@@ -1914,7 +1941,7 @@ This will reduce the weight by 1% to 3%.*/
 			// 
 			// txtFactor
 			// 
-			this->txtFactor->Location = System::Drawing::Point(90, 117);
+			this->txtFactor->Location = System::Drawing::Point(90, 134);
 			this->txtFactor->Name = L"txtFactor";
 			this->txtFactor->Size = System::Drawing::Size(100, 20);
 			this->txtFactor->TabIndex = 17;
@@ -1925,7 +1952,7 @@ This will reduce the weight by 1% to 3%.*/
 			// lblSelectedCut
 			// 
 			this->lblSelectedCut->AutoSize = true;
-			this->lblSelectedCut->Location = System::Drawing::Point(53, 94);
+			this->lblSelectedCut->Location = System::Drawing::Point(53, 113);
 			this->lblSelectedCut->Name = L"lblSelectedCut";
 			this->lblSelectedCut->Size = System::Drawing::Size(23, 13);
 			this->lblSelectedCut->TabIndex = 16;
@@ -1967,7 +1994,7 @@ This will reduce the weight by 1% to 3%.*/
 					L"pear brilliant", L"princess brilliant", L"oval brilliant", L"round brilliant", L"rose cut", L"small baguette", L"square cut (dia.)",
 					L"tapered baguette", L"semi circle cut (dia.)", L"triangular cut (dia.)", L"radiant cut (dia.)", L"trilliant cut (dia.)", L"trillion (rounded sides)"
 			});
-			this->comboCut->Location = System::Drawing::Point(90, 90);
+			this->comboCut->Location = System::Drawing::Point(90, 107);
 			this->comboCut->Name = L"comboCut";
 			this->comboCut->Size = System::Drawing::Size(121, 21);
 			this->comboCut->TabIndex = 6;
@@ -2282,16 +2309,19 @@ This will reduce the weight by 1% to 3%.*/
 	}
 	private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 
-		SpecificGravity^ sg = gcnew SpecificGravity; // Declare object
-		sg->dictInitializer();
-		/**************************IMAGE MANAGEMENT FOR GEMSTONES**************************/
-		CEmbeddedImage^ gemImage = gcnew CEmbeddedImage;
-		if (sg->prop_sg->ContainsKey(this->comboGems->Text)) {
-			gemImage->setName(this->comboGems->Text);
-			this->picGem->Image = gemImage->getName();
-			this->numSG->Text = sg->prop_sg[this->comboGems->Text];
+		String^ choice = this->comboGems->Text;
+	/*	if (choice->Contains("gasp")) {
+			choice="gaspeite";
+		}else if (choice->Contains("ba tou")) {
+			choice = "paraiba tourmaline";
+		}*/
+			CJson^ sg = gcnew CJson(choice);
+			this->picGem->Image = sg->getName();
+			this->numSG->Text = sg->Sg;
+			this->lblSgRange->Text = sg->Min + " - " + sg->Max;
 			onScreenInfo(); // repaint screen
-		} //stop crash if key doesn't exist
+		/**************************IMAGE MANAGEMENT FOR GEMSTONES**************************/
+
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 		Close();
@@ -2426,14 +2456,10 @@ D = front to back (depth)*/
 		} // != null
 
 		CEmbeddedImage^ defaultRBC = gcnew CEmbeddedImage;
-		/**************************IMAGE MANAGEMENT**************************/
+		///**************************IMAGE MANAGEMENT**************************/
 		defaultRBC->setName("round brilliant");
 		this->picCut->Image = defaultRBC->getName();
 
-		CEmbeddedImage^ diamondImageRd = gcnew CEmbeddedImage;
-		/**************************IMAGE MANAGEMENT**************************/
-		diamondImageRd->setName("diamond");
-		this->picGem->Image = diamondImageRd->getName();
 	}
 	private: System::Void radioBtnGem_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->txtFactor->Clear();
@@ -2637,6 +2663,8 @@ D = front to back (depth)*/
 		CEmbeddedImage^ defaultCut = gcnew CEmbeddedImage;
 		defaultCut->setName("round brilliant");
 		this->picCut->Image = defaultCut->getName();
+	/*	CJson^ dinit = gcnew CJson("diamond");
+		this->picGem->Image = dinit->getName();*/
 
 		CEmbeddedImage^ defaultBulge = gcnew CEmbeddedImage;
 		defaultBulge->setName("bulge_normal");

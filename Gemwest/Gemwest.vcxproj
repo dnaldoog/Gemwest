@@ -163,6 +163,7 @@
     <ClInclude Include="CDround.h" />
     <ClInclude Include="CEmbeddedImage.h" />
     <ClInclude Include="CGoval.h" />
+    <ClInclude Include="CJson.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -185,7 +186,6 @@
     </ClInclude>
     <ClInclude Include="resource1.h" />
     <ClInclude Include="CTaperedBaguette.h" />
-    <ClInclude Include="SpecificGravity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutForm1.cpp" />
@@ -197,6 +197,7 @@
     <ClCompile Include="CDfancy.cpp" />
     <ClCompile Include="CDround.cpp" />
     <ClCompile Include="CGoval.cpp" />
+    <ClCompile Include="CJson.cpp" />
     <ClCompile Include="ZaniahSystems.cpp" />
     <ClCompile Include="CCutDim.cpp" />
     <ClCompile Include="CDcalc.cpp" />
@@ -216,7 +217,6 @@
     </ClCompile>
     <ClCompile Include="CTaperedBaguette.cpp" />
     <ClCompile Include="Recut.cpp" />
-    <ClCompile Include="SpecificGravity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\desktop\bitmap1.bmp" />
@@ -242,6 +242,7 @@
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\gaspéite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\hypersthene.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\labradorite.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\linde.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\melanite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\moonstone.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\mystic-topaz.png" />
@@ -821,6 +822,9 @@
     <Image Include="zoisite.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />

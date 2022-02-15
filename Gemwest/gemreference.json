@@ -1,0 +1,1448 @@
+{
+  "actinolite": {
+    "DefaultSg": "3.01",
+    "MinSg": "3.03",
+    "MaxSg": "3.07",
+    "ImageRef": "actinolite"
+  },
+  "agate": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.60",
+    "MaxSg": "2.64",
+    "ImageRef": "agate"
+  },
+  "albite": {
+    "DefaultSg": "2.58",
+    "MinSg": "2.60",
+    "MaxSg": "2.65",
+    "ImageRef": "albite"
+  },
+  "alexandrite": {
+    "DefaultSg": "3.71",
+    "MinSg": "3.69",
+    "MaxSg": "3.81",
+    "ImageRef": "alexandrite"
+  },
+  "almandine": {
+    "DefaultSg": "4.00",
+    "MinSg": "3.93",
+    "MaxSg": "4.30",
+    "ImageRef": "almandine"
+  },
+  "amazonite": {
+    "DefaultSg": "2.56",
+    "MinSg": "2.56",
+    "MaxSg": "2.58",
+    "ImageRef": "amazonite"
+  },
+  "amber": {
+    "DefaultSg": "1.08",
+    "MinSg": "1.05",
+    "MaxSg": "1.10",
+    "ImageRef": "amber"
+  },
+  "amethyst": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.65",
+    "MaxSg": "2.65",
+    "ImageRef": "amethyst"
+  },
+  "ametrine": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.65",
+    "MaxSg": "2.65",
+    "ImageRef": "ametrine"
+  },
+  "ammolite": {
+    "DefaultSg": "2.80",
+    "MinSg": "2.75",
+    "MaxSg": "2.80",
+    "ImageRef": "ammolite"
+  },
+  "andalusite": {
+    "DefaultSg": "3.15",
+    "MinSg": "3.05",
+    "MaxSg": "3.20",
+    "ImageRef": "andalusite"
+  },
+  "andesine": {
+    "DefaultSg": "2.67",
+    "MinSg": "2.65",
+    "MaxSg": "2.69",
+    "ImageRef": "andesine"
+  },
+  "apatite": {
+    "DefaultSg": "3.20",
+    "MinSg": "3.16",
+    "MaxSg": "3.23",
+    "ImageRef": "apatite"
+  },
+  "aquamarine": {
+    "DefaultSg": "2.69",
+    "MinSg": "2.68",
+    "MaxSg": "2.74",
+    "ImageRef": "aquamarine"
+  },
+  "aragonite": {
+    "DefaultSg": "2.94",
+    "MinSg": "2.93",
+    "MaxSg": "2.96",
+    "ImageRef": "aragonite"
+  },
+  "aventurine": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.64",
+    "MaxSg": "2.69",
+    "ImageRef": "aventurine"
+  },
+  "aventurine quartz": {
+    "DefaultSg": "2.66",
+    "MinSg": "2.64",
+    "MaxSg": "2.69",
+    "ImageRef": "aventurine quartz"
+  },
+  "axinite (ferro-axinite)": {
+    "DefaultSg": "3.31",
+    "MinSg": "3.26",
+    "MaxSg": "3.36",
+    "ImageRef": "axinite (ferro-axinite)"
+  },
+  "azurite": {
+    "DefaultSg": "3.80",
+    "MinSg": "3.70",
+    "MaxSg": "3.90",
+    "ImageRef": "azurite"
+  },
+  "bakelite": {
+    "DefaultSg": "1.26",
+    "MinSg": "1.26",
+    "MaxSg": "1.26",
+    "ImageRef": "bakelite"
+  },
+  "benitoite": {
+    "DefaultSg": "3.67",
+    "MinSg": "3.61",
+    "MaxSg": "3.68",
+    "ImageRef": "benitoite"
+  },
+  "beryl": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.67",
+    "MaxSg": "2.78",
+    "ImageRef": "beryl"
+  },
+  "beryl aquamarine": {
+    "DefaultSg": "2.69",
+    "MinSg": "2.68",
+    "MaxSg": "2.74",
+    "ImageRef": "beryl aquamarine"
+  },
+  "beryl colourless": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.60",
+    "MaxSg": "2.90",
+    "ImageRef": "beryl colourless"
+  },
+  "beryl heliodor": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.68",
+    "MaxSg": "2.72",
+    "ImageRef": "beryl heliodor"
+  },
+  "beryl maxixe": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.60",
+    "MaxSg": "2.90",
+    "ImageRef": "beryl maxixe"
+  },
+  "beryl morganite": {
+    "DefaultSg": "2.71",
+    "MinSg": "2.71",
+    "MaxSg": "2.90",
+    "ImageRef": "beryl morganite"
+  },
+  "blende": {
+    "DefaultSg": "4.09",
+    "MinSg": "3.90",
+    "MaxSg": "4.10",
+    "ImageRef": "blende"
+  },
+  "bloodstone": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "bloodstone"
+  },
+  "blue topaz": {
+    "DefaultSg": "3.53",
+    "MinSg": "3.49",
+    "MaxSg": "3.57",
+    "ImageRef": "blue topaz"
+  },
+  "bonamite": {
+    "DefaultSg": "4.35",
+    "MinSg": "4.00",
+    "MaxSg": "4.65",
+    "ImageRef": "bonamite"
+  },
+  "bowenite": {
+    "DefaultSg": "2.59",
+    "MinSg": "2.58",
+    "MaxSg": "2.80",
+    "ImageRef": "bowenite"
+  },
+  "brazilianite": {
+    "DefaultSg": "2.99",
+    "MinSg": "2.98",
+    "MaxSg": "2.99",
+    "ImageRef": "brazilianite"
+  },
+  "bronzite": {
+    "DefaultSg": "3.35",
+    "MinSg": "3.30",
+    "MaxSg": "3.42",
+    "ImageRef": "bronzite"
+  },
+  "calcite": {
+    "DefaultSg": "2.71",
+    "MinSg": "2.69",
+    "MaxSg": "2.71",
+    "ImageRef": "calcite"
+  },
+  "californite": {
+    "DefaultSg": "3.32",
+    "MinSg": "3.32",
+    "MaxSg": "3.47",
+    "ImageRef": "californite"
+  },
+  "carborundum": {
+    "DefaultSg": "3.17",
+    "MinSg": "3.17",
+    "MaxSg": "3.17",
+    "ImageRef": "carborundum"
+  },
+  "carnelian": {
+    "DefaultSg": "2.64",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "carnelian"
+  },
+  "cassiterite": {
+    "DefaultSg": "6.90",
+    "MinSg": "6.70",
+    "MaxSg": "7.10",
+    "ImageRef": "cassiterite"
+  },
+  "cat's eye apatite": {
+    "DefaultSg": "3.20",
+    "MinSg": "3.16",
+    "MaxSg": "3.23",
+    "ImageRef": "cat's eye chrysoberyl"
+  },
+  "cat's eye aquamarine": {
+    "DefaultSg": "2.69",
+    "MinSg": "2.68",
+    "MaxSg": "2.74",
+    "ImageRef": "cat's-eye-apatite"
+  },
+  "cat's eye chrysoberyl": {
+    "DefaultSg": "3.71",
+    "MinSg": "3.70",
+    "MaxSg": "3.78",
+    "ImageRef": "cat's-eye-aquamarine"
+  },
+  "cat's eye diaspore": {
+    "DefaultSg": "3.35",
+    "MinSg": "3.30",
+    "MaxSg": "3.39",
+    "ImageRef": "cat's-eye-diaspore"
+  },
+  "cat's eye sillimanite": {
+    "DefaultSg": "3.23",
+    "MinSg": "3.22",
+    "MaxSg": "3.24",
+    "ImageRef": "cat's-eye-sillimanite"
+  },
+  "cat's eye tourmaline": {
+    "DefaultSg": "3.05",
+    "MinSg": "2.82",
+    "MaxSg": "3.32",
+    "ImageRef": "cat's-eye-tourmaline"
+  },
+  "celluloid": {
+    "DefaultSg": "1.38",
+    "MinSg": "1.38",
+    "MaxSg": "1.38",
+    "ImageRef": "celluloid"
+  },
+  "chalcedony": {
+    "DefaultSg": "2.61",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "chalcedony"
+  },
+  "chalcedony agate": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "chalcedony agate"
+  },
+  "chalcedony aventurine": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "chalcedony aventurine"
+  },
+  "chalcedony carnelian": {
+    "DefaultSg": "2.64",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "chalcedony carnelian"
+  },
+  "chalcedony heliotrope": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "chalcedony heliotrope"
+  },
+  "chalcedony moss agate": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "chalcedony moss agate"
+  },
+  "chalcedony onyx": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "chalcedony onyx"
+  },
+  "charoite": {
+    "DefaultSg": "2.66",
+    "MinSg": "2.54",
+    "MaxSg": "2.78",
+    "ImageRef": "charoite"
+  },
+  "chrome diopside": {
+    "DefaultSg": "3.30",
+    "MinSg": "3.22",
+    "MaxSg": "3.38",
+    "ImageRef": "chrome diopside"
+  },
+  "chrome tourmaline": {
+    "DefaultSg": "3.06",
+    "MinSg": "2.82",
+    "MaxSg": "3.32",
+    "ImageRef": "chrome-tourmaline"
+  },
+  "chrysoberyl": {
+    "DefaultSg": "3.71",
+    "MinSg": "3.69",
+    "MaxSg": "3.81",
+    "ImageRef": "chrysoberyl"
+  },
+  "chrysoberyl alexandrite": {
+    "DefaultSg": "3.71",
+    "MinSg": "3.69",
+    "MaxSg": "3.81",
+    "ImageRef": "chrysoberyl alexandrite"
+  },
+  "chrysoberyl cat's eye": {
+    "DefaultSg": "3.71",
+    "MinSg": "3.69",
+    "MaxSg": "3.81",
+    "ImageRef": "chrysoberyl cat's eye"
+  },
+  "chrysoberyl cymophane": {
+    "DefaultSg": "3.71",
+    "MinSg": "3.69",
+    "MaxSg": "3.81",
+    "ImageRef": "chrysoberyl cymophane"
+  },
+  "chrysocolla": {
+    "DefaultSg": "2.10",
+    "MinSg": "1.90",
+    "MaxSg": "2.40",
+    "ImageRef": "chrysocolla"
+  },
+  "chrysoprase": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "chrysoprase"
+  },
+  "citrine": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.65",
+    "MaxSg": "2.65",
+    "ImageRef": "citrine"
+  },
+  "clinohumite": {
+    "DefaultSg": "3.44",
+    "MinSg": "3.13",
+    "MaxSg": "3.75",
+    "ImageRef": "clinohumite"
+  },
+  "colour change diaspore": {
+    "DefaultSg": "3.35",
+    "MinSg": "3.30",
+    "MaxSg": "3.39",
+    "ImageRef": "colour-change-diaspore"
+  },
+  "colourless beryl": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.67",
+    "MaxSg": "2.78",
+    "ImageRef": "beryl colourless"
+  },
+  "conch pearl": {
+    "DefaultSg": "2.84",
+    "MinSg": "2.84",
+    "MaxSg": "2.84",
+    "ImageRef": "conch pearl"
+  },
+  "copal resin": {
+    "DefaultSg": "1.06",
+    "MinSg": "1.06",
+    "MaxSg": "1.06",
+    "ImageRef": "copal resin"
+  },
+  "coral": {
+    "DefaultSg": "2.68",
+    "MinSg": "2.60",
+    "MaxSg": "2.70",
+    "ImageRef": "coral"
+  },
+  "cornelian": {
+    "DefaultSg": "2.64",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "cornelian"
+  },
+  "corundum": {
+    "DefaultSg": "4.00",
+    "MinSg": "3.90",
+    "MaxSg": "4.05",
+    "ImageRef": "corundum"
+  },
+  "corundum ruby": {
+    "DefaultSg": "3.99",
+    "MinSg": "3.90",
+    "MaxSg": "4.05",
+    "ImageRef": "corundum ruby"
+  },
+  "corundum sapphire": {
+    "DefaultSg": "3.99",
+    "MinSg": "3.90",
+    "MaxSg": "4.05",
+    "ImageRef": "corundum sapphire"
+  },
+  "corundum synthetic": {
+    "DefaultSg": "4.00",
+    "MinSg": "3.90",
+    "MaxSg": "4.05",
+    "ImageRef": "corundum synthetic"
+  },
+  "crocidolite": {
+    "DefaultSg": "2.66",
+    "MinSg": "2.66",
+    "MaxSg": "2.66",
+    "ImageRef": "crocidolite"
+  },
+  "cubic zirconia": {
+    "DefaultSg": "5.80",
+    "MinSg": "5.50",
+    "MaxSg": "6.00",
+    "ImageRef": "cubic zirconia"
+  },
+  "cymophane": {
+    "DefaultSg": "3.71",
+    "MinSg": "3.69",
+    "MaxSg": "3.81",
+    "ImageRef": "cymophane"
+  },
+  "cz": {
+    "DefaultSg": "5.80",
+    "MinSg": "5.50",
+    "MaxSg": "6.00",
+    "ImageRef": "cz"
+  },
+  "danburite": {
+    "DefaultSg": "3.00",
+    "MinSg": "2.97",
+    "MaxSg": "3.03",
+    "ImageRef": "danburite"
+  },
+  "datolite": {
+    "DefaultSg": "2.95",
+    "MinSg": "2.90",
+    "MaxSg": "3.00",
+    "ImageRef": "datolite"
+  },
+  "demantoid": {
+    "DefaultSg": "3.85",
+    "MinSg": "3.70",
+    "MaxSg": "4.10",
+    "ImageRef": "demantoid"
+  },
+  "dendritic agate": {
+    "DefaultSg": "1.74",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "dendritic-agate"
+  },
+  "diamond": {
+    "DefaultSg": "3.52",
+    "MinSg": "3.50",
+    "MaxSg": "3.53",
+    "ImageRef": "diamond"
+  },
+  "diopside": {
+    "DefaultSg": "3.29",
+    "MinSg": "3.22",
+    "MaxSg": "3.38",
+    "ImageRef": "diopside"
+  },
+  "dioptase": {
+    "DefaultSg": "3.31",
+    "MinSg": "3.25",
+    "MaxSg": "3.35",
+    "ImageRef": "dioptase"
+  },
+  "ekanite": {
+    "DefaultSg": "3.28",
+    "MinSg": "3.28",
+    "MaxSg": "3.32",
+    "ImageRef": "ekanite"
+  },
+  "emerald": {
+    "DefaultSg": "2.71",
+    "MinSg": "2.67",
+    "MaxSg": "2.78",
+    "ImageRef": "emerald"
+  },
+  "emerald (Biron)": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.68",
+    "MaxSg": "2.71",
+    "ImageRef": "emerald (Biron)"
+  },
+  "emerald (Chatham)": {
+    "DefaultSg": "2.66",
+    "MinSg": "2.66",
+    "MaxSg": "2.66",
+    "ImageRef": "emerald (Chatham)"
+  },
+  "emerald (Gilson)": {
+    "DefaultSg": "2.66",
+    "MinSg": "2.65",
+    "MaxSg": "2.69",
+    "ImageRef": "emerald (Gilson)"
+  },
+  "emerald (Linde)": {
+    "DefaultSg": "2.68",
+    "MinSg": "2.67",
+    "MaxSg": "2.69",
+    "ImageRef": "linde"
+  },
+  "enstatite": {
+    "DefaultSg": "3.27",
+    "MinSg": "3.20",
+    "MaxSg": "3.96",
+    "ImageRef": "enstatite"
+  },
+  "epidote": {
+    "DefaultSg": "3.40",
+    "MinSg": "3.25",
+    "MaxSg": "3.50",
+    "ImageRef": "epidote"
+  },
+  "euclase": {
+    "DefaultSg": "3.10",
+    "MinSg": "3.08",
+    "MaxSg": "3.12",
+    "ImageRef": "euclase"
+  },
+  "fibrolite": {
+    "DefaultSg": "3.25",
+    "MinSg": "3.14",
+    "MaxSg": "3.25",
+    "ImageRef": "fibrolite"
+  },
+  "fire agate": {
+    "DefaultSg": "2.61",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "fire opal"
+  },
+  "fire opal": {
+    "DefaultSg": "2.00",
+    "MinSg": "2.00",
+    "MaxSg": "2.00",
+    "ImageRef": "fire-agate"
+  },
+  "fluorite": {
+    "DefaultSg": "3.18",
+    "MinSg": "3.00",
+    "MaxSg": "3.25",
+    "ImageRef": "fluorite"
+  },
+  "garnet": {
+    "DefaultSg": "4.00",
+    "MinSg": "3.55",
+    "MaxSg": "4.33",
+    "ImageRef": "garnet"
+  },
+  "garnet (mali)": {
+    "DefaultSg": "3.67",
+    "MinSg": "3.57",
+    "MaxSg": "3.73",
+    "ImageRef": "garnet mali"
+  },
+  "garnet almandine": {
+    "DefaultSg": "4.00",
+    "MinSg": "3.93",
+    "MaxSg": "4.30",
+    "ImageRef": "garnet almandine"
+  },
+  "garnet demantoid": {
+    "DefaultSg": "3.85",
+    "MinSg": "3.70",
+    "MaxSg": "4.10",
+    "ImageRef": "garnet demantoid"
+  },
+  "garnet grossular (pure)": {
+    "DefaultSg": "3.59",
+    "MinSg": "3.57",
+    "MaxSg": "3.73",
+    "ImageRef": "grossular garnet"
+  },
+  "garnet hessonite": {
+    "DefaultSg": "3.63",
+    "MinSg": "3.64",
+    "MaxSg": "3.69",
+    "ImageRef": "garnet hessonite"
+  },
+  "garnet pyrope": {
+    "DefaultSg": "3.80",
+    "MinSg": "3.62",
+    "MaxSg": "3.87",
+    "ImageRef": "garnet pyrope"
+  },
+  "garnet rhodolite": {
+    "DefaultSg": "3.85",
+    "MinSg": "3.84",
+    "MaxSg": "3.86",
+    "ImageRef": "garnet-rhodolite"
+  },
+  "garnet spessartine": {
+    "DefaultSg": "4.16",
+    "MinSg": "4.12",
+    "MaxSg": "4.18",
+    "ImageRef": "garnet spessartine"
+  },
+  "garnet star": {
+    "DefaultSg": "3.80",
+    "MinSg": "3.62",
+    "MaxSg": "3.87",
+    "ImageRef": "garnet-star"
+  },
+  "garnet tsavorite": {
+    "DefaultSg": "3.65",
+    "MinSg": "3.57",
+    "MaxSg": "3.73",
+    "ImageRef": "garnet-tsavorite"
+  },
+  "garnet uvarovite": {
+    "DefaultSg": "3.77",
+    "MinSg": "3.77",
+    "MaxSg": "3.77",
+    "ImageRef": "garnet uvarovite"
+  },
+  "gaspéite": {
+    "DefaultSg": "3.21",
+    "MinSg": "3.21",
+    "MaxSg": "3.21",
+    "ImageRef": "gaspeite"
+  },
+  "ggg": {
+    "DefaultSg": "7.05",
+    "MinSg": "7.05",
+    "MaxSg": "7.05",
+    "ImageRef": "ggg"
+  },
+  "glass": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.39",
+    "MaxSg": "4.00",
+    "ImageRef": "glass"
+  },
+  "golden beryl": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.68",
+    "MaxSg": "2.72",
+    "ImageRef": "golden beryl"
+  },
+  "goshenite": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.66",
+    "MaxSg": "2.87",
+    "ImageRef": "goshenite"
+  },
+  "grossular": {
+    "DefaultSg": "3.59",
+    "MinSg": "3.55",
+    "MaxSg": "3.73",
+    "ImageRef": "grossular"
+  },
+  "grossular (pure)": {
+    "DefaultSg": "3.59",
+    "MinSg": "3.55",
+    "MaxSg": "3.73",
+    "ImageRef": "grossular garnet"
+  },
+  "grossular garnet": {
+    "DefaultSg": "3.59",
+    "MinSg": "3.57",
+    "MaxSg": "3.73",
+    "ImageRef": "grossular garnet"
+  },
+  "haematite": {
+    "DefaultSg": "5.10",
+    "MinSg": "5.00",
+    "MaxSg": "5.30",
+    "ImageRef": "haematite"
+  },
+  "hambergite": {
+    "DefaultSg": "2.35",
+    "MinSg": "2.35",
+    "MaxSg": "2.35",
+    "ImageRef": "hambergite"
+  },
+  "heliodor": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.68",
+    "MaxSg": "2.72",
+    "ImageRef": "heliodor"
+  },
+  "hematite": {
+    "DefaultSg": "5.10",
+    "MinSg": "5.00",
+    "MaxSg": "5.30",
+    "ImageRef": "hematite"
+  },
+  "hemimorphite": {
+    "DefaultSg": "3.52",
+    "MinSg": "3.30",
+    "MaxSg": "3.50",
+    "ImageRef": "hemimorphite"
+  },
+  "hessonite": {
+    "DefaultSg": "3.63",
+    "MinSg": "3.64",
+    "MaxSg": "3.69",
+    "ImageRef": "hessonite"
+  },
+  "hiddenite": {
+    "DefaultSg": "3.18",
+    "MinSg": "3.17",
+    "MaxSg": "3.19",
+    "ImageRef": "hiddenite"
+  },
+  "howlite": {
+    "DefaultSg": "2.56",
+    "MinSg": "2.45",
+    "MaxSg": "2.58",
+    "ImageRef": "howlite"
+  },
+  "hypersthene": {
+    "DefaultSg": "3.67",
+    "MinSg": "3.43",
+    "MaxSg": "3.90",
+    "ImageRef": "hypersthene"
+  },
+  "idocrase": {
+    "DefaultSg": "3.40",
+    "MinSg": "3.32",
+    "MaxSg": "3.47",
+    "ImageRef": "idocrase"
+  },
+  "imperial topaz": {
+    "DefaultSg": "3.53",
+    "MinSg": "3.49",
+    "MaxSg": "3.57",
+    "ImageRef": "imperial topaz"
+  },
+  "iolite": {
+    "DefaultSg": "2.63",
+    "MinSg": "2.58",
+    "MaxSg": "2.66",
+    "ImageRef": "iolite"
+  },
+  "jadeite": {
+    "DefaultSg": "3.33",
+    "MinSg": "3.25",
+    "MaxSg": "3.36",
+    "ImageRef": "jadeite"
+  },
+  "jasper": {
+    "DefaultSg": "2.55",
+    "MinSg": "2.50",
+    "MaxSg": "2.90",
+    "ImageRef": "jasper"
+  },
+  "jet": {
+    "DefaultSg": "1.33",
+    "MinSg": "1.33",
+    "MaxSg": "1.33",
+    "ImageRef": "jet"
+  },
+  "kornerupine": {
+    "DefaultSg": "3.32",
+    "MinSg": "3.25",
+    "MaxSg": "3.45",
+    "ImageRef": "kornerupine"
+  },
+  "kunzite": {
+    "DefaultSg": "3.18",
+    "MinSg": "3.15",
+    "MaxSg": "3.21",
+    "ImageRef": "kunzite"
+  },
+  "kyanite": {
+    "DefaultSg": "3.68",
+    "MinSg": "3.53",
+    "MaxSg": "3.70",
+    "ImageRef": "kyanite"
+  },
+  "labradorite": {
+    "DefaultSg": "2.71",
+    "MinSg": "2.69",
+    "MaxSg": "2.72",
+    "ImageRef": "labradorite"
+  },
+  "lapis lazuli": {
+    "DefaultSg": "2.80",
+    "MinSg": "2.50",
+    "MaxSg": "3.00",
+    "ImageRef": "lapis lazuli"
+  },
+  "larimar": {
+    "DefaultSg": "2.74",
+    "MinSg": "2.74",
+    "MaxSg": "2.88",
+    "ImageRef": "larimar"
+  },
+  "lazulite": {
+    "DefaultSg": "3.10",
+    "MinSg": "3.04",
+    "MaxSg": "3.17",
+    "ImageRef": "lazurite"
+  },
+  "lepidolite": {
+    "DefaultSg": "2.80",
+    "MinSg": "2.80",
+    "MaxSg": "2.90",
+    "ImageRef": "lepidolite"
+  },
+  "lithium niobate": {
+    "DefaultSg": "4.64",
+    "MinSg": "4.64",
+    "MaxSg": "4.66",
+    "ImageRef": "lithium niobate"
+  },
+  "malachite": {
+    "DefaultSg": "3.80",
+    "MinSg": "3.25",
+    "MaxSg": "4.10",
+    "ImageRef": "malachite"
+  },
+  "malaia garnet": {
+    "DefaultSg": "4.00",
+    "MinSg": "3.75",
+    "MaxSg": "4.00",
+    "ImageRef": "malaia_garnet"
+  },
+  "mali garnet": {
+    "DefaultSg": "3.67",
+    "MinSg": "3.57",
+    "MaxSg": "3.73",
+    "ImageRef": "mali garnet"
+  },
+  "marcasite": {
+    "DefaultSg": "4.90",
+    "MinSg": "4.90",
+    "MaxSg": "4.90",
+    "ImageRef": "marcasite"
+  },
+  "maw-sit-sit": {
+    "DefaultSg": "3.00",
+    "MinSg": "2.50",
+    "MaxSg": "3.50",
+    "ImageRef": "maw-sit-sit"
+  },
+  "maxixe": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.60",
+    "MaxSg": "2.90",
+    "ImageRef": "maxixe"
+  },
+  "melanite": {
+    "DefaultSg": "3.90",
+    "MinSg": "3.70",
+    "MaxSg": "4.10",
+    "ImageRef": "melanite"
+  },
+  "moissanite": {
+    "DefaultSg": "3.22",
+    "MinSg": "3.17",
+    "MaxSg": "3.24",
+    "ImageRef": "moissanite"
+  },
+  "moldavite": {
+    "DefaultSg": "2.36",
+    "MinSg": "2.32",
+    "MaxSg": "2.38",
+    "ImageRef": "molldavite"
+  },
+  "moonstone": {
+    "DefaultSg": "2.59",
+    "MinSg": "2.55",
+    "MaxSg": "2.63",
+    "ImageRef": "moonstone"
+  },
+  "morganite": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.66",
+    "MaxSg": "2.87",
+    "ImageRef": "morganite"
+  },
+  "moss agate": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.60",
+    "MaxSg": "2.64",
+    "ImageRef": "moss agate"
+  },
+  "mystic topaz": {
+    "DefaultSg": "3.53",
+    "MinSg": "3.49",
+    "MaxSg": "3.57",
+    "ImageRef": "mystic-topaz"
+  },
+  "nephrite": {
+    "DefaultSg": "3.00",
+    "MinSg": "2.90",
+    "MaxSg": "3.30",
+    "ImageRef": "nephrite"
+  },
+  "nuummite": {
+    "DefaultSg": "3.00",
+    "MinSg": "2.99",
+    "MaxSg": "3.01",
+    "ImageRef": "nuummite"
+  },
+  "obsidian": {
+    "DefaultSg": "2.50",
+    "MinSg": "2.35",
+    "MaxSg": "2.60",
+    "ImageRef": "obsidian"
+  },
+  "odontolite": {
+    "DefaultSg": "3.00",
+    "MinSg": "3.00",
+    "MaxSg": "3.00",
+    "ImageRef": "odontolite"
+  },
+  "onyx": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.55",
+    "MaxSg": "2.70",
+    "ImageRef": "onyx"
+  },
+  "opal": {
+    "DefaultSg": "2.15",
+    "MinSg": "1.98",
+    "MaxSg": "2.50",
+    "ImageRef": "opal"
+  },
+  "orthoclase": {
+    "DefaultSg": "2.59",
+    "MinSg": "2.55",
+    "MaxSg": "2.63",
+    "ImageRef": "orthoclase"
+  },
+  "padparadscha": {
+    "DefaultSg": "4.00",
+    "MinSg": "3.97",
+    "MaxSg": "4.05",
+    "ImageRef": "padparadscha"
+  },
+  "painite": {
+    "DefaultSg": "4.01",
+    "MinSg": "4.00",
+    "MaxSg": "4.03",
+    "ImageRef": "painite"
+  },
+  "paraíba tourmaline": {
+    "DefaultSg": "3.05",
+    "MinSg": "2.82",
+    "MaxSg": "3.32",
+    "ImageRef": "paraiba"
+  },
+  "pearl": {
+    "DefaultSg": "2.71",
+    "MinSg": "2.60",
+    "MaxSg": "2.85",
+    "ImageRef": "pearl"
+  },
+  "pectolite (larimar)": {
+    "DefaultSg": "2.74",
+    "MinSg": "2.74",
+    "MaxSg": "2.88",
+    "ImageRef": "larimar"
+  },
+  "periclase": {
+    "DefaultSg": "3.59",
+    "MinSg": "3.56",
+    "MaxSg": "3.90",
+    "ImageRef": "periclase"
+  },
+  "peridot": {
+    "DefaultSg": "3.34",
+    "MinSg": "3.28",
+    "MaxSg": "3.48",
+    "ImageRef": "peridot"
+  },
+  "phenakite": {
+    "DefaultSg": "2.96",
+    "MinSg": "2.90",
+    "MaxSg": "2.98",
+    "ImageRef": "phenakite"
+  },
+  "pink beryl": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.67",
+    "MaxSg": "2.78",
+    "ImageRef": "pink beryl"
+  },
+  "pink topaz": {
+    "DefaultSg": "3.53",
+    "MinSg": "3.49",
+    "MaxSg": "3.57",
+    "ImageRef": "pink topaz"
+  },
+  "pleonaste": {
+    "DefaultSg": "3.80",
+    "MinSg": "3.80",
+    "MaxSg": "3.80",
+    "ImageRef": "pleonaste"
+  },
+  "porcelain": {
+    "DefaultSg": "2.30",
+    "MinSg": "2.30",
+    "MaxSg": "2.30",
+    "ImageRef": "porcelain"
+  },
+  "prehnite": {
+    "DefaultSg": "2.87",
+    "MinSg": "2.82",
+    "MaxSg": "2.94",
+    "ImageRef": "prehnite"
+  },
+  "pseudophite": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.70",
+    "MaxSg": "2.70",
+    "ImageRef": "pseudophite"
+  },
+  "pyrites": {
+    "DefaultSg": "5.03",
+    "MinSg": "5.00",
+    "MaxSg": "5.20",
+    "ImageRef": "pyrites"
+  },
+  "pyrope": {
+    "DefaultSg": "3.80",
+    "MinSg": "3.62",
+    "MaxSg": "3.87",
+    "ImageRef": "pyrope"
+  },
+  "quartz": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.65",
+    "MaxSg": "2.65",
+    "ImageRef": "quartz"
+  },
+  "quartz amethyst": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.65",
+    "MaxSg": "2.65",
+    "ImageRef": "quartz amethyst"
+  },
+  "quartz aventurine": {
+    "DefaultSg": "2.66",
+    "MinSg": "2.64",
+    "MaxSg": "2.69",
+    "ImageRef": "quartz aventurine"
+  },
+  "quartz cat's eye": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.65",
+    "MaxSg": "2.65",
+    "ImageRef": "quartz-cat's-eye"
+  },
+  "quartz chalcedony": {
+    "DefaultSg": "2.61",
+    "MinSg": "2.58",
+    "MaxSg": "2.64",
+    "ImageRef": "quartz chalcedony"
+  },
+  "quartz citrine": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.65",
+    "MaxSg": "2.65",
+    "ImageRef": "quartz citrine"
+  },
+  "quartz dumortierite": {
+    "DefaultSg": "3.34",
+    "MinSg": "3.26",
+    "MaxSg": "3.41",
+    "ImageRef": "quartz-dumortierite"
+  },
+  "quartz rose": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.65",
+    "MaxSg": "2.65",
+    "ImageRef": "quartz-rose"
+  },
+  "quartz rutillated": {
+    "DefaultSg": "2.66",
+    "MinSg": "2.65",
+    "MaxSg": "2.67",
+    "ImageRef": "rutillatedquartz"
+  },
+  "quartz smoky": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.65",
+    "MaxSg": "2.65",
+    "ImageRef": "quartz-smoky"
+  },
+  "rhodochrosite": {
+    "DefaultSg": "3.60",
+    "MinSg": "3.45",
+    "MaxSg": "3.70",
+    "ImageRef": "rhodochrosite"
+  },
+  "rhodonite": {
+    "DefaultSg": "3.60",
+    "MinSg": "3.40",
+    "MaxSg": "3.74",
+    "ImageRef": "rhodonite"
+  },
+  "rubbelite": {
+    "DefaultSg": "3.06",
+    "MinSg": "2.28",
+    "MaxSg": "3.32",
+    "ImageRef": "rubellite"
+  },
+  "ruby": {
+    "DefaultSg": "3.99",
+    "MinSg": "3.97",
+    "MaxSg": "4.05",
+    "ImageRef": "ruby"
+  },
+  "rutile": {
+    "DefaultSg": "4.25",
+    "MinSg": "4.20",
+    "MaxSg": "4.30",
+    "ImageRef": "rutile"
+  },
+  "rutile topaz": {
+    "DefaultSg": "3.53",
+    "MinSg": "3.49",
+    "MaxSg": "3.57",
+    "ImageRef": "rutile-topaz"
+  },
+  "rutillated quartz": {
+    "DefaultSg": "2.66",
+    "MinSg": "2.65",
+    "MaxSg": "2.67",
+    "ImageRef": "rutillatedquartz"
+  },
+  "sapphire": {
+    "DefaultSg": "3.99",
+    "MinSg": "3.95",
+    "MaxSg": "4.03",
+    "ImageRef": "sapphire"
+  },
+  "sard": {
+    "DefaultSg": "2.61",
+    "MinSg": "2.58",
+    "MaxSg": "2.63",
+    "ImageRef": "sard"
+  },
+  "scapolite": {
+    "DefaultSg": "2.70",
+    "MinSg": "2.36",
+    "MaxSg": "2.74",
+    "ImageRef": "scapolite"
+  },
+  "scheelite": {
+    "DefaultSg": "6.10",
+    "MinSg": "5.90",
+    "MaxSg": "6.30",
+    "ImageRef": "scheelite"
+  },
+  "schorl": {
+    "DefaultSg": "3.06",
+    "MinSg": "3.18",
+    "MaxSg": "3.22",
+    "ImageRef": "schorl"
+  },
+  "seraphinite": {
+    "DefaultSg": "2.80",
+    "MinSg": "2.60",
+    "MaxSg": "3.02",
+    "ImageRef": "seraphinite"
+  },
+  "serpentine": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.44",
+    "MaxSg": "2.62",
+    "ImageRef": "serpentine"
+  },
+  "silica glass": {
+    "DefaultSg": "2.21",
+    "MinSg": "2.21",
+    "MaxSg": "2.21",
+    "ImageRef": "silica glass"
+  },
+  "sinhalite": {
+    "DefaultSg": "3.48",
+    "MinSg": "3.46",
+    "MaxSg": "3.50",
+    "ImageRef": "sinhalite"
+  },
+  "smithsonite": {
+    "DefaultSg": "4.35",
+    "MinSg": "4.00",
+    "MaxSg": "4.65",
+    "ImageRef": "smithsonite"
+  },
+  "sodalite": {
+    "DefaultSg": "2.30",
+    "MinSg": "2.27",
+    "MaxSg": "2.33",
+    "ImageRef": "sodalite"
+  },
+  "spessartine": {
+    "DefaultSg": "4.16",
+    "MinSg": "4.12",
+    "MaxSg": "4.18",
+    "ImageRef": "spessartine"
+  },
+  "sphalerite": {
+    "DefaultSg": "4.09",
+    "MinSg": "3.90",
+    "MaxSg": "4.10",
+    "ImageRef": "sphalerite"
+  },
+  "sphene": {
+    "DefaultSg": "3.53",
+    "MinSg": "3.52",
+    "MaxSg": "3.54",
+    "ImageRef": "sphene"
+  },
+  "spinel": {
+    "DefaultSg": "3.65",
+    "MinSg": "3.54",
+    "MaxSg": "3.63",
+    "ImageRef": "spinel"
+  },
+  "spinel synthetic": {
+    "DefaultSg": "3.65",
+    "MinSg": "3.65",
+    "MaxSg": "3.65",
+    "ImageRef": "spinel synthetic"
+  },
+  "spodumene": {
+    "DefaultSg": "3.18",
+    "MinSg": "3.15",
+    "MaxSg": "3.21",
+    "ImageRef": "spodumene"
+  },
+  "star diopside": {
+    "DefaultSg": "3.29",
+    "MinSg": "3.22",
+    "MaxSg": "3.38",
+    "ImageRef": "star-diopside"
+  },
+  "star ruby": {
+    "DefaultSg": "4.00",
+    "MinSg": "3.97",
+    "MaxSg": "4.05",
+    "ImageRef": "star-ruby"
+  },
+  "star sapphire": {
+    "DefaultSg": "3.99",
+    "MinSg": "3.95",
+    "MaxSg": "4.03",
+    "ImageRef": "star-sapphire"
+  },
+  "strontium titanate": {
+    "DefaultSg": "5.13",
+    "MinSg": "5.11",
+    "MaxSg": "5.15",
+    "ImageRef": "strontium titanate"
+  },
+  "sugilite": {
+    "DefaultSg": "2.74",
+    "MinSg": "2.72",
+    "MaxSg": "2.80",
+    "ImageRef": "sugilite"
+  },
+  "sunstone": {
+    "DefaultSg": "2.65",
+    "MinSg": "2.62",
+    "MaxSg": "2.67",
+    "ImageRef": "sunstone"
+  },
+  "synthetic corundum": {
+    "DefaultSg": "4.00",
+    "MinSg": "4.00",
+    "MaxSg": "4.00",
+    "ImageRef": "synthetic corundum"
+  },
+  "taaffeite": {
+    "DefaultSg": "3.61",
+    "MinSg": "3.60",
+    "MaxSg": "3.62",
+    "ImageRef": "taaffeite"
+  },
+  "tanzanite": {
+    "DefaultSg": "3.35",
+    "MinSg": "3.35",
+    "MaxSg": "3.35",
+    "ImageRef": "tanzanite"
+  },
+  "tektite": {
+    "DefaultSg": "2.40",
+    "MinSg": "2.34",
+    "MaxSg": "2.51",
+    "ImageRef": "tektite"
+  },
+  "tiger eye": {
+    "DefaultSg": "2.80",
+    "MinSg": "2.55",
+    "MaxSg": "2.91",
+    "ImageRef": "tigerseye"
+  },
+  "titanite": {
+    "DefaultSg": "3.53",
+    "MinSg": "3.52",
+    "MaxSg": "3.54",
+    "ImageRef": "titanite"
+  },
+  "topaz": {
+    "DefaultSg": "3.53",
+    "MinSg": "3.49",
+    "MaxSg": "3.57",
+    "ImageRef": "topaz"
+  },
+  "tortoiseshell": {
+    "DefaultSg": "1.29",
+    "MinSg": "1.29",
+    "MaxSg": "1.29",
+    "ImageRef": "tortoiseshell"
+  },
+  "tourmaline": {
+    "DefaultSg": "3.06",
+    "MinSg": "2.83",
+    "MaxSg": "3.32",
+    "ImageRef": "tourmaline"
+  },
+  "tourmaline schorl": {
+    "DefaultSg": "3.06",
+    "MinSg": "3.18",
+    "MaxSg": "3.22",
+    "ImageRef": "tourmaline schorl"
+  },
+  "turquoise": {
+    "DefaultSg": "2.80",
+    "MinSg": "2.31",
+    "MaxSg": "2.84",
+    "ImageRef": "turquoise"
+  },
+  "uvarovite": {
+    "DefaultSg": "3.77",
+    "MinSg": "3.77",
+    "MaxSg": "3.77",
+    "ImageRef": "uvarovite"
+  },
+  "variscite": {
+    "DefaultSg": "2.55",
+    "MinSg": "2.42",
+    "MaxSg": "2.58",
+    "ImageRef": "variscite"
+  },
+  "verdite": {
+    "DefaultSg": "2.88",
+    "MinSg": "2.76",
+    "MaxSg": "3.00",
+    "ImageRef": "verdite"
+  },
+  "vesuvianite": {
+    "DefaultSg": "3.40",
+    "MinSg": "3.25",
+    "MaxSg": "3.50",
+    "ImageRef": "vesuvianite"
+  },
+  "vivianite": {
+    "DefaultSg": "2.60",
+    "MinSg": "2.64",
+    "MaxSg": "2.70",
+    "ImageRef": "vivianite"
+  },
+  "water opal": {
+    "DefaultSg": "2.00",
+    "MinSg": "2.00",
+    "MaxSg": "2.00",
+    "ImageRef": "water opal"
+  },
+  "yttrium aluminate YAG": {
+    "DefaultSg": "4.55",
+    "MinSg": "4.55",
+    "MaxSg": "4.57",
+    "ImageRef": "yttrium aluminate YAG"
+  },
+  "zircon (metamict)": {
+    "DefaultSg": "4.00",
+    "MinSg": "3.95",
+    "MaxSg": "4.20",
+    "ImageRef": "zircon (metamict)"
+  },
+  "zircon (normal)": {
+    "DefaultSg": "4.69",
+    "MinSg": "3.93",
+    "MaxSg": "4.73",
+    "ImageRef": "zircon (normal)"
+  },
+  "zirconia (cubic)": {
+    "DefaultSg": "5.80",
+    "MinSg": "5.50",
+    "MaxSg": "6.00",
+    "ImageRef": "zirconia (cubic)"
+  },
+  "zoisite": {
+    "DefaultSg": "3.35",
+    "MinSg": "3.20",
+    "MaxSg": "3.50",
+    "ImageRef": "zoisite"
+  },
+  "choose from below": {
+    "DefaultSg": "0.00",
+    "MinSg": "0.00",
+    "MaxSg": "0.00",
+    "ImageRef": "diamond"
+  }
+}

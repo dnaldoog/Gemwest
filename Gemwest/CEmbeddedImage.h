@@ -1,6 +1,7 @@
 #pragma once
 using namespace System;
 using namespace System::Collections::Generic; // used for Dictionary
+/*using namespace System::Diagnostics;// for Debug::Writeline*/
 
 ref class CEmbeddedImage
 {
