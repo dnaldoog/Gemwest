@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Gemwest"
-#define MyAppVersion "v2.0.1"
+#define MyAppVersion "v3.0.0"
 #define MyAppPublisher "Zaniah"
 #define MyAppURL "https://github.com/dnaldoog/Gemwest"
 #define MyAppExeName "Gemwest.exe"
@@ -40,7 +40,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "C:\Users\{#USER}\{#BuildPath}\CSconfig.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\{#USER}\{#BuildPath}\gemreference.json"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\{#USER}\{#BuildPath}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\{#USER}\{#BuildPath}\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\{#USER}\{#BuildPath}\msvcp140.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\{#USER}\{#BuildPath}\vcruntime140.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\{#USER}\{#BuildPath}\vcruntime140_1.dll"; DestDir: "{app}"; Flags: ignoreversion
