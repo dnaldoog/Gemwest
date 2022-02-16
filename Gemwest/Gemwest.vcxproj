@@ -224,6 +224,7 @@
     <Image Include="..\..\..\..\Desktop\gw.ico" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\ametrine.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\andesine.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\angelite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\bronzite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\cat%27s-eye-apatite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\cat%27s-eye-aquamarine.png" />
@@ -258,6 +259,7 @@
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\star-ruby.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\star-sapphire.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\sunstone.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\trolleite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\verdite.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\adjustmentarrow.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\bulge_obvious.png" />

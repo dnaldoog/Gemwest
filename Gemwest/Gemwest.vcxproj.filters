@@ -1960,6 +1960,12 @@
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\linde.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\angelite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\trolleite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">

@@ -709,7 +709,7 @@ This will reduce the weight by 1% to 3%.*/
 			//Color^ myBlue = gcnew Color;
 				//myBlue->FromArgb(51,102,153);
 			//SolidBrush^  myBlueBrush=gcnew SolidBrush(Color::myBlue);
-			SolidBrush^ blueBrush = gcnew SolidBrush(Color::FromArgb(51, 102, 153));
+			SolidBrush^ blueBrush = gcnew SolidBrush(Color::FromArgb(RED,GREEN,BLUE));
 
 			if (divider >= 1.00) { gd->FillRectangle(Brushes::Orange, r); }
 			//else { gd->FillRectangle(Brushes::CornflowerBlue, r); }
@@ -754,7 +754,7 @@ This will reduce the weight by 1% to 3%.*/
 				//Pen^ myPen = gcnew Pen(Color::RoyalBlue, 2);
 				//Pen^ myPen = gcnew Pen(Color::FromArgb(255, 51, 102, 153), 2);
 				//Single halfPenWidth = myPen->Width * 0.5f;
-				SolidBrush^ blueBrush = gcnew SolidBrush(Color::FromArgb(51, 102, 153));
+				SolidBrush^ blueBrush = gcnew SolidBrush(Color::FromArgb(RED,GREEN,BLUE));
 				Double placeCentre = (this->picLW->Width / 2) - (w / 2);// -halfPenWidth;
 
 				RectangleF  r = RectangleF(System::Convert::ToSingle(placeCentre), System::Convert::ToSingle(6), System::Convert::ToSingle(w), System::Convert::ToSingle(l));
@@ -787,7 +787,7 @@ This will reduce the weight by 1% to 3%.*/
 				w = (w / lw) - push * shrink;
 
 				//Pen^ myPen = gcnew Pen(Color::RoyalBlue, 2);
-				Pen^ myPen = gcnew Pen(Color::FromArgb(255, 51, 102, 153), 2);
+				Pen^ myPen = gcnew Pen(Color::FromArgb(ALPHA,RED,GREEN,BLUE), 2);
 				Single halfPenWidth = myPen->Width * 0.5f;
 
 				Double placeCentre = (this->picLW->Width / 2) - (w / 2) - halfPenWidth;
@@ -1075,37 +1075,38 @@ This will reduce the weight by 1% to 3%.*/
 			this->comboGems->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboGems->Enabled = false;
 			this->comboGems->FormattingEnabled = true;
-			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(240) {
+			this->comboGems->Items->AddRange(gcnew cli::array< System::Object^  >(245) {
 				L"actinolite", L"agate", L"albite", L"alexandrite",
-					L"almandine", L"amazonite", L"amber", L"amethyst", L"ametrine", L"ammolite", L"andalusite", L"andesine", L"apatite", L"aquamarine",
-					L"aragonite", L"aventurine", L"aventurine quartz", L"axinite (ferro-axinite)", L"azurite", L"bakelite", L"benitoite", L"beryl",
-					L"beryl aquamarine", L"beryl colourless", L"beryl heliodor", L"beryl maxixe", L"beryl morganite", L"blende", L"bloodstone", L"blue topaz",
-					L"bonamite", L"bowenite", L"brazilianite", L"bronzite", L"calcite", L"californite", L"carborundum", L"carnelian", L"cassiterite",
-					L"cat\'s eye apatite", L"cat\'s eye aquamarine", L"cat\'s eye chrysoberyl", L"cat\'s eye diaspore", L"cat\'s eye sillimanite",
-					L"cat\'s eye tourmaline", L"celluloid", L"chalcedony", L"chalcedony agate", L"chalcedony aventurine", L"chalcedony carnelian",
-					L"chalcedony heliotrope", L"chalcedony moss agate", L"chalcedony onyx", L"charoite", L"chrome diopside", L"chrome tourmaline",
-					L"chrysoberyl", L"chrysoberyl alexandrite", L"chrysoberyl cat\'s eye", L"chrysoberyl cymophane", L"chrysocolla", L"chrysoprase",
-					L"citrine", L"clinohumite", L"colour change diaspore", L"colourless beryl", L"conch pearl", L"copal resin", L"coral", L"cornelian",
-					L"corundum", L"corundum ruby", L"corundum sapphire", L"corundum synthetic", L"crocidolite", L"cubic zirconia", L"cymophane",
-					L"cz", L"danburite", L"datolite", L"demantoid", L"dendritic agate", L"diamond", L"diopside", L"dioptase", L"ekanite", L"emerald",
-					L"emerald (Biron)", L"emerald (Chatham)", L"emerald (Gilson)", L"emerald (Linde)", L"enstatite", L"epidote", L"euclase", L"fibrolite",
-					L"fire agate", L"fire opal", L"fluorite", L"garnet", L"garnet (mali)", L"garnet almandine", L"garnet demantoid", L"garnet grossular (pure)",
-					L"garnet hessonite", L"garnet pyrope", L"garnet rhodolite", L"garnet spessartine", L"garnet star", L"garnet tsavorite", L"garnet uvarovite",
-					L"gaspéite", L"ggg", L"glass", L"golden beryl", L"goshenite", L"grossular", L"grossular (pure)", L"grossular garnet", L"haematite",
-					L"hambergite", L"heliodor", L"hematite", L"hemimorphite", L"hessonite", L"hiddenite", L"howlite", L"hypersthene", L"idocrase",
-					L"imperial topaz", L"iolite", L"jadeite", L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite", L"labradorite", L"lapis lazuli",
-					L"larimar", L"lazulite", L"lepidolite", L"lithium niobate", L"malachite", L"malaia garnet", L"mali garnet", L"marcasite", L"maw-sit-sit",
-					L"maxixe", L"melanite", L"moissanite", L"moldavite", L"moonstone", L"morganite", L"moss agate", L"mystic topaz", L"nephrite",
-					L"nuummite", L"obsidian", L"odontolite", L"onyx", L"opal", L"orthoclase", L"padparadscha", L"painite", L"paraíba tourmaline",
-					L"pearl", L"pectolite (larimar)", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz", L"pleonaste", L"porcelain",
-					L"prehnite", L"pseudophite", L"pyrites", L"pyrope", L"quartz", L"quartz amethyst", L"quartz aventurine", L"quartz cat\'s eye",
-					L"quartz chalcedony", L"quartz citrine", L"quartz dumortierite", L"quartz rose", L"quartz rutillated", L"quartz smoky", L"rhodochrosite",
-					L"rhodonite", L"rubbelite", L"ruby", L"rutile", L"rutile topaz", L"rutillated quartz", L"sapphire", L"sard", L"scapolite", L"scheelite",
-					L"schorl", L"seraphinite", L"serpentine", L"silica glass", L"sinhalite", L"smithsonite", L"sodalite", L"spessartine", L"sphalerite",
-					L"sphene", L"spinel", L"spinel synthetic", L"spodumene", L"star diopside", L"star ruby", L"star sapphire", L"strontium titanate",
-					L"sugilite", L"sunstone", L"synthetic corundum", L"taaffeite", L"tanzanite", L"tektite", L"tiger eye", L"titanite", L"topaz",
-					L"tortoiseshell", L"tourmaline", L"tourmaline schorl", L"turquoise", L"uvarovite", L"variscite", L"verdite", L"vesuvianite",
-					L"vivianite", L"water opal", L"yttrium aluminate YAG", L"zircon (metamict)", L"zircon (normal)", L"zirconia (cubic)", L"zoisite"
+					L"almandine", L"amazonite", L"amber", L"amethyst", L"ametrine", L"ammolite", L"andalusite", L"andesine", L"angelite", L"anhydrite",
+					L"apatite", L"aquamarine", L"aragonite", L"aventurine", L"aventurine quartz", L"axinite (ferro-axinite)", L"azurite", L"bakelite",
+					L"benitoite", L"beryl", L"beryl aquamarine", L"beryl colourless", L"beryl heliodor", L"beryl maxixe", L"beryl morganite", L"blende",
+					L"bloodstone", L"blue topaz", L"bonamite", L"bowenite", L"brazilianite", L"bronzite", L"calcite", L"californite", L"carborundum",
+					L"carnelian", L"cassiterite", L"cat\'s eye apatite", L"cat\'s eye aquamarine", L"cat\'s eye chrysoberyl", L"cat\'s eye diaspore",
+					L"cat\'s eye sillimanite", L"cat\'s eye tourmaline", L"celluloid", L"chalcedony", L"chalcedony agate", L"chalcedony aventurine",
+					L"chalcedony carnelian", L"chalcedony heliotrope", L"chalcedony moss agate", L"chalcedony onyx", L"charoite", L"chrome diopside",
+					L"chrome tourmaline", L"chrysoberyl", L"chrysoberyl alexandrite", L"chrysoberyl cat\'s eye", L"chrysoberyl cymophane", L"chrysocolla",
+					L"chrysoprase", L"citrine", L"clinohumite", L"colour change diaspore", L"colourless beryl", L"conch pearl", L"copal resin", L"coral",
+					L"cornelian", L"corundum", L"corundum ruby", L"corundum sapphire", L"corundum synthetic", L"crocidolite", L"cubic zirconia",
+					L"cymophane", L"cz", L"danburite", L"datolite", L"demantoid", L"dendritic agate", L"diamond", L"diopside", L"dioptase", L"ekanite",
+					L"emerald", L"emerald (Biron)", L"emerald (Chatham)", L"emerald (Gilson)", L"emerald (Linde)", L"enstatite", L"epidote", L"euclase",
+					L"fibrolite", L"fire agate", L"fire opal", L"fluorite", L"garnet", L"garnet (mali)", L"garnet almandine", L"garnet demantoid",
+					L"garnet grossular (pure)", L"garnet hessonite", L"garnet pyrope", L"garnet rhodolite", L"garnet spessartine", L"garnet star",
+					L"garnet tsavorite", L"garnet uvarovite", L"gaspéite", L"ggg", L"glass", L"golden beryl", L"goshenite", L"grossular", L"grossular (pure)",
+					L"grossular garnet", L"haematite", L"hambergite", L"heliodor", L"hematite", L"hemimorphite", L"hessonite", L"hiddenite", L"howlite",
+					L"hypersthene", L"idocrase", L"imperial topaz", L"iolite", L"jadeite", L"jasper", L"jet", L"kornerupine", L"kunzite", L"kyanite",
+					L"labradorite", L"lapis lazuli", L"larimar", L"lazulite", L"lepidolite", L"lithium niobate", L"malachite", L"malaia garnet",
+					L"mali garnet", L"marcasite", L"maw-sit-sit", L"maxixe", L"melanite", L"moissanite", L"moldavite", L"moonstone", L"morganite",
+					L"moss agate", L"mystic topaz", L"nephrite", L"nuummite", L"obsidian", L"odontolite", L"onyx", L"opal", L"orthoclase", L"padparadscha",
+					L"painite", L"paraíba tourmaline", L"pearl", L"pectolite (larimar)", L"periclase", L"peridot", L"phenakite", L"pink beryl", L"pink topaz",
+					L"pleonaste", L"porcelain", L"prehnite", L"pseudophite", L"pyrites", L"pyrope", L"quartz", L"quartz amethyst", L"quartz aventurine",
+					L"quartz cat\'s eye", L"quartz chalcedony", L"quartz citrine", L"quartz dumortierite", L"quartz rose", L"quartz rutillated",
+					L"quartz smoky", L"rhodochrosite", L"rhodonite", L"rose quartz", L"rubbelite", L"ruby", L"rutile", L"rutile topaz", L"rutillated quartz",
+					L"sapphire", L"sard", L"scapolite", L"scheelite", L"schorl", L"seraphinite", L"serpentine", L"silica glass", L"sinhalite", L"smithsonite",
+					L"smoky quartz", L"sodalite", L"spessartine", L"sphalerite", L"sphene", L"spinel", L"spinel synthetic", L"spodumene", L"star diopside",
+					L"star ruby", L"star sapphire", L"strontium titanate", L"sugilite", L"sunstone", L"synthetic corundum", L"taaffeite", L"tanzanite",
+					L"tektite", L"tiger eye", L"titanite", L"topaz", L"tortoiseshell", L"tourmaline", L"tourmaline schorl", L"trolleite", L"turquoise",
+					L"uvarovite", L"variscite", L"verdite", L"vesuvianite", L"vivianite", L"water opal", L"yttrium aluminate YAG", L"zircon (metamict)",
+					L"zircon (normal)", L"zirconia (cubic)", L"zoisite"
 			});
 			this->comboGems->Location = System::Drawing::Point(90, 28);
 			this->comboGems->Name = L"comboGems";
