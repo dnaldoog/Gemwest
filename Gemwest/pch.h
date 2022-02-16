@@ -28,7 +28,10 @@
 #define  WEBSITE "https://gemwest.sourceforge.io/"
 #define  WEBSF "https://sourceforge.net/projects/gemwest/"
 #define  WEBPAYPAL "https://www.paypal.com/paypalme/jd990supereditor"
-
+#define ALPHA 255
+#define RED 153
+#define GREEN 204
+#define BLUE 255
 // Fügen Sie hier Header hinzu, die vorkompiliert werden sollen.
 
 #endif //PCH_H
