@@ -20,7 +20,7 @@ private:
 	/*following are Form1 data passed to object*/
 protected:
 	String^ m_cutName; // name of cut
-	String^ m_factor; // factor selected by cut choice
+	Decimal m_factor; // factor selected by cut choice
 	Decimal m_d1; // diameter 1 (could be length)
 	Decimal m_d2; // diameter 2 (could be width)
 	Decimal m_depth; // depth of stone in millimeters
@@ -37,7 +37,7 @@ protected:
 public:
 	CDcalc(
 		String^ cutName,
-		String^ fac,
+		Decimal fac,
 		Decimal d1,
 		Decimal d2,
 		Decimal dep,

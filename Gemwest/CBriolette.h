@@ -4,7 +4,7 @@ ref class CBriolette :
     public CGcalc
 {
 public:
-     CBriolette(Decimal h, Decimal w, Decimal d, Decimal sg, String^ f, String^ adj) : CGcalc(h, w, d, sg, f, adj) {}
+     CBriolette(Decimal h, Decimal w, Decimal d, Decimal sg, Decimal f, String^ adj) : CGcalc(h, w, d, sg, f, adj) {}
 };
 
 /*

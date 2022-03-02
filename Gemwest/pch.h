@@ -26,6 +26,7 @@
 #define  CHOOSE "choose from below"
 #define  TOOLTIP "Ready..."
 #define  WEBSITE "https://gemwest.sourceforge.io/"
+#define  WEBGITHUB "https://github.com/dnaldoog/Gemwest/issues/"
 #define  WEBSF "https://sourceforge.net/projects/gemwest/"
 #define  WEBPAYPAL "https://www.paypal.com/paypalme/jd990supereditor"
 #define ALPHA 255

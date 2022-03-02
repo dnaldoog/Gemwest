@@ -20,6 +20,7 @@
 #include "AboutForm1.h"
 #include "HelpForm.h"
 #include "OptionsForm.h"
+#include "CGeneratemenu.h"
 //#ifndef "choose from below"
 //#define "choose from below" "choose from below"
 //#endif // !"choose from below"
@@ -62,6 +63,8 @@ namespace ZaniahSystems {
 	private: System::Windows::Forms::ToolStripMenuItem^ saveToolStripMenuItem;
 	private: System::Windows::Forms::Label^ lblSGrangeStatic;
 	private: System::Windows::Forms::Label^ lblSgRange;
+	private: System::Windows::Forms::NumericUpDown^ numFactor;
+
 	protected:
 		LogForm^ persistantLogRecord = gcnew LogForm();
 		/// <summary>
@@ -193,11 +196,13 @@ namespace ZaniahSystems {
 			};
 			String^ shapedes = shapeDescription[0];
 			String^ so = "so3";
-			/*Wide corners on cut corner squares and rectangles can decrease weight as much as 5%.
-For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10%. Occasionally,
-straight shoulders will require a deduction of 1% to 5%.
-Marquise and (sometimes) pears will have a very short keel or none at all.
-This will reduce the weight by 1% to 3%.*/
+			/*
+				Wide corners on cut corner squares and rectangles can decrease weight as much as 5%.
+				For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10%. Occasionally,
+				straight shoulders will require a deduction of 1% to 5%.
+				Marquise and (sometimes) pears will have a very short keel or none at all.
+				This will reduce the weight by 1% to 3%.
+			*/
 
 			this->tbShapeOutline->Minimum = -5;
 			this->tbShapeOutline->Maximum = 10;
@@ -248,8 +253,10 @@ This will reduce the weight by 1% to 3%.*/
 				|| currentCut->Contains("oval")
 				|| currentCut->Contains("ushio")
 				) {// all other fancies
-			/*For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10 % .Occasionally,
-				straight shoulders will require a deduction of 1 % to 5 % .*/
+				/*
+					For oval, pear, marquise, and heart cuts, wide wings or high shoulders can add up to 10 % .Occasionally,
+					straight shoulders will require a deduction of 1 % to 5 % .
+				*/
 				this->tbShapeOutline->Minimum = -5;
 				this->tbShapeOutline->Maximum = 10;
 				if (this->tbShapeOutline->Value < -2) {
@@ -321,7 +328,7 @@ This will reduce the weight by 1% to 3%.*/
 					if (this->comboCut->Text->Equals(TAPBAG)) { // Tapered Baguette
 						CTaperedBaguette^ TB = gcnew CTaperedBaguette(
 							this->comboCut->Text,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
@@ -339,7 +346,7 @@ This will reduce the weight by 1% to 3%.*/
 					else if (this->comboCut->Text->Equals(MARQ)) {
 						CDfancy^ MQ = gcnew CDfancy(
 							this->comboCut->Text,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
@@ -357,7 +364,7 @@ This will reduce the weight by 1% to 3%.*/
 					else if (this->comboCut->Text->Equals(PEAR)) {
 						CDfancy^ PR = gcnew CDfancy(
 							this->comboCut->Text,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
@@ -375,7 +382,7 @@ This will reduce the weight by 1% to 3%.*/
 					else if (this->comboCut->Text->Equals(EMER)) {
 						CDfancy^ EM = gcnew CDfancy(
 							this->comboCut->Text,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
@@ -393,7 +400,7 @@ This will reduce the weight by 1% to 3%.*/
 					else if (this->comboCut->Text->Equals(RADI)) {
 						CDfancy^ RI = gcnew CDfancy(
 							this->comboCut->Text,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
@@ -411,7 +418,7 @@ This will reduce the weight by 1% to 3%.*/
 					else if (CCutDim::isRoundish(this->comboCut->Text)) {
 						CDround^ RC = gcnew CDround(
 							this->comboCut->Text,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
@@ -444,7 +451,7 @@ This will reduce the weight by 1% to 3%.*/
 
 						CDcalc^ defaultCutFormula = gcnew CDcalc(
 							this->comboCut->Text,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
@@ -464,10 +471,10 @@ This will reduce the weight by 1% to 3%.*/
 					if (CCutDim::isRoundish(this->comboCut->Text)) {
 						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
 						avd = Decimal::Round((avd), 2);
-						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Est.=(" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Est.=(" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numFactor->Value + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 					}
 					else {
-						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x" + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						this->toolStrip->Text = L"[Diamond:" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x" + this->numFactor->Value + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 						/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
 					}
 
@@ -496,7 +503,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia2->Value,
 							this->numDepth->Value, //  not used in weight calculation
 							this->numSG->Value,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
 						);
 						p = BE;
@@ -507,7 +514,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia2->Value,
 							this->numDepth->Value, 
 							this->numSG->Value,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
 						);
 						p = BR;
@@ -518,7 +525,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia2->Value,
 							this->numDepth->Value,
 							this->numSG->Value,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
 						);
 						p = OV;
@@ -529,7 +536,7 @@ This will reduce the weight by 1% to 3%.*/
 							this->numDia2->Value,
 							this->numDepth->Value,
 							this->numSG->Value,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->txtGlobAdjust->Text->Substring(0, this->txtGlobAdjust->Text->Length - 1)
 						);
 						p = GC;
@@ -547,15 +554,15 @@ This will reduce the weight by 1% to 3%.*/
 					if (this->comboCut->Text == OVALG) {
 						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
 						avd = Decimal::Round((avd), 2);
-						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + ") x " + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->numFactor->Value + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 					}
 					else if (this->comboCut->Text == RDBEAD) {
 						Decimal avd = CCalculator::average_diameter(this->numDia1->Value, this->numDia2->Value);
 						avd = Decimal::Round((avd), 2);
-						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + " x " + avd + ") x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est. = (" + avd + " x " + avd + " x " + avd + ") x " + this->numSG->Value + " x " + this->numFactor->Value + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 					}
 					else {
-						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->txtFactor->Text + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
+						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->numFactor->Value + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
 						/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
 					}
 
@@ -614,7 +621,7 @@ This will reduce the weight by 1% to 3%.*/
 						CDfancy^ fancyFactor = gcnew CDfancy(
 
 							this->comboCut->Text,
-							this->txtFactor->Text,
+							this->numFactor->Value,
 							this->numDia1->Value,
 							this->numDia2->Value,
 							this->numDepth->Value,
@@ -630,7 +637,7 @@ This will reduce the weight by 1% to 3%.*/
 						fancyFactor->length = this->numDia1->Value;
 						fancyFactor->width = this->numDia2->Value;
 						fancyFactor->fancyType = this->comboCut->Text;
-						this->txtFactor->Text = fancyFactor->setFancyRecutFactor();
+						this->numFactor->Value = fancyFactor->setFancyRecutFactor();
 					}
 				} 	// end numDia1 or numDia2 == 0
 
@@ -863,7 +870,6 @@ This will reduce the weight by 1% to 3%.*/
 	private: System::Windows::Forms::Label^ lblDia1;
 	private: System::Windows::Forms::TrackBar^ tbPavilionBulge;
 	private: System::Windows::Forms::TrackBar^ tbGirdleThickness;
-	private: System::Windows::Forms::TextBox^ txtFactor;
 	private: System::Windows::Forms::Label^ lblSelectedCut;
 	private: System::Windows::Forms::ComboBox^ comboCut;
 	private: System::Windows::Forms::Label^ lblSgValue;
@@ -1004,6 +1010,7 @@ This will reduce the weight by 1% to 3%.*/
 			this->picRecut = (gcnew System::Windows::Forms::PictureBox());
 			this->cbRecut = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->numFactor = (gcnew System::Windows::Forms::NumericUpDown());
 			this->lblSGrangeStatic = (gcnew System::Windows::Forms::Label());
 			this->lblSgRange = (gcnew System::Windows::Forms::Label());
 			this->lblRecutDetails = (gcnew System::Windows::Forms::Label());
@@ -1013,7 +1020,6 @@ This will reduce the weight by 1% to 3%.*/
 			this->picCut = (gcnew System::Windows::Forms::PictureBox());
 			this->lblSgValue = (gcnew System::Windows::Forms::Label());
 			this->lblCutFactor = (gcnew System::Windows::Forms::Label());
-			this->txtFactor = (gcnew System::Windows::Forms::TextBox());
 			this->lblSelectedCut = (gcnew System::Windows::Forms::Label());
 			this->comboCut = (gcnew System::Windows::Forms::ComboBox());
 			this->btnSaveToLog = (gcnew System::Windows::Forms::Button());
@@ -1060,6 +1066,7 @@ This will reduce the weight by 1% to 3%.*/
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbCrownHeight))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRecut))->BeginInit();
 			this->groupBox2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numFactor))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numSG))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGem))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCut))->BeginInit();
@@ -1823,6 +1830,7 @@ This will reduce the weight by 1% to 3%.*/
 			// groupBox2
 			// 
 			this->groupBox2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->groupBox2->Controls->Add(this->numFactor);
 			this->groupBox2->Controls->Add(this->lblSGrangeStatic);
 			this->groupBox2->Controls->Add(this->lblSgRange);
 			this->groupBox2->Controls->Add(this->lblRecutDetails);
@@ -1834,7 +1842,6 @@ This will reduce the weight by 1% to 3%.*/
 			this->groupBox2->Controls->Add(this->picCut);
 			this->groupBox2->Controls->Add(this->lblSgValue);
 			this->groupBox2->Controls->Add(this->lblCutFactor);
-			this->groupBox2->Controls->Add(this->txtFactor);
 			this->groupBox2->Controls->Add(this->lblSelectedCut);
 			this->groupBox2->Controls->Add(this->comboCut);
 			this->groupBox2->Controls->Add(this->comboGems);
@@ -1846,6 +1853,16 @@ This will reduce the weight by 1% to 3%.*/
 			this->groupBox2->Size = System::Drawing::Size(505, 163);
 			this->groupBox2->TabIndex = 13;
 			this->groupBox2->TabStop = false;
+			// 
+			// numFactor
+			// 
+			this->numFactor->DecimalPlaces = 5;
+			this->numFactor->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 262144 });
+			this->numFactor->Location = System::Drawing::Point(90, 134);
+			this->numFactor->Name = L"numFactor";
+			this->numFactor->Size = System::Drawing::Size(100, 20);
+			this->numFactor->TabIndex = 79;
+			this->numFactor->ValueChanged += gcnew System::EventHandler(this, &Form1::numFactor_ValueChanged);
 			// 
 			// lblSGrangeStatic
 			// 
@@ -1939,16 +1956,6 @@ This will reduce the weight by 1% to 3%.*/
 			this->lblCutFactor->Size = System::Drawing::Size(56, 13);
 			this->lblCutFactor->TabIndex = 18;
 			this->lblCutFactor->Text = L"Cut Factor";
-			// 
-			// txtFactor
-			// 
-			this->txtFactor->Location = System::Drawing::Point(90, 134);
-			this->txtFactor->Name = L"txtFactor";
-			this->txtFactor->Size = System::Drawing::Size(100, 20);
-			this->txtFactor->TabIndex = 17;
-			this->txtFactor->Text = L"0.0061";
-			this->txtFactor->TextChanged += gcnew System::EventHandler(this, &Form1::txtFactor_TextChanged);
-			this->txtFactor->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtFactor_KeyPress);
 			// 
 			// lblSelectedCut
 			// 
@@ -2245,6 +2252,7 @@ This will reduce the weight by 1% to 3%.*/
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRecut))->EndInit();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numFactor))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numSG))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGem))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCut))->EndInit();
@@ -2318,7 +2326,7 @@ This will reduce the weight by 1% to 3%.*/
 		}*/
 			CJson^ sg = gcnew CJson(choice);
 			this->picGem->Image = sg->getName();
-			this->numSG->Text = sg->Sg;
+			this->numSG->Value = sg->Sg;
 			this->lblSgRange->Text = sg->Min + " - " + sg->Max;
 			onScreenInfo(); // repaint screen
 		/**************************IMAGE MANAGEMENT FOR GEMSTONES**************************/
@@ -2376,8 +2384,11 @@ D = front to back (depth)*/
 		if (this->radioBtnGem->Checked) {
 			CGemCut^ gc = gcnew CGemCut; // Declare object
 			gc->dictInitializer();
-			String^ myGemCut = gc->getCut(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
-			this->txtFactor->Text = myGemCut;
+			//String^ myGemCut = Convert::ToString(gc->getCutFactor(this->comboCut->Text)); // dc->_diaCut[this->comboCut->Text];
+			//this->txtFactor->Text = myGemCut;
+			this->numFactor->Value = gc->getCutFactor(this->comboCut->Text);
+			//String^ myGemCut = Convert::ToString(gc->getCutFactor(this->comboCut->Text)); // dc->_diaCut[this->comboCut->Text];
+			//this->txtFactor->Text = myGemCut;
 
 			CEmbeddedImage^ gCutImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
@@ -2387,9 +2398,11 @@ D = front to back (depth)*/
 		else if (this->radioBtnDia->Checked) {
 			CDiamondCut^ dc = gcnew CDiamondCut; // Declare object
 			dc->dictInitializer();
-			String^ myDiamondCut = dc->getCut(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
+			//^ myDiamondCut = dc->getCutFactor(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
+			//Double myDiamondCut = dc->getCutFactor(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
 
-			this->txtFactor->Text = myDiamondCut;
+			//this->txtFactor->Text = myDiamondCut;
+			this->numFactor->Value = dc->getCutFactor(this->comboCut->Text);
 		}
 
 
@@ -2422,24 +2435,10 @@ D = front to back (depth)*/
 		AboutForm1^ aform = gcnew AboutForm1;
 		aform->Show();
 	}
-	private: System::Void txtFactor_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-		this->calculate_carat_weight();
-		{
-			// Only allow 1 decimal point
-			if (e->KeyChar == '.')
-			{
-				if (this->txtFactor->Text->Contains(".") && !this->txtFactor->SelectedText->Contains("."))
-					e->Handled = true;
-			}
-			// Accept only digits "." and the Backspace character
-			else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
-				e->Handled = true;
-		}
 
-	}
 	private: System::Void radioBtnDia_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
-		this->txtFactor->Clear();
+		this->numFactor->Value= Convert::ToDecimal(0.00);
 		this->comboCut->ResetText();
 		this->comboCut->SelectedText = "choose from below";
 		this->comboGems->ResetText();
@@ -2461,9 +2460,13 @@ D = front to back (depth)*/
 		defaultRBC->setName("round brilliant");
 		this->picCut->Image = defaultRBC->getName();
 
+		CEmbeddedImage^ defaultGem = gcnew CEmbeddedImage;
+		defaultGem->setName("diamond");
+		this->picGem->Image = defaultGem->getName();
+
 	}
 	private: System::Void radioBtnGem_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		this->txtFactor->Clear();
+		this->numFactor->Value = Convert::ToDecimal(0.00);
 		this->comboCut->ResetText();
 		this->comboCut->SelectedText = "choose from below";
 
@@ -2530,8 +2533,6 @@ D = front to back (depth)*/
 		repaint_pavilion_bulge();
 		this->onScreenInfo(); // print depth percentage and L/W Ratio
 
-	}
-	private: System::Void txtFactor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void numDia2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (this->numDia2->Value > this->numDia1->Value)
@@ -2647,6 +2648,7 @@ D = front to back (depth)*/
 
 	private: System::Void Form1_Load_1(System::Object^ sender, System::EventArgs^ e) {
 		/****************LOAD CONFIG FILES***************************/
+		this->numFactor->Value = (Decimal)0.0061;
 		this->Icon = gcnew System::Drawing::Icon(L"app.ico");
 		CEmbeddedImage^ rc = gcnew CEmbeddedImage;
 		rc->setName("recut");
@@ -2791,9 +2793,6 @@ D = front to back (depth)*/
 	}
 	private: System::Void textCrown_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-
-
-
 	private: System::Void btnCopy_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (!this->toolStrip->Text->Equals(TOOLTIP))
 			Clipboard::SetDataObject(this->toolStrip->Text, true);
@@ -2810,18 +2809,20 @@ D = front to back (depth)*/
 	private: System::Void btnSaveToLog_Click(System::Object^ sender, System::EventArgs^ e) {
 		save_calculation_to_log();
 	}
-
-
-
 	private: System::Void numSG_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (this->numSG == this->ActiveControl)
 		{
 			this->onScreenInfo();
-			//MessageBox::Show("value changed");
 		}
 	}
 	private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		save_calculation_to_log();
 	}
-	};
+	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		CGenerateMenu::listAllNames();
+	}
+private: System::Void numFactor_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	this->onScreenInfo();
+}
+};
 }

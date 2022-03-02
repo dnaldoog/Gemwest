@@ -13,10 +13,10 @@ private:
     Decimal m_d2; // diamter 2 (could be width)
     Decimal m_depth; // depth of stone in millimeters
     Decimal m_sg; //Specific Gravity
-    String^ m_factor; // factor selected by cut choice
+    Decimal m_factor; // factor selected by cut choice
     String^ m_adj; //Adjustments
 public:
-    CGcalc(Decimal l,Decimal w,Decimal d,Decimal sg,String^ f,String^adj):
+    CGcalc(Decimal l,Decimal w,Decimal d,Decimal sg, Decimal f,String^adj):
         m_d1(l),
         m_d2(w),
         m_depth(d),
@@ -55,8 +55,8 @@ public:
          }
 
      }
-     property String^ factor {
-         String^ get() {
+     property Decimal factor {
+         Decimal get() {
              return m_factor;
          }
 

@@ -7,9 +7,9 @@ Double CDfancy::lw() {
 
 }
 
-String^ CDfancy::setFancyRecutFactor() {
+Decimal CDfancy::setFancyRecutFactor() {
 
-		String^ factor = "0.001";
+		Decimal factor = (Decimal)0.001;
 		Double coefficient=0;
 		Double lw = this->lw();
 
@@ -63,13 +63,13 @@ String^ CDfancy::setFancyRecutFactor() {
 			if (lw < 1.5) { coefficient = 0.0081; }
 			else { coefficient = 0.0084; }
 		}
-		factor = Convert::ToString(coefficient);
+		factor = Convert::ToDecimal(coefficient);
 		return factor;
 
 }
 
 
 Decimal CDfancy::term() {
-	Decimal factor = CCalculator::fac2Dec(m_factor);
-	return  CCalculator::add_adjustments_to_carat_weight(m_d1 * m_d2 * m_depth * factor,m_adj);
+	//Decimal factor = CCalculator::fac2Dec(m_factor);
+	return  CCalculator::add_adjustments_to_carat_weight(m_d1 * m_d2 * m_depth * m_factor ,m_adj);
 }

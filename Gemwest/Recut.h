@@ -6,7 +6,7 @@ ref class Recut :
 public:
 	explicit Recut(
 		String^ cutName, 
-		String^ fac, 
+		Decimal fac, 
 		Decimal d1,
 		Decimal d2,
 		Decimal dep,

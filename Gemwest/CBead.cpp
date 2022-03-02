@@ -4,9 +4,9 @@
 
 
 Decimal CBead::term() {
-	Decimal factor = CCalculator::fac2Dec(this->factor);
+	//Decimal factor = CCalculator::fac2Dec(this->factor);
 	Decimal av_diameter = CCalculator::average_diameter(this->d1, this->d2);
-	return CCalculator::add_adjustments_to_carat_weight((av_diameter * av_diameter * av_diameter) * this->sg * factor, this->adjust);
+	return CCalculator::add_adjustments_to_carat_weight((av_diameter * av_diameter * av_diameter) * this->sg * this->factor, this->adjust);
 }
 
 

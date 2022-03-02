@@ -162,6 +162,7 @@
     <ClInclude Include="CDiamondCut.h" />
     <ClInclude Include="CDround.h" />
     <ClInclude Include="CEmbeddedImage.h" />
+    <ClInclude Include="CGenerateMenu.h" />
     <ClInclude Include="CGoval.h" />
     <ClInclude Include="CJson.h" />
     <ClInclude Include="Form1.h">
@@ -196,6 +197,7 @@
     <ClCompile Include="CCalculator.cpp" />
     <ClCompile Include="CDfancy.cpp" />
     <ClCompile Include="CDround.cpp" />
+    <ClCompile Include="CGenerateMenu.cpp" />
     <ClCompile Include="CGoval.cpp" />
     <ClCompile Include="CJson.cpp" />
     <ClCompile Include="ZaniahSystems.cpp" />
@@ -269,6 +271,7 @@
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\deep_stone.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\dia_prop_gauge.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\dioptase.png" />
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\noimage.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\pp.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\rect_shape_ouline.png" />
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\recut.png" />
@@ -850,7 +853,9 @@
     <EmbeddedResource Include="OptionsForm.resx">
       <DependentUpon>OptionsForm.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resource.resx" />
+    <EmbeddedResource Include="Resource.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Gemwest.rc" />
