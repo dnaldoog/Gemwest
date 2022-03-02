@@ -6,13 +6,14 @@ using namespace System::Diagnostics;
 ref class CGemCut
 {
 private:
-	Dictionary<String^, String^>^ m_gemCut;
+	Dictionary<String^, Double>^ m_gemCut;
 	array<String^>^ m_gemCutNames;
 	
 public:
 	void dictInitializer();
-	void setCut(Dictionary<String^, String^>^);
-	String^ getCut(String^ key);
+	void setCut(Dictionary<String^, Double>^);
+	Decimal getCutFactor(String^ key);
+	//Single getCutFactor(Single val);
 	array<String^>^ getCutNames();
 
 

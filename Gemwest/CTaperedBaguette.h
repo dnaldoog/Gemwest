@@ -8,7 +8,7 @@ public:
 
 	explicit CTaperedBaguette(
 		String^ cutName, 
-		String^ fac, 
+		Decimal fac,
 		Decimal d1,
 		Decimal d2,
 		Decimal dep,

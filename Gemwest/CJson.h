@@ -12,17 +12,17 @@ using namespace Newtonsoft::Json::Linq;
 ref class CJson
 {
 private:
-	String^ m_sg;
+	Decimal m_sg;
 	String^ m_min;
 	String^ m_max;
 	String^ m_image;
 	String^ resxFile = ".Resource";
 public:
-	property String^ Sg {
-		String^ get() {
+	property Decimal Sg {
+		Decimal get() {
 			return m_sg;
 		}
-		void set(String^ s) {
+		void set(Decimal s) {
 			m_sg = s;
 		}
 	}
@@ -67,20 +67,29 @@ public:
 			//Debug::WriteLine("query = {0}", tmpEscaped);
 		/*	std::basic_string tmpEscaped = msclr::interop::marshal_as<std::basic_string>(managed);*/
 			//static_cast<UTF8Encoding>(tmpEscaped);
-			this->Sg = Convert::ToString(o->SelectToken("['" + tmpEscaped + "']" + ".DefaultSg"));
+			this->Sg = Convert::ToDecimal(o->SelectToken("['" + tmpEscaped + "']" + ".DefaultSg"));
 			this->Min = Convert::ToString(o->SelectToken("['" + tmpEscaped + "']" + ".MinSg"));
 			this->Max = Convert::ToString(o->SelectToken("['" + tmpEscaped + "']" + ".MaxSg"));
 			this->Image = Convert::ToString(o->SelectToken("['" + tmpEscaped + "']" + ".ImageRef"));
 
+			//Debug::WriteLine("sg ", this->Sg);
 			//Debug::WriteLine("count is ", Convert::ToString(o->Count));
 		}
 		catch (Exception^ e)
 		{
-			this->Sg = "0.00";
+			Debug::WriteLine("JSON ERROR\n"+e->Message);
+			this->Sg = (Decimal)0.00;
 			this->Min = "0.00";
 			this->Max = "0.00";
 			this->Image = "no image";
 		}
+		//finally
+		//{
+		//	this->Sg = (Decimal)0.00;
+		//	this->Min = "0.00";
+		//	this->Max = "0.00";
+		//	this->Image = "no image";
+		//}
 	}
 
 	Drawing::Bitmap^ getName();
@@ -114,7 +123,7 @@ public:
 		catch (Exception^ Ex)
 		{
 			// handle any exception here
-			//Console::WriteLine(Ex->Message);
+			Console::WriteLine(Ex->Message);
 		}
 
 		return Result;

@@ -70,9 +70,9 @@ public:
 		return Convert::ToDecimal(retValue);
 
 	}
-	static Decimal fac2Dec(String^ f) {
-		return System::Convert::ToDecimal(f);
-	}
+	//static Decimal fac2Dec(String^ f) {
+	//	return System::Convert::ToDecimal(f);
+	//}
 };
 
 

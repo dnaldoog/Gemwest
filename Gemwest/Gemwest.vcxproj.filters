@@ -87,6 +87,9 @@
     <ClInclude Include="CJson.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="CGenerateMenu.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ZaniahSystems.cpp">
@@ -159,6 +162,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="CJson.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CGenerateMenu.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1964,6 +1970,9 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\additions 2.2.0\processed\trolleite.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\gwCLI_projectZ\noimage.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>

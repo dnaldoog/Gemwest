@@ -51,6 +51,8 @@ namespace ZaniahSystems {
 	private: System::Windows::Forms::PictureBox^ picAboutLogo;
 	private: System::Windows::Forms::PictureBox^ picPayPal;
 	private: System::Windows::Forms::Button^ btnCheckNewVersion;
+	private: System::Windows::Forms::LinkLabel^ linkLabel2;
+	private: System::Windows::Forms::Label^ label1;
 
 	private:
 		/// <summary>
@@ -73,6 +75,8 @@ namespace ZaniahSystems {
 			this->picAboutLogo = (gcnew System::Windows::Forms::PictureBox());
 			this->picPayPal = (gcnew System::Windows::Forms::PictureBox());
 			this->btnCheckNewVersion = (gcnew System::Windows::Forms::Button());
+			this->linkLabel2 = (gcnew System::Windows::Forms::LinkLabel());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureZaniahLogo))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picAboutLogo))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picPayPal))->BeginInit();
@@ -91,7 +95,7 @@ namespace ZaniahSystems {
 			// linkLabel1
 			// 
 			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->Location = System::Drawing::Point(78, 148);
+			this->linkLabel1->Location = System::Drawing::Point(62, 141);
 			this->linkLabel1->Name = L"linkLabel1";
 			this->linkLabel1->Size = System::Drawing::Size(160, 13);
 			this->linkLabel1->TabIndex = 1;
@@ -115,7 +119,7 @@ namespace ZaniahSystems {
 			this->labelProgramTitle->AutoSize = true;
 			this->labelProgramTitle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labelProgramTitle->Location = System::Drawing::Point(76, 89);
+			this->labelProgramTitle->Location = System::Drawing::Point(78, 89);
 			this->labelProgramTitle->Name = L"labelProgramTitle";
 			this->labelProgramTitle->Size = System::Drawing::Size(128, 25);
 			this->labelProgramTitle->TabIndex = 3;
@@ -131,7 +135,7 @@ namespace ZaniahSystems {
 			// 
 			// picAboutLogo
 			// 
-			this->picAboutLogo->Location = System::Drawing::Point(118, 26);
+			this->picAboutLogo->Location = System::Drawing::Point(120, 26);
 			this->picAboutLogo->Name = L"picAboutLogo";
 			this->picAboutLogo->Size = System::Drawing::Size(48, 48);
 			this->picAboutLogo->TabIndex = 5;
@@ -158,11 +162,35 @@ namespace ZaniahSystems {
 			this->btnCheckNewVersion->UseVisualStyleBackColor = true;
 			this->btnCheckNewVersion->Click += gcnew System::EventHandler(this, &AboutForm1::btnCheckNewVersion_Click);
 			// 
+			// linkLabel2
+			// 
+			this->linkLabel2->AutoSize = true;
+			this->linkLabel2->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->linkLabel2->Location = System::Drawing::Point(46, 334);
+			this->linkLabel2->Name = L"linkLabel2";
+			this->linkLabel2->Size = System::Drawing::Size(193, 13);
+			this->linkLabel2->TabIndex = 8;
+			this->linkLabel2->TabStop = true;
+			this->linkLabel2->Text = L"https://github.com/dnaldoog/Gemwest";
+			this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &AboutForm1::linkLabel2_LinkClicked);
+			// 
+			// label1
+			// 
+			this->label1->Location = System::Drawing::Point(83, 313);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(118, 23);
+			this->label1->TabIndex = 9;
+			this->label1->Text = L"Report errors to:";
+			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
 			// AboutForm1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 301);
+			this->ClientSize = System::Drawing::Size(284, 361);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->linkLabel2);
 			this->Controls->Add(this->btnCheckNewVersion);
 			this->Controls->Add(this->picPayPal);
 			this->Controls->Add(this->picAboutLogo);
@@ -172,7 +200,7 @@ namespace ZaniahSystems {
 			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->pictureZaniahLogo);
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(300, 340);
+			this->MaximumSize = System::Drawing::Size(300, 400);
 			this->MinimizeBox = false;
 			this->Name = L"AboutForm1";
 			this->Text = L"About";
@@ -221,6 +249,13 @@ private: System::Void picPayPal_Click(System::Object^ sender, System::EventArgs^
 private: System::Void btnCheckNewVersion_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	System::Diagnostics::Process::Start(WEBSITE+"?versioncheck="+ versionInformation());
+}
+private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+
+	this->linkLabel1->LinkVisited = true;
+
+	// Navigate to a URL.
+	System::Diagnostics::Process::Start(WEBGITHUB);
 }
 };
 }

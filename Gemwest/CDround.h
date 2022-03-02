@@ -13,7 +13,7 @@ private:
 public:
 	explicit CDround(
 		String^ cutName,
-		String^ fac,
+		Decimal fac,
 		Decimal d1,
 		Decimal d2,
 		Decimal dep,

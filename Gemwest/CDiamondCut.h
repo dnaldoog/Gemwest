@@ -6,13 +6,13 @@ using namespace System::Diagnostics;
 ref class CDiamondCut
 {
 private:
-	Dictionary<String^, String^>^ m_diaCut;
+	Dictionary<String^, Double>^ m_diaCut;
 	array<String^>^ m_diaCutNames;
-	void setCut(Dictionary<String^, String^>^);
+	void setCut(Dictionary<String^, Double>^);
 public:
 	void dictInitializer();
 
-	String^ getCut(String^ key);
+	Decimal getCutFactor(String^ key);
 	array<String^>^ getCutNames();
 
 private:
