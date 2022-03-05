@@ -563,8 +563,7 @@ namespace ZaniahSystems {
 					}
 					else {
 						this->toolStrip->Text = L"[" + this->comboGems->Text + "::" + this->comboCut->Text + "] Est.=" + this->numDia1->Text + " x" + this->numDia2->Text + " x" + this->numDepth->Text + " x " + this->numSG->Value + " x " + this->numFactor->Value + this->miSign() + this->txtGlobAdjust->Text + " = " + tot;
-						/*Wt=f(10.3,10.0,6.0,Thin-Medium)*/
-					}
+										}
 
 				}
 			} // text is valid
@@ -581,7 +580,6 @@ namespace ZaniahSystems {
 		} // check whether a fancy cut was selected
 
 		void onScreenInfo() {
-			/*Debug::WriteLine("fired by" + this->ActiveControl);*/
 			this->cbRecut->Enabled = false;
 
 			if (!this->numDia1->Text->Equals("0.00")) {
@@ -680,32 +678,18 @@ namespace ZaniahSystems {
 					persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + myDate + "\n");
 				}
 				BridgeCS^ saveString = gcnew BridgeCS;
-
-
 				saveString->propBridgeCalc = this->persistantLogRecord->richTextLog->Text;
-				//if (persistantLogRecord->richTextLog->Lines[count - 1]// != this->toolStrip->Text + "\n") {
-
-
-				//}
-					//persistantLogRecord->richTextLog->AppendText(L"");
-					//persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
-				//}
-				//else
-				//{
-				//	persistantLogRecord->richTextLog->AppendText(this->toolStrip->Text + "\n");
-				//}
 			} // text is not initialized
 		}
 		/***************************************************************************************/
 		void combine_adjustments() {
 
 			Double sum;
-			sum = this->tbCrownHeight->Value + this->tbGirdleThickness->Value + this->tbPavilionBulge->Value + this->tbShapeOutline->Value + this->tbKeel->Value + this->tbOther->Value;
+			sum = this->tbCrownHeight->Value + this->tbGirdleThickness->Value + this->tbPavilionBulge->Value + this->tbShapeOutline->Value + this->tbKeel->Value;
 			this->txtGlobAdjust->Text = System::Convert::ToString(sum) + "%";
 		}
 
 		void draw_depth(String^ perc) {
-
 			this->picDepth->Image = nullptr;
 			this->picDepth->Refresh();
 
@@ -714,7 +698,7 @@ namespace ZaniahSystems {
 			Graphics^ gd = picDepth->CreateGraphics();
 			Rectangle  r = Rectangle(0, 0, this->picDepth->Width, System::Convert::ToInt32(percentage));
 			//Color^ myBlue = gcnew Color;
-				//myBlue->FromArgb(51,102,153);
+			//myBlue->FromArgb(51,102,153);
 			//SolidBrush^  myBlueBrush=gcnew SolidBrush(Color::myBlue);
 			SolidBrush^ blueBrush = gcnew SolidBrush(Color::FromArgb(RED,GREEN,BLUE));
 
@@ -723,7 +707,7 @@ namespace ZaniahSystems {
 			else { gd->FillRectangle(blueBrush, r); }
 
 			/*DRAWLINE*/
-			Pen^ myPen = gcnew Pen(Color::Black);
+			Pen^ myPen = gcnew Pen(Color::LightYellow);
 			myPen->Width = 1;
 			gd->DrawLine(myPen, Int16(0), static_cast<Int32>(this->picDepth->Height * 0.6), static_cast<Int32>(this->picDepth->Width), static_cast<Int32>(this->picDepth->Height * 0.6));
 
@@ -732,7 +716,7 @@ namespace ZaniahSystems {
 			String^ drawString = "60%";
 			// Create font and brush.
 			System::Drawing::Font^ drawFont = gcnew System::Drawing::Font("Arial", 8);
-			SolidBrush^ drawBrush = gcnew SolidBrush(Color::Black);
+			SolidBrush^ drawBrush = gcnew SolidBrush(Color::LightYellow);
 
 			// Create point for upper-left corner of drawing.
 			float x = 2.0F;
@@ -816,7 +800,7 @@ namespace ZaniahSystems {
 	private: System::Windows::Forms::TextBox^ txtShapeOutline;
 	private: System::Windows::Forms::Label^ lblShape;
 	private: System::Windows::Forms::TrackBar^ tbShapeOutline;
-	private: System::Windows::Forms::PictureBox^ pictAdjArrow;
+
 	private: System::Windows::Forms::PictureBox^ picRecut;
 
 	private: System::Windows::Forms::PictureBox^ picDepth;
@@ -915,12 +899,12 @@ namespace ZaniahSystems {
 	private: System::Windows::Forms::Label^ lblDynCR;
 	private: System::Windows::Forms::PictureBox^ picCrown;
 	private: System::Windows::Forms::Label^ lblCrownHeight;
-	private: System::Windows::Forms::Label^ lblOther;
+
 	private: System::Windows::Forms::Label^ lblKeel;
-	private: System::Windows::Forms::TrackBar^ tbOther;
+
 
 	private: System::Windows::Forms::TrackBar^ tbKeel;
-	private: System::Windows::Forms::TextBox^ txtOther;
+
 	private: System::Windows::Forms::TextBox^ txtKeel;
 	private: System::Windows::Forms::Label^ lblDynKeel;
 	private: System::Windows::Forms::Button^ btnCopy;
@@ -954,12 +938,9 @@ namespace ZaniahSystems {
 			this->lbllSelectedSG = (gcnew System::Windows::Forms::Label());
 			this->lwguide = (gcnew System::Windows::Forms::GroupBox());
 			this->lblDynKeel = (gcnew System::Windows::Forms::Label());
-			this->txtOther = (gcnew System::Windows::Forms::TextBox());
 			this->txtKeel = (gcnew System::Windows::Forms::TextBox());
 			this->txtCrownHeight = (gcnew System::Windows::Forms::TextBox());
-			this->lblOther = (gcnew System::Windows::Forms::Label());
 			this->lblKeel = (gcnew System::Windows::Forms::Label());
-			this->tbOther = (gcnew System::Windows::Forms::TrackBar());
 			this->tbKeel = (gcnew System::Windows::Forms::TrackBar());
 			this->lblCrownHeight = (gcnew System::Windows::Forms::Label());
 			this->btnClrCR = (gcnew System::Windows::Forms::Button());
@@ -984,7 +965,6 @@ namespace ZaniahSystems {
 			this->lblDepth = (gcnew System::Windows::Forms::Label());
 			this->picDepth = (gcnew System::Windows::Forms::PictureBox());
 			this->numDepth = (gcnew System::Windows::Forms::NumericUpDown());
-			this->pictAdjArrow = (gcnew System::Windows::Forms::PictureBox());
 			this->txtShapeOutline = (gcnew System::Windows::Forms::TextBox());
 			this->lblShape = (gcnew System::Windows::Forms::Label());
 			this->tbShapeOutline = (gcnew System::Windows::Forms::TrackBar());
@@ -1045,7 +1025,6 @@ namespace ZaniahSystems {
 			this->lblWeightInCarats = (gcnew System::Windows::Forms::Label());
 			this->groupBoxChooseDiaOrGem = (gcnew System::Windows::Forms::GroupBox());
 			this->lwguide->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOther))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbKeel))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCrown))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numVisDepth))->BeginInit();
@@ -1056,7 +1035,6 @@ namespace ZaniahSystems {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picLW))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDia2))->BeginInit();
@@ -1183,14 +1161,13 @@ namespace ZaniahSystems {
 			// 
 			this->lwguide->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->lwguide->Controls->Add(this->lblDynKeel);
-			this->lwguide->Controls->Add(this->txtOther);
 			this->lwguide->Controls->Add(this->txtKeel);
+			this->lwguide->Controls->Add(this->lblGlobAdj);
 			this->lwguide->Controls->Add(this->txtCrownHeight);
-			this->lwguide->Controls->Add(this->lblOther);
 			this->lwguide->Controls->Add(this->lblKeel);
-			this->lwguide->Controls->Add(this->tbOther);
 			this->lwguide->Controls->Add(this->tbKeel);
 			this->lwguide->Controls->Add(this->lblCrownHeight);
+			this->lwguide->Controls->Add(this->txtGlobAdjust);
 			this->lwguide->Controls->Add(this->btnClrCR);
 			this->lwguide->Controls->Add(this->lblDynCR);
 			this->lwguide->Controls->Add(this->picCrown);
@@ -1213,7 +1190,6 @@ namespace ZaniahSystems {
 			this->lwguide->Controls->Add(this->lblDepth);
 			this->lwguide->Controls->Add(this->picDepth);
 			this->lwguide->Controls->Add(this->numDepth);
-			this->lwguide->Controls->Add(this->pictAdjArrow);
 			this->lwguide->Controls->Add(this->txtShapeOutline);
 			this->lwguide->Controls->Add(this->lblShape);
 			this->lwguide->Controls->Add(this->tbShapeOutline);
@@ -1224,12 +1200,10 @@ namespace ZaniahSystems {
 			this->lwguide->Controls->Add(this->numDia1);
 			this->lwguide->Controls->Add(this->txtPavilionBulge);
 			this->lwguide->Controls->Add(this->txtGirdleThickness);
-			this->lwguide->Controls->Add(this->txtGlobAdjust);
 			this->lwguide->Controls->Add(this->tbPavilionBulge);
 			this->lwguide->Controls->Add(this->tbGirdleThickness);
 			this->lwguide->Controls->Add(this->lblPavilionBulge);
 			this->lwguide->Controls->Add(this->lblGirdleThickness);
-			this->lwguide->Controls->Add(this->lblGlobAdj);
 			this->lwguide->Controls->Add(this->lblDia2);
 			this->lwguide->Controls->Add(this->lblDia1);
 			this->lwguide->Controls->Add(this->btnEq);
@@ -1244,24 +1218,15 @@ namespace ZaniahSystems {
 			// lblDynKeel
 			// 
 			this->lblDynKeel->AutoSize = true;
-			this->lblDynKeel->Location = System::Drawing::Point(7, 348);
+			this->lblDynKeel->Location = System::Drawing::Point(432, 241);
 			this->lblDynKeel->Name = L"lblDynKeel";
 			this->lblDynKeel->Size = System::Drawing::Size(38, 13);
 			this->lblDynKeel->TabIndex = 76;
 			this->lblDynKeel->Text = L"normal";
 			// 
-			// txtOther
-			// 
-			this->txtOther->Location = System::Drawing::Point(65, 320);
-			this->txtOther->Name = L"txtOther";
-			this->txtOther->Size = System::Drawing::Size(30, 20);
-			this->txtOther->TabIndex = 75;
-			this->txtOther->Text = L"0%";
-			this->txtOther->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
 			// txtKeel
 			// 
-			this->txtKeel->Location = System::Drawing::Point(65, 274);
+			this->txtKeel->Location = System::Drawing::Point(436, 218);
 			this->txtKeel->Name = L"txtKeel";
 			this->txtKeel->Size = System::Drawing::Size(30, 20);
 			this->txtKeel->TabIndex = 74;
@@ -1270,54 +1235,31 @@ namespace ZaniahSystems {
 			// 
 			// txtCrownHeight
 			// 
-			this->txtCrownHeight->Location = System::Drawing::Point(101, 218);
+			this->txtCrownHeight->Location = System::Drawing::Point(14, 218);
 			this->txtCrownHeight->Name = L"txtCrownHeight";
 			this->txtCrownHeight->Size = System::Drawing::Size(85, 20);
 			this->txtCrownHeight->TabIndex = 67;
 			this->txtCrownHeight->Text = L"0%";
 			this->txtCrownHeight->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
-			// lblOther
-			// 
-			this->lblOther->AutoSize = true;
-			this->lblOther->Location = System::Drawing::Point(19, 294);
-			this->lblOther->Name = L"lblOther";
-			this->lblOther->Size = System::Drawing::Size(31, 13);
-			this->lblOther->TabIndex = 73;
-			this->lblOther->Text = L"other";
-			// 
 			// lblKeel
 			// 
 			this->lblKeel->AutoSize = true;
-			this->lblKeel->Location = System::Drawing::Point(19, 249);
+			this->lblKeel->Location = System::Drawing::Point(423, 165);
 			this->lblKeel->Name = L"lblKeel";
 			this->lblKeel->Size = System::Drawing::Size(57, 13);
 			this->lblKeel->TabIndex = 72;
 			this->lblKeel->Text = L"Keel/Culet";
 			// 
-			// tbOther
-			// 
-			this->tbOther->LargeChange = 1;
-			this->tbOther->Location = System::Drawing::Point(0, 310);
-			this->tbOther->Maximum = 20;
-			this->tbOther->MaximumSize = System::Drawing::Size(60, 30);
-			this->tbOther->Minimum = -5;
-			this->tbOther->MinimumSize = System::Drawing::Size(60, 30);
-			this->tbOther->Name = L"tbOther";
-			this->tbOther->Size = System::Drawing::Size(60, 45);
-			this->tbOther->TabIndex = 71;
-			this->tbOther->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
-			this->tbOther->Scroll += gcnew System::EventHandler(this, &Form1::tbOther_Scroll);
-			// 
 			// tbKeel
 			// 
 			this->tbKeel->LargeChange = 1;
-			this->tbKeel->Location = System::Drawing::Point(0, 265);
+			this->tbKeel->Location = System::Drawing::Point(421, 182);
 			this->tbKeel->MaximumSize = System::Drawing::Size(60, 30);
 			this->tbKeel->Minimum = -10;
 			this->tbKeel->MinimumSize = System::Drawing::Size(60, 30);
 			this->tbKeel->Name = L"tbKeel";
-			this->tbKeel->Size = System::Drawing::Size(60, 45);
+			this->tbKeel->Size = System::Drawing::Size(60, 30);
 			this->tbKeel->TabIndex = 70;
 			this->tbKeel->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbKeel->Scroll += gcnew System::EventHandler(this, &Form1::tbKeel_Scroll);
@@ -1325,7 +1267,7 @@ namespace ZaniahSystems {
 			// lblCrownHeight
 			// 
 			this->lblCrownHeight->AutoSize = true;
-			this->lblCrownHeight->Location = System::Drawing::Point(115, 165);
+			this->lblCrownHeight->Location = System::Drawing::Point(28, 165);
 			this->lblCrownHeight->Name = L"lblCrownHeight";
 			this->lblCrownHeight->Size = System::Drawing::Size(71, 13);
 			this->lblCrownHeight->TabIndex = 69;
@@ -1335,7 +1277,7 @@ namespace ZaniahSystems {
 			// 
 			this->btnClrCR->BackColor = System::Drawing::SystemColors::Desktop;
 			this->btnClrCR->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnClrCR->Location = System::Drawing::Point(125, 244);
+			this->btnClrCR->Location = System::Drawing::Point(38, 244);
 			this->btnClrCR->Name = L"btnClrCR";
 			this->btnClrCR->Size = System::Drawing::Size(47, 23);
 			this->btnClrCR->TabIndex = 66;
@@ -1344,7 +1286,7 @@ namespace ZaniahSystems {
 			// 
 			// lblDynCR
 			// 
-			this->lblDynCR->Location = System::Drawing::Point(99, 343);
+			this->lblDynCR->Location = System::Drawing::Point(12, 343);
 			this->lblDynCR->Name = L"lblDynCR";
 			this->lblDynCR->Size = System::Drawing::Size(87, 19);
 			this->lblDynCR->TabIndex = 65;
@@ -1355,7 +1297,7 @@ namespace ZaniahSystems {
 			// 
 			this->picCrown->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picCrown->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picCrown->Location = System::Drawing::Point(101, 273);
+			this->picCrown->Location = System::Drawing::Point(14, 273);
 			this->picCrown->Name = L"picCrown";
 			this->picCrown->Size = System::Drawing::Size(85, 67);
 			this->picCrown->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -1374,7 +1316,7 @@ namespace ZaniahSystems {
 			// 
 			// lblDynSO
 			// 
-			this->lblDynSO->Location = System::Drawing::Point(407, 343);
+			this->lblDynSO->Location = System::Drawing::Point(320, 343);
 			this->lblDynSO->Name = L"lblDynSO";
 			this->lblDynSO->Size = System::Drawing::Size(87, 19);
 			this->lblDynSO->TabIndex = 62;
@@ -1383,7 +1325,7 @@ namespace ZaniahSystems {
 			// 
 			// lblDynPB
 			// 
-			this->lblDynPB->Location = System::Drawing::Point(304, 343);
+			this->lblDynPB->Location = System::Drawing::Point(217, 343);
 			this->lblDynPB->Name = L"lblDynPB";
 			this->lblDynPB->Size = System::Drawing::Size(87, 19);
 			this->lblDynPB->TabIndex = 61;
@@ -1392,7 +1334,7 @@ namespace ZaniahSystems {
 			// 
 			// lblDynGT
 			// 
-			this->lblDynGT->Location = System::Drawing::Point(203, 343);
+			this->lblDynGT->Location = System::Drawing::Point(116, 343);
 			this->lblDynGT->Name = L"lblDynGT";
 			this->lblDynGT->Size = System::Drawing::Size(87, 19);
 			this->lblDynGT->TabIndex = 60;
@@ -1414,7 +1356,7 @@ namespace ZaniahSystems {
 			// 
 			this->btnClearSO->BackColor = System::Drawing::SystemColors::Desktop;
 			this->btnClearSO->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnClearSO->Location = System::Drawing::Point(422, 244);
+			this->btnClearSO->Location = System::Drawing::Point(335, 244);
 			this->btnClearSO->Name = L"btnClearSO";
 			this->btnClearSO->Size = System::Drawing::Size(47, 23);
 			this->btnClearSO->TabIndex = 58;
@@ -1426,7 +1368,7 @@ namespace ZaniahSystems {
 			// 
 			this->btnClearPB->BackColor = System::Drawing::SystemColors::Desktop;
 			this->btnClearPB->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnClearPB->Location = System::Drawing::Point(323, 244);
+			this->btnClearPB->Location = System::Drawing::Point(236, 244);
 			this->btnClearPB->Name = L"btnClearPB";
 			this->btnClearPB->Size = System::Drawing::Size(47, 23);
 			this->btnClearPB->TabIndex = 57;
@@ -1438,7 +1380,7 @@ namespace ZaniahSystems {
 			// 
 			this->btnClearGT->BackColor = System::Drawing::SystemColors::Desktop;
 			this->btnClearGT->ForeColor = System::Drawing::SystemColors::Window;
-			this->btnClearGT->Location = System::Drawing::Point(224, 244);
+			this->btnClearGT->Location = System::Drawing::Point(137, 244);
 			this->btnClearGT->Name = L"btnClearGT";
 			this->btnClearGT->Size = System::Drawing::Size(47, 23);
 			this->btnClearGT->TabIndex = 54;
@@ -1472,7 +1414,7 @@ namespace ZaniahSystems {
 			// 
 			this->picShapeOutline->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picShapeOutline->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picShapeOutline->Location = System::Drawing::Point(407, 273);
+			this->picShapeOutline->Location = System::Drawing::Point(320, 273);
 			this->picShapeOutline->Name = L"picShapeOutline";
 			this->picShapeOutline->Size = System::Drawing::Size(85, 67);
 			this->picShapeOutline->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -1494,7 +1436,7 @@ namespace ZaniahSystems {
 			// 
 			this->picGirdle->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picGirdle->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picGirdle->Location = System::Drawing::Point(203, 273);
+			this->picGirdle->Location = System::Drawing::Point(116, 273);
 			this->picGirdle->Name = L"picGirdle";
 			this->picGirdle->Size = System::Drawing::Size(85, 67);
 			this->picGirdle->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -1505,7 +1447,7 @@ namespace ZaniahSystems {
 			// 
 			this->picBulge->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->picBulge->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->picBulge->Location = System::Drawing::Point(305, 273);
+			this->picBulge->Location = System::Drawing::Point(218, 273);
 			this->picBulge->Name = L"picBulge";
 			this->picBulge->Size = System::Drawing::Size(85, 67);
 			this->picBulge->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -1566,17 +1508,9 @@ namespace ZaniahSystems {
 			this->numDepth->Visible = false;
 			this->numDepth->ValueChanged += gcnew System::EventHandler(this, &Form1::numDepth_ValueChanged);
 			// 
-			// pictAdjArrow
-			// 
-			this->pictAdjArrow->Location = System::Drawing::Point(44, 208);
-			this->pictAdjArrow->Name = L"pictAdjArrow";
-			this->pictAdjArrow->Size = System::Drawing::Size(57, 23);
-			this->pictAdjArrow->TabIndex = 44;
-			this->pictAdjArrow->TabStop = false;
-			// 
 			// txtShapeOutline
 			// 
-			this->txtShapeOutline->Location = System::Drawing::Point(407, 218);
+			this->txtShapeOutline->Location = System::Drawing::Point(320, 218);
 			this->txtShapeOutline->Name = L"txtShapeOutline";
 			this->txtShapeOutline->Size = System::Drawing::Size(85, 20);
 			this->txtShapeOutline->TabIndex = 43;
@@ -1586,7 +1520,7 @@ namespace ZaniahSystems {
 			// lblShape
 			// 
 			this->lblShape->AutoSize = true;
-			this->lblShape->Location = System::Drawing::Point(418, 166);
+			this->lblShape->Location = System::Drawing::Point(331, 166);
 			this->lblShape->Name = L"lblShape";
 			this->lblShape->Size = System::Drawing::Size(74, 13);
 			this->lblShape->TabIndex = 42;
@@ -1595,12 +1529,12 @@ namespace ZaniahSystems {
 			// tbShapeOutline
 			// 
 			this->tbShapeOutline->LargeChange = 1;
-			this->tbShapeOutline->Location = System::Drawing::Point(411, 182);
+			this->tbShapeOutline->Location = System::Drawing::Point(324, 182);
 			this->tbShapeOutline->MaximumSize = System::Drawing::Size(80, 30);
 			this->tbShapeOutline->Minimum = -5;
 			this->tbShapeOutline->MinimumSize = System::Drawing::Size(80, 30);
 			this->tbShapeOutline->Name = L"tbShapeOutline";
-			this->tbShapeOutline->Size = System::Drawing::Size(80, 45);
+			this->tbShapeOutline->Size = System::Drawing::Size(80, 30);
 			this->tbShapeOutline->TabIndex = 41;
 			this->tbShapeOutline->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbShapeOutline->Scroll += gcnew System::EventHandler(this, &Form1::tbShapeOutline_Scroll);
@@ -1686,7 +1620,7 @@ namespace ZaniahSystems {
 			// 
 			// txtPavilionBulge
 			// 
-			this->txtPavilionBulge->Location = System::Drawing::Point(305, 218);
+			this->txtPavilionBulge->Location = System::Drawing::Point(218, 218);
 			this->txtPavilionBulge->Name = L"txtPavilionBulge";
 			this->txtPavilionBulge->Size = System::Drawing::Size(85, 20);
 			this->txtPavilionBulge->TabIndex = 33;
@@ -1695,7 +1629,7 @@ namespace ZaniahSystems {
 			// 
 			// txtGirdleThickness
 			// 
-			this->txtGirdleThickness->Location = System::Drawing::Point(203, 218);
+			this->txtGirdleThickness->Location = System::Drawing::Point(116, 218);
 			this->txtGirdleThickness->Name = L"txtGirdleThickness";
 			this->txtGirdleThickness->Size = System::Drawing::Size(85, 20);
 			this->txtGirdleThickness->TabIndex = 32;
@@ -1704,7 +1638,7 @@ namespace ZaniahSystems {
 			// 
 			// txtGlobAdjust
 			// 
-			this->txtGlobAdjust->Location = System::Drawing::Point(10, 182);
+			this->txtGlobAdjust->Location = System::Drawing::Point(414, 294);
 			this->txtGlobAdjust->Name = L"txtGlobAdjust";
 			this->txtGlobAdjust->ReadOnly = true;
 			this->txtGlobAdjust->Size = System::Drawing::Size(85, 20);
@@ -1715,12 +1649,12 @@ namespace ZaniahSystems {
 			// tbPavilionBulge
 			// 
 			this->tbPavilionBulge->LargeChange = 1;
-			this->tbPavilionBulge->Location = System::Drawing::Point(307, 182);
+			this->tbPavilionBulge->Location = System::Drawing::Point(220, 182);
 			this->tbPavilionBulge->Maximum = 20;
 			this->tbPavilionBulge->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->Name = L"tbPavilionBulge";
-			this->tbPavilionBulge->Size = System::Drawing::Size(104, 45);
+			this->tbPavilionBulge->Size = System::Drawing::Size(104, 30);
 			this->tbPavilionBulge->TabIndex = 29;
 			this->tbPavilionBulge->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbPavilionBulge->Scroll += gcnew System::EventHandler(this, &Form1::tbPavilionBulge_Scroll);
@@ -1728,13 +1662,13 @@ namespace ZaniahSystems {
 			// tbGirdleThickness
 			// 
 			this->tbGirdleThickness->LargeChange = 1;
-			this->tbGirdleThickness->Location = System::Drawing::Point(203, 182);
+			this->tbGirdleThickness->Location = System::Drawing::Point(116, 182);
 			this->tbGirdleThickness->Maximum = 11;
 			this->tbGirdleThickness->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->Minimum = -5;
 			this->tbGirdleThickness->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->Name = L"tbGirdleThickness";
-			this->tbGirdleThickness->Size = System::Drawing::Size(104, 45);
+			this->tbGirdleThickness->Size = System::Drawing::Size(104, 30);
 			this->tbGirdleThickness->TabIndex = 28;
 			this->tbGirdleThickness->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbGirdleThickness->Scroll += gcnew System::EventHandler(this, &Form1::tbGirdleThickness_Scroll);
@@ -1742,7 +1676,7 @@ namespace ZaniahSystems {
 			// lblPavilionBulge
 			// 
 			this->lblPavilionBulge->AutoSize = true;
-			this->lblPavilionBulge->Location = System::Drawing::Point(320, 165);
+			this->lblPavilionBulge->Location = System::Drawing::Point(233, 165);
 			this->lblPavilionBulge->Name = L"lblPavilionBulge";
 			this->lblPavilionBulge->Size = System::Drawing::Size(74, 13);
 			this->lblPavilionBulge->TabIndex = 24;
@@ -1751,7 +1685,7 @@ namespace ZaniahSystems {
 			// lblGirdleThickness
 			// 
 			this->lblGirdleThickness->AutoSize = true;
-			this->lblGirdleThickness->Location = System::Drawing::Point(210, 165);
+			this->lblGirdleThickness->Location = System::Drawing::Point(123, 165);
 			this->lblGirdleThickness->Name = L"lblGirdleThickness";
 			this->lblGirdleThickness->Size = System::Drawing::Size(86, 13);
 			this->lblGirdleThickness->TabIndex = 23;
@@ -1760,7 +1694,7 @@ namespace ZaniahSystems {
 			// lblGlobAdj
 			// 
 			this->lblGlobAdj->AutoSize = true;
-			this->lblGlobAdj->Location = System::Drawing::Point(20, 165);
+			this->lblGlobAdj->Location = System::Drawing::Point(421, 273);
 			this->lblGlobAdj->Name = L"lblGlobAdj";
 			this->lblGlobAdj->Size = System::Drawing::Size(75, 13);
 			this->lblGlobAdj->TabIndex = 21;
@@ -1787,12 +1721,12 @@ namespace ZaniahSystems {
 			// tbCrownHeight
 			// 
 			this->tbCrownHeight->LargeChange = 1;
-			this->tbCrownHeight->Location = System::Drawing::Point(99, 182);
+			this->tbCrownHeight->Location = System::Drawing::Point(12, 182);
 			this->tbCrownHeight->MaximumSize = System::Drawing::Size(104, 30);
 			this->tbCrownHeight->Minimum = -10;
 			this->tbCrownHeight->MinimumSize = System::Drawing::Size(104, 30);
 			this->tbCrownHeight->Name = L"tbCrownHeight";
-			this->tbCrownHeight->Size = System::Drawing::Size(104, 45);
+			this->tbCrownHeight->Size = System::Drawing::Size(104, 30);
 			this->tbCrownHeight->TabIndex = 68;
 			this->tbCrownHeight->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->tbCrownHeight->Scroll += gcnew System::EventHandler(this, &Form1::tbCrownHeight_Scroll);
@@ -2229,7 +2163,6 @@ namespace ZaniahSystems {
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load_1);
 			this->lwguide->ResumeLayout(false);
 			this->lwguide->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbOther))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbKeel))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picCrown))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numVisDepth))->EndInit();
@@ -2240,7 +2173,6 @@ namespace ZaniahSystems {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picLW))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picDepth))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numDepth))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictAdjArrow))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tbShapeOutline))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
@@ -2304,14 +2236,12 @@ namespace ZaniahSystems {
 		this->tbGirdleThickness->Value = 0;
 		this->tbShapeOutline->Value = 0;
 		this->tbKeel->Value = 0;
-		this->tbOther->Value = 0;
 		this->tbCrownHeight->Value = 0;
 		this->txtGlobAdjust->Text = L"0%";
 		this->txtPavilionBulge->Text = L"0%";
 		this->txtGirdleThickness->Text = L"0%";
 		this->txtShapeOutline->Text = L"0%";
 		this->txtKeel->Text = L"0%";
-		this->txtOther->Text = L"0%";
 		this->txtCrownHeight->Text = L"0%";
 	}
 	private: System::Void txtResult_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -2319,11 +2249,6 @@ namespace ZaniahSystems {
 	private: System::Void comboGems_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 
 		String^ choice = this->comboGems->Text;
-	/*	if (choice->Contains("gasp")) {
-			choice="gaspeite";
-		}else if (choice->Contains("ba tou")) {
-			choice = "paraiba tourmaline";
-		}*/
 			CJson^ sg = gcnew CJson(choice);
 			this->picGem->Image = sg->getName();
 			this->numSG->Value = sg->Sg;
@@ -2372,9 +2297,6 @@ namespace ZaniahSystems {
 			this->lblDia1->Text = "H top/bottom ";
 			this->lblDia2->Text = "W side/side";
 			this->lblDepth->Text = "D front/back";
-/*W = side to side (width)
-H = top to bottom (height)
-D = front to back (depth)*/
 		}
 		else {
 			this->lblDia1->Text = "Length";
@@ -2384,12 +2306,7 @@ D = front to back (depth)*/
 		if (this->radioBtnGem->Checked) {
 			CGemCut^ gc = gcnew CGemCut; // Declare object
 			gc->dictInitializer();
-			//String^ myGemCut = Convert::ToString(gc->getCutFactor(this->comboCut->Text)); // dc->_diaCut[this->comboCut->Text];
-			//this->txtFactor->Text = myGemCut;
 			this->numFactor->Value = gc->getCutFactor(this->comboCut->Text);
-			//String^ myGemCut = Convert::ToString(gc->getCutFactor(this->comboCut->Text)); // dc->_diaCut[this->comboCut->Text];
-			//this->txtFactor->Text = myGemCut;
-
 			CEmbeddedImage^ gCutImage = gcnew CEmbeddedImage;
 			/**************************IMAGE MANAGEMENT**************************/
 			gCutImage->setName(this->comboCut->Text);
@@ -2398,10 +2315,6 @@ D = front to back (depth)*/
 		else if (this->radioBtnDia->Checked) {
 			CDiamondCut^ dc = gcnew CDiamondCut; // Declare object
 			dc->dictInitializer();
-			//^ myDiamondCut = dc->getCutFactor(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
-			//Double myDiamondCut = dc->getCutFactor(this->comboCut->Text); // dc->_diaCut[this->comboCut->Text];
-
-			//this->txtFactor->Text = myDiamondCut;
 			this->numFactor->Value = dc->getCutFactor(this->comboCut->Text);
 		}
 
@@ -2515,11 +2428,6 @@ D = front to back (depth)*/
 		this->onScreenInfo();
 	}
 
-	private: System::Void tbOther_Scroll(System::Object^ sender, System::EventArgs^ e) {
-		combine_adjustments();
-		this->txtOther->Text = this->tbOther->Value.ToString() + "%";
-		this->onScreenInfo();
-	}
 	private: System::Void tbCrownHeight_Scroll(System::Object^ sender, System::EventArgs^ e) {
 		combine_adjustments();
 		this->txtCrownHeight->Text = this->tbCrownHeight->Value.ToString() + "%";
@@ -2621,7 +2529,6 @@ D = front to back (depth)*/
 
 	}
 	private: System::Void helpToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
-
 		HelpForm^ hform = gcnew HelpForm;
 		hform->Visible = true;
 	}
@@ -2630,18 +2537,12 @@ D = front to back (depth)*/
 		aform->Show();
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
 	}
 	private: System::Void logToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		//LogForm^ lform = gcnew LogForm;
-		//lform->Visible = true;
 		persistantLogRecord->Visible = true;
 	}
 	private: System::Void lblHiddenDepth_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
-		//this->Invalidate();   request a delayed Repaint by the normal MessageLoop system    
-		//this->Update();      forces Repaint of invalidated area 
-		//this->Refresh();    // Combines Invalidate() and Update(
 		this->draw_depth(this->lblHiddenDepth->Text);
 
 	}
@@ -2652,22 +2553,15 @@ D = front to back (depth)*/
 		this->Icon = gcnew System::Drawing::Icon(L"app.ico");
 		CEmbeddedImage^ rc = gcnew CEmbeddedImage;
 		rc->setName("recut");
-
 		this->picRecut->Image = rc->getName();
 
 		CEmbeddedImage^ cr = gcnew CEmbeddedImage;
 		cr->setName("crown_normal");
 		this->picCrown->Image = cr->getName();
 
-		CEmbeddedImage^ adjarrow = gcnew CEmbeddedImage;
-		adjarrow->setName("adjustmentarrow");
-		this->pictAdjArrow->Image = adjarrow->getName();
-
 		CEmbeddedImage^ defaultCut = gcnew CEmbeddedImage;
 		defaultCut->setName("round brilliant");
 		this->picCut->Image = defaultCut->getName();
-	/*	CJson^ dinit = gcnew CJson("diamond");
-		this->picGem->Image = dinit->getName();*/
 
 		CEmbeddedImage^ defaultBulge = gcnew CEmbeddedImage;
 		defaultBulge->setName("bulge_normal");
@@ -2716,11 +2610,6 @@ D = front to back (depth)*/
 		else {
 			myOptions.propSaveTime = false;
 		}
-		/*
-				myOptions.propSaveDate=getSaveDateToLog;
-				myOptions.propSaveTime=getSaveTimeToLog;
-		*/
-
 
 		/****************************************************/
 	}
