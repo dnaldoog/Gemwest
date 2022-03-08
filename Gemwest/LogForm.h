@@ -127,6 +127,7 @@ namespace ZaniahSystems {
 			this->Controls->Add(this->richTextLog);
 			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(700, 300);
+			this->MinimumSize = System::Drawing::Size(700, 300);
 			this->Name = L"LogForm";
 			this->Text = L"LogForm";
 			this->Load += gcnew System::EventHandler(this, &LogForm::LogForm_Load);

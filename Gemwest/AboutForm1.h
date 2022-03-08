@@ -202,6 +202,7 @@ namespace ZaniahSystems {
 			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(300, 400);
 			this->MinimizeBox = false;
+			this->MinimumSize = System::Drawing::Size(300, 400);
 			this->Name = L"AboutForm1";
 			this->Text = L"About";
 			this->Load += gcnew System::EventHandler(this, &AboutForm1::AboutForm1_Load);
