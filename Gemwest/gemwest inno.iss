@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Gemwest"
-#define MyAppVersion "v3.0.1"
+#define MyAppVersion "v4.0.2"
 #define MyAppPublisher "Zaniah"
 #define MyAppURL "https://github.com/dnaldoog/Gemwest"
 #define MyAppExeName "Gemwest.exe"
